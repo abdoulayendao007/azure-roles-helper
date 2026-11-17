@@ -87,6 +87,14 @@
   .back { margin-bottom: 14px; }
   footer { color: var(--muted); font-size: .85rem; text-align: center; padding: 20px; }
   footer a { color: var(--accent); }
+  details.role { border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; margin-bottom: 8px; background: var(--panel); }
+  details.role summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  details.role summary::-webkit-details-marker { display: none; }
+  details.role .d { color: var(--muted); font-size: .9rem; margin: 6px 0; }
+  .perms { font-family: ui-monospace, Consolas, monospace; font-size: .8rem; background: var(--bg); border-radius: 8px; padding: 8px 10px; max-height: 220px; overflow: auto; margin: 4px 0 10px; }
+  .perms div { padding: 1px 0; word-break: break-all; }
+  .perms .hit { background: var(--r1bg); color: var(--r1); font-weight: 600; }
+  .perms .miss { background: var(--r4bg); color: var(--r4); font-weight: 600; }
   #detail-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 10; overflow-y: auto; padding: 40px 16px; }
   #detail-overlay.open { display: block; }
   #detail-overlay .card { max-width: 820px; margin: 0 auto; }
@@ -101,6 +109,7 @@
       <button data-tab="wizard" class="active">Assistant</button>
       <button data-tab="catalog">Catalogue</button>
       <button data-tab="compare">Comparer</button>
+      <button data-tab="all">Tous les rôles</button>
       <button data-tab="basics">Azure RBAC vs Entra ID</button>
     </nav>
   </div>
@@ -147,6 +156,36 @@
         <button class="linkbtn" data-cmp="global-admin,global-reader,owner">Administrateur général vs Propriétaire</button>
       </p>
       <div id="cmp-table"></div>
+    </div>
+  </section>
+
+  <!-- TOUS LES ROLES -->
+  <section id="all">
+    <div class="card">
+      <h2>Tous les rôles intégrés</h2>
+      <p class="sub" id="all-meta">Chargement…</p>
+      <div class="toolbar">
+        <select id="all-mode">
+          <option value="text">Rechercher par nom ou description</option>
+          <option value="perm">Quels rôles accordent cette permission ?</option>
+        </select>
+        <input id="all-search" type="search" placeholder="Ex. : backup, Key Vault, réseau">
+        <select id="all-type">
+          <option value="">Azure RBAC et Entra ID</option>
+          <option value="azure">Azure RBAC</option>
+          <option value="entra">Entra ID</option>
+        </select>
+      </div>
+      <p class="sub" id="all-help" style="display:none;font-size:.88rem">
+        Saisis une opération complète, par exemple
+        <button class="linkbtn" data-ex="Microsoft.Storage/storageAccounts/listKeys/action">Microsoft.Storage/storageAccounts/listKeys/action</button>,
+        <button class="linkbtn" data-ex="Microsoft.KeyVault/vaults/secrets/getSecret/action">Microsoft.KeyVault/vaults/secrets/getSecret/action</button> ou
+        <button class="linkbtn" data-ex="microsoft.directory/users/password/update">microsoft.directory/users/password/update</button>.
+        Les caractères génériques (<code>*</code>) et les exclusions (NotActions) sont pris en compte. Les résultats sont triés du plus restreint au plus large (estimation).
+      </p>
+      <div id="all-warn"></div>
+      <div id="all-list"></div>
+      <div style="text-align:center;margin-top:12px"><button class="btn ghost" id="all-more" style="display:none">Afficher plus</button></div>
     </div>
   </section>
 
@@ -691,10 +730,119 @@ document.querySelectorAll("[data-cmp]").forEach(b => b.onclick = () => {
   renderCompare();
 });
 
+/* ---------- Tous les rôles (données officielles) ---------- */
+const ALL = { loaded: false, roles: [], shown: 40 };
+const curatedByName = Object.fromEntries(ROLES.map(r => [r.type + ":" + r.name.toLowerCase(), r.id]));
+const rxCache = new Map();
+function patMatch(pattern, perm) {
+  let rx = rxCache.get(pattern);
+  if (!rx) {
+    rx = new RegExp("^" + pattern.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, ".*") + "$", "i");
+    rxCache.set(pattern, rx);
+  }
+  return rx.test(perm);
+}
+function grants(r, perm) {
+  const hit = [], miss = [];
+  const check = (allow, deny) => {
+    const a = (allow || []).filter(p => patMatch(p, perm));
+    if (!a.length) return false;
+    const d = (deny || []).filter(p => patMatch(p, perm));
+    hit.push(...a); miss.push(...d);
+    return d.length === 0;
+  };
+  const ok = check(r.actions, r.notActions) || check(r.dataActions, r.notDataActions);
+  return { ok, hit, miss };
+}
+function breadth(r) {
+  return [...r.actions, ...(r.dataActions || [])].reduce((s, p) => {
+    if (p === "*" || p === "*/read") return s + (p === "*" ? 100000 : 50000);
+    if (!p.includes("*")) return s + 1;
+    return s + Math.round(1000 / p.slice(0, p.indexOf("*")).split("/").filter(Boolean).length);
+  }, 0);
+}
+async function loadAll() {
+  if (ALL.loaded) return;
+  ALL.loaded = true;
+  const get = async (kind) => {
+    const res = await fetch(`data/${kind}-roles.json`, { cache: "no-cache" });
+    if (!res.ok) throw new Error(res.status);
+    const j = await res.json();
+    j.roles.forEach(r => r.type = kind);
+    return j;
+  };
+  const [az, en] = await Promise.allSettled([get("azure"), get("entra")]);
+  const meta = [];
+  const fmt = d => new Date(d).toLocaleDateString("fr-CA", { year: "numeric", month: "long", day: "numeric" });
+  if (az.status === "fulfilled") { ALL.roles.push(...az.value.roles); meta.push(`${az.value.count} rôles Azure RBAC (${fmt(az.value.generatedAt)})`); }
+  if (en.status === "fulfilled") { ALL.roles.push(...en.value.roles); meta.push(`${en.value.count} rôles Entra ID (${fmt(en.value.generatedAt)})`); }
+  if (!ALL.roles.length) {
+    $("#all-meta").innerHTML = location.protocol === "file:"
+      ? "Cet onglet charge des fichiers JSON : ouvre la page depuis GitHub Pages ou un petit serveur local (<code>python3 -m http.server</code>)."
+      : "Les données n'ont pas encore été générées. Lance le workflow « Mise à jour des rôles intégrés » dans l'onglet Actions du dépôt.";
+    return;
+  }
+  $("#all-meta").textContent = "Source : export officiel. " + meta.join(" · ");
+  const names = new Set(ALL.roles.map(r => r.type + ":" + r.name.toLowerCase()));
+  const missing = ROLES.filter(r => (r.type === "azure" ? az : en).status === "fulfilled" && !names.has(r.type + ":" + r.name.toLowerCase()));
+  $("#all-warn").innerHTML = missing.length
+    ? `<div class="warn"><strong>À vérifier :</strong> ces rôles du guide ne figurent plus dans l'export officiel (renommés ou retirés) : ${missing.map(r => esc(r.name)).join(", ")}.</div>` : "";
+  renderAll();
+}
+function permList(title, items, hit, miss) {
+  if (!items || !items.length) return "";
+  return `<label>${title} (${items.length})</label><div class="perms">${items.map(p =>
+    `<div class="${hit.includes(p) ? "hit" : miss.includes(p) ? "miss" : ""}">${esc(p)}</div>`).join("")}</div>`;
+}
+function renderAll() {
+  if (!ALL.roles.length) return;
+  const mode = $("#all-mode").value, q = $("#all-search").value.trim(), t = $("#all-type").value;
+  $("#all-help").style.display = mode === "perm" ? "" : "none";
+  let list = ALL.roles.filter(r => !t || r.type === t);
+  const info = new Map();
+  if (mode === "perm" && q) {
+    list = list.filter(r => { const g = grants(r, q); info.set(r, g); return g.ok; });
+    list.sort((a, b) => breadth(a) - breadth(b));
+  } else if (q) {
+    const s = q.toLowerCase();
+    list = list.filter(r => (r.name + " " + r.description).toLowerCase().includes(s));
+  }
+  const shown = list.slice(0, ALL.shown);
+  $("#all-list").innerHTML = (mode === "perm" && q ? `<p class="sub">${list.length} rôle(s) accordent <code>${esc(q)}</code>.</p>` : `<p class="sub">${list.length} rôle(s).</p>`) +
+    shown.map(r => {
+      const g = info.get(r) || { hit: [], miss: [] };
+      const cur = curatedByName[r.type + ":" + r.name.toLowerCase()];
+      const n = r.actions.length + (r.dataActions || []).length;
+      const cmd = r.type === "azure"
+        ? `az role assignment create --assignee-object-id "<id>" --assignee-principal-type Group --role "${r.name}" --scope "<portée>"`
+        : `$role = Get-MgRoleManagementDirectoryRoleDefinition -Filter "displayName eq '${r.name}'"\nNew-MgRoleManagementDirectoryRoleAssignment -PrincipalId "<id>" -RoleDefinitionId $role.Id -DirectoryScopeId "/"`;
+      return `<details class="role">
+        <summary><span><strong>${esc(r.name)}</strong> ${typeTag(r)}${r.isPrivileged ? '<span class="tag risk4">Privilégié</span>' : ""}${cur ? '<span class="tag risk1">Dans le guide</span>' : ""}</span>
+        <span class="sub" style="margin:0;font-size:.85rem">${n} permission(s)</span></summary>
+        <p class="d">${esc(r.description)}</p>
+        ${cur ? `<p><button class="btn ghost" data-open="${cur}">Ouvrir la fiche détaillée</button></p>` : ""}
+        ${permList(r.type === "azure" ? "Actions" : "Actions autorisées", r.actions, g.hit, g.miss)}
+        ${permList("NotActions", r.notActions, g.hit, g.miss)}
+        ${permList("DataActions", r.dataActions, g.hit, g.miss)}
+        ${permList("NotDataActions", r.notDataActions, g.hit, g.miss)}
+        <div class="codebox"><pre>${esc(cmd)}</pre><button class="copy">Copier</button></div>
+        <p class="sub" style="font-size:.8rem;margin:0">ID : <code>${esc(r.id)}</code></p>
+      </details>`;
+    }).join("");
+  $("#all-more").style.display = list.length > ALL.shown ? "" : "none";
+  $("#all-list").querySelectorAll("[data-open]").forEach(b => b.onclick = () => openDetail(b.dataset.open));
+}
+let allTimer;
+$("#all-search").addEventListener("input", () => { clearTimeout(allTimer); allTimer = setTimeout(() => { ALL.shown = 40; renderAll(); }, 200); });
+["#all-mode", "#all-type"].forEach(s => $(s).addEventListener("change", () => { ALL.shown = 40; renderAll(); }));
+$("#all-more").onclick = () => { ALL.shown += 40; renderAll(); };
+document.querySelectorAll("[data-ex]").forEach(b => b.onclick = () => { $("#all-search").value = b.dataset.ex; ALL.shown = 40; renderAll(); });
+
 /* ---------- Onglets et copie ---------- */
 document.querySelectorAll("nav button").forEach(b => b.onclick = () => {
   document.querySelectorAll("nav button").forEach(x => x.classList.toggle("active", x === b));
   document.querySelectorAll("main section").forEach(s => s.classList.toggle("active", s.id === b.dataset.tab));
+  if (b.dataset.tab === "all") loadAll();
 });
 document.addEventListener("click", e => {
   if (!e.target.classList.contains("copy")) return;

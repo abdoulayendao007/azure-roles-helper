@@ -2,23 +2,94 @@
 
 Assistant web pour choisir le rôle **Azure RBAC** ou **Entra ID** au moindre privilège, comprendre ce qu'il permet (et ne permet pas) et copier la commande d'attribution.
 
+**Site :** https://abdoulayendao007.github.io/azure-roles-helper/
+
 ## Fonctionnalités
 
 - **Assistant** en 3 étapes : domaine, besoin, recommandation avec alternatives
-- **Catalogue** filtrable par type et niveau de risque
+- **Catalogue** commenté de 47 rôles courants, filtrable par type et niveau de risque
 - **Comparateur** de 3 rôles côte à côte
+- **Tous les rôles** : l'ensemble des rôles intégrés Azure RBAC et Entra ID, mis à jour chaque semaine, avec une recherche **« Quels rôles accordent cette permission ? »** (prend en compte les `*` et les NotActions, résultats triés du plus restreint au plus large)
 - **Azure RBAC vs Entra ID** : les différences et les bonnes pratiques
-- **Commandes générées** : Azure CLI, Azure PowerShell, Microsoft Graph PowerShell (portée tenant ou unité administrative)
+- **Commandes générées** : Azure CLI, Azure PowerShell, Microsoft Graph PowerShell
 
-Page HTML unique, sans dépendance ni backend.
+## Structure
+
+```
+index.html                          Page unique (HTML, CSS, JS sans dépendance)
+data/azure-roles.json               Export des rôles intégrés Azure RBAC (généré)
+data/entra-roles.json               Export des rôles intégrés Entra ID (généré)
+scripts/export_roles.py             Script d'export
+.github/workflows/update-roles.yml  Workflow hebdomadaire (lundi) + lancement manuel
+```
+
+## Configuration de la mise à jour automatique
+
+Le workflow se connecte à Azure en **OIDC (identité fédérée)** : aucun secret client n'est stocké dans GitHub. L'identité n'a besoin que de droits en lecture.
+
+> Utiliser un tenant et un abonnement de lab ou personnels, jamais ceux d'un client.
+
+### 1. Créer l'identité (Azure CLI, Cloud Shell Bash)
+
+```bash
+REPO="abdoulayendao007/azure-roles-helper"
+
+# Inscription d'application + principal de service
+APP_ID=$(az ad app create --display-name "gh-azure-roles-helper" --query appId -o tsv)
+az ad sp create --id "$APP_ID"
+
+# Identité fédérée : seule la branche main de ce dépôt peut obtenir un jeton
+az ad app federated-credential create --id "$APP_ID" --parameters "{
+  \"name\": \"github-main\",
+  \"issuer\": \"https://token.actions.githubusercontent.com\",
+  \"subject\": \"repo:${REPO}:ref:refs/heads/main\",
+  \"audiences\": [\"api://AzureADTokenExchange\"]
+}"
+
+# Azure RBAC : Reader sur l'abonnement (lecture des définitions de rôles)
+SUB_ID=$(az account show --query id -o tsv)
+az role assignment create --assignee "$APP_ID" --role "Reader" --scope "/subscriptions/$SUB_ID"
+
+# Entra ID : permission d'application Graph RoleManagement.Read.Directory
+GRAPH_APP="00000003-0000-0000-c000-000000000000"
+PERM_ID=$(az ad sp show --id "$GRAPH_APP" --query "appRoles[?value=='RoleManagement.Read.Directory'].id" -o tsv)
+az ad app permission add --id "$APP_ID" --api "$GRAPH_APP" --api-permissions "${PERM_ID}=Role"
+az ad app permission admin-consent --id "$APP_ID"
+
+# Valeurs à copier dans GitHub
+echo "AZURE_CLIENT_ID=$APP_ID"
+echo "AZURE_TENANT_ID=$(az account show --query tenantId -o tsv)"
+echo "AZURE_SUBSCRIPTION_ID=$SUB_ID"
+```
+
+Le consentement administrateur nécessite un rôle comme Privileged Role Administrator ou Administrateur général.
+
+### 2. Ajouter les secrets dans GitHub
+
+Dépôt → **Settings → Secrets and variables → Actions → New repository secret** :
+
+| Nom | Valeur |
+|---|---|
+| `AZURE_CLIENT_ID` | ID de l'application |
+| `AZURE_TENANT_ID` | ID du tenant |
+| `AZURE_SUBSCRIPTION_ID` | ID de l'abonnement |
+
+### 3. Lancer le premier export
+
+**Actions → Mise à jour des rôles intégrés → Run workflow**. Le résumé du job liste les rôles ajoutés ou retirés. Ensuite, le workflow tourne chaque lundi et ne commit que s'il y a un changement.
 
 ## Utilisation locale
 
-Ouvrir `index.html` dans un navigateur.
+```bash
+python3 -m http.server 8000
+# puis http://localhost:8000
+```
 
-## Ajouter un rôle
+Ouvrir `index.html` directement fonctionne aussi, sauf l'onglet « Tous les rôles » qui a besoin d'un serveur pour charger les JSON.
 
-Ajouter une entrée dans le tableau `ROLES` de `index.html`, puis éventuellement un besoin dans `NEEDS`.
+## Ajouter un rôle au guide commenté
+
+Ajouter une entrée dans le tableau `ROLES` de `index.html`, puis éventuellement un besoin dans `NEEDS`. L'onglet « Tous les rôles » signale automatiquement si un rôle du guide a été renommé ou retiré de l'export officiel.
 
 ## Sources
 
