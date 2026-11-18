@@ -39,8 +39,8 @@ jobs:
           mkdir -p site/dev
           rsync -a --exclude '.git' --exclude '.github' --exclude 'scripts' main/ site/
           rsync -a --exclude '.git' --exclude '.github' --exclude 'scripts' dev/ site/dev/
-          # Les données sont produites sur main : la version dev utilise les mêmes
-          if [ -d main/data ]; then rm -rf site/dev/data && cp -r main/data site/dev/data; fi
+          # Les données sont produites sur main : la version dev les reprend (en gardant ses fichiers propres)
+          if [ -d main/data ]; then mkdir -p site/dev/data && cp -r main/data/. site/dev/data/; fi
           # Bandeau pour reconnaître la version de développement
           sed -i 's|<body>|<body><div style="background:#b45309;color:#fff;text-align:center;padding:6px;font:600 14px system-ui">Version de développement (branche dev) · <a style="color:#fff" href="../">voir la production</a></div>|' site/dev/index.html
 
