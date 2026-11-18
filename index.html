@@ -98,19 +98,29 @@
   #detail-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 10; overflow-y: auto; padding: 40px 16px; }
   #detail-overlay.open { display: block; }
   #detail-overlay .card { max-width: 820px; margin: 0 auto; }
+  .topbar { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .lang { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; flex-shrink: 0; margin-top: 4px; }
+  .lang button { background: var(--panel); color: var(--muted); border: none; padding: 6px 12px; font: 600 .85rem system-ui, sans-serif; cursor: pointer; }
+  .lang button.on { background: var(--accent); color: #fff; }
+  html[lang="fr"] .en-only, html[lang="en"] .fr-only { display: none !important; }
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
-    <h1>Choisir le bon rôle Azure et Entra ID</h1>
-    <p class="sub">Trouver le rôle au moindre privilège, comprendre ce qu'il permet et copier la commande d'attribution.</p>
+    <div class="topbar">
+      <h1 data-i18n="title">Choisir le bon rôle Azure et Entra ID</h1>
+      <div class="lang" role="group" aria-label="Langue / Language">
+        <button data-lang="fr" title="Français">FR</button><button data-lang="en" title="English">EN</button>
+      </div>
+    </div>
+    <p class="sub" data-i18n="subtitle">Trouver le rôle au moindre privilège, comprendre ce qu'il permet et copier la commande d'attribution.</p>
     <nav>
-      <button data-tab="wizard" class="active">Assistant</button>
-      <button data-tab="catalog">Catalogue</button>
-      <button data-tab="compare">Comparer</button>
-      <button data-tab="all">Tous les rôles</button>
-      <button data-tab="basics">Azure RBAC vs Entra ID</button>
+      <button data-tab="wizard" class="active" data-i18n="tab_wizard">Assistant</button>
+      <button data-tab="catalog" data-i18n="tab_catalog">Catalogue</button>
+      <button data-tab="compare" data-i18n="tab_compare">Comparer</button>
+      <button data-tab="all" data-i18n="tab_all">Tous les rôles</button>
+      <button data-tab="basics" data-i18n="tab_basics">Azure RBAC vs Entra ID</button>
     </nav>
   </div>
 </header>
@@ -125,16 +135,16 @@
   <!-- CATALOGUE -->
   <section id="catalog">
     <div class="toolbar">
-      <input id="cat-search" type="search" placeholder="Rechercher un rôle, une action (ex. : mot de passe, blob, VM)">
+      <input id="cat-search" type="search" data-i18n-ph="cat_search_ph">
       <select id="cat-type">
-        <option value="">Tous les types</option>
+        <option value="" data-i18n="all_types">Tous les types</option>
         <option value="azure">Azure RBAC</option>
         <option value="entra">Entra ID</option>
       </select>
       <select id="cat-risk">
-        <option value="">Tous les niveaux de risque</option>
-        <option value="1">Faible</option><option value="2">Moyen</option>
-        <option value="3">Élevé</option><option value="4">Critique</option>
+        <option value="" data-i18n="all_risks">Tous les niveaux de risque</option>
+        <option value="1" data-i18n="risk1">Faible</option><option value="2" data-i18n="risk2">Moyen</option>
+        <option value="3" data-i18n="risk3">Élevé</option><option value="4" data-i18n="risk4">Critique</option>
       </select>
     </div>
     <div class="grid" id="cat-grid"></div>
@@ -143,17 +153,17 @@
   <!-- COMPARER -->
   <section id="compare">
     <div class="card">
-      <h2>Comparer jusqu'à 3 rôles</h2>
+      <h2 data-i18n="cmp_title">Comparer jusqu'à 3 rôles</h2>
       <div class="form">
-        <div><label for="cmp1">Rôle 1</label><select id="cmp1"></select></div>
-        <div><label for="cmp2">Rôle 2</label><select id="cmp2"></select></div>
-        <div><label for="cmp3">Rôle 3</label><select id="cmp3"></select></div>
+        <div><label for="cmp1" data-i18n-n="cmp_role" data-n="1">Rôle 1</label><select id="cmp1"></select></div>
+        <div><label for="cmp2" data-i18n-n="cmp_role" data-n="2">Rôle 2</label><select id="cmp2"></select></div>
+        <div><label for="cmp3" data-i18n-n="cmp_role" data-n="3">Rôle 3</label><select id="cmp3"></select></div>
       </div>
-      <p class="sub">Comparaisons fréquentes :
-        <button class="linkbtn" data-cmp="owner,contributor,user-access-administrator">Propriétaire / Contributeur / Administrateur de l'accès utilisateur</button> ·
-        <button class="linkbtn" data-cmp="helpdesk-admin,password-admin,auth-admin">Réinitialisation de mots de passe et MFA</button> ·
-        <button class="linkbtn" data-cmp="storage-account-contributor,blob-data-contributor,blob-data-reader">Stockage : plan de contrôle vs données</button> ·
-        <button class="linkbtn" data-cmp="global-admin,global-reader,owner">Administrateur général vs Propriétaire</button>
+      <p class="sub"><span data-i18n="cmp_frequent">Comparaisons fréquentes :</span>
+        <button class="linkbtn" data-cmp="owner,contributor,user-access-administrator" data-i18n="cmp_q1"></button> ·
+        <button class="linkbtn" data-cmp="helpdesk-admin,password-admin,auth-admin" data-i18n="cmp_q2"></button> ·
+        <button class="linkbtn" data-cmp="storage-account-contributor,blob-data-contributor,blob-data-reader" data-i18n="cmp_q3"></button> ·
+        <button class="linkbtn" data-cmp="global-admin,global-reader,owner" data-i18n="cmp_q4"></button>
       </p>
       <div id="cmp-table"></div>
     </div>
@@ -162,67 +172,108 @@
   <!-- TOUS LES ROLES -->
   <section id="all">
     <div class="card">
-      <h2>Tous les rôles intégrés</h2>
-      <p class="sub" id="all-meta">Chargement…</p>
+      <h2 data-i18n="all_title">Tous les rôles intégrés</h2>
+      <p class="sub" id="all-meta" data-i18n="loading">Chargement…</p>
       <div class="toolbar">
         <select id="all-mode">
-          <option value="text">Rechercher par nom ou description</option>
-          <option value="perm">Quels rôles accordent cette permission ?</option>
+          <option value="text" data-i18n="all_mode_text">Rechercher par nom ou description</option>
+          <option value="perm" data-i18n="all_mode_perm">Quels rôles accordent cette permission ?</option>
         </select>
-        <input id="all-search" type="search" placeholder="Ex. : backup, Key Vault, réseau">
+        <input id="all-search" type="search" data-i18n-ph="all_ph">
         <select id="all-type">
-          <option value="">Azure RBAC et Entra ID</option>
+          <option value="" data-i18n="all_both">Azure RBAC et Entra ID</option>
           <option value="azure">Azure RBAC</option>
           <option value="entra">Entra ID</option>
         </select>
       </div>
-      <p class="sub" id="all-help" style="display:none;font-size:.88rem">
+      <p class="sub all-help fr-only" style="display:none;font-size:.88rem">
         Saisis une opération complète, par exemple
         <button class="linkbtn" data-ex="Microsoft.Storage/storageAccounts/listKeys/action">Microsoft.Storage/storageAccounts/listKeys/action</button>,
         <button class="linkbtn" data-ex="Microsoft.KeyVault/vaults/secrets/getSecret/action">Microsoft.KeyVault/vaults/secrets/getSecret/action</button> ou
         <button class="linkbtn" data-ex="microsoft.directory/users/password/update">microsoft.directory/users/password/update</button>.
         Les caractères génériques (<code>*</code>) et les exclusions (NotActions) sont pris en compte. Les résultats sont triés du plus restreint au plus large (estimation).
       </p>
+      <p class="sub all-help en-only" style="display:none;font-size:.88rem">
+        Enter a full operation, for example
+        <button class="linkbtn" data-ex="Microsoft.Storage/storageAccounts/listKeys/action">Microsoft.Storage/storageAccounts/listKeys/action</button>,
+        <button class="linkbtn" data-ex="Microsoft.KeyVault/vaults/secrets/getSecret/action">Microsoft.KeyVault/vaults/secrets/getSecret/action</button> or
+        <button class="linkbtn" data-ex="microsoft.directory/users/password/update">microsoft.directory/users/password/update</button>.
+        Wildcards (<code>*</code>) and exclusions (NotActions) are taken into account. Results are sorted from the most restricted to the broadest (estimate).
+      </p>
       <div id="all-warn"></div>
       <div id="all-list"></div>
-      <div style="text-align:center;margin-top:12px"><button class="btn ghost" id="all-more" style="display:none">Afficher plus</button></div>
+      <div style="text-align:center;margin-top:12px"><button class="btn ghost" id="all-more" style="display:none" data-i18n="more">Afficher plus</button></div>
     </div>
   </section>
 
   <!-- BASES -->
   <section id="basics">
-    <div class="card">
-      <h2>Deux systèmes de rôles distincts</h2>
-      <p>C'est la source de confusion numéro un. Azure possède <strong>deux systèmes de rôles indépendants</strong> : un rôle dans l'un ne donne aucun droit dans l'autre.</p>
-      <table>
-        <tr><th></th><th><span class="tag t-azure">Azure RBAC</span></th><th><span class="tag t-entra">Entra ID</span></th></tr>
-        <tr><th>Ce qu'il contrôle</th><td>Les ressources Azure : VM, réseaux, stockage, Key Vault, bases de données…</td><td>L'annuaire et Microsoft 365 : utilisateurs, groupes, licences, applications, Exchange, Intune…</td></tr>
-        <tr><th>Portée</th><td>Groupe d'administration, abonnement, groupe de ressources, ressource (héritage vers le bas)</td><td>Tenant entier (<code>/</code>), unité administrative ou application</td></tr>
-        <tr><th>Exemples</th><td>Propriétaire, Contributeur, Lecteur, Virtual Machine Contributor</td><td>Administrateur général, Administrateur des utilisateurs, Helpdesk Administrator</td></tr>
-        <tr><th>Où l'attribuer</th><td>Portail : ressource → <em>Contrôle d'accès (IAM)</em></td><td>Entra admin center → <em>Rôles et administrateurs</em></td></tr>
-        <tr><th>Outils</th><td><code>az role assignment</code>, <code>New-AzRoleAssignment</code></td><td>Microsoft Graph PowerShell, <code>New-MgRoleManagementDirectoryRoleAssignment</code></td></tr>
-        <tr><th>Rôles personnalisés</th><td>Oui (actions, NotActions, DataActions)</td><td>Oui, avec licence Entra ID P1 ou P2</td></tr>
-      </table>
-      <div class="warn"><strong>Pièges classiques :</strong> un Administrateur général n'a, par défaut, <strong>aucun accès</strong> aux ressources Azure (il peut toutefois s'élever en User Access Administrator à la racine). Un Propriétaire d'abonnement <strong>ne peut pas</strong> créer d'utilisateurs ni réinitialiser de mots de passe.</div>
+    <div class="fr-only">
+      <div class="card">
+        <h2>Deux systèmes de rôles distincts</h2>
+        <p>C'est la source de confusion numéro un. Azure possède <strong>deux systèmes de rôles indépendants</strong> : un rôle dans l'un ne donne aucun droit dans l'autre.</p>
+        <table>
+          <tr><th></th><th><span class="tag t-azure">Azure RBAC</span></th><th><span class="tag t-entra">Entra ID</span></th></tr>
+          <tr><th>Ce qu'il contrôle</th><td>Les ressources Azure : VM, réseaux, stockage, Key Vault, bases de données…</td><td>L'annuaire et Microsoft 365 : utilisateurs, groupes, licences, applications, Exchange, Intune…</td></tr>
+          <tr><th>Portée</th><td>Groupe d'administration, abonnement, groupe de ressources, ressource (héritage vers le bas)</td><td>Tenant entier (<code>/</code>), unité administrative ou application</td></tr>
+          <tr><th>Exemples</th><td>Propriétaire, Contributeur, Lecteur, Virtual Machine Contributor</td><td>Administrateur général, Administrateur des utilisateurs, Helpdesk Administrator</td></tr>
+          <tr><th>Où l'attribuer</th><td>Portail : ressource → <em>Contrôle d'accès (IAM)</em></td><td>Entra admin center → <em>Rôles et administrateurs</em></td></tr>
+          <tr><th>Outils</th><td><code>az role assignment</code>, <code>New-AzRoleAssignment</code></td><td>Microsoft Graph PowerShell, <code>New-MgRoleManagementDirectoryRoleAssignment</code></td></tr>
+          <tr><th>Rôles personnalisés</th><td>Oui (actions, NotActions, DataActions)</td><td>Oui, avec licence Entra ID P1 ou P2</td></tr>
+        </table>
+        <div class="warn"><strong>Pièges classiques :</strong> un Administrateur général n'a, par défaut, <strong>aucun accès</strong> aux ressources Azure (il peut toutefois s'élever en User Access Administrator à la racine). Un Propriétaire d'abonnement <strong>ne peut pas</strong> créer d'utilisateurs ni réinitialiser de mots de passe.</div>
+      </div>
+      <div class="card">
+        <h2>Plan de contrôle vs plan de données (Azure RBAC)</h2>
+        <p>Les rôles comme <em>Contributeur</em> gèrent la <strong>ressource</strong> (plan de contrôle : <code>Actions</code>). Lire le <strong>contenu</strong> (blobs, secrets, messages) relève du plan de données (<code>DataActions</code>) et demande des rôles spécifiques comme <em>Storage Blob Data Reader</em> ou <em>Key Vault Secrets User</em>.</p>
+        <div class="note">Attention : un rôle de plan de contrôle qui peut lister les clés d'accès d'un compte de stockage (Contributeur, Storage Account Contributor) donne <strong>indirectement</strong> accès aux données. Désactiver l'authentification par clé partagée quand c'est possible.</div>
+      </div>
+      <div class="card">
+        <h2>Bonnes pratiques</h2>
+        <ul>
+          <li><strong>Moindre privilège :</strong> le rôle le plus restreint, à la portée la plus petite possible.</li>
+          <li><strong>Attribuer à des groupes</strong> plutôt qu'à des personnes (pour Entra ID, le groupe doit être <em>role-assignable</em>).</li>
+          <li><strong>PIM</strong> (Entra ID P2) : rendre les rôles privilégiés éligibles et activables à la demande, avec justification et durée limitée.</li>
+          <li><strong>Unités administratives</strong> : en MSP ou multi-sites, limiter un Helpdesk Administrator à un sous-ensemble d'utilisateurs.</li>
+          <li><strong>Comptes d'urgence</strong> : au moins deux comptes break-glass Administrateur général exclus de l'accès conditionnel, surveillés.</li>
+          <li><strong>Identités managées</strong> pour les applications plutôt que des secrets de principal de service.</li>
+          <li><strong>Revues d'accès</strong> régulières sur les rôles privilégiés.</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="card">
-      <h2>Plan de contrôle vs plan de données (Azure RBAC)</h2>
-      <p>Les rôles comme <em>Contributeur</em> gèrent la <strong>ressource</strong> (plan de contrôle : <code>Actions</code>). Lire le <strong>contenu</strong> (blobs, secrets, messages) relève du plan de données (<code>DataActions</code>) et demande des rôles spécifiques comme <em>Storage Blob Data Reader</em> ou <em>Key Vault Secrets User</em>.</p>
-      <div class="note">Attention : un rôle de plan de contrôle qui peut lister les clés d'accès d'un compte de stockage (Contributeur, Storage Account Contributor) donne <strong>indirectement</strong> accès aux données. Désactiver l'authentification par clé partagée quand c'est possible.</div>
-    </div>
-
-    <div class="card">
-      <h2>Bonnes pratiques</h2>
-      <ul>
-        <li><strong>Moindre privilège :</strong> le rôle le plus restreint, à la portée la plus petite possible.</li>
-        <li><strong>Attribuer à des groupes</strong> plutôt qu'à des personnes (pour Entra ID, le groupe doit être <em>role-assignable</em>).</li>
-        <li><strong>PIM</strong> (Entra ID P2) : rendre les rôles privilégiés éligibles et activables à la demande, avec justification et durée limitée.</li>
-        <li><strong>Unités administratives</strong> : en MSP ou multi-sites, limiter un Helpdesk Administrator à un sous-ensemble d'utilisateurs.</li>
-        <li><strong>Comptes d'urgence</strong> : au moins deux comptes break-glass Administrateur général exclus de l'accès conditionnel, surveillés.</li>
-        <li><strong>Identités managées</strong> pour les applications plutôt que des secrets de principal de service.</li>
-        <li><strong>Revues d'accès</strong> régulières sur les rôles privilégiés.</li>
-      </ul>
+    <div class="en-only">
+      <div class="card">
+        <h2>Two separate role systems</h2>
+        <p>This is the number one source of confusion. Azure has <strong>two independent role systems</strong>: a role in one grants no rights in the other.</p>
+        <table>
+          <tr><th></th><th><span class="tag t-azure">Azure RBAC</span></th><th><span class="tag t-entra">Entra ID</span></th></tr>
+          <tr><th>What it controls</th><td>Azure resources: VMs, networks, storage, Key Vault, databases…</td><td>The directory and Microsoft 365: users, groups, licenses, applications, Exchange, Intune…</td></tr>
+          <tr><th>Scope</th><td>Management group, subscription, resource group, resource (inherited downwards)</td><td>Whole tenant (<code>/</code>), administrative unit or application</td></tr>
+          <tr><th>Examples</th><td>Owner, Contributor, Reader, Virtual Machine Contributor</td><td>Global Administrator, User Administrator, Helpdesk Administrator</td></tr>
+          <tr><th>Where to assign it</th><td>Portal: resource → <em>Access control (IAM)</em></td><td>Entra admin center → <em>Roles and administrators</em></td></tr>
+          <tr><th>Tools</th><td><code>az role assignment</code>, <code>New-AzRoleAssignment</code></td><td>Microsoft Graph PowerShell, <code>New-MgRoleManagementDirectoryRoleAssignment</code></td></tr>
+          <tr><th>Custom roles</th><td>Yes (Actions, NotActions, DataActions)</td><td>Yes, with an Entra ID P1 or P2 license</td></tr>
+        </table>
+        <div class="warn"><strong>Classic pitfalls:</strong> a Global Administrator has, by default, <strong>no access</strong> to Azure resources (although they can elevate to User Access Administrator at root scope). A subscription Owner <strong>cannot</strong> create users or reset passwords.</div>
+      </div>
+      <div class="card">
+        <h2>Control plane vs data plane (Azure RBAC)</h2>
+        <p>Roles like <em>Contributor</em> manage the <strong>resource</strong> (control plane: <code>Actions</code>). Reading the <strong>content</strong> (blobs, secrets, messages) belongs to the data plane (<code>DataActions</code>) and requires specific roles such as <em>Storage Blob Data Reader</em> or <em>Key Vault Secrets User</em>.</p>
+        <div class="note">Warning: a control plane role that can list a storage account's access keys (Contributor, Storage Account Contributor) <strong>indirectly</strong> grants access to the data. Disable shared key authentication when possible.</div>
+      </div>
+      <div class="card">
+        <h2>Best practices</h2>
+        <ul>
+          <li><strong>Least privilege:</strong> the most restricted role, at the smallest possible scope.</li>
+          <li><strong>Assign to groups</strong> rather than individuals (for Entra ID, the group must be <em>role-assignable</em>).</li>
+          <li><strong>PIM</strong> (Entra ID P2): make privileged roles eligible and activated on demand, with justification and a limited duration.</li>
+          <li><strong>Administrative units</strong>: for an MSP or multiple sites, limit a Helpdesk Administrator to a subset of users.</li>
+          <li><strong>Emergency access accounts</strong>: at least two monitored break-glass Global Administrator accounts excluded from Conditional Access.</li>
+          <li><strong>Managed identities</strong> for applications rather than service principal secrets.</li>
+          <li>Regular <strong>access reviews</strong> of privileged roles.</li>
+        </ul>
+      </div>
     </div>
   </section>
 </main>
@@ -230,15 +281,17 @@
 <div id="detail-overlay"><div class="card" id="detail-card"></div></div>
 
 <footer>
-  Projet personnel à but pédagogique. Les définitions évoluent : vérifier sur
-  <a href="https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles" target="_blank" rel="noopener">rôles intégrés Azure</a> et
-  <a href="https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference" target="_blank" rel="noopener">rôles intégrés Entra ID</a>.<br>
-  Recommandations Entra ID issues de <a href="https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task" target="_blank" rel="noopener">Least privileged roles by task</a> (Microsoft), synchronisées chaque semaine.
+  <span class="fr-only">Projet personnel à but pédagogique. Les définitions évoluent : vérifier sur
+  <a data-i18n-href="https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles" target="_blank" rel="noopener">rôles intégrés Azure</a> et
+  <a data-i18n-href="https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference" target="_blank" rel="noopener">rôles intégrés Entra ID</a>.<br>
+  Recommandations Entra ID issues de <a data-i18n-href="https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task" target="_blank" rel="noopener">Least privileged roles by task</a> (Microsoft), synchronisées chaque semaine.</span>
+  <span class="en-only">Personal learning project. Definitions change: check the
+  <a data-i18n-href="https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles" target="_blank" rel="noopener">Azure built-in roles</a> and
+  <a data-i18n-href="https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference" target="_blank" rel="noopener">Entra ID built-in roles</a>.<br>
+  Entra ID recommendations come from <a data-i18n-href="https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task" target="_blank" rel="noopener">Least privileged roles by task</a> (Microsoft), synced weekly.</span>
 </footer>
 
 <script>
-const RISK = {1: "Faible", 2: "Moyen", 3: "Élevé", 4: "Critique"};
-
 const ROLES = [
   // ===== AZURE RBAC =====
   { id: "owner", name: "Owner", fr: "Propriétaire", type: "azure", cat: "Général", risk: 4, scope: "rg",
@@ -521,10 +574,350 @@ const NEEDS = [
   { d: "entra", label: "Tout administrer dans le tenant", role: "global-admin", alts: ["global-reader"], why: "Rarement justifié au quotidien. Chercher d'abord une combinaison de rôles plus ciblés." }
 ];
 
-const SCOPES = {
-  mg: "Groupe d'administration", sub: "Abonnement", rg: "Groupe de ressources", resource: "Ressource"
+/* ---------- Contenu anglais des fiches et des besoins ---------- */
+const ROLE_EN = {
+  "owner": { desc: "Full access to all resources, including the ability to assign roles to others.",
+    can: ["Create, modify and delete all resources in scope", "Assign Azure RBAC roles", "Create Azure Policy assignments and resource locks"],
+    cannot: ["Manage Entra ID users, groups or licenses", "Read data through the data plane without a data role (even though it can assign itself one)"],
+    tips: "Keep to very few accounts, ideally eligible through PIM. Avoid permanent assignment at subscription scope." },
+  "contributor": { desc: "Manages all resources, but cannot grant access.",
+    can: ["Create, modify and delete all resources in scope", "List access keys (storage, etc.)"],
+    cannot: ["Assign roles", "Create Azure Policy assignments", "Create or delete resource locks"],
+    tips: "Default role for project teams, at resource group scope. Reminder: access to keys indirectly grants access to data." },
+  "reader": { desc: "Views all resources without changing anything.",
+    can: ["View all resources and their configuration", "View role assignments"],
+    cannot: ["Change anything", "Read blob, secret or key contents", "List access keys"],
+    tips: "Ideal for audits, external auditors or monitoring. Safe at subscription scope." },
+  "user-access-administrator": { desc: "Manages access to Azure resources, without managing the resources themselves.",
+    can: ["Assign and remove any Azure RBAC role", "Read all resources"],
+    cannot: ["Create or modify resources (directly)"],
+    tips: "Critical: it can assign itself Owner. Prefer Role Based Access Control Administrator with conditions." },
+  "rbac-admin": { desc: "Assigns roles through Azure RBAC, optionally restricted by conditions on which roles can be assigned.",
+    can: ["Assign and remove Azure RBAC roles", "Be limited by a condition (e.g. only Reader and Contributor, only to groups)"],
+    cannot: ["Manage access through other means (e.g. Azure Policy)", "Create or modify resources"],
+    tips: "The right choice to delegate access management. Always add a condition that excludes Owner, UAA and RBAC Admin." },
+  "vm-contributor": { desc: "Manages VMs without being able to sign in to them or manage the network or storage they are connected to.",
+    can: ["Create, start, stop, resize and delete VMs", "Manage disks, extensions and scale sets", "Connect a VM to an existing subnet"],
+    cannot: ["Sign in to the VM (RDP/SSH with Entra ID)", "Manage the virtual network or storage account"],
+    tips: "For infrastructure operators. Combine with Virtual Machine Administrator Login if sign-in is needed." },
+  "vm-admin-login": { desc: "Sign in to a VM with an Entra ID account as local administrator.",
+    can: ["View VMs in the portal", "Sign in as administrator (Windows or Linux with Entra ID sign-in)"],
+    cannot: ["Manage the VM (start, stop, modify)"],
+    tips: "Requires the Entra ID sign-in extension on the VM. Assign at VM or resource group scope, ideally through PIM." },
+  "vm-user-login": { desc: "Sign in to a VM with an Entra ID account as a standard user.",
+    can: ["View VMs in the portal", "Sign in as a standard user"],
+    cannot: ["Get local administrator rights", "Manage the VM"],
+    tips: "For users of an application VM or a jump server." },
+  "network-contributor": { desc: "Manages networks, without granting access.",
+    can: ["Manage VNets, subnets, NSGs, route tables", "Manage VPN gateways, load balancers, public IPs, private DNS"],
+    cannot: ["Assign roles", "Manage VMs or storage"],
+    tips: "For the network team. High risk because an NSG rule or a route can expose resources." },
+  "storage-account-contributor": { desc: "Manages storage accounts, including access to account keys.",
+    can: ["Create and configure storage accounts", "List and regenerate access keys"],
+    cannot: ["Assign roles"],
+    tips: "Warning: key access grants full access to data. Disable shared key access when possible and use data roles." },
+  "blob-data-owner": { desc: "Full access to blob containers and data, including POSIX ACLs (Data Lake Gen2).",
+    can: ["Read, write and delete blobs and containers", "Manage POSIX ACLs"],
+    cannot: ["Manage the storage account configuration"],
+    tips: "Mostly useful for Data Lake. Otherwise, Storage Blob Data Contributor is enough." },
+  "blob-data-contributor": { desc: "Reads, writes and deletes containers and blobs.",
+    can: ["Read, write and delete blobs", "Create and delete containers"],
+    cannot: ["Manage POSIX ACLs", "Manage the account configuration"],
+    tips: "The typical role for an application that writes files. Assign at container scope when possible." },
+  "blob-data-reader": { desc: "Reads and lists containers and blobs.",
+    can: ["Read and list blobs and containers"],
+    cannot: ["Write or delete", "Manage the account"],
+    tips: "Perfect for a managed identity that only reads." },
+  "kv-administrator": { desc: "All data plane operations on a vault (keys, secrets, certificates).",
+    can: ["Manage keys, secrets and certificates", "Read secret contents"],
+    cannot: ["Manage the Key Vault resource itself", "Assign roles"],
+    tips: "Works only with the vault's Azure RBAC permission model (not access policies)." },
+  "kv-secrets-officer": { desc: "Any action on a vault's secrets, except managing permissions.",
+    can: ["Create, modify, read and delete secrets"],
+    cannot: ["Manage keys and certificates", "Manage permissions"],
+    tips: "For a team managing an application's secrets without touching encryption keys." },
+  "kv-secrets-user": { desc: "Reads secret contents.",
+    can: ["Read secret values"],
+    cannot: ["Create, modify or delete secrets", "Access keys and certificates"],
+    tips: "The role to give an application's managed identity. Assign at vault scope, or even at secret scope." },
+  "monitoring-reader": { desc: "Reads all monitoring data.",
+    can: ["Read metrics, activity logs, alerts and diagnostic settings"],
+    cannot: ["Modify alerts or settings"],
+    tips: "For a NOC or an external monitoring tool." },
+  "monitoring-contributor": { desc: "Reads monitoring data and edits monitoring settings.",
+    can: ["Create and modify alert rules and action groups", "Configure diagnostic settings", "Manage monitoring workbooks and dashboards"],
+    cannot: ["Manage the monitored resources"],
+    tips: "For the team that sets up alerting." },
+  "backup-contributor": { desc: "Manages the backup service, without creating vaults or granting access.",
+    can: ["Configure and manage backup", "Run backups and restores", "Stop protection and delete backup data"],
+    cannot: ["Create Recovery Services vaults", "Assign roles"],
+    tips: "Can delete backups: enable soft delete and immutability on the vault." },
+  "backup-operator": { desc: "Manages backup except deleting backups, creating vaults and granting access.",
+    can: ["Run backups and restores", "Manage protected items"],
+    cannot: ["Delete backups", "Create vaults", "Assign roles"],
+    tips: "The right role for support staff doing day-to-day restores." },
+  "cost-management-reader": { desc: "Views costs and Cost Management configuration.",
+    can: ["View costs, budgets and exports"],
+    cannot: ["Create or modify budgets", "View or modify resources"],
+    tips: "For management or accounting. Cost Management Contributor can also manage budgets." },
+  "resource-policy-contributor": { desc: "Creates and manages Azure Policy definitions and assignments.",
+    can: ["Create policy definitions and initiatives", "Assign policies"],
+    cannot: ["Manage resources directly"],
+    tips: "A DeployIfNotExists policy can modify resources: watch this role. Often assigned at management group scope." },
+  "tag-contributor": { desc: "Manages resource tags, without access to the resources themselves.",
+    can: ["Add, modify and remove tags"],
+    cannot: ["Modify resources"],
+    tips: "Handy for a FinOps team fixing billing tags." },
+  "acrpull": { desc: "Pulls images from a container registry.",
+    can: ["Download images and artifacts"],
+    cannot: ["Push or delete images"],
+    tips: "Give it to the AKS kubelet identity or an App Service managed identity. Use AcrPush for CI pipelines." },
+  "avd-user": { desc: "Allows using an Azure Virtual Desktop application group.",
+    can: ["View and launch the desktops or apps of the application group"],
+    cannot: ["Manage the AVD environment"],
+    tips: "Assign to a user group, at application group scope. For Entra sign-in to session hosts, add Virtual Machine User Login." },
+  "security-admin-azure": { desc: "Manages Microsoft Defender for Cloud.",
+    can: ["View and update security policies", "View alerts and recommendations", "Dismiss alerts"],
+    cannot: ["Manage resources", "Assign roles"],
+    tips: "Not to be confused with the Entra ID role \"Security Administrator\"." },
+  "global-admin": { desc: "Access to all administrative features of Entra ID and of services that use Entra identities.",
+    can: ["Manage everything in the tenant and Microsoft 365", "Assign all Entra roles", "Elevate to User Access Administrator on all Azure subscriptions"],
+    cannot: ["Access Azure resources without elevation"],
+    tips: "Microsoft recommends fewer than 5 Global Administrators. Always through PIM, plus two emergency access accounts." },
+  "global-reader": { desc: "Reads everything a Global Administrator can see, without changing anything.",
+    can: ["Read the tenant configuration and many M365 services"],
+    cannot: ["Change anything", "Read secrets or mailbox content"],
+    tips: "Excellent for audits and for onboarding a new technician. A few portals don't fully support it yet." },
+  "privileged-role-admin": { desc: "Manages Entra ID role assignments and Privileged Identity Management.",
+    can: ["Assign all Entra roles, including Global Administrator", "Configure PIM"],
+    cannot: ["Manage users or services directly"],
+    tips: "In practice equivalent to Global Administrator: protect it the same way." },
+  "user-admin": { desc: "Creates and manages users and groups.",
+    can: ["Create, modify and delete users and groups", "Reset passwords for non-admins and some limited roles", "Manage support tickets"],
+    cannot: ["Reset a Global Administrator's password", "Assign admin roles"],
+    tips: "Can be scoped to an administrative unit to limit it to a site or a client." },
+  "helpdesk-admin": { desc: "Resets passwords and revokes sessions for non-administrators.",
+    can: ["Reset passwords of non-admin users", "Invalidate refresh tokens (force a new sign-in)"],
+    cannot: ["Create or delete users", "Reset passwords of privileged administrators"],
+    tips: "The L1 support role. Scope it to an administrative unit when there are several teams or sites." },
+  "password-admin": { desc: "Resets passwords for non-administrators and other Password Administrators.",
+    can: ["Reset passwords of non-admins"],
+    cannot: ["Revoke sessions", "Manage MFA methods", "Create users"],
+    tips: "Even more restricted than Helpdesk Administrator." },
+  "auth-admin": { desc: "Sets or resets authentication methods for non-administrators.",
+    can: ["Add, remove or reset MFA methods", "Require MFA re-registration", "Reset passwords of non-admins"],
+    cannot: ["Manage methods of privileged administrators", "Change the tenant's authentication method policies"],
+    tips: "For support staff handling lost or replaced phones." },
+  "privileged-auth-admin": { desc: "Manages authentication methods for all users, including Global Administrators.",
+    can: ["Reset passwords and MFA for anyone, including Global Administrators"],
+    cannot: ["Assign roles"],
+    tips: "Can take over a Global Administrator account: protect it accordingly." },
+  "groups-admin": { desc: "Manages groups and their settings (naming, expiration).",
+    can: ["Create and manage groups and their members", "Manage naming and expiration policies"],
+    cannot: ["Manage users", "Manage role-assignable groups"],
+    tips: "For whoever manages access through groups (licenses, apps, SharePoint)." },
+  "license-admin": { desc: "Assigns licenses to users and groups.",
+    can: ["Assign and remove licenses", "Change users' usage location"],
+    cannot: ["Purchase or manage subscriptions", "Create users"],
+    tips: "Often combined with Helpdesk Administrator for L1 support." },
+  "exchange-admin": { desc: "Manages all aspects of Exchange Online.",
+    can: ["Manage mailboxes, transport rules and connectors", "Create and manage Microsoft 365 groups"],
+    cannot: ["Manage other M365 services"],
+    tips: "For narrower access, use Exchange role groups (Exchange RBAC)." },
+  "sharepoint-admin": { desc: "Manages all aspects of SharePoint Online and OneDrive.",
+    can: ["Manage sites, external sharing and OneDrive settings", "Create and manage Microsoft 365 groups"],
+    cannot: ["Manage other M365 services"],
+    tips: "Can grant itself access to any site: a sensitive role for data." },
+  "teams-admin": { desc: "Manages the Microsoft Teams service.",
+    can: ["Manage teams, policies, telephony and meetings", "Create and manage Microsoft 365 groups"],
+    cannot: ["Manage other M365 services"],
+    tips: "Teams Communications Administrator is enough for telephony only." },
+  "intune-admin": { desc: "Manages all aspects of Microsoft Intune.",
+    can: ["Manage devices, compliance and configuration policies, apps", "Deploy scripts to devices", "Create and manage security groups"],
+    cannot: ["Manage Conditional Access"],
+    tips: "Can run code on every managed device. Use Intune RBAC and scope tags to restrict it." },
+  "security-admin-entra": { desc: "Manages security features in Entra ID and Microsoft Defender.",
+    can: ["Manage Identity Protection and security settings", "Manage Conditional Access policies", "Manage Defender XDR"],
+    cannot: ["Reset passwords", "Assign roles"],
+    tips: "Security Operator is enough to handle alerts day to day." },
+  "security-reader-entra": { desc: "Reads security information and reports.",
+    can: ["View security reports, alerts, sign-in and audit logs"],
+    cannot: ["Change anything"],
+    tips: "For an external SOC or an auditor." },
+  "ca-admin": { desc: "Manages Conditional Access policies.",
+    can: ["Create, modify and delete Conditional Access policies", "Manage named locations"],
+    cannot: ["Manage users or authentication"],
+    tips: "A mistake can lock out the whole tenant: test in report-only mode and exclude emergency accounts." },
+  "cloud-app-admin": { desc: "Manages app registrations and enterprise apps (except Application Proxy).",
+    can: ["Create and manage app registrations and enterprise apps", "Add secrets and certificates to applications", "Grant admin consent (excluding privileged Graph application permissions)"],
+    cannot: ["Manage Application Proxy"],
+    tips: "Can add a secret to a highly privileged app and impersonate it. Prefer the application Owner role when possible." },
+  "billing-admin": { desc: "Manages purchases, subscriptions and support tickets.",
+    can: ["Purchase and manage subscriptions", "Manage support tickets", "View service health"],
+    cannot: ["Assign licenses to users"],
+    tips: "Does not cover Azure billing, which is managed with Azure billing roles." },
+  "reports-reader": { desc: "Reads usage reports and sign-in and audit logs.",
+    can: ["View sign-in and audit logs", "View M365 usage reports"],
+    cannot: ["Change anything"],
+    tips: "For support staff troubleshooting a sign-in issue." }
 };
 
+const NEED_EN = {
+  "Consulter les ressources sans rien modifier": "View resources without changing anything",
+  "Gérer toutes les ressources d'un projet, sans gérer les accès": "Manage all resources of a project, without managing access",
+  "Tout gérer, y compris donner des accès": ["Manage everything, including granting access", "Often, Contributor + Role Based Access Control Administrator with conditions is enough and avoids Owner."],
+  "Donner des accès à d'autres, sans gérer les ressources": "Grant access to others, without managing resources",
+  "Créer, démarrer, arrêter et redimensionner des VM": "Create, start, stop and resize VMs",
+  "Se connecter à une VM avec son compte Entra (utilisateur standard)": "Sign in to a VM with an Entra account (standard user)",
+  "Se connecter à une VM en administrateur local (compte Entra)": "Sign in to a VM as local administrator (Entra account)",
+  "Gérer réseaux virtuels, NSG, VPN, load balancers": "Manage virtual networks, NSGs, VPNs, load balancers",
+  "Configurer des comptes de stockage": "Configure storage accounts",
+  "Lire des fichiers blob": "Read blob files",
+  "Lire, écrire et supprimer des fichiers blob": "Read, write and delete blob files",
+  "Permettre à une application de lire des secrets Key Vault": "Let an application read Key Vault secrets",
+  "Gérer les secrets d'un Key Vault": "Manage the secrets of a Key Vault",
+  "Administrer tout le contenu d'un Key Vault (clés, secrets, certificats)": "Administer all Key Vault content (keys, secrets, certificates)",
+  "Configurer et gérer Azure Backup": "Configure and manage Azure Backup",
+  "Lancer sauvegardes et restaurations, sans pouvoir supprimer": "Run backups and restores, without being able to delete",
+  "Consulter métriques, journaux et alertes": "View metrics, logs and alerts",
+  "Configurer alertes et paramètres de diagnostic": "Configure alerts and diagnostic settings",
+  "Consulter les coûts et budgets": "View costs and budgets",
+  "Créer et assigner des stratégies Azure Policy": "Create and assign Azure Policy policies",
+  "Gérer uniquement les étiquettes (tags)": "Manage tags only",
+  "Tirer des images d'un registre ACR (AKS, App Service)": "Pull images from an ACR registry (AKS, App Service)",
+  "Donner accès à Azure Virtual Desktop": "Grant access to Azure Virtual Desktop",
+  "Gérer Defender for Cloud (recommandations, alertes)": "Manage Defender for Cloud (recommendations, alerts)",
+  "Réinitialiser les mots de passe des utilisateurs (support L1)": "Reset user passwords (L1 support)",
+  "Créer et gérer des utilisateurs et des groupes": "Create and manage users and groups",
+  "Gérer uniquement les groupes": "Manage groups only",
+  "Attribuer des licences Microsoft 365": "Assign Microsoft 365 licenses",
+  "Réinitialiser ou gérer la MFA des utilisateurs": "Reset or manage users' MFA",
+  "Auditer tout le tenant en lecture seule": "Audit the whole tenant read-only",
+  "Consulter les journaux de connexion et d'audit": "View sign-in and audit logs",
+  "Créer et modifier l'accès conditionnel": "Create and modify Conditional Access",
+  "Gérer les appareils et stratégies Intune": "Manage Intune devices and policies",
+  "Administrer Exchange Online": "Administer Exchange Online",
+  "Administrer SharePoint et OneDrive": "Administer SharePoint and OneDrive",
+  "Administrer Microsoft Teams": "Administer Microsoft Teams",
+  "Gérer les inscriptions d'applications et applications d'entreprise": "Manage app registrations and enterprise apps",
+  "Gérer la sécurité (Defender XDR, Identity Protection)": "Manage security (Defender XDR, Identity Protection)",
+  "Gérer abonnements et facturation Microsoft 365": "Manage Microsoft 365 subscriptions and billing",
+  "Attribuer des rôles Entra et configurer PIM": "Assign Entra roles and configure PIM",
+  "Tout administrer dans le tenant": ["Administer everything in the tenant", "Rarely justified day to day. First look for a combination of more targeted roles."]
+};
+
+/* ---------- Langue ---------- */
+const I18N = {
+  fr: {
+    title: "Choisir le bon rôle Azure et Entra ID",
+    subtitle: "Trouver le rôle au moindre privilège, comprendre ce qu'il permet et copier la commande d'attribution.",
+    tab_wizard: "Assistant", tab_catalog: "Catalogue", tab_compare: "Comparer", tab_all: "Tous les rôles", tab_basics: "Azure RBAC vs Entra ID",
+    risk1: "Faible", risk2: "Moyen", risk3: "Élevé", risk4: "Critique", risk: n => "Risque " + ["", "faible", "moyen", "élevé", "critique"][n],
+    scope_mg: "Groupe d'administration", scope_sub: "Abonnement", scope_rg: "Groupe de ressources", scope_resource: "Ressource",
+    recommended: "recommandé", privileged: "Privilégié", in_guide: "Dans le guide",
+    cat_search_ph: "Rechercher un rôle, une action (ex. : mot de passe, blob, VM)", all_types: "Tous les types", all_risks: "Tous les niveaux de risque",
+    no_role: "Aucun rôle ne correspond.",
+    cmp_title: "Comparer jusqu'à 3 rôles", cmp_role: n => "Rôle " + n, cmp_frequent: "Comparaisons fréquentes :",
+    cmp_q1: "Propriétaire / Contributeur / Administrateur de l'accès utilisateur", cmp_q2: "Réinitialisation de mots de passe et MFA",
+    cmp_q3: "Stockage : plan de contrôle vs données", cmp_q4: "Administrateur général vs Propriétaire",
+    cmp_none: "(aucun)", cmp_pick: "Choisis au moins un rôle.",
+    row_role: "Rôle", row_type: "Type", row_risk: "Risque", row_desc: "Description", row_can: "Permet", row_cannot: "Ne permet pas", row_scope: "Portée", row_tip: "Conseil",
+    scope_tenant_or_au: "Tenant ou unité administrative", scope_tenant: "Tenant",
+    all_title: "Tous les rôles intégrés", loading: "Chargement…", all_mode_text: "Rechercher par nom ou description", all_mode_perm: "Quels rôles accordent cette permission ?",
+    all_ph: "Ex. : backup, Key Vault, réseau", all_both: "Azure RBAC et Entra ID", more: "Afficher plus",
+    all_meta: (parts) => "Source : export officiel. " + parts.join(" · "), n_azure: n => `${n} rôles Azure RBAC`, n_entra: n => `${n} rôles Entra ID`,
+    all_file: "Cet onglet charge des fichiers JSON : ouvre la page depuis GitHub Pages ou un petit serveur local (<code>python3 -m http.server</code>).",
+    all_nodata: "Les données n'ont pas encore été générées. Lance le workflow « Mise à jour des rôles intégrés » dans l'onglet Actions du dépôt.",
+    all_missing: list => `<strong>À vérifier :</strong> ces rôles du guide ne figurent plus dans l'export officiel (renommés ou retirés) : ${list}.`,
+    all_count: n => `${n} rôle(s).`, all_count_perm: (n, q) => `${n} rôle(s) accordent <code>${q}</code>.`,
+    n_perms: n => `${n} permission(s)`, open_card: "Ouvrir la fiche détaillée", allowed_actions: "Actions autorisées",
+    assign: "Attribuer ce rôle", principal: "Identifiant d'objet du principal",
+    principal_ph_az: "ID objet (utilisateur, groupe, identité managée)", principal_ph_en: "ID objet (utilisateur ou groupe attribuable)",
+    scope: "Portée", sub_id: "ID d'abonnement", rg: "Groupe de ressources", mg_id: "ID de groupe d'administration", res_id: "ID complet de la ressource (optionnel)",
+    whole_tenant: "Tenant entier", au: "Unité administrative", au_id: "ID de l'unité administrative",
+    principal_hint: "Remplacer <code>Group</code> par <code>User</code> ou <code>ServicePrincipal</code> selon le principal (une identité managée est un ServicePrincipal).",
+    copy: "Copier", copied: "Copié", close: "Fermer", back: "Retour", restart: "Recommencer",
+    can: "Ce qu'il permet", cannot: "Ce qu'il ne permet pas", rec_scope: "Portée recommandée :", au_scope: "<strong>Portée :</strong> peut être limité à une unité administrative.",
+    tip: "Conseil :", verify_ms: "Vérifier dans la documentation Microsoft ↗", ms_doc: "Voir la documentation Microsoft ↗", official_desc: "Description officielle Microsoft",
+    steps: ["1. Domaine", "2. Besoin", "3. Recommandation"],
+    q_domain: "Que doit gérer la personne ou l'application ?",
+    d_azure: "Des ressources Azure", d_azure_sub: "VM, réseau, stockage, Key Vault, sauvegardes, coûts, AVD…",
+    d_entra: "L'annuaire et Microsoft 365", d_entra_sub: "Utilisateurs, mots de passe, MFA, groupes, appareils, applications, accès conditionnel… Recommandations officielles Microsoft.",
+    q_need: "Que doit-elle pouvoir faire ?", need_filter: "Filtrer les besoins", need: "Besoin :", good_to_know: "À savoir :", alternatives: "Alternatives",
+    tasks_loading: "Chargement des tâches Microsoft…",
+    tasks_source: (url, date, n) => `Source : <a href="${url}" target="_blank" rel="noopener">Least privileged roles by task in Microsoft Entra ID</a> (Microsoft, page du ${date}). ${n} tâches, affichées telles que publiées par Microsoft (en anglais).`,
+    task_ph: "Chercher une tâche (ex. : password, BitLocker, guest, conditional access)", all_areas: "Tous les domaines", no_task: "Aucune tâche ne correspond.",
+    task_elsewhere: (q, area, n) => `Aucune tâche « ${q} » dans le domaine <strong>${area}</strong>, mais ${n} dans les autres domaines.`, search_all_areas: "Chercher dans tous les domaines",
+    not_dir_role: "Ce n'est pas un rôle d'annuaire Entra ID (propriétaire d'objet, rôle Azure RBAC ou permission par défaut).", learn_more: "En savoir plus chez Microsoft ↗",
+    ms_note: "Précision Microsoft :", ms_reco: "Recommandation officielle Microsoft :", see_source: "Voir la source ↗", task_doc: "Documentation de la tâche ↗",
+    other_roles: "Autres rôles qui peuvent aussi le faire (plus larges)",
+    ph_principal: "<id-objet-principal>", ph_sub: "<id-abonnement>", ph_rg: "<groupe-de-ressources>", ph_mg: "<id-groupe-admin>", ph_au: "<id-unite-administrative>",
+    ph_res: "<fournisseur>/<type>/<nom>", ph_scope: "<portée>"
+  },
+  en: {
+    title: "Choose the right Azure and Entra ID role",
+    subtitle: "Find the least privileged role, understand what it allows and copy the assignment command.",
+    tab_wizard: "Assistant", tab_catalog: "Catalog", tab_compare: "Compare", tab_all: "All roles", tab_basics: "Azure RBAC vs Entra ID",
+    risk1: "Low", risk2: "Medium", risk3: "High", risk4: "Critical", risk: n => ["", "Low", "Medium", "High", "Critical"][n] + " risk",
+    scope_mg: "Management group", scope_sub: "Subscription", scope_rg: "Resource group", scope_resource: "Resource",
+    recommended: "recommended", privileged: "Privileged", in_guide: "In the guide",
+    cat_search_ph: "Search a role or an action (e.g. password, blob, VM)", all_types: "All types", all_risks: "All risk levels",
+    no_role: "No matching role.",
+    cmp_title: "Compare up to 3 roles", cmp_role: n => "Role " + n, cmp_frequent: "Common comparisons:",
+    cmp_q1: "Owner / Contributor / User Access Administrator", cmp_q2: "Password reset and MFA",
+    cmp_q3: "Storage: control plane vs data", cmp_q4: "Global Administrator vs Owner",
+    cmp_none: "(none)", cmp_pick: "Pick at least one role.",
+    row_role: "Role", row_type: "Type", row_risk: "Risk", row_desc: "Description", row_can: "Allows", row_cannot: "Does not allow", row_scope: "Scope", row_tip: "Tip",
+    scope_tenant_or_au: "Tenant or administrative unit", scope_tenant: "Tenant",
+    all_title: "All built-in roles", loading: "Loading…", all_mode_text: "Search by name or description", all_mode_perm: "Which roles grant this permission?",
+    all_ph: "E.g. backup, Key Vault, network", all_both: "Azure RBAC and Entra ID", more: "Show more",
+    all_meta: (parts) => "Source: official export. " + parts.join(" · "), n_azure: n => `${n} Azure RBAC roles`, n_entra: n => `${n} Entra ID roles`,
+    all_file: "This tab loads JSON files: open the page from GitHub Pages or a small local server (<code>python3 -m http.server</code>).",
+    all_nodata: "The data has not been generated yet. Run the \"Mise à jour des rôles intégrés\" workflow in the repository's Actions tab.",
+    all_missing: list => `<strong>To check:</strong> these guide roles are no longer in the official export (renamed or removed): ${list}.`,
+    all_count: n => `${n} role(s).`, all_count_perm: (n, q) => `${n} role(s) grant <code>${q}</code>.`,
+    n_perms: n => `${n} permission(s)`, open_card: "Open the detailed card", allowed_actions: "Allowed actions",
+    assign: "Assign this role", principal: "Principal object ID",
+    principal_ph_az: "Object ID (user, group, managed identity)", principal_ph_en: "Object ID (user or role-assignable group)",
+    scope: "Scope", sub_id: "Subscription ID", rg: "Resource group", mg_id: "Management group ID", res_id: "Full resource ID (optional)",
+    whole_tenant: "Whole tenant", au: "Administrative unit", au_id: "Administrative unit ID",
+    principal_hint: "Replace <code>Group</code> with <code>User</code> or <code>ServicePrincipal</code> depending on the principal (a managed identity is a ServicePrincipal).",
+    copy: "Copy", copied: "Copied", close: "Close", back: "Back", restart: "Start over",
+    can: "What it allows", cannot: "What it does not allow", rec_scope: "Recommended scope:", au_scope: "<strong>Scope:</strong> can be limited to an administrative unit.",
+    tip: "Tip:", verify_ms: "Check in the Microsoft documentation ↗", ms_doc: "See the Microsoft documentation ↗", official_desc: "Official Microsoft description",
+    steps: ["1. Area", "2. Need", "3. Recommendation"],
+    q_domain: "What does the person or application need to manage?",
+    d_azure: "Azure resources", d_azure_sub: "VMs, network, storage, Key Vault, backups, costs, AVD…",
+    d_entra: "The directory and Microsoft 365", d_entra_sub: "Users, passwords, MFA, groups, devices, applications, Conditional Access… Official Microsoft recommendations.",
+    q_need: "What do they need to be able to do?", need_filter: "Filter needs", need: "Need:", good_to_know: "Good to know:", alternatives: "Alternatives",
+    tasks_loading: "Loading Microsoft tasks…",
+    tasks_source: (url, date, n) => `Source: <a href="${url}" target="_blank" rel="noopener">Least privileged roles by task in Microsoft Entra ID</a> (Microsoft, page dated ${date}). ${n} tasks.`,
+    task_ph: "Search a task (e.g. password, BitLocker, guest, conditional access)", all_areas: "All areas", no_task: "No matching task.",
+    task_elsewhere: (q, area, n) => `No "${q}" task in the <strong>${area}</strong> area, but ${n} in other areas.`, search_all_areas: "Search all areas",
+    not_dir_role: "This is not an Entra ID directory role (object owner, Azure RBAC role or default permission).", learn_more: "Learn more at Microsoft ↗",
+    ms_note: "Microsoft note:", ms_reco: "Official Microsoft recommendation:", see_source: "See the source ↗", task_doc: "Task documentation ↗",
+    other_roles: "Other roles that can also do it (broader)",
+    ph_principal: "<principal-object-id>", ph_sub: "<subscription-id>", ph_rg: "<resource-group>", ph_mg: "<management-group-id>", ph_au: "<administrative-unit-id>",
+    ph_res: "<provider>/<type>/<name>", ph_scope: "<scope>"
+  }
+};
+let LANG = (() => {
+  const q = new URLSearchParams(location.search).get("lang");
+  if (q === "fr" || q === "en") return q;
+  try { const s = localStorage.getItem("lang"); if (s === "fr" || s === "en") return s; } catch (e) {}
+  return (navigator.language || "fr").toLowerCase().startsWith("fr") ? "fr" : "en";
+})();
+const t = (k, ...a) => { const v = I18N[LANG][k] ?? I18N.fr[k] ?? k; return typeof v === "function" ? v(...a) : v; };
+const LOC = () => LANG === "fr" ? "fr-CA" : "en-CA";
+const fmtDate = s => s ? new Date(s).toLocaleDateString(LOC(), { year: "numeric", month: "long", day: "numeric" }) : "";
+const lurl = u => LANG === "en" ? u.replace("learn.microsoft.com/fr-fr/", "learn.microsoft.com/en-us/") : u;
+/* Champs traduits d'une fiche commentée */
+const rf = (r, k) => (LANG === "en" && ROLE_EN[r.id] && ROLE_EN[r.id][k]) || r[k];
+const subName = r => LANG === "fr" ? r.fr : "";
+const needLabel = n => { if (LANG !== "en") return n.label; const e = NEED_EN[n.label]; return Array.isArray(e) ? e[0] : (e || n.label); };
+const needWhy = n => { if (LANG !== "en") return n.why; const e = NEED_EN[n.label]; return Array.isArray(e) ? e[1] : n.why; };
+
+const SCOPE_KEYS = ["mg", "sub", "rg", "resource"];
 const byId = Object.fromEntries(ROLES.map(r => [r.id, r]));
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -532,50 +925,50 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;"
 function typeTag(r) {
   return r.type === "azure" ? '<span class="tag t-azure">Azure RBAC</span>' : '<span class="tag t-entra">Entra ID</span>';
 }
-function riskTag(r) { return `<span class="tag risk${r.risk}">Risque ${RISK[r.risk].toLowerCase()}</span>`; }
+function riskTag(r) { return `<span class="tag risk${r.risk}">${t("risk", r.risk)}</span>`; }
 
 /* ---------- Commandes ---------- */
 function scopePath(level, v) {
-  const sub = v.sub || "<id-abonnement>", rg = v.rg || "<groupe-de-ressources>";
+  const sub = v.sub || t("ph_sub"), rg = v.rg || t("ph_rg");
   switch (level) {
-    case "mg": return `/providers/Microsoft.Management/managementGroups/${v.mg || "<id-groupe-admin>"}`;
+    case "mg": return `/providers/Microsoft.Management/managementGroups/${v.mg || t("ph_mg")}`;
     case "sub": return `/subscriptions/${sub}`;
     case "rg": return `/subscriptions/${sub}/resourceGroups/${rg}`;
-    default: return v.res || `/subscriptions/${sub}/resourceGroups/${rg}/providers/<fournisseur>/<type>/<nom>`;
+    default: return v.res || `/subscriptions/${sub}/resourceGroups/${rg}/providers/${t("ph_res")}`;
   }
 }
 function commandsHtml(r, uid) {
   if (r.type === "azure") {
     return `
-      <h3>Attribuer ce rôle</h3>
+      <h3>${t("assign")}</h3>
       <div class="form">
-        <div><label>Identifiant d'objet du principal</label><input data-k="pid" placeholder="ID objet (utilisateur, groupe, identité managée)"></div>
-        <div><label>Portée</label><select data-k="level">
-          ${Object.entries(SCOPES).map(([k, l]) => `<option value="${k}" ${k === r.scope ? "selected" : ""}>${l}${k === r.scope ? " (recommandé)" : ""}</option>`).join("")}
+        <div><label>${t("principal")}</label><input data-k="pid" placeholder="${esc(t("principal_ph_az"))}"></div>
+        <div><label>${t("scope")}</label><select data-k="level">
+          ${SCOPE_KEYS.map(k => `<option value="${k}" ${k === r.scope ? "selected" : ""}>${t("scope_" + k)}${k === r.scope ? " (" + t("recommended") + ")" : ""}</option>`).join("")}
         </select></div>
-        <div><label>ID d'abonnement</label><input data-k="sub" placeholder="00000000-0000-..."></div>
-        <div><label>Groupe de ressources</label><input data-k="rg" placeholder="rg-prod-app"></div>
-        <div><label>ID de groupe d'administration</label><input data-k="mg" placeholder="mg-clients"></div>
-        <div><label>ID complet de la ressource (optionnel)</label><input data-k="res" placeholder="/subscriptions/.../providers/..."></div>
+        <div><label>${t("sub_id")}</label><input data-k="sub" placeholder="00000000-0000-..."></div>
+        <div><label>${t("rg")}</label><input data-k="rg" placeholder="rg-prod-app"></div>
+        <div><label>${t("mg_id")}</label><input data-k="mg" placeholder="mg-clients"></div>
+        <div><label>${t("res_id")}</label><input data-k="res" placeholder="/subscriptions/.../providers/..."></div>
       </div>
       <div class="cmdout" id="cmd-${uid}"></div>`;
   }
   return `
-    <h3>Attribuer ce rôle</h3>
+    <h3>${t("assign")}</h3>
     <div class="form">
-      <div><label>Identifiant d'objet du principal</label><input data-k="pid" placeholder="ID objet (utilisateur ou groupe attribuable)"></div>
-      <div><label>Portée</label><select data-k="level">
-        <option value="tenant" selected>Tenant entier</option>
-        ${r.au ? '<option value="au">Unité administrative</option>' : ""}
+      <div><label>${t("principal")}</label><input data-k="pid" placeholder="${esc(t("principal_ph_en"))}"></div>
+      <div><label>${t("scope")}</label><select data-k="level">
+        <option value="tenant" selected>${t("whole_tenant")}</option>
+        ${r.au ? `<option value="au">${t("au")}</option>` : ""}
       </select></div>
-      ${r.au ? '<div><label>ID de l\'unité administrative</label><input data-k="au" placeholder="ID de l\'unité administrative"></div>' : ""}
+      ${r.au ? `<div><label>${t("au_id")}</label><input data-k="au" placeholder="${esc(t("au_id"))}"></div>` : ""}
     </div>
     <div class="cmdout" id="cmd-${uid}"></div>`;
 }
 function renderCmd(container, r, uid) {
   const v = {};
   container.querySelectorAll("[data-k]").forEach(el => v[el.dataset.k] = el.value.trim());
-  const pid = v.pid || "<id-objet-principal>";
+  const pid = v.pid || t("ph_principal");
   let blocks;
   if (r.type === "azure") {
     const scope = scopePath(v.level || r.scope, v);
@@ -584,14 +977,14 @@ function renderCmd(container, r, uid) {
       ["Azure PowerShell", `New-AzRoleAssignment \`\n  -ObjectId "${pid}" \`\n  -RoleDefinitionName "${r.name}" \`\n  -Scope "${scope}"`]
     ];
   } else {
-    const ds = v.level === "au" ? `/administrativeUnits/${v.au || "<id-unite-administrative>"}` : "/";
+    const ds = v.level === "au" ? `/administrativeUnits/${v.au || t("ph_au")}` : "/";
     blocks = [
       ["Microsoft Graph PowerShell", `Connect-MgGraph -Scopes "RoleManagement.ReadWrite.Directory"\n\n$role = Get-MgRoleManagementDirectoryRoleDefinition -Filter "displayName eq '${r.name}'"\n\nNew-MgRoleManagementDirectoryRoleAssignment \`\n  -PrincipalId "${pid}" \`\n  -RoleDefinitionId $role.Id \`\n  -DirectoryScopeId "${ds}"`]
     ];
   }
   const out = $("#cmd-" + uid);
-  out.innerHTML = blocks.map(([t, c]) => `<label>${t}</label><div class="codebox"><pre>${esc(c)}</pre><button class="copy">Copier</button></div>`).join("") +
-    (r.type === "azure" ? '<p class="sub" style="font-size:.85rem">Remplacer <code>Group</code> par <code>User</code> ou <code>ServicePrincipal</code> selon le principal (une identité managée est un ServicePrincipal).</p>' : "");
+  out.innerHTML = blocks.map(([n, c]) => `<label>${n}</label><div class="codebox"><pre>${esc(c)}</pre><button class="copy">${t("copy")}</button></div>`).join("") +
+    (r.type === "azure" ? `<p class="sub" style="font-size:.85rem">${t("principal_hint")}</p>` : "");
 }
 function wireCmd(container, r, uid) {
   const f = () => renderCmd(container, r, uid);
@@ -604,23 +997,23 @@ let uidSeq = 0;
 function roleHtml(r, uid) {
   return `
     <div class="rolehead">
-      <div><h2>${esc(r.name)}</h2><div class="fr">${esc(r.fr)}</div></div>
+      <div><h2>${esc(r.name)}</h2><div class="fr">${esc(subName(r))}</div></div>
       <div>${typeTag(r)}${riskTag(r)}</div>
     </div>
-    <p>${esc(r.desc)}</p>
+    <p>${esc(rf(r, "desc"))}</p>
     <div class="cols">
-      <div><h3>Ce qu'il permet</h3><ul class="can">${r.can.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
-      <div><h3>Ce qu'il ne permet pas</h3><ul class="cannot">${r.cannot.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
+      <div><h3>${t("can")}</h3><ul class="can">${rf(r, "can").map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
+      <div><h3>${t("cannot")}</h3><ul class="cannot">${rf(r, "cannot").map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
     </div>
-    ${r.type === "azure" ? `<div class="note"><strong>Portée recommandée :</strong> ${SCOPES[r.scope]}</div>` : (r.au ? `<div class="note"><strong>Portée :</strong> peut être limité à une unité administrative.</div>` : "")}
-    <div class="${r.risk >= 3 ? "warn" : "note"}"><strong>Conseil :</strong> ${esc(r.tips)}</div>
-    <p style="margin-top:10px;font-size:.9rem"><a href="${msUrl(r.type, r.name)}" target="_blank" rel="noopener">Vérifier dans la documentation Microsoft ↗</a></p>
+    ${r.type === "azure" ? `<div class="note"><strong>${t("rec_scope")}</strong> ${t("scope_" + r.scope)}</div>` : (r.au ? `<div class="note">${t("au_scope")}</div>` : "")}
+    <div class="${r.risk >= 3 ? "warn" : "note"}"><strong>${t("tip")}</strong> ${esc(rf(r, "tips"))}</div>
+    <p style="margin-top:10px;font-size:.9rem"><a href="${msUrl(r.type, r.name)}" target="_blank" rel="noopener">${t("verify_ms")}</a></p>
     ${commandsHtml(r, uid)}`;
 }
 function openDetail(id) {
   const r = byId[id]; const uid = ++uidSeq;
   const card = $("#detail-card");
-  card.innerHTML = `<button class="btn ghost back" id="close-detail">Fermer</button>` + roleHtml(r, uid);
+  card.innerHTML = `<button class="btn ghost back" id="close-detail">${t("close")}</button>` + roleHtml(r, uid);
   wireCmd(card, r, uid);
   $("#detail-overlay").classList.add("open");
   $("#close-detail").onclick = closeDetail;
@@ -632,29 +1025,28 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") closeDetail(
 /* ---------- Assistant ---------- */
 const wiz = { step: 1, domain: null, need: null };
 function renderSteps() {
-  const labels = ["1. Domaine", "2. Besoin", "3. Recommandation"];
-  $("#wiz-steps").innerHTML = labels.map((l, i) => `<span class="step ${wiz.step === i + 1 ? "on" : ""}">${l}</span>`).join("");
+  $("#wiz-steps").innerHTML = t("steps").map((l, i) => `<span class="step ${wiz.step === i + 1 ? "on" : ""}">${l}</span>`).join("");
 }
 function renderWizard() {
   renderSteps();
   const body = $("#wiz-body");
   if (wiz.step === 1) {
     body.innerHTML = `
-      <div class="card"><h2>Que doit gérer la personne ou l'application ?</h2>
+      <div class="card"><h2>${t("q_domain")}</h2>
       <div class="grid">
-        <button class="choice big" data-domain="azure"><strong>Des ressources Azure</strong><span>VM, réseau, stockage, Key Vault, sauvegardes, coûts, AVD…</span></button>
-        <button class="choice big" data-domain="entra"><strong>L'annuaire et Microsoft 365</strong><span>Utilisateurs, mots de passe, MFA, groupes, appareils, applications, accès conditionnel… Recommandations officielles Microsoft.</span></button>
+        <button class="choice big" data-domain="azure"><strong>${t("d_azure")}</strong><span>${t("d_azure_sub")}</span></button>
+        <button class="choice big" data-domain="entra"><strong>${t("d_entra")}</strong><span>${t("d_entra_sub")}</span></button>
       </div></div>`;
     body.querySelectorAll("[data-domain]").forEach(b => b.onclick = () => { wiz.domain = b.dataset.domain; wiz.step = 2; renderWizard(); });
   } else if (wiz.step === 2) {
     if (wiz.domain === "entra" && !wiz.noTasks) { renderEntraTasks(body); return; }
     const list = NEEDS.filter(n => n.d === wiz.domain);
     body.innerHTML = `
-      <button class="btn ghost back" id="wiz-back">Retour</button>
-      <div class="card"><h2>Que doit-elle pouvoir faire ?</h2>
-      <input id="need-filter" type="search" placeholder="Filtrer les besoins" style="margin-bottom:12px">
+      <button class="btn ghost back" id="wiz-back">${t("back")}</button>
+      <div class="card"><h2>${t("q_need")}</h2>
+      <input id="need-filter" type="search" placeholder="${esc(t("need_filter"))}" style="margin-bottom:12px">
       <div class="grid" id="need-grid">
-        ${list.map((n, i) => `<button class="choice" data-need="${NEEDS.indexOf(n)}"><strong>${esc(n.label)}</strong><span>${esc(byId[n.role].name)}</span></button>`).join("")}
+        ${list.map(n => `<button class="choice" data-need="${NEEDS.indexOf(n)}"><strong>${esc(needLabel(n))}</strong><span>${esc(byId[n.role].name)}</span></button>`).join("")}
       </div></div>`;
     $("#wiz-back").onclick = () => { wiz.step = 1; renderWizard(); };
     body.querySelectorAll("[data-need]").forEach(b => b.onclick = () => { wiz.need = NEEDS[+b.dataset.need]; wiz.step = 3; renderWizard(); });
@@ -664,15 +1056,15 @@ function renderWizard() {
     });
   } else {
     if (wiz.msTask) { renderMsResult(body); return; }
-    const n = wiz.need, r = byId[n.role], uid = ++uidSeq;
+    const n = wiz.need, r = byId[n.role], uid = ++uidSeq, why = needWhy(n);
     body.innerHTML = `
-      <button class="btn ghost back" id="wiz-back">Retour</button>
-      <button class="btn ghost back" id="wiz-restart">Recommencer</button>
+      <button class="btn ghost back" id="wiz-back">${t("back")}</button>
+      <button class="btn ghost back" id="wiz-restart">${t("restart")}</button>
       <div class="card">
-        <p class="sub" style="margin-bottom:6px">Besoin : <strong>${esc(n.label)}</strong></p>
+        <p class="sub" style="margin-bottom:6px">${t("need")} <strong>${esc(needLabel(n))}</strong></p>
         ${roleHtml(r, uid)}
-        ${n.why ? `<div class="note"><strong>À savoir :</strong> ${esc(n.why)}</div>` : ""}
-        ${n.alts.length ? `<h3>Alternatives</h3><div class="alts">${n.alts.map(a => `<button data-open="${a}">${esc(byId[a].name)} · ${RISK[byId[a].risk]}</button>`).join("")}</div>` : ""}
+        ${why ? `<div class="note"><strong>${t("good_to_know")}</strong> ${esc(why)}</div>` : ""}
+        ${n.alts.length ? `<h3>${t("alternatives")}</h3><div class="alts">${n.alts.map(a => `<button data-open="${a}">${esc(byId[a].name)} · ${t("risk" + byId[a].risk)}</button>`).join("")}</div>` : ""}
       </div>`;
     wireCmd(body, r, uid);
     $("#wiz-back").onclick = () => { wiz.step = 2; renderWizard(); };
@@ -684,20 +1076,20 @@ function renderWizard() {
 /* ---------- Catalogue ---------- */
 function renderCatalog() {
   const q = $("#cat-search").value.toLowerCase().trim();
-  const t = $("#cat-type").value, k = $("#cat-risk").value;
+  const ty = $("#cat-type").value, k = $("#cat-risk").value;
   const list = ROLES.filter(r => {
-    if (t && r.type !== t) return false;
+    if (ty && r.type !== ty) return false;
     if (k && String(r.risk) !== k) return false;
     if (!q) return true;
-    return [r.name, r.fr, r.desc, r.cat, ...r.can, ...r.cannot].join(" ").toLowerCase().includes(q);
+    return [r.name, subName(r), rf(r, "desc"), r.cat, ...rf(r, "can"), ...rf(r, "cannot")].join(" ").toLowerCase().includes(q);
   });
   $("#cat-grid").innerHTML = list.length ? list.map(r => `
     <div class="card rolecard" data-open="${r.id}" tabindex="0">
       <div>${typeTag(r)}${riskTag(r)}</div>
       <h3 style="margin:10px 0 0">${esc(r.name)}</h3>
-      <div class="fr">${esc(r.fr)}</div>
-      <p>${esc(r.desc)}</p>
-    </div>`).join("") : '<p class="sub">Aucun rôle ne correspond.</p>';
+      <div class="fr">${esc(subName(r))}</div>
+      <p>${esc(rf(r, "desc"))}</p>
+    </div>`).join("") : `<p class="sub">${t("no_role")}</p>`;
   $("#cat-grid").querySelectorAll("[data-open]").forEach(c => {
     c.onclick = () => openDetail(c.dataset.open);
     c.onkeydown = e => { if (e.key === "Enter") openDetail(c.dataset.open); };
@@ -707,25 +1099,26 @@ function renderCatalog() {
 
 /* ---------- Comparer ---------- */
 function fillCompareSelects() {
-  const opts = '<option value="">(aucun)</option>' +
-    ['azure', 'entra'].map(t => `<optgroup label="${t === "azure" ? "Azure RBAC" : "Entra ID"}">` +
-      ROLES.filter(r => r.type === t).map(r => `<option value="${r.id}">${esc(r.name)}</option>`).join("") + "</optgroup>").join("");
-  ["#cmp1", "#cmp2", "#cmp3"].forEach(s => { $(s).innerHTML = opts; $(s).addEventListener("change", renderCompare); });
+  const opts = `<option value="">${t("cmp_none")}</option>` +
+    ["azure", "entra"].map(ty => `<optgroup label="${ty === "azure" ? "Azure RBAC" : "Entra ID"}">` +
+      ROLES.filter(r => r.type === ty).map(r => `<option value="${r.id}">${esc(r.name)}</option>`).join("") + "</optgroup>").join("");
+  ["#cmp1", "#cmp2", "#cmp3"].forEach(s => { const v = $(s).value; $(s).innerHTML = opts; $(s).value = v; });
 }
+["#cmp1", "#cmp2", "#cmp3"].forEach(s => $(s).addEventListener("change", renderCompare));
 function renderCompare() {
   const ids = ["#cmp1", "#cmp2", "#cmp3"].map(s => $(s).value).filter(Boolean);
-  if (!ids.length) { $("#cmp-table").innerHTML = '<p class="sub">Choisis au moins un rôle.</p>'; return; }
+  if (!ids.length) { $("#cmp-table").innerHTML = `<p class="sub">${t("cmp_pick")}</p>`; return; }
   const rs = ids.map(i => byId[i]);
   const row = (label, f) => `<tr><th>${label}</th>${rs.map(r => `<td>${f(r)}</td>`).join("")}</tr>`;
   $("#cmp-table").innerHTML = `<div style="overflow-x:auto"><table>
-    ${row("Rôle", r => `<strong>${esc(r.name)}</strong><br><span class="fr">${esc(r.fr)}</span>`)}
-    ${row("Type", typeTag)}
-    ${row("Risque", riskTag)}
-    ${row("Description", r => esc(r.desc))}
-    ${row("Permet", r => `<ul class="can">${r.can.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`)}
-    ${row("Ne permet pas", r => `<ul class="cannot">${r.cannot.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`)}
-    ${row("Portée", r => r.type === "azure" ? SCOPES[r.scope] + " (recommandé)" : (r.au ? "Tenant ou unité administrative" : "Tenant"))}
-    ${row("Conseil", r => esc(r.tips))}
+    ${row(t("row_role"), r => `<strong>${esc(r.name)}</strong><br><span class="fr">${esc(subName(r))}</span>`)}
+    ${row(t("row_type"), typeTag)}
+    ${row(t("row_risk"), riskTag)}
+    ${row(t("row_desc"), r => esc(rf(r, "desc")))}
+    ${row(t("row_can"), r => `<ul class="can">${rf(r, "can").map(x => `<li>${esc(x)}</li>`).join("")}</ul>`)}
+    ${row(t("row_cannot"), r => `<ul class="cannot">${rf(r, "cannot").map(x => `<li>${esc(x)}</li>`).join("")}</ul>`)}
+    ${row(t("row_scope"), r => r.type === "azure" ? t("scope_" + r.scope) + " (" + t("recommended") + ")" : (r.au ? t("scope_tenant_or_au") : t("scope_tenant")))}
+    ${row(t("row_tip"), r => esc(rf(r, "tips")))}
   </table></div>`;
 }
 document.querySelectorAll("[data-cmp]").forEach(b => b.onclick = () => {
@@ -739,8 +1132,8 @@ let DATA_P = null;
 function loadData() {
   if (!DATA_P) {
     const get = f => fetch(`data/${f}.json`, { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
-    DATA_P = Promise.allSettled([get("azure-roles"), get("entra-roles"), get("entra-tasks")]).then(([a, e, t]) => {
-      const d = { azure: a.value || null, entra: e.value || null, tasks: t.value || null, byName: {} };
+    DATA_P = Promise.allSettled([get("azure-roles"), get("entra-roles"), get("entra-tasks")]).then(([a, e, tk]) => {
+      const d = { azure: a.value || null, entra: e.value || null, tasks: tk.value || null, byName: {} };
       [["azure", d.azure], ["entra", d.entra]].forEach(([k, j]) => j && j.roles.forEach(r => { r.type = k; d.byName[k + ":" + r.name.toLowerCase()] = r; }));
       return d;
     });
@@ -748,20 +1141,20 @@ function loadData() {
   return DATA_P;
 }
 function msUrl(type, name) {
-  return type === "entra"
+  return lurl(type === "entra"
     ? "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#" + name.toLowerCase().replace(/[^a-z0-9 -]/g, "").trim().replace(/\s+/g, "-")
-    : "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles";
+    : "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles");
 }
 function officialHtml(r, uid) {
   const pseudo = { type: r.type, name: r.name, scope: "rg", au: false };
   return `
     <div class="rolehead">
-      <div><h2>${esc(r.name)}</h2><div class="fr">Description officielle Microsoft</div></div>
-      <div>${typeTag(r)}${r.isPrivileged ? '<span class="tag risk4">Privilégié</span>' : ""}</div>
+      <div><h2>${esc(r.name)}</h2><div class="fr">${t("official_desc")}</div></div>
+      <div>${typeTag(r)}${r.isPrivileged ? `<span class="tag risk4">${t("privileged")}</span>` : ""}</div>
     </div>
     <p>${esc(r.description)}</p>
-    <p><a href="${msUrl(r.type, r.name)}" target="_blank" rel="noopener">Voir la documentation Microsoft ↗</a></p>
-    ${permList(r.type === "azure" ? "Actions" : "Actions autorisées", r.actions, [], [])}
+    <p><a href="${msUrl(r.type, r.name)}" target="_blank" rel="noopener">${t("ms_doc")}</a></p>
+    ${permList(r.type === "azure" ? "Actions" : t("allowed_actions"), r.actions, [], [])}
     ${permList("NotActions", r.notActions, [], [])}
     ${permList("DataActions", r.dataActions, [], [])}
     ${commandsHtml(pseudo, uid)}`;
@@ -773,7 +1166,7 @@ async function openRoleByName(type, name) {
   const r = d.byName[type + ":" + name.toLowerCase()];
   if (!r) return;
   const uid = ++uidSeq, card = $("#detail-card");
-  card.innerHTML = `<button class="btn ghost back" id="close-detail">Fermer</button>` + officialHtml(r, uid);
+  card.innerHTML = `<button class="btn ghost back" id="close-detail">${t("close")}</button>` + officialHtml(r, uid);
   wireCmd(card, { type: r.type, name: r.name, scope: "rg" }, uid);
   $("#detail-overlay").classList.add("open");
   $("#close-detail").onclick = closeDetail;
@@ -797,42 +1190,42 @@ const AREA_FR = {
   "Security - Users flagged for risk": "Sécurité : utilisateurs à risque", "Temporary Access Pass": "Passe d'accès temporaire",
   "Tenants": "Locataires (tenants)", "Users": "Utilisateurs", "Support": "Support"
 };
-const areaFr = a => AREA_FR[a] || a;
+const areaLabel = a => LANG === "fr" ? (AREA_FR[a] || a) : a;
 const roleNames = list => list.map(x => x.name).join(", ");
 
 async function renderEntraTasks(body) {
-  body.innerHTML = '<div class="card"><p class="sub">Chargement des tâches Microsoft…</p></div>';
+  body.innerHTML = `<div class="card"><p class="sub">${t("tasks_loading")}</p></div>`;
   const d = await loadData();
   if (!d.tasks) { wiz.noTasks = true; renderWizard(); return; }
-  const fmt = s => s ? new Date(s).toLocaleDateString("fr-CA", { year: "numeric", month: "long", day: "numeric" }) : "";
   body.innerHTML = `
-    <button class="btn ghost back" id="wiz-back">Retour</button>
+    <button class="btn ghost back" id="wiz-back">${t("back")}</button>
     <div class="card">
-      <h2>Que doit-elle pouvoir faire ?</h2>
-      <p class="sub" style="font-size:.9rem">Source : <a href="${d.tasks.source}" target="_blank" rel="noopener">Least privileged roles by task in Microsoft Entra ID</a> (Microsoft, page du ${fmt(d.tasks.sourceDate)}). ${d.tasks.count} tâches, affichées telles que publiées par Microsoft (en anglais).</p>
+      <h2>${t("q_need")}</h2>
+      <p class="sub" style="font-size:.9rem">${t("tasks_source", lurl(d.tasks.source), fmtDate(d.tasks.sourceDate), d.tasks.count)}</p>
       <div class="toolbar">
-        <input id="task-q" type="search" placeholder="Chercher une tâche (ex. : password, BitLocker, guest, conditional access)" value="${esc(wiz.q || "")}">
-        <select id="task-area"><option value="">Tous les domaines</option>
-          ${d.tasks.areas.map(a => `<option value="${esc(a.area)}" ${wiz.area === a.area ? "selected" : ""}>${esc(areaFr(a.area))} (${a.tasks.length})</option>`).join("")}
+        <input id="task-q" type="search" placeholder="${esc(t("task_ph"))}" value="${esc(wiz.q || "")}">
+        <select id="task-area"><option value="">${t("all_areas")}</option>
+          ${d.tasks.areas.map(a => `<option value="${esc(a.area)}" ${wiz.area === a.area ? "selected" : ""}>${esc(areaLabel(a.area))} (${a.tasks.length})</option>`).join("")}
         </select>
       </div>
       <div id="task-list"></div>
     </div>`;
   $("#wiz-back").onclick = () => { wiz.step = 1; renderWizard(); };
+  const hay = (a, tk) => (tk.task + " " + a.area + " " + areaLabel(a.area) + " " + roleNames(tk.least)).toLowerCase();
   const draw = () => {
     wiz.q = $("#task-q").value; wiz.area = $("#task-area").value;
     const q = wiz.q.toLowerCase().trim();
-    const html = d.tasks.areas.filter(a => !wiz.area || a.area === wiz.area).map((a, ai) => {
-      const ts = a.tasks.map((t, ti) => [t, ti]).filter(([t]) => !q || (t.task + " " + a.area + " " + areaFr(a.area) + " " + roleNames(t.least)).toLowerCase().includes(q));
+    const html = d.tasks.areas.filter(a => !wiz.area || a.area === wiz.area).map(a => {
+      const ts = a.tasks.map((tk, ti) => [tk, ti]).filter(([tk]) => !q || hay(a, tk).includes(q));
       if (!ts.length) return "";
       const idx = d.tasks.areas.indexOf(a);
-      return `<h3>${esc(areaFr(a.area))}</h3><div class="grid">${ts.map(([t, ti]) =>
-        `<button class="choice" data-t="${idx}:${ti}"><strong>${esc(t.task)}</strong><span>${esc(roleNames(t.least))}</span></button>`).join("")}</div>`;
+      return `<h3>${esc(areaLabel(a.area))}</h3><div class="grid">${ts.map(([tk, ti]) =>
+        `<button class="choice" data-t="${idx}:${ti}"><strong>${esc(tk.task)}</strong><span>${esc(roleNames(tk.least))}</span></button>`).join("")}</div>`;
     }).join("");
-    let empty = '<p class="sub">Aucune tâche ne correspond.</p>';
+    let empty = `<p class="sub">${t("no_task")}</p>`;
     if (!html && wiz.area && q) {
-      const elsewhere = d.tasks.areas.reduce((n, a) => n + a.tasks.filter(t => (t.task + " " + a.area + " " + areaFr(a.area) + " " + roleNames(t.least)).toLowerCase().includes(q)).length, 0);
-      if (elsewhere) empty = `<p class="sub">Aucune tâche « ${esc(wiz.q.trim())} » dans le domaine <strong>${esc(areaFr(wiz.area))}</strong>, mais ${elsewhere} dans les autres domaines.</p><button class="btn ghost" id="task-all">Chercher dans tous les domaines</button>`;
+      const elsewhere = d.tasks.areas.reduce((n, a) => n + a.tasks.filter(tk => hay(a, tk).includes(q)).length, 0);
+      if (elsewhere) empty = `<p class="sub">${t("task_elsewhere", esc(wiz.q.trim()), esc(areaLabel(wiz.area)), elsewhere)}</p><button class="btn ghost" id="task-all">${t("search_all_areas")}</button>`;
     }
     $("#task-list").innerHTML = html || empty;
     const allBtn = $("#task-all");
@@ -852,8 +1245,7 @@ async function renderEntraTasks(body) {
 async function renderMsResult(body) {
   const d = await loadData();
   const { area, task } = wiz.msTask;
-  const blocks = [];
-  const wires = [];
+  const blocks = [], wires = [];
   for (const it of task.least) {
     const key = "entra:" + it.name.toLowerCase();
     const cur = curatedByName[key], off = d.byName[key];
@@ -865,20 +1257,20 @@ async function renderMsResult(body) {
       blocks.push(`<div class="card" id="blk-${uid}">${officialHtml(off, uid)}</div>`);
       wires.push([uid, { type: "entra", name: off.name, scope: "rg" }]);
     } else {
-      blocks.push(`<div class="card"><h2>${esc(it.name)}</h2><p class="sub">Ce n'est pas un rôle d'annuaire Entra ID (propriétaire d'objet, rôle Azure RBAC ou permission par défaut).</p>${it.url ? `<a href="${it.url}" target="_blank" rel="noopener">En savoir plus chez Microsoft ↗</a>` : ""}</div>`);
+      blocks.push(`<div class="card"><h2>${esc(it.name)}</h2><p class="sub">${t("not_dir_role")}</p>${it.url ? `<a href="${lurl(it.url)}" target="_blank" rel="noopener">${t("learn_more")}</a>` : ""}</div>`);
     }
-    if (it.note) blocks.push(`<div class="note"><strong>Précision Microsoft :</strong> ${esc(it.note)}</div>`);
+    if (it.note) blocks.push(`<div class="note"><strong>${t("ms_note")}</strong> ${esc(it.note)}</div>`);
   }
   body.innerHTML = `
-    <button class="btn ghost back" id="wiz-back">Retour</button>
-    <button class="btn ghost back" id="wiz-restart">Recommencer</button>
+    <button class="btn ghost back" id="wiz-back">${t("back")}</button>
+    <button class="btn ghost back" id="wiz-restart">${t("restart")}</button>
     <div class="card">
-      <p class="sub" style="margin-bottom:4px">${esc(areaFr(area.area))}</p>
+      <p class="sub" style="margin-bottom:4px">${esc(areaLabel(area.area))}</p>
       <h2>${esc(task.task)}</h2>
-      <div class="note"><strong>Recommandation officielle Microsoft :</strong> ${esc(roleNames(task.least))}.
-        <a href="${area.url}" target="_blank" rel="noopener">Voir la source ↗</a>${task.doc ? ` · <a href="${task.doc}" target="_blank" rel="noopener">Documentation de la tâche ↗</a>` : ""}</div>
-      ${task.additional.length ? `<h3>Autres rôles qui peuvent aussi le faire (plus larges)</h3><div class="alts">${task.additional.map(a =>
-        `<button data-role="${esc(a.name)}">${esc(a.name)}${d.byName["entra:" + a.name.toLowerCase()]?.isPrivileged ? " · Privilégié" : ""}</button>`).join("")}</div>` : ""}
+      <div class="note"><strong>${t("ms_reco")}</strong> ${esc(roleNames(task.least))}.
+        <a href="${lurl(area.url)}" target="_blank" rel="noopener">${t("see_source")}</a>${task.doc ? ` · <a href="${lurl(task.doc)}" target="_blank" rel="noopener">${t("task_doc")}</a>` : ""}</div>
+      ${task.additional.length ? `<h3>${t("other_roles")}</h3><div class="alts">${task.additional.map(a =>
+        `<button data-role="${esc(a.name)}">${esc(a.name)}${d.byName["entra:" + a.name.toLowerCase()]?.isPrivileged ? " · " + t("privileged") : ""}</button>`).join("")}</div>` : ""}
     </div>
     ${blocks.join("")}`;
   wires.forEach(([uid, r]) => wireCmd($("#blk-" + uid), r, uid));
@@ -888,7 +1280,7 @@ async function renderMsResult(body) {
 }
 
 /* ---------- Tous les rôles (données officielles) ---------- */
-const ALL = { loaded: false, roles: [], shown: 40 };
+const ALL = { loaded: false, ready: false, roles: [], shown: 40, d: null };
 const curatedByName = Object.fromEntries(ROLES.map(r => [r.type + ":" + r.name.toLowerCase(), r.id]));
 const rxCache = new Map();
 function patMatch(pattern, perm) {
@@ -904,9 +1296,9 @@ function grants(r, perm) {
   const check = (allow, deny) => {
     const a = (allow || []).filter(p => patMatch(p, perm));
     if (!a.length) return false;
-    const d = (deny || []).filter(p => patMatch(p, perm));
-    hit.push(...a); miss.push(...d);
-    return d.length === 0;
+    const dn = (deny || []).filter(p => patMatch(p, perm));
+    hit.push(...a); miss.push(...dn);
+    return dn.length === 0;
   };
   const ok = check(r.actions, r.notActions) || check(r.dataActions, r.notDataActions);
   return { ok, hit, miss };
@@ -922,24 +1314,27 @@ async function loadAll() {
   if (ALL.loaded) return;
   ALL.loaded = true;
   const d = await loadData();
-  const wrap = v => v ? { status: "fulfilled", value: v } : { status: "rejected" };
-  const az = wrap(d.azure), en = wrap(d.entra);
-  const meta = [];
-  const fmt = d => new Date(d).toLocaleDateString("fr-CA", { year: "numeric", month: "long", day: "numeric" });
-  if (az.status === "fulfilled") { ALL.roles.push(...az.value.roles); meta.push(`${az.value.count} rôles Azure RBAC (${fmt(az.value.generatedAt)})`); }
-  if (en.status === "fulfilled") { ALL.roles.push(...en.value.roles); meta.push(`${en.value.count} rôles Entra ID (${fmt(en.value.generatedAt)})`); }
+  ALL.d = d;
+  if (d.azure) ALL.roles.push(...d.azure.roles);
+  if (d.entra) ALL.roles.push(...d.entra.roles);
+  ALL.ready = true;
+  renderAllMeta();
+  renderAll();
+}
+function renderAllMeta() {
+  const d = ALL.d;
+  if (!d) return;
   if (!ALL.roles.length) {
-    $("#all-meta").innerHTML = location.protocol === "file:"
-      ? "Cet onglet charge des fichiers JSON : ouvre la page depuis GitHub Pages ou un petit serveur local (<code>python3 -m http.server</code>)."
-      : "Les données n'ont pas encore été générées. Lance le workflow « Mise à jour des rôles intégrés » dans l'onglet Actions du dépôt.";
+    $("#all-meta").innerHTML = location.protocol === "file:" ? t("all_file") : t("all_nodata");
     return;
   }
-  $("#all-meta").textContent = "Source : export officiel. " + meta.join(" · ");
+  const meta = [];
+  if (d.azure) meta.push(`${t("n_azure", d.azure.count)} (${fmtDate(d.azure.generatedAt)})`);
+  if (d.entra) meta.push(`${t("n_entra", d.entra.count)} (${fmtDate(d.entra.generatedAt)})`);
+  $("#all-meta").textContent = t("all_meta", meta);
   const names = new Set(ALL.roles.map(r => r.type + ":" + r.name.toLowerCase()));
-  const missing = ROLES.filter(r => (r.type === "azure" ? az : en).status === "fulfilled" && !names.has(r.type + ":" + r.name.toLowerCase()));
-  $("#all-warn").innerHTML = missing.length
-    ? `<div class="warn"><strong>À vérifier :</strong> ces rôles du guide ne figurent plus dans l'export officiel (renommés ou retirés) : ${missing.map(r => esc(r.name)).join(", ")}.</div>` : "";
-  renderAll();
+  const missing = ROLES.filter(r => (r.type === "azure" ? d.azure : d.entra) && !names.has(r.type + ":" + r.name.toLowerCase()));
+  $("#all-warn").innerHTML = missing.length ? `<div class="warn">${t("all_missing", missing.map(r => esc(r.name)).join(", "))}</div>` : "";
 }
 function permList(title, items, hit, miss) {
   if (!items || !items.length) return "";
@@ -948,9 +1343,9 @@ function permList(title, items, hit, miss) {
 }
 function renderAll() {
   if (!ALL.roles.length) return;
-  const mode = $("#all-mode").value, q = $("#all-search").value.trim(), t = $("#all-type").value;
-  $("#all-help").style.display = mode === "perm" ? "" : "none";
-  let list = ALL.roles.filter(r => !t || r.type === t);
+  const mode = $("#all-mode").value, q = $("#all-search").value.trim(), ty = $("#all-type").value;
+  document.querySelectorAll(".all-help").forEach(el => el.style.display = mode === "perm" ? "" : "none");
+  let list = ALL.roles.filter(r => !ty || r.type === ty);
   const info = new Map();
   if (mode === "perm" && q) {
     list = list.filter(r => { const g = grants(r, q); info.set(r, g); return g.ok; });
@@ -960,29 +1355,29 @@ function renderAll() {
     list = list.filter(r => (r.name + " " + r.description).toLowerCase().includes(s));
   }
   const shown = list.slice(0, ALL.shown);
-  $("#all-list").innerHTML = (mode === "perm" && q ? `<p class="sub">${list.length} rôle(s) accordent <code>${esc(q)}</code>.</p>` : `<p class="sub">${list.length} rôle(s).</p>`) +
+  $("#all-list").innerHTML = `<p class="sub">${mode === "perm" && q ? t("all_count_perm", list.length, esc(q)) : t("all_count", list.length)}</p>` +
     shown.map(r => {
       const g = info.get(r) || { hit: [], miss: [] };
       const cur = curatedByName[r.type + ":" + r.name.toLowerCase()];
       const n = r.actions.length + (r.dataActions || []).length;
       const cmd = r.type === "azure"
-        ? `az role assignment create --assignee-object-id "<id>" --assignee-principal-type Group --role "${r.name}" --scope "<portée>"`
+        ? `az role assignment create --assignee-object-id "<id>" --assignee-principal-type Group --role "${r.name}" --scope "${t("ph_scope")}"`
         : `$role = Get-MgRoleManagementDirectoryRoleDefinition -Filter "displayName eq '${r.name}'"\nNew-MgRoleManagementDirectoryRoleAssignment -PrincipalId "<id>" -RoleDefinitionId $role.Id -DirectoryScopeId "/"`;
       return `<details class="role">
-        <summary><span><strong>${esc(r.name)}</strong> ${typeTag(r)}${r.isPrivileged ? '<span class="tag risk4">Privilégié</span>' : ""}${cur ? '<span class="tag risk1">Dans le guide</span>' : ""}</span>
-        <span class="sub" style="margin:0;font-size:.85rem">${n} permission(s)</span></summary>
+        <summary><span><strong>${esc(r.name)}</strong> ${typeTag(r)}${r.isPrivileged ? `<span class="tag risk4">${t("privileged")}</span>` : ""}${cur ? `<span class="tag risk1">${t("in_guide")}</span>` : ""}</span>
+        <span class="sub" style="margin:0;font-size:.85rem">${t("n_perms", n)}</span></summary>
         <p class="d">${esc(r.description)}</p>
-        ${cur ? `<p><button class="btn ghost" data-open="${cur}">Ouvrir la fiche détaillée</button></p>` : ""}
-        ${permList(r.type === "azure" ? "Actions" : "Actions autorisées", r.actions, g.hit, g.miss)}
+        <p><button class="btn ghost" data-open-name="${esc(r.name)}" data-open-type="${r.type}">${t("open_card")}</button></p>
+        ${permList(r.type === "azure" ? "Actions" : t("allowed_actions"), r.actions, g.hit, g.miss)}
         ${permList("NotActions", r.notActions, g.hit, g.miss)}
         ${permList("DataActions", r.dataActions, g.hit, g.miss)}
         ${permList("NotDataActions", r.notDataActions, g.hit, g.miss)}
-        <div class="codebox"><pre>${esc(cmd)}</pre><button class="copy">Copier</button></div>
+        <div class="codebox"><pre>${esc(cmd)}</pre><button class="copy">${t("copy")}</button></div>
         <p class="sub" style="font-size:.8rem;margin:0">ID : <code>${esc(r.id)}</code></p>
       </details>`;
     }).join("");
   $("#all-more").style.display = list.length > ALL.shown ? "" : "none";
-  $("#all-list").querySelectorAll("[data-open]").forEach(b => b.onclick = () => openDetail(b.dataset.open));
+  $("#all-list").querySelectorAll("[data-open-name]").forEach(b => b.onclick = () => openRoleByName(b.dataset.openType, b.dataset.openName));
 }
 let allTimer;
 $("#all-search").addEventListener("input", () => { clearTimeout(allTimer); allTimer = setTimeout(() => { ALL.shown = 40; renderAll(); }, 200); });
@@ -999,10 +1394,34 @@ document.querySelectorAll("nav button").forEach(b => b.onclick = () => {
 document.addEventListener("click", e => {
   if (!e.target.classList.contains("copy")) return;
   const txt = e.target.parentElement.querySelector("pre").textContent;
-  const done = () => { e.target.textContent = "Copié"; setTimeout(() => e.target.textContent = "Copier", 1500); };
+  const done = () => { e.target.textContent = t("copied"); setTimeout(() => e.target.textContent = t("copy"), 1500); };
   if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done).catch(() => {});
 });
 
+/* ---------- Changement de langue ---------- */
+function applyStatic() {
+  document.documentElement.lang = LANG;
+  document.title = t("title");
+  document.querySelectorAll("[data-i18n]").forEach(el => el.textContent = t(el.dataset.i18n));
+  document.querySelectorAll("[data-i18n-n]").forEach(el => el.textContent = t(el.dataset.i18nN, el.dataset.n));
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => el.placeholder = t(el.dataset.i18nPh));
+  document.querySelectorAll("[data-i18n-href]").forEach(el => el.href = lurl(el.dataset.i18nHref));
+  document.querySelectorAll("[data-lang]").forEach(b => b.classList.toggle("on", b.dataset.lang === LANG));
+}
+function setLang(l) {
+  if (l === LANG) return;
+  LANG = l;
+  try { localStorage.setItem("lang", l); } catch (e) {}
+  const u = new URL(location.href);
+  if (u.searchParams.has("lang")) { u.searchParams.set("lang", l); history.replaceState(null, "", u); }
+  closeDetail();
+  applyStatic();
+  renderWizard(); renderCatalog(); fillCompareSelects(); renderCompare();
+  if (ALL.ready) { renderAllMeta(); renderAll(); }
+}
+document.querySelectorAll("[data-lang]").forEach(b => b.onclick = () => setLang(b.dataset.lang));
+
+applyStatic();
 renderWizard(); renderCatalog(); fillCompareSelects(); renderCompare();
 </script>
 </body>
