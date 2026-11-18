@@ -18,7 +18,7 @@ import urllib.request
 from pathlib import Path
 
 DATA = Path(__file__).resolve().parent.parent / "data"
-GRAPH = "https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions"
+GRAPH = "https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions"
 
 
 def az(*args):
