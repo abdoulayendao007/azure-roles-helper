@@ -3,6 +3,14 @@
 Assistant web pour choisir le rôle **Azure RBAC** ou **Entra ID** au moindre privilège, comprendre ce qu'il permet (et ne permet pas) et copier la commande d'attribution.
 
 **Site :** https://abdoulayendao007.github.io/azure-roles-helper/
+**Version de développement :** https://abdoulayendao007.github.io/azure-roles-helper/dev/
+
+## Branches
+
+- `dev` : développement et tests, publiée sous `/dev/` avec un bandeau orange
+- `main` : production, publiée à la racine. On y fusionne `dev` par Pull Request une fois validé.
+
+Le workflow `deploy-pages.yml` publie les deux branches à chaque push. La source GitHub Pages doit être réglée sur **GitHub Actions**.
 
 ## Fonctionnalités
 
@@ -21,6 +29,7 @@ data/azure-roles.json               Export des rôles intégrés Azure RBAC (gé
 data/entra-roles.json               Export des rôles intégrés Entra ID (généré)
 scripts/export_roles.py             Script d'export
 .github/workflows/update-roles.yml  Workflow hebdomadaire (lundi) + lancement manuel
+.github/workflows/deploy-pages.yml  Publication de main (racine) et dev (/dev/)
 ```
 
 ## Configuration de la mise à jour automatique
