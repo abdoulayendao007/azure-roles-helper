@@ -829,7 +829,14 @@ async function renderEntraTasks(body) {
       return `<h3>${esc(areaFr(a.area))}</h3><div class="grid">${ts.map(([t, ti]) =>
         `<button class="choice" data-t="${idx}:${ti}"><strong>${esc(t.task)}</strong><span>${esc(roleNames(t.least))}</span></button>`).join("")}</div>`;
     }).join("");
-    $("#task-list").innerHTML = html || '<p class="sub">Aucune tâche ne correspond.</p>';
+    let empty = '<p class="sub">Aucune tâche ne correspond.</p>';
+    if (!html && wiz.area && q) {
+      const elsewhere = d.tasks.areas.reduce((n, a) => n + a.tasks.filter(t => (t.task + " " + a.area + " " + areaFr(a.area) + " " + roleNames(t.least)).toLowerCase().includes(q)).length, 0);
+      if (elsewhere) empty = `<p class="sub">Aucune tâche « ${esc(wiz.q.trim())} » dans le domaine <strong>${esc(areaFr(wiz.area))}</strong>, mais ${elsewhere} dans les autres domaines.</p><button class="btn ghost" id="task-all">Chercher dans tous les domaines</button>`;
+    }
+    $("#task-list").innerHTML = html || empty;
+    const allBtn = $("#task-all");
+    if (allBtn) allBtn.onclick = () => { $("#task-area").value = ""; draw(); };
     $("#task-list").querySelectorAll("[data-t]").forEach(b => b.onclick = () => {
       const [ai, ti] = b.dataset.t.split(":").map(Number);
       wiz.msTask = { area: d.tasks.areas[ai], task: d.tasks.areas[ai].tasks[ti] };
