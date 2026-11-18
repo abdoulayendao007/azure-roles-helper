@@ -2,7 +2,8 @@
 """Exporte les rôles intégrés Azure RBAC et Entra ID vers data/*.json.
 
 Prérequis : une session `az login` active (dans GitHub Actions : azure/login en OIDC).
-- Azure RBAC : rôle Reader sur un abonnement.
+- Azure RBAC : rôle Reader sur la portée indiquée par ROLES_SCOPE (ex. un groupe
+  de ressources vide dédié). Lister les définitions de rôles ne demande pas plus.
 - Entra ID : permission d'application Microsoft Graph RoleManagement.Read.Directory.
 
 Les fichiers ne sont réécrits que si la liste des rôles a changé, pour éviter
@@ -33,7 +34,11 @@ def uniq(items):
 
 
 def azure_roles():
-    raw = az("role", "definition", "list", "--query", "[?roleType=='BuiltInRole']")
+    scope = os.environ.get("ROLES_SCOPE")
+    args = ["role", "definition", "list", "--query", "[?roleType=='BuiltInRole']"]
+    if scope:
+        args += ["--scope", scope]
+    raw = az(*args)
     roles = []
     for r in raw:
         perms = r.get("permissions") or []

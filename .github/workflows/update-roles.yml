@@ -27,7 +27,11 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Exporter les rôles
-        run: python3 scripts/export_roles.py
+        env:
+          ROLES_RG: rg-azure-roles-helper # groupe de ressources vide : seule portée où le robot a Reader
+        run: |
+          export ROLES_SCOPE="/subscriptions/$(az account show --query id -o tsv)/resourceGroups/${ROLES_RG}"
+          python3 scripts/export_roles.py
 
       - name: Commit si changement
         if: always()
