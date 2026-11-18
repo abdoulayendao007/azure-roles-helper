@@ -171,6 +171,14 @@
   ol.portal li { padding: 5px 0 5px 4px; }
   ol.portal li::marker { font-weight: 700; color: var(--pine); }
 
+  /* Sélecteur Rôles essentiels / Tous les rôles */
+  .scope-switch { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 4px; margin: 0 0 14px; overflow: hidden; }
+  .scope-switch button { background: var(--sheet); border: 0; padding: 8px 16px; font: 600 .92rem var(--text); color: var(--muted); cursor: pointer; }
+  .scope-switch button + button { border-left: 1px solid var(--line-strong); }
+  .scope-switch button.on { background: var(--ink); color: var(--paper); }
+  #roles-meta { margin-bottom: 16px; max-width: 72ch; }
+  .roles-empty { padding: 18px 0; }
+
   /* Catalogue : un registre plutôt qu'une grille de cartes */
   #cat-grid { border-top: 1px solid var(--line); }
   .rolecard { display: grid; grid-template-columns: minmax(200px, 1.1fr) 2fr 215px; grid-template-areas: "name desc meta" "fr desc meta";
@@ -230,9 +238,8 @@
     <p class="sub" data-i18n="subtitle">Un assistant de moindre privilège pour Azure RBAC et Microsoft Entra ID, appuyé sur les recommandations de Microsoft.</p>
     <nav>
       <button data-tab="wizard" class="active" data-i18n="tab_wizard">Assistant</button>
-      <button data-tab="catalog" data-i18n="tab_catalog">Catalogue</button>
+      <button data-tab="roles" data-i18n="tab_roles">Rôles</button>
       <button data-tab="compare" data-i18n="tab_compare">Comparer</button>
-      <button data-tab="all" data-i18n="tab_all">Tous les rôles</button>
       <button data-tab="basics" data-i18n="tab_basics">Azure RBAC vs Entra ID</button>
     </nav>
   </div>
@@ -243,24 +250,6 @@
   <section id="wizard" class="active">
     <div class="steps" id="wiz-steps"></div>
     <div id="wiz-body"></div>
-  </section>
-
-  <!-- CATALOGUE -->
-  <section id="catalog">
-    <div class="toolbar">
-      <input id="cat-search" type="search" data-i18n-ph="cat_search_ph">
-      <select id="cat-type">
-        <option value="" data-i18n="all_types">Tous les types</option>
-        <option value="azure">Azure RBAC</option>
-        <option value="entra">Entra ID</option>
-      </select>
-      <select id="cat-risk">
-        <option value="" data-i18n="all_risks">Tous les niveaux de risque</option>
-        <option value="1" data-i18n="risk1">Faible</option><option value="2" data-i18n="risk2">Moyen</option>
-        <option value="3" data-i18n="risk3">Élevé</option><option value="4" data-i18n="risk4">Critique</option>
-      </select>
-    </div>
-    <div class="grid" id="cat-grid"></div>
   </section>
 
   <!-- COMPARER -->
@@ -282,21 +271,28 @@
     </div>
   </section>
 
-  <!-- TOUS LES ROLES -->
-  <section id="all">
+  <!-- ROLES : essentiels commentés + tous les rôles intégrés -->
+  <section id="roles">
     <div class="card">
-      <h2 data-i18n="all_title">Tous les rôles intégrés</h2>
-      <p class="sub" id="all-meta" data-i18n="loading">Chargement…</p>
+      <div class="scope-switch" role="group">
+        <button type="button" data-scope="guide" class="on"></button><button type="button" data-scope="all"></button>
+      </div>
+      <p class="sub" id="roles-meta"></p>
       <div class="toolbar">
-        <select id="all-mode">
+        <select id="all-mode" class="all-only">
           <option value="text" data-i18n="all_mode_text">Rechercher par nom ou description</option>
           <option value="perm" data-i18n="all_mode_perm">Quels rôles accordent cette permission ?</option>
         </select>
-        <input id="all-search" type="search" data-i18n-ph="all_ph">
+        <input id="all-search" type="search">
         <select id="all-type">
           <option value="" data-i18n="all_both">Azure RBAC et Entra ID</option>
           <option value="azure">Azure RBAC</option>
           <option value="entra">Entra ID</option>
+        </select>
+        <select id="cat-risk" class="guide-only">
+          <option value="" data-i18n="all_risks">Tous les niveaux de risque</option>
+          <option value="1" data-i18n="risk1">Faible</option><option value="2" data-i18n="risk2">Moyen</option>
+          <option value="3" data-i18n="risk3">Élevé</option><option value="4" data-i18n="risk4">Critique</option>
         </select>
       </div>
       <p class="sub all-help fr-only" style="display:none;font-size:.88rem">
@@ -313,8 +309,9 @@
         <button class="linkbtn" data-ex="microsoft.directory/users/password/update">microsoft.directory/users/password/update</button>.
         Wildcards (<code>*</code>) and exclusions (NotActions) are taken into account. Results are sorted from the most restricted to the broadest (estimate).
       </p>
-      <div id="all-warn"></div>
-      <div id="all-list"></div>
+      <div id="all-warn" class="all-only"></div>
+      <div id="cat-grid" class="guide-only"></div>
+      <div id="all-list" class="all-only"></div>
       <div style="text-align:center;margin-top:12px"><button class="btn ghost" id="all-more" style="display:none" data-i18n="more">Afficher plus</button></div>
     </div>
   </section>
@@ -925,7 +922,11 @@ const I18N = {
     title: "Choisir le bon rôle Azure et Entra ID",
     headline: "Quel rôle donner, sans donner trop ?",
     subtitle: "Un assistant de moindre privilège pour Azure RBAC et Microsoft Entra ID, appuyé sur les recommandations de Microsoft.",
-    tab_wizard: "Assistant", tab_catalog: "Catalogue", tab_compare: "Comparer", tab_all: "Tous les rôles", tab_basics: "Azure RBAC vs Entra ID",
+    tab_wizard: "Assistant", tab_roles: "Rôles", tab_compare: "Comparer", tab_basics: "Azure RBAC vs Entra ID",
+    scope_guide: n => `Rôles essentiels (${n})`, scope_all: "Tous les rôles intégrés", scope_all_n: n => `Tous les rôles intégrés (${n})`,
+    guide_meta: n => `Les ${n} rôles les plus utilisés, avec ce qu'ils permettent, ce qu'ils ne permettent pas et à quoi faire attention.`,
+    guide_empty: q => `Aucun rôle essentiel ne correspond à « ${q} ».`, search_all_roles: "Chercher dans tous les rôles intégrés",
+    perm_ph: "Ex. : Microsoft.Storage/storageAccounts/listKeys/action",
     risk1: "Faible", risk2: "Moyen", risk3: "Élevé", risk4: "Critique", risk: n => "Risque " + ["", "faible", "moyen", "élevé", "critique"][n],
     scope_mg: "Groupe d'administration", scope_sub: "Abonnement", scope_rg: "Groupe de ressources", scope_resource: "Ressource",
     recommended: "recommandé", privileged: "Privilégié", in_guide: "Dans le guide",
@@ -973,7 +974,11 @@ const I18N = {
     title: "Choose the right Azure and Entra ID role",
     headline: "Which role to give, without giving too much?",
     subtitle: "A least-privilege assistant for Azure RBAC and Microsoft Entra ID, backed by Microsoft's own recommendations.",
-    tab_wizard: "Assistant", tab_catalog: "Catalog", tab_compare: "Compare", tab_all: "All roles", tab_basics: "Azure RBAC vs Entra ID",
+    tab_wizard: "Assistant", tab_roles: "Roles", tab_compare: "Compare", tab_basics: "Azure RBAC vs Entra ID",
+    scope_guide: n => `Essential roles (${n})`, scope_all: "All built-in roles", scope_all_n: n => `All built-in roles (${n})`,
+    guide_meta: n => `The ${n} most used roles, with what they allow, what they don't and what to watch out for.`,
+    guide_empty: q => `No essential role matches "${q}".`, search_all_roles: "Search all built-in roles",
+    perm_ph: "E.g. Microsoft.Storage/storageAccounts/listKeys/action",
     risk1: "Low", risk2: "Medium", risk3: "High", risk4: "Critical", risk: n => ["", "Low", "Medium", "High", "Critical"][n] + " risk",
     scope_mg: "Management group", scope_sub: "Subscription", scope_rg: "Resource group", scope_resource: "Resource",
     recommended: "recommended", privileged: "Privileged", in_guide: "In the guide",
@@ -1035,6 +1040,14 @@ const needLabel = n => { if (LANG !== "en") return n.label; const e = NEED_EN[n.
 const needWhy = n => { if (LANG !== "en") return n.why; const e = NEED_EN[n.label]; return Array.isArray(e) ? e[1] : n.why; };
 
 const SCOPE_KEYS = ["mg", "sub", "rg", "resource"];
+/* Recherche tolérante : chaque mot est cherché séparément, sans accents ni casse ("mot de passe" trouve "mots de passe") */
+const norm = x => String(x).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+function matches(hay, q) {
+  const words = norm(q).split(/\s+/).filter(Boolean);
+  if (!words.length) return true;
+  const h = norm(hay);
+  return words.every(w => h.includes(w));
+}
 const byId = Object.fromEntries(ROLES.map(r => [r.id, r]));
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -1240,7 +1253,7 @@ function renderWizard() {
     body.querySelectorAll("[data-need]").forEach(b => b.onclick = () => { wiz.need = NEEDS[+b.dataset.need]; wiz.step = 3; renderWizard(); });
     $("#need-filter").addEventListener("input", e => {
       const q = e.target.value.toLowerCase();
-      body.querySelectorAll("[data-need]").forEach(b => b.style.display = b.textContent.toLowerCase().includes(q) ? "" : "none");
+      body.querySelectorAll("[data-need]").forEach(b => b.style.display = matches(b.textContent, q) ? "" : "none");
     });
   } else {
     if (wiz.msTask) { renderMsResult(body); return; }
@@ -1263,13 +1276,13 @@ function renderWizard() {
 
 /* ---------- Catalogue ---------- */
 function renderCatalog() {
-  const q = $("#cat-search").value.toLowerCase().trim();
-  const ty = $("#cat-type").value, k = $("#cat-risk").value;
+  const raw = $("#all-search").value.trim(), q = raw.toLowerCase();
+  const ty = $("#all-type").value, k = $("#cat-risk").value;
   const list = ROLES.filter(r => {
     if (ty && r.type !== ty) return false;
     if (k && String(r.risk) !== k) return false;
     if (!q) return true;
-    return [r.name, subName(r), rf(r, "desc"), r.cat, ...rf(r, "can"), ...rf(r, "cannot")].join(" ").toLowerCase().includes(q);
+    return matches([r.name, r.fr, rf(r, "desc"), r.cat, ...rf(r, "can"), ...rf(r, "cannot"), rf(r, "tips")].join(" "), q);
   });
   $("#cat-grid").innerHTML = list.length ? list.map(r => `
     <div class="card rolecard" data-open="${r.id}" tabindex="0">
@@ -1277,13 +1290,17 @@ function renderCatalog() {
       <h3 style="margin:10px 0 0">${esc(r.name)}</h3>
       <div class="fr">${esc(subName(r))}</div>
       <p>${esc(rf(r, "desc"))}</p>
-    </div>`).join("") : `<p class="sub">${t("no_role")}</p>`;
+    </div>`).join("") : (q
+      ? `<div class="roles-empty"><p class="sub">${t("guide_empty", esc(raw))}</p><button class="btn ghost" id="to-all">${t("search_all_roles")}</button></div>`
+      : `<p class="sub">${t("no_role")}</p>`);
+  const toAll = $("#to-all");
+  if (toAll) toAll.onclick = () => setScope("all");
   $("#cat-grid").querySelectorAll("[data-open]").forEach(c => {
     c.onclick = () => openDetail(c.dataset.open);
     c.onkeydown = e => { if (e.key === "Enter") openDetail(c.dataset.open); };
   });
 }
-["#cat-search", "#cat-type", "#cat-risk"].forEach(s => $(s).addEventListener("input", renderCatalog));
+
 
 /* ---------- Comparer ---------- */
 function fillCompareSelects() {
@@ -1419,12 +1436,12 @@ async function renderEntraTasks(body) {
       <div id="task-list"></div>
     </div>`;
   $("#wiz-back").onclick = () => { wiz.step = 1; renderWizard(); };
-  const hay = (a, tk) => (tk.task + " " + a.area + " " + areaLabel(a.area) + " " + roleNames(tk.least)).toLowerCase();
+  const hay = (a, tk) => tk.task + " " + a.area + " " + areaLabel(a.area) + " " + roleNames(tk.least);
   const draw = () => {
     wiz.q = $("#task-q").value; wiz.area = $("#task-area").value;
     const q = wiz.q.toLowerCase().trim();
     const html = d.tasks.areas.filter(a => !wiz.area || a.area === wiz.area).map(a => {
-      const ts = a.tasks.map((tk, ti) => [tk, ti]).filter(([tk]) => !q || hay(a, tk).includes(q));
+      const ts = a.tasks.map((tk, ti) => [tk, ti]).filter(([tk]) => !q || matches(hay(a, tk), q));
       if (!ts.length) return "";
       const idx = d.tasks.areas.indexOf(a);
       return `<h3>${esc(areaLabel(a.area))}</h3><div class="grid">${ts.map(([tk, ti]) =>
@@ -1432,7 +1449,7 @@ async function renderEntraTasks(body) {
     }).join("");
     let empty = `<p class="sub">${t("no_task")}</p>`;
     if (!html && wiz.area && q) {
-      const elsewhere = d.tasks.areas.reduce((n, a) => n + a.tasks.filter(tk => hay(a, tk).includes(q)).length, 0);
+      const elsewhere = d.tasks.areas.reduce((n, a) => n + a.tasks.filter(tk => matches(hay(a, tk), q)).length, 0);
       if (elsewhere) empty = `<p class="sub">${t("task_elsewhere", esc(wiz.q.trim()), esc(areaLabel(wiz.area)), elsewhere)}</p><button class="btn ghost" id="task-all">${t("search_all_areas")}</button>`;
     }
     $("#task-list").innerHTML = html || empty;
@@ -1526,20 +1543,20 @@ async function loadAll() {
   if (d.azure) ALL.roles.push(...d.azure.roles);
   if (d.entra) ALL.roles.push(...d.entra.roles);
   ALL.ready = true;
-  renderAllMeta();
-  renderAll();
+  renderScopeButtons();
+  if (SCOPE === "all") { renderAllMeta(); renderAll(); }
 }
 function renderAllMeta() {
   const d = ALL.d;
   if (!d) return;
   if (!ALL.roles.length) {
-    $("#all-meta").innerHTML = location.protocol === "file:" ? t("all_file") : t("all_nodata");
+    $("#roles-meta").innerHTML = location.protocol === "file:" ? t("all_file") : t("all_nodata");
     return;
   }
   const meta = [];
   if (d.azure) meta.push(`${t("n_azure", d.azure.count)} (${fmtDate(d.azure.generatedAt)})`);
   if (d.entra) meta.push(`${t("n_entra", d.entra.count)} (${fmtDate(d.entra.generatedAt)})`);
-  $("#all-meta").textContent = t("all_meta", meta);
+  $("#roles-meta").textContent = t("all_meta", meta);
   const names = new Set(ALL.roles.map(r => r.type + ":" + r.name.toLowerCase()));
   const missing = ROLES.filter(r => (r.type === "azure" ? d.azure : d.entra) && !names.has(r.type + ":" + r.name.toLowerCase()));
   $("#all-warn").innerHTML = missing.length ? `<div class="warn">${t("all_missing", missing.map(r => esc(r.name)).join(", "))}</div>` : "";
@@ -1559,8 +1576,7 @@ function renderAll() {
     list = list.filter(r => { const g = grants(r, q); info.set(r, g); return g.ok; });
     list.sort((a, b) => breadth(a) - breadth(b));
   } else if (q) {
-    const s = q.toLowerCase();
-    list = list.filter(r => { const f = frOf(r); return (r.name + " " + r.description + (f ? " " + f.name + " " + f.description : "")).toLowerCase().includes(s); });
+    list = list.filter(r => { const f = frOf(r); return matches(r.name + " " + r.description + (f ? " " + f.name + " " + f.description : ""), q); });
   }
   const shown = list.slice(0, ALL.shown);
   $("#all-list").innerHTML = `<p class="sub">${mode === "perm" && q ? t("all_count_perm", list.length, esc(q)) : t("all_count", list.length)}</p>` +
@@ -1587,9 +1603,39 @@ function renderAll() {
   $("#all-more").style.display = list.length > ALL.shown ? "" : "none";
   $("#all-list").querySelectorAll("[data-open-name]").forEach(b => b.onclick = () => openRoleByName(b.dataset.openType, b.dataset.openName));
 }
+/* ---------- Onglet Rôles : essentiels ou tous ---------- */
+let SCOPE = "guide";
+function renderScopeButtons() {
+  document.querySelector('[data-scope="guide"]').textContent = t("scope_guide", ROLES.length);
+  document.querySelector('[data-scope="all"]').textContent = ALL.ready && ALL.roles.length ? t("scope_all_n", ALL.roles.length.toLocaleString(LOC())) : t("scope_all");
+  document.querySelectorAll("[data-scope]").forEach(b => b.classList.toggle("on", b.dataset.scope === SCOPE));
+}
+function renderRoles() {
+  renderScopeButtons();
+  const guide = SCOPE === "guide", perm = !guide && $("#all-mode").value === "perm";
+  document.querySelectorAll("#roles .guide-only").forEach(el => el.style.display = guide ? "" : "none");
+  document.querySelectorAll("#roles .all-only").forEach(el => el.style.display = guide ? "none" : "");
+  $("#all-search").placeholder = guide ? t("cat_search_ph") : perm ? t("perm_ph") : t("all_ph");
+  if (guide) {
+    document.querySelectorAll(".all-help").forEach(el => el.style.display = "none");
+    $("#all-more").style.display = "none";
+    $("#roles-meta").textContent = t("guide_meta", ROLES.length);
+    renderCatalog();
+  } else if (ALL.ready) {
+    renderAllMeta(); renderAll();
+  } else {
+    $("#roles-meta").textContent = t("loading");
+    loadAll();
+  }
+}
+function setScope(sc) { SCOPE = sc; ALL.shown = 40; renderRoles(); }
+document.querySelectorAll("[data-scope]").forEach(b => b.onclick = () => setScope(b.dataset.scope));
 let allTimer;
-$("#all-search").addEventListener("input", () => { clearTimeout(allTimer); allTimer = setTimeout(() => { ALL.shown = 40; renderAll(); }, 200); });
-["#all-mode", "#all-type"].forEach(s => $(s).addEventListener("change", () => { ALL.shown = 40; renderAll(); }));
+const refreshRoles = () => { ALL.shown = 40; SCOPE === "guide" ? renderCatalog() : renderAll(); };
+$("#all-search").addEventListener("input", () => { clearTimeout(allTimer); allTimer = setTimeout(refreshRoles, 200); });
+$("#all-type").addEventListener("change", refreshRoles);
+$("#cat-risk").addEventListener("change", renderCatalog);
+$("#all-mode").addEventListener("change", () => { ALL.shown = 40; renderRoles(); });
 $("#all-more").onclick = () => { ALL.shown += 40; renderAll(); };
 document.querySelectorAll("[data-ex]").forEach(b => b.onclick = () => { $("#all-search").value = b.dataset.ex; ALL.shown = 40; renderAll(); });
 
@@ -1597,7 +1643,7 @@ document.querySelectorAll("[data-ex]").forEach(b => b.onclick = () => { $("#all-
 document.querySelectorAll("nav button").forEach(b => b.onclick = () => {
   document.querySelectorAll("nav button").forEach(x => x.classList.toggle("active", x === b));
   document.querySelectorAll("main section").forEach(s => s.classList.toggle("active", s.id === b.dataset.tab));
-  if (b.dataset.tab === "all") loadAll();
+  if (b.dataset.tab === "roles") renderRoles();
 });
 document.addEventListener("click", e => {
   if (!e.target.classList.contains("copy")) return;
@@ -1624,13 +1670,12 @@ function setLang(l) {
   if (u.searchParams.has("lang")) { u.searchParams.set("lang", l); history.replaceState(null, "", u); }
   closeDetail();
   applyStatic();
-  renderWizard(); renderCatalog(); fillCompareSelects(); renderCompare();
-  if (ALL.ready) { renderAllMeta(); renderAll(); }
+  renderWizard(); renderRoles(); fillCompareSelects(); renderCompare();
 }
 document.querySelectorAll("[data-lang]").forEach(b => b.onclick = () => setLang(b.dataset.lang));
 
 applyStatic();
-renderWizard(); renderCatalog(); fillCompareSelects(); renderCompare();
+renderWizard(); renderRoles(); fillCompareSelects(); renderCompare();
 </script>
 </body>
 </html>
