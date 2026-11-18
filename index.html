@@ -232,7 +232,8 @@
 <footer>
   Projet personnel à but pédagogique. Les définitions évoluent : vérifier sur
   <a href="https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles" target="_blank" rel="noopener">rôles intégrés Azure</a> et
-  <a href="https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference" target="_blank" rel="noopener">rôles intégrés Entra ID</a>.
+  <a href="https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference" target="_blank" rel="noopener">rôles intégrés Entra ID</a>.<br>
+  Recommandations Entra ID issues de <a href="https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task" target="_blank" rel="noopener">Least privileged roles by task</a> (Microsoft), synchronisées chaque semaine.
 </footer>
 
 <script>
@@ -613,6 +614,7 @@ function roleHtml(r, uid) {
     </div>
     ${r.type === "azure" ? `<div class="note"><strong>Portée recommandée :</strong> ${SCOPES[r.scope]}</div>` : (r.au ? `<div class="note"><strong>Portée :</strong> peut être limité à une unité administrative.</div>` : "")}
     <div class="${r.risk >= 3 ? "warn" : "note"}"><strong>Conseil :</strong> ${esc(r.tips)}</div>
+    <p style="margin-top:10px;font-size:.9rem"><a href="${msUrl(r.type, r.name)}" target="_blank" rel="noopener">Vérifier dans la documentation Microsoft ↗</a></p>
     ${commandsHtml(r, uid)}`;
 }
 function openDetail(id) {
@@ -641,10 +643,11 @@ function renderWizard() {
       <div class="card"><h2>Que doit gérer la personne ou l'application ?</h2>
       <div class="grid">
         <button class="choice big" data-domain="azure"><strong>Des ressources Azure</strong><span>VM, réseau, stockage, Key Vault, sauvegardes, coûts, AVD…</span></button>
-        <button class="choice big" data-domain="entra"><strong>L'annuaire et Microsoft 365</strong><span>Utilisateurs, mots de passe, MFA, licences, Intune, Exchange, accès conditionnel…</span></button>
+        <button class="choice big" data-domain="entra"><strong>L'annuaire et Microsoft 365</strong><span>Utilisateurs, mots de passe, MFA, groupes, appareils, applications, accès conditionnel… Recommandations officielles Microsoft.</span></button>
       </div></div>`;
     body.querySelectorAll("[data-domain]").forEach(b => b.onclick = () => { wiz.domain = b.dataset.domain; wiz.step = 2; renderWizard(); });
   } else if (wiz.step === 2) {
+    if (wiz.domain === "entra" && !wiz.noTasks) { renderEntraTasks(body); return; }
     const list = NEEDS.filter(n => n.d === wiz.domain);
     body.innerHTML = `
       <button class="btn ghost back" id="wiz-back">Retour</button>
@@ -660,6 +663,7 @@ function renderWizard() {
       body.querySelectorAll("[data-need]").forEach(b => b.style.display = b.textContent.toLowerCase().includes(q) ? "" : "none");
     });
   } else {
+    if (wiz.msTask) { renderMsResult(body); return; }
     const n = wiz.need, r = byId[n.role], uid = ++uidSeq;
     body.innerHTML = `
       <button class="btn ghost back" id="wiz-back">Retour</button>
@@ -730,6 +734,152 @@ document.querySelectorAll("[data-cmp]").forEach(b => b.onclick = () => {
   renderCompare();
 });
 
+/* ---------- Données officielles partagées ---------- */
+let DATA_P = null;
+function loadData() {
+  if (!DATA_P) {
+    const get = f => fetch(`data/${f}.json`, { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
+    DATA_P = Promise.allSettled([get("azure-roles"), get("entra-roles"), get("entra-tasks")]).then(([a, e, t]) => {
+      const d = { azure: a.value || null, entra: e.value || null, tasks: t.value || null, byName: {} };
+      [["azure", d.azure], ["entra", d.entra]].forEach(([k, j]) => j && j.roles.forEach(r => { r.type = k; d.byName[k + ":" + r.name.toLowerCase()] = r; }));
+      return d;
+    });
+  }
+  return DATA_P;
+}
+function msUrl(type, name) {
+  return type === "entra"
+    ? "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#" + name.toLowerCase().replace(/[^a-z0-9 -]/g, "").trim().replace(/\s+/g, "-")
+    : "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles";
+}
+function officialHtml(r, uid) {
+  const pseudo = { type: r.type, name: r.name, scope: "rg", au: false };
+  return `
+    <div class="rolehead">
+      <div><h2>${esc(r.name)}</h2><div class="fr">Description officielle Microsoft</div></div>
+      <div>${typeTag(r)}${r.isPrivileged ? '<span class="tag risk4">Privilégié</span>' : ""}</div>
+    </div>
+    <p>${esc(r.description)}</p>
+    <p><a href="${msUrl(r.type, r.name)}" target="_blank" rel="noopener">Voir la documentation Microsoft ↗</a></p>
+    ${permList(r.type === "azure" ? "Actions" : "Actions autorisées", r.actions, [], [])}
+    ${permList("NotActions", r.notActions, [], [])}
+    ${permList("DataActions", r.dataActions, [], [])}
+    ${commandsHtml(pseudo, uid)}`;
+}
+async function openRoleByName(type, name) {
+  const cur = curatedByName[type + ":" + name.toLowerCase()];
+  if (cur) return openDetail(cur);
+  const d = await loadData();
+  const r = d.byName[type + ":" + name.toLowerCase()];
+  if (!r) return;
+  const uid = ++uidSeq, card = $("#detail-card");
+  card.innerHTML = `<button class="btn ghost back" id="close-detail">Fermer</button>` + officialHtml(r, uid);
+  wireCmd(card, { type: r.type, name: r.name, scope: "rg" }, uid);
+  $("#detail-overlay").classList.add("open");
+  $("#close-detail").onclick = closeDetail;
+}
+
+/* ---------- Assistant Entra : tâches Microsoft ---------- */
+const AREA_FR = {
+  "Application proxy": "Proxy d'application", "External Identities/Azure AD B2C": "Identités externes / Azure AD B2C",
+  "Company branding": "Personnalisation de la marque", "Connect": "Entra Connect", "Connect Sync": "Entra Connect Sync",
+  "Cloud Provisioning": "Provisionnement cloud", "Connect Health": "Entra Connect Health", "Custom domain names": "Noms de domaine personnalisés",
+  "Domain Services": "Domain Services", "Devices": "Appareils", "Enterprise applications": "Applications d'entreprise",
+  "Entitlement management": "Gestion des droits d'utilisation", "Groups": "Groupes", "Licenses": "Licences",
+  "Lifecycle Workflows": "Workflows de cycle de vie", "Microsoft Entra Health": "Microsoft Entra Health",
+  "Microsoft Entra ID Protection": "ID Protection", "Monitoring and health - Audit and sign-in logs": "Journaux d'audit et de connexion",
+  "Monitoring and health - Provisioning logs": "Journaux de provisionnement", "Monitoring and health - Recommendations": "Recommandations",
+  "Monitoring and health - Sign-in diagnostic tool": "Outil de diagnostic des connexions", "Multifactor authentication": "Authentification multifacteur",
+  "MFA Server": "Serveur MFA", "Organizational relationships": "Relations organisationnelles", "Password reset": "Réinitialisation de mot de passe",
+  "Privileged Identity Management": "Privileged Identity Management (PIM)", "Roles and administrators": "Rôles et administrateurs",
+  "Security - Authentication methods": "Sécurité : méthodes d'authentification", "Security - Conditional Access": "Sécurité : accès conditionnel",
+  "Security - Identity Security Score": "Sécurité : Identity Secure Score", "Security - Risky sign-ins": "Sécurité : connexions à risque",
+  "Security - Users flagged for risk": "Sécurité : utilisateurs à risque", "Temporary Access Pass": "Passe d'accès temporaire",
+  "Tenants": "Locataires (tenants)", "Users": "Utilisateurs", "Support": "Support"
+};
+const areaFr = a => AREA_FR[a] || a;
+const roleNames = list => list.map(x => x.name).join(", ");
+
+async function renderEntraTasks(body) {
+  body.innerHTML = '<div class="card"><p class="sub">Chargement des tâches Microsoft…</p></div>';
+  const d = await loadData();
+  if (!d.tasks) { wiz.noTasks = true; renderWizard(); return; }
+  const fmt = s => s ? new Date(s).toLocaleDateString("fr-CA", { year: "numeric", month: "long", day: "numeric" }) : "";
+  body.innerHTML = `
+    <button class="btn ghost back" id="wiz-back">Retour</button>
+    <div class="card">
+      <h2>Que doit-elle pouvoir faire ?</h2>
+      <p class="sub" style="font-size:.9rem">Source : <a href="${d.tasks.source}" target="_blank" rel="noopener">Least privileged roles by task in Microsoft Entra ID</a> (Microsoft, page du ${fmt(d.tasks.sourceDate)}). ${d.tasks.count} tâches, affichées telles que publiées par Microsoft (en anglais).</p>
+      <div class="toolbar">
+        <input id="task-q" type="search" placeholder="Chercher une tâche (ex. : password, BitLocker, guest, conditional access)" value="${esc(wiz.q || "")}">
+        <select id="task-area"><option value="">Tous les domaines</option>
+          ${d.tasks.areas.map(a => `<option value="${esc(a.area)}" ${wiz.area === a.area ? "selected" : ""}>${esc(areaFr(a.area))} (${a.tasks.length})</option>`).join("")}
+        </select>
+      </div>
+      <div id="task-list"></div>
+    </div>`;
+  $("#wiz-back").onclick = () => { wiz.step = 1; renderWizard(); };
+  const draw = () => {
+    wiz.q = $("#task-q").value; wiz.area = $("#task-area").value;
+    const q = wiz.q.toLowerCase().trim();
+    const html = d.tasks.areas.filter(a => !wiz.area || a.area === wiz.area).map((a, ai) => {
+      const ts = a.tasks.map((t, ti) => [t, ti]).filter(([t]) => !q || (t.task + " " + a.area + " " + areaFr(a.area) + " " + roleNames(t.least)).toLowerCase().includes(q));
+      if (!ts.length) return "";
+      const idx = d.tasks.areas.indexOf(a);
+      return `<h3>${esc(areaFr(a.area))}</h3><div class="grid">${ts.map(([t, ti]) =>
+        `<button class="choice" data-t="${idx}:${ti}"><strong>${esc(t.task)}</strong><span>${esc(roleNames(t.least))}</span></button>`).join("")}</div>`;
+    }).join("");
+    $("#task-list").innerHTML = html || '<p class="sub">Aucune tâche ne correspond.</p>';
+    $("#task-list").querySelectorAll("[data-t]").forEach(b => b.onclick = () => {
+      const [ai, ti] = b.dataset.t.split(":").map(Number);
+      wiz.msTask = { area: d.tasks.areas[ai], task: d.tasks.areas[ai].tasks[ti] };
+      wiz.step = 3; renderWizard();
+    });
+  };
+  let tm;
+  $("#task-q").addEventListener("input", () => { clearTimeout(tm); tm = setTimeout(draw, 150); });
+  $("#task-area").addEventListener("change", draw);
+  draw();
+}
+
+async function renderMsResult(body) {
+  const d = await loadData();
+  const { area, task } = wiz.msTask;
+  const blocks = [];
+  const wires = [];
+  for (const it of task.least) {
+    const key = "entra:" + it.name.toLowerCase();
+    const cur = curatedByName[key], off = d.byName[key];
+    const uid = ++uidSeq;
+    if (cur) {
+      blocks.push(`<div class="card" id="blk-${uid}">${roleHtml(byId[cur], uid)}</div>`);
+      wires.push([uid, byId[cur]]);
+    } else if (off) {
+      blocks.push(`<div class="card" id="blk-${uid}">${officialHtml(off, uid)}</div>`);
+      wires.push([uid, { type: "entra", name: off.name, scope: "rg" }]);
+    } else {
+      blocks.push(`<div class="card"><h2>${esc(it.name)}</h2><p class="sub">Ce n'est pas un rôle d'annuaire Entra ID (propriétaire d'objet, rôle Azure RBAC ou permission par défaut).</p>${it.url ? `<a href="${it.url}" target="_blank" rel="noopener">En savoir plus chez Microsoft ↗</a>` : ""}</div>`);
+    }
+    if (it.note) blocks.push(`<div class="note"><strong>Précision Microsoft :</strong> ${esc(it.note)}</div>`);
+  }
+  body.innerHTML = `
+    <button class="btn ghost back" id="wiz-back">Retour</button>
+    <button class="btn ghost back" id="wiz-restart">Recommencer</button>
+    <div class="card">
+      <p class="sub" style="margin-bottom:4px">${esc(areaFr(area.area))}</p>
+      <h2>${esc(task.task)}</h2>
+      <div class="note"><strong>Recommandation officielle Microsoft :</strong> ${esc(roleNames(task.least))}.
+        <a href="${area.url}" target="_blank" rel="noopener">Voir la source ↗</a>${task.doc ? ` · <a href="${task.doc}" target="_blank" rel="noopener">Documentation de la tâche ↗</a>` : ""}</div>
+      ${task.additional.length ? `<h3>Autres rôles qui peuvent aussi le faire (plus larges)</h3><div class="alts">${task.additional.map(a =>
+        `<button data-role="${esc(a.name)}">${esc(a.name)}${d.byName["entra:" + a.name.toLowerCase()]?.isPrivileged ? " · Privilégié" : ""}</button>`).join("")}</div>` : ""}
+    </div>
+    ${blocks.join("")}`;
+  wires.forEach(([uid, r]) => wireCmd($("#blk-" + uid), r, uid));
+  $("#wiz-back").onclick = () => { wiz.step = 2; wiz.msTask = null; renderWizard(); };
+  $("#wiz-restart").onclick = () => { wiz.step = 1; wiz.domain = null; wiz.msTask = null; wiz.q = ""; wiz.area = ""; renderWizard(); };
+  body.querySelectorAll("[data-role]").forEach(b => b.onclick = () => openRoleByName("entra", b.dataset.role));
+}
+
 /* ---------- Tous les rôles (données officielles) ---------- */
 const ALL = { loaded: false, roles: [], shown: 40 };
 const curatedByName = Object.fromEntries(ROLES.map(r => [r.type + ":" + r.name.toLowerCase(), r.id]));
@@ -764,14 +914,9 @@ function breadth(r) {
 async function loadAll() {
   if (ALL.loaded) return;
   ALL.loaded = true;
-  const get = async (kind) => {
-    const res = await fetch(`data/${kind}-roles.json`, { cache: "no-cache" });
-    if (!res.ok) throw new Error(res.status);
-    const j = await res.json();
-    j.roles.forEach(r => r.type = kind);
-    return j;
-  };
-  const [az, en] = await Promise.allSettled([get("azure"), get("entra")]);
+  const d = await loadData();
+  const wrap = v => v ? { status: "fulfilled", value: v } : { status: "rejected" };
+  const az = wrap(d.azure), en = wrap(d.entra);
   const meta = [];
   const fmt = d => new Date(d).toLocaleDateString("fr-CA", { year: "numeric", month: "long", day: "numeric" });
   if (az.status === "fulfilled") { ALL.roles.push(...az.value.roles); meta.push(`${az.value.count} rôles Azure RBAC (${fmt(az.value.generatedAt)})`); }
