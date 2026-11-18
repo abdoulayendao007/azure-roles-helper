@@ -14,8 +14,8 @@ Le workflow `deploy-pages.yml` publie les deux branches à chaque push. La sourc
 
 ## Fonctionnalités
 
-- **Assistant** en 3 étapes : domaine, besoin, recommandation avec alternatives
-- **Catalogue** commenté de 47 rôles courants, filtrable par type et niveau de risque
+- **Assistant** en 3 étapes : domaine, besoin, recommandation avec alternatives. Côté Entra ID, les 212 tâches et leurs rôles au moindre privilège proviennent directement de la page Microsoft [Least privileged roles by task](https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task), synchronisée chaque semaine
+- **Catalogue** commenté de 46 rôles courants, filtrable par type et niveau de risque
 - **Comparateur** de 3 rôles côte à côte
 - **Tous les rôles** : l'ensemble des rôles intégrés Azure RBAC et Entra ID, mis à jour chaque semaine, avec une recherche **« Quels rôles accordent cette permission ? »** (prend en compte les `*` et les NotActions, résultats triés du plus restreint au plus large)
 - **Azure RBAC vs Entra ID** : les différences et les bonnes pratiques
@@ -27,7 +27,9 @@ Le workflow `deploy-pages.yml` publie les deux branches à chaque push. La sourc
 index.html                          Page unique (HTML, CSS, JS sans dépendance)
 data/azure-roles.json               Export des rôles intégrés Azure RBAC (généré)
 data/entra-roles.json               Export des rôles intégrés Entra ID (généré)
-scripts/export_roles.py             Script d'export
+data/entra-tasks.json               Tâches et rôles au moindre privilège selon Microsoft (généré)
+scripts/export_roles.py             Export des rôles (Azure CLI + Microsoft Graph)
+scripts/export_tasks.py             Export des tâches Microsoft (dépôt public MicrosoftDocs/entra-docs)
 .github/workflows/update-roles.yml  Workflow hebdomadaire (lundi) + lancement manuel
 .github/workflows/deploy-pages.yml  Publication de main (racine) et dev (/dev/)
 ```
