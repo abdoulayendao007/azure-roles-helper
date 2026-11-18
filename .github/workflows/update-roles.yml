@@ -33,6 +33,10 @@ jobs:
           export ROLES_SCOPE="/subscriptions/$(az account show --query id -o tsv)/resourceGroups/${ROLES_RG}"
           python3 scripts/export_roles.py
 
+      - name: Exporter les tâches Microsoft (moindre privilège Entra ID)
+        if: always()
+        run: python3 scripts/export_tasks.py
+
       - name: Commit si changement
         if: always()
         run: |

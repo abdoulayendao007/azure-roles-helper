@@ -1,0 +1,3581 @@
+{
+ "generatedAt": "2026-11-18T00:32:29+00:00",
+ "source": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task",
+ "sourceDate": "06/17/2026",
+ "count": 212,
+ "areas": [
+  {
+   "area": "Application proxy",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#application-proxy-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Configure application proxy app",
+     "least": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure connector group properties",
+     "least": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Create application registration when ability is disabled for all users",
+     "least": [
+      {
+       "name": "Application Developer",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-developer",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Cloud Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator",
+       "role": true
+      },
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Create connector group",
+     "least": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Delete connector group",
+     "least": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Disable application proxy",
+     "least": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Download connector service",
+     "least": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "External Identities/Azure AD B2C",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#external-identitiesazure-ad-b2c-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Create Azure AD B2C directories",
+     "least": [
+      {
+       "name": "All non-guest users",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions",
+       "role": false
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Create enterprise applications",
+     "least": [
+      {
+       "name": "Cloud Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Create, read, update, and delete B2C policies",
+     "least": [
+      {
+       "name": "B2C IEF Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#b2c-ief-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Create, read, update, and delete identity providers",
+     "least": [
+      {
+       "name": "External Identity Provider Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#external-identity-provider-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Create, read, update, and delete password reset user flows",
+     "least": [
+      {
+       "name": "External ID User Flow Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#external-id-user-flow-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Create, read, update, and delete profile editing user flows",
+     "least": [
+      {
+       "name": "External ID User Flow Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#external-id-user-flow-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Create, read, update, and delete sign-in user flows",
+     "least": [
+      {
+       "name": "External ID User Flow Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#external-id-user-flow-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Create, read, update, and delete sign-up user flow",
+     "least": [
+      {
+       "name": "External ID User Flow Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#external-id-user-flow-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Create, read, update, and delete user attributes",
+     "least": [
+      {
+       "name": "External ID User Flow Attribute Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#external-id-user-flow-attribute-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Create, read, update, and delete users",
+     "least": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure B2B external collaboration settings - Guest user access",
+     "least": [
+      {
+       "name": "Privileged Role Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator",
+       "role": true
+      }
+     ],
+     "additional": [],
+     "doc": "https://learn.microsoft.com/fr-fr/entra/external-id/external-collaboration-settings-configure"
+    },
+    {
+     "task": "Configure B2B external collaboration settings - Guest invite settings",
+     "least": [
+      {
+       "name": "Guest Inviter",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#guest-inviter",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "External ID User Flow Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#external-id-user-flow-administrator",
+       "role": true
+      }
+     ],
+     "doc": "https://learn.microsoft.com/fr-fr/entra/external-id/external-collaboration-settings-configure"
+    },
+    {
+     "task": "Configure B2B external collaboration settings - External user leave settings",
+     "least": [
+      {
+       "name": "External Identity Provider Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#external-identity-provider-administrator",
+       "role": true
+      }
+     ],
+     "additional": [],
+     "doc": "https://learn.microsoft.com/fr-fr/entra/external-id/external-collaboration-settings-configure"
+    },
+    {
+     "task": "Configure B2B external collaboration settings - Collaboration restrictions",
+     "least": [
+      {
+       "name": "Global Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-administrator",
+       "role": true
+      }
+     ],
+     "additional": [],
+     "doc": "https://learn.microsoft.com/fr-fr/entra/external-id/external-collaboration-settings-configure"
+    },
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Global Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-reader",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read B2C audit logs",
+     "least": [
+      {
+       "name": "Global Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-reader",
+       "role": true
+      }
+     ],
+     "additional": [],
+     "doc": "https://learn.microsoft.com/fr-fr/azure/active-directory-b2c/faq"
+    }
+   ]
+  },
+  {
+   "area": "Company branding",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#company-branding-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Configure company branding",
+     "least": [
+      {
+       "name": "Organizational Branding Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#organizational-branding-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Directory Readers",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#directory-readers",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Default user role",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions",
+       "role": false
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "area": "Connect",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#connect-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Passthrough authentication",
+     "least": [
+      {
+       "name": "Hybrid Identity Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Global Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-reader",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Hybrid Identity Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Seamless single sign-on",
+     "least": [
+      {
+       "name": "Hybrid Identity Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Connect Sync",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#connect-sync-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Manage on-premises directory synchronization",
+     "least": [
+      {
+       "name": "Hybrid Identity Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Cloud Provisioning",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#cloud-provisioning-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Passthrough authentication",
+     "least": [
+      {
+       "name": "Hybrid Identity Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Global Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-reader",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Hybrid Identity Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Seamless single sign-on",
+     "least": [
+      {
+       "name": "Hybrid Identity Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Connect Health",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#connect-health-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Add or delete services",
+     "least": [
+      {
+       "name": "Owner",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#owner",
+       "role": false
+      }
+     ],
+     "additional": [],
+     "doc": "https://learn.microsoft.com/fr-fr/entra/identity/hybrid/connect/how-to-connect-health-operations"
+    },
+    {
+     "task": "Apply fixes to sync error",
+     "least": [
+      {
+       "name": "Contributor",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#contributor",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "Owner",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#owner",
+       "role": false
+      }
+     ]
+    },
+    {
+     "task": "Configure notifications",
+     "least": [
+      {
+       "name": "Contributor",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#contributor",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "Owner",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#owner",
+       "role": false
+      }
+     ]
+    },
+    {
+     "task": "Configure settings",
+     "least": [
+      {
+       "name": "Owner",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#owner",
+       "role": false
+      }
+     ],
+     "additional": [],
+     "doc": "https://learn.microsoft.com/fr-fr/entra/identity/hybrid/connect/how-to-connect-health-operations"
+    },
+    {
+     "task": "Configure sync notifications",
+     "least": [
+      {
+       "name": "Contributor",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#contributor",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "Owner",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#owner",
+       "role": false
+      }
+     ]
+    },
+    {
+     "task": "Read ADFS security reports",
+     "least": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#security-reader",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "Contributor",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#contributor",
+       "role": false
+      },
+      {
+       "name": "Owner",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#owner",
+       "role": false
+      }
+     ]
+    },
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Reader",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#reader",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "Contributor",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#contributor",
+       "role": false
+      },
+      {
+       "name": "Owner",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#owner",
+       "role": false
+      }
+     ]
+    },
+    {
+     "task": "Read sync errors",
+     "least": [
+      {
+       "name": "Reader",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#reader",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "Contributor",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#contributor",
+       "role": false
+      },
+      {
+       "name": "Owner",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#owner",
+       "role": false
+      }
+     ]
+    },
+    {
+     "task": "Read sync services",
+     "least": [
+      {
+       "name": "Reader",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#reader",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "Contributor",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#contributor",
+       "role": false
+      },
+      {
+       "name": "Owner",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#owner",
+       "role": false
+      }
+     ]
+    },
+    {
+     "task": "View metrics and alerts",
+     "least": [
+      {
+       "name": "Reader",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#reader",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "Contributor",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#contributor",
+       "role": false
+      },
+      {
+       "name": "Owner",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#owner",
+       "role": false
+      }
+     ]
+    },
+    {
+     "task": "View metrics and alerts",
+     "least": [
+      {
+       "name": "Reader",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#reader",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "Contributor",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#contributor",
+       "role": false
+      },
+      {
+       "name": "Owner",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#owner",
+       "role": false
+      }
+     ]
+    },
+    {
+     "task": "View sync service metrics and alerts",
+     "least": [
+      {
+       "name": "Reader",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#reader",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "Contributor",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#contributor",
+       "role": false
+      },
+      {
+       "name": "Owner",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#owner",
+       "role": false
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "area": "Custom domain names",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#custom-domain-names-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Manage domains",
+     "least": [
+      {
+       "name": "Domain Name Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#domain-name-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Directory Readers",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#directory-readers",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Default user role",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions",
+       "role": false
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "area": "Domain Services",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#domain-services-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Create Microsoft Entra Domain Services instance",
+     "least": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      },
+      {
+       "name": "Groups Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#groups-administrator",
+       "role": true
+      },
+      {
+       "name": "Domain Services Contributor",
+       "url": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles#domain-services-contributor",
+       "role": false
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Perform all Microsoft Entra Domain Services tasks",
+     "least": [
+      {
+       "name": "AAD DC Administrators group",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/domain-services/tutorial-create-management-vm#administrative-tasks-you-can-perform-on-a-managed-domain",
+       "role": false
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Reader on Azure subscription containing AD DS service",
+       "role": false
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Devices",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#devices-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Delete device",
+     "least": [
+      {
+       "name": "Cloud Device Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-device-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Intune Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#intune-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Disable device",
+     "least": [
+      {
+       "name": "Cloud Device Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-device-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Intune Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#intune-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Enable device",
+     "least": [
+      {
+       "name": "Cloud Device Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-device-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Intune Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#intune-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Read basic configuration",
+     "least": [
+      {
+       "name": "Default user role",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions",
+       "role": false
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read BitLocker keys",
+     "least": [
+      {
+       "name": "Cloud Device Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-device-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Helpdesk Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#helpdesk-administrator",
+       "role": true
+      },
+      {
+       "name": "Intune Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#intune-administrator",
+       "role": true
+      },
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      },
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Provision and manage IoT devices",
+     "least": [
+      {
+       "name": "IoT Device Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#iot-device-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Cloud Device Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-device-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Manage IoT device templates",
+     "least": [
+      {
+       "name": "IoT Device Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#iot-device-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Cloud Device Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-device-administrator",
+       "role": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "area": "Enterprise applications",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#enterprise-applications-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Consent to any delegated permissions",
+     "least": [
+      {
+       "name": "Cloud Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Consent to application permissions not including Microsoft Graph",
+     "least": [
+      {
+       "name": "Cloud Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Consent to application permissions to Microsoft Graph",
+     "least": [
+      {
+       "name": "Privileged Role Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Consent to applications accessing own data",
+     "least": [
+      {
+       "name": "Default user role",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions",
+       "role": false
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Create enterprise application",
+     "least": [
+      {
+       "name": "Cloud Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Manage Application Proxy",
+     "least": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read access review of a group or of an app",
+     "least": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      },
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Default user role",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions",
+       "role": false
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Update enterprise application assignments",
+     "least": [
+      {
+       "name": "Enterprise application owner",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions#object-ownership",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "Cloud Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator",
+       "role": true
+      },
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      },
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Update enterprise application owners",
+     "least": [
+      {
+       "name": "Enterprise application owner",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions#object-ownership",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "Cloud Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator",
+       "role": true
+      },
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Update enterprise application properties",
+     "least": [
+      {
+       "name": "Enterprise application owner",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions#object-ownership",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "Cloud Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator",
+       "role": true
+      },
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Update enterprise application provisioning",
+     "least": [
+      {
+       "name": "Enterprise application owner",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions#object-ownership",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "Cloud Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator",
+       "role": true
+      },
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Update enterprise application self-service",
+     "least": [
+      {
+       "name": "Enterprise application owner",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions#object-ownership",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "Cloud Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator",
+       "role": true
+      },
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Update single sign-on properties",
+     "least": [
+      {
+       "name": "Enterprise application owner",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions#object-ownership",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "Cloud Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator",
+       "role": true
+      },
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Create and modify custom authentication extensions",
+     "least": [
+      {
+       "name": "Authentication Extensibility Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-extensibility-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "area": "Entitlement management",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#entitlement-management-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Tasks in Entitlement Management",
+     "least": [
+      {
+       "name": "Identity Governance Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#identity-governance-administrator",
+       "role": true,
+       "note": "Identity Governance Administrator. For roles lesser privilege than this within the Entitlement Management system, see: Delegation and roles in entitlement management."
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Groups",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#groups-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Assign license",
+     "least": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Create group",
+     "least": [
+      {
+       "name": "Groups Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#groups-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Create, update, or delete access review of a group or of an app",
+     "least": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Manage group expiration",
+     "least": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Manage group settings",
+     "least": [
+      {
+       "name": "Groups Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#groups-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Read all configuration (except hidden membership)",
+     "least": [
+      {
+       "name": "Directory Readers",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#directory-readers",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Default user role",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions",
+       "role": false
+      }
+     ]
+    },
+    {
+     "task": "Read hidden membership",
+     "least": [
+      {
+       "name": "Group member",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "Group owner",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions#object-ownership",
+       "role": false
+      },
+      {
+       "name": "Password Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#password-administrator",
+       "role": true
+      },
+      {
+       "name": "Exchange Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#exchange-administrator",
+       "role": true
+      },
+      {
+       "name": "SharePoint Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#sharepoint-administrator",
+       "role": true
+      },
+      {
+       "name": "Teams Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#teams-administrator",
+       "role": true
+      },
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Read membership of groups with hidden membership",
+     "least": [
+      {
+       "name": "Helpdesk Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#helpdesk-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      },
+      {
+       "name": "Teams Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#teams-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Revoke license",
+     "least": [
+      {
+       "name": "License Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#license-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Update dynamic membership groups",
+     "least": [
+      {
+       "name": "Group owner",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions#object-ownership",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Update group owners",
+     "least": [
+      {
+       "name": "Group owner",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions#object-ownership",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Update group properties",
+     "least": [
+      {
+       "name": "Group owner",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions#object-ownership",
+       "role": false
+      }
+     ],
+     "additional": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Delete group",
+     "least": [
+      {
+       "name": "Groups Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#groups-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "area": "Licenses",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#licenses-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Assign license",
+     "least": [
+      {
+       "name": "License Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#license-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Directory Readers",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#directory-readers",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Default user role",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions",
+       "role": false
+      }
+     ]
+    },
+    {
+     "task": "Revoke license",
+     "least": [
+      {
+       "name": "License Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#license-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Try or buy subscription",
+     "least": [
+      {
+       "name": "Billing Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#billing-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Lifecycle Workflows",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#lifecycle-workflows-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Create a workflow",
+     "least": [
+      {
+       "name": "Lifecycle workflows Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#lifecycle-workflows-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Add a custom extension to a workflow",
+     "least": [
+      {
+       "name": "Lifecycle workflows Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#lifecycle-workflows-administrator",
+       "role": true,
+       "note": "Lifecycle workflows Administrator. You must also have either the Logic App contributor or Owner Azure Resource Manager role."
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Microsoft Entra Health",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#microsoft-entra-health-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "View scenario monitoring signals and alert configurations",
+     "least": [
+      {
+       "name": "Reports Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#reports-reader",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      },
+      {
+       "name": "Security Operator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-operator",
+       "role": true
+      },
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      },
+      {
+       "name": "Helpdesk Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#helpdesk-administrator",
+       "role": true
+      },
+      {
+       "name": "Global Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-reader",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Update alerts and alert email configurations",
+     "least": [
+      {
+       "name": "Helpdesk Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#helpdesk-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Microsoft Entra ID Protection",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#microsoft-entra-id-protection-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Configure alert notifications",
+     "least": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure and enable or disable MFA policy",
+     "least": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure and enable or disable sign-in risk policy",
+     "least": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure and enable or disable user risk policy",
+     "least": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure weekly digests",
+     "least": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Dismiss all risk detections",
+     "least": [
+      {
+       "name": "Security Operator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-operator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Fix or dismiss vulnerability",
+     "least": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read all risk detections",
+     "least": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read vulnerabilities",
+     "least": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Monitoring and health - Audit and sign-in logs",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#monitoring-and-health---audit-and-sign-in-logs-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Read audit and sign-in logs",
+     "least": [
+      {
+       "name": "Reports Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#reports-reader",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      },
+      {
+       "name": "Cloud Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator",
+       "role": true
+      },
+      {
+       "name": "Cloud Device Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-device-administrator",
+       "role": true
+      },
+      {
+       "name": "Global Secure Access Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-secure-access-administrator",
+       "role": true
+      },
+      {
+       "name": "Hybrid Identity Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator",
+       "role": true
+      },
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      },
+      {
+       "name": "Security Operator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-operator",
+       "role": true
+      },
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "area": "Monitoring and health - Provisioning logs",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#monitoring-and-health---provisioning-logs-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Read provisioning logs",
+     "least": [
+      {
+       "name": "Reports Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#reports-reader",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Enterprise application owner",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions#object-ownership",
+       "role": false
+      },
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      },
+      {
+       "name": "Cloud Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator",
+       "role": true
+      },
+      {
+       "name": "Cloud Device Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-device-administrator",
+       "role": true
+      },
+      {
+       "name": "Hybrid Identity Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator",
+       "role": true
+      },
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      },
+      {
+       "name": "Security Operator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-operator",
+       "role": true
+      },
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "area": "Monitoring and health - Recommendations",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#monitoring-and-health---recommendations-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Read recommendations",
+     "least": [
+      {
+       "name": "Reports Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#reports-reader",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      },
+      {
+       "name": "Global Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-reader",
+       "role": true
+      },
+      {
+       "name": "Helpdesk Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#helpdesk-administrator",
+       "role": true
+      },
+      {
+       "name": "Service Support Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#service-support-administrator",
+       "role": true
+      },
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Update recommendations",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      },
+      {
+       "name": "Authentication Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-administrator",
+       "role": true
+      },
+      {
+       "name": "Cloud Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator",
+       "role": true
+      },
+      {
+       "name": "Conditional Access Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator",
+       "role": true
+      },
+      {
+       "name": "Exchange Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#exchange-administrator",
+       "role": true
+      },
+      {
+       "name": "Hybrid Identity Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator",
+       "role": true
+      },
+      {
+       "name": "Identity Governance Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#identity-governance-administrator",
+       "role": true
+      },
+      {
+       "name": "Privileged Role Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator",
+       "role": true
+      },
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      },
+      {
+       "name": "Security Operator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-operator",
+       "role": true
+      },
+      {
+       "name": "SharePoint Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#sharepoint-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Read Identity Secure Score improvement action",
+     "least": [
+      {
+       "name": "Service Support Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#service-support-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      },
+      {
+       "name": "Exchange Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#exchange-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Update Identity Secure Score improvement action",
+     "least": [
+      {
+       "name": "SharePoint Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#sharepoint-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Helpdesk Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#helpdesk-administrator",
+       "role": true
+      },
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      },
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      },
+      {
+       "name": "Security Operator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-operator",
+       "role": true
+      },
+      {
+       "name": "Global Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-reader",
+       "role": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "area": "Monitoring and health - Sign-in diagnostic tool",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#monitoring-and-health---sign-in-diagnostic-tool",
+   "tasks": [
+    {
+     "task": "Use sign-in diagnostic from **Diagnose and solve problems**",
+     "least": [
+      {
+       "name": "Billing Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#billing-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      },
+      {
+       "name": "Cloud Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator",
+       "role": true
+      },
+      {
+       "name": "Cloud Device Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-device-administrator",
+       "role": true
+      },
+      {
+       "name": "Conditional Access Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator",
+       "role": true
+      },
+      {
+       "name": "Customer LockBox Access Approver",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#customer-lockbox-access-approver",
+       "role": true
+      },
+      {
+       "name": "Groups Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#groups-administrator",
+       "role": true
+      },
+      {
+       "name": "License Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#license-administrator",
+       "role": true
+      },
+      {
+       "name": "Global Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-reader",
+       "role": true
+      },
+      {
+       "name": "Helpdesk Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#helpdesk-administrator",
+       "role": true
+      },
+      {
+       "name": "Privileged Role Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator",
+       "role": true
+      },
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      },
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Use sign-in diagnostic from the **Sign-in logs**",
+     "least": [
+      {
+       "name": "BOTH Reports Reader AND Billing Administrator",
+       "role": false,
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#reports-reader"
+      }
+     ],
+     "additional": [
+      {
+       "name": "Global Secure Access Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-secure-access-administrator",
+       "role": true
+      },
+      {
+       "name": "Hybrid Identity Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator",
+       "role": true
+      },
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      },
+      {
+       "name": "Security Operator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-operator",
+       "role": true
+      },
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "area": "Multifactor authentication",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#multifactor-authentication-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Delete all existing app passwords generated by the selected users",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Authentication Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Disable per-user MFA",
+     "least": [
+      {
+       "name": "Authentication Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Privileged Authentication Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-authentication-administrator",
+       "role": true
+      }
+     ],
+     "doc": "https://learn.microsoft.com/fr-fr/entra/identity/authentication/howto-mfa-userstates"
+    },
+    {
+     "task": "Enable per-user MFA",
+     "least": [
+      {
+       "name": "Authentication Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Privileged Authentication Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-authentication-administrator",
+       "role": true
+      }
+     ],
+     "doc": "https://learn.microsoft.com/fr-fr/entra/identity/authentication/howto-mfa-userstates"
+    },
+    {
+     "task": "Manage MFA service settings",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Require selected users to provide contact methods again",
+     "least": [
+      {
+       "name": "Authentication Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Restore multifactor authentication on all remembered devices",
+     "least": [
+      {
+       "name": "Authentication Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "MFA Server",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#mfa-server-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Block/unblock users",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure account lockout",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure caching rules",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure fraud alert",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure notifications",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure one-time bypass",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure phone call settings",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure providers",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure server settings",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read activity report",
+     "least": [
+      {
+       "name": "Global Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-reader",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Global Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-reader",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read server status",
+     "least": [
+      {
+       "name": "Global Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-reader",
+       "role": true
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Organizational relationships",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#organizational-relationships-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Manage identity providers",
+     "least": [
+      {
+       "name": "External Identity Provider Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#external-identity-provider-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Global Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-reader",
+       "role": true
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Password reset",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#password-reset-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Configure authentication methods",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure customization",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure notification",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure on-premises integration",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure password reset properties",
+     "least": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Configure registration",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "area": "Privileged Identity Management",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#privileged-identity-management-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Assign users to roles",
+     "least": [
+      {
+       "name": "Privileged Role Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure role settings",
+     "least": [
+      {
+       "name": "Privileged Role Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "View audit activity",
+     "least": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "View role memberships",
+     "least": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Roles and administrators",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#roles-and-administrators-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Manage role assignments",
+     "least": [
+      {
+       "name": "Privileged Role Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read access review of a Microsoft Entra role",
+     "least": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      },
+      {
+       "name": "Privileged Role Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Default user role",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions",
+       "role": false
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Security - Authentication methods",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#security---authentication-methods-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Enable or disable authentication methods",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "View, provision on behalf of, and manage individual user authentication methods",
+     "least": [
+      {
+       "name": "Authentication Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Privileged Authentication Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-authentication-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Configure password protection",
+     "least": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure smart lockout",
+     "least": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Global Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-reader",
+       "role": true
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Security - Conditional Access",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#security---conditional-access-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Configure MFA trusted IP addresses",
+     "least": [
+      {
+       "name": "Conditional Access Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Create custom controls",
+     "least": [
+      {
+       "name": "Conditional Access Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Create named locations",
+     "least": [
+      {
+       "name": "Conditional Access Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Create policies",
+     "least": [
+      {
+       "name": "Conditional Access Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Create terms of use",
+     "least": [
+      {
+       "name": "Conditional Access Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Create VPN connectivity certificate",
+     "least": [
+      {
+       "name": "Cloud Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Delete classic policy",
+     "least": [
+      {
+       "name": "Conditional Access Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Restore a soft-deleted policy",
+     "least": [
+      {
+       "name": "Conditional Access Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Delete terms of use",
+     "least": [
+      {
+       "name": "Conditional Access Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Delete VPN connectivity certificate",
+     "least": [
+      {
+       "name": "Conditional Access Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Disable classic policy",
+     "least": [
+      {
+       "name": "Conditional Access Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Manage custom controls",
+     "least": [
+      {
+       "name": "Conditional Access Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Manage named locations",
+     "least": [
+      {
+       "name": "Conditional Access Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Manage terms of use",
+     "least": [
+      {
+       "name": "Conditional Access Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read named locations",
+     "least": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read terms of use",
+     "least": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Global Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-reader",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Read which terms of use were accepted by the signed-in user",
+     "least": [
+      {
+       "name": "Default user role",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions",
+       "role": false
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Security - Identity Security Score",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#security---identity-security-score-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Read security score",
+     "least": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Update event status",
+     "least": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Security - Risky sign-ins",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#security---risky-sign-ins-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read risky sign-ins",
+     "least": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Security - Users flagged for risk",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#security---users-flagged-for-risk-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Dismiss all events",
+     "least": [
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Perform identity containment actions for SOC incident response",
+     "least": [
+      {
+       "name": "Entra SOC Identity Responder",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#entra-soc-identity-responder",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read all configuration",
+     "least": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read users flagged for risk",
+     "least": [
+      {
+       "name": "Security Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-reader",
+       "role": true
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Temporary Access Pass",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#temporary-access-pass-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Create, delete, or view a Temporary Access Pass for admins or members (except themselves)",
+     "least": [
+      {
+       "name": "Privileged Authentication Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-authentication-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Create, delete, or view a Temporary Access Pass for members (except themselves)",
+     "least": [
+      {
+       "name": "Authentication Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "View a Temporary Access Pass details for a user (without reading the code itself)",
+     "least": [
+      {
+       "name": "Global Reader",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-reader",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Configure or update the Temporary Access Pass authentication method policy",
+     "least": [
+      {
+       "name": "Authentication Policy Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    }
+   ]
+  },
+  {
+   "area": "Tenants",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#tenants-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Create Microsoft Entra ID or Azure AD B2C Tenant",
+     "least": [
+      {
+       "name": "Tenant Creator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#tenant-creator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Update Microsoft Entra tenant properties",
+     "least": [
+      {
+       "name": "Billing Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#billing-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Manage privacy statement and contact",
+     "least": [
+      {
+       "name": "Billing Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#billing-administrator",
+       "role": true
+      }
+     ],
+     "additional": [],
+     "doc": "https://learn.microsoft.com/fr-fr/entra/fundamentals/properties-area"
+    }
+   ]
+  },
+  {
+   "area": "Users",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#users-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Add user to directory role",
+     "least": [
+      {
+       "name": "Privileged Role Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Add user to group",
+     "least": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Assign license",
+     "least": [
+      {
+       "name": "License Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#license-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Create guest user",
+     "least": [
+      {
+       "name": "Guest Inviter",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#guest-inviter",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Reset guest user invite",
+     "least": [
+      {
+       "name": "Helpdesk Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#helpdesk-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Create user",
+     "least": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Delete users",
+     "least": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Invalidate refresh tokens of limited admins",
+     "least": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Invalidate refresh tokens of non-admins",
+     "least": [
+      {
+       "name": "Helpdesk Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#helpdesk-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      },
+      {
+       "name": "Security Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#security-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Invalidate refresh tokens of privileged admins",
+     "least": [
+      {
+       "name": "Privileged Authentication Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-authentication-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Read basic configuration",
+     "least": [
+      {
+       "name": "Default user role",
+       "url": "https://learn.microsoft.com/fr-fr/entra/fundamentals/users-default-permissions",
+       "role": false
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Reset password for limited admins",
+     "least": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Reset password of non-admins",
+     "least": [
+      {
+       "name": "Password Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#password-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Reset password of privileged admins",
+     "least": [
+      {
+       "name": "Privileged Authentication Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-authentication-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Revoke license",
+     "least": [
+      {
+       "name": "License Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#license-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    },
+    {
+     "task": "Update all properties except User Principal Name",
+     "least": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Update On-premises sync enabled property",
+     "least": [
+      {
+       "name": "Hybrid Identity Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Update profile photos and people settings",
+     "least": [
+      {
+       "name": "People Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#people-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Update User Principal Name for limited admins",
+     "least": [
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Update User Principal Name property on privileged admins",
+     "least": [
+      {
+       "name": "Privileged Authentication Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-authentication-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Update user settings - Default user role permissions",
+     "least": [
+      {
+       "name": "Privileged Role Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Update user settings - Guest user access",
+     "least": [
+      {
+       "name": "Privileged Role Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator",
+       "role": true
+      }
+     ],
+     "additional": [],
+     "doc": "https://learn.microsoft.com/fr-fr/entra/identity/users/users-restrict-guest-permissions"
+    },
+    {
+     "task": "Update user settings - Administration center",
+     "least": [
+      {
+       "name": "Global Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-administrator",
+       "role": true
+      }
+     ],
+     "additional": []
+    },
+    {
+     "task": "Update user settings - LinkedIn account connections",
+     "least": [
+      {
+       "name": "Global Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-administrator",
+       "role": true
+      }
+     ],
+     "additional": [],
+     "doc": "https://learn.microsoft.com/fr-fr/entra/identity/users/linkedin-integration"
+    },
+    {
+     "task": "Update user settings - Show keep user signed in",
+     "least": [
+      {
+       "name": "Global Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#global-administrator",
+       "role": true
+      }
+     ],
+     "additional": [],
+     "doc": "https://learn.microsoft.com/fr-fr/entra/fundamentals/how-to-manage-stay-signed-in-prompt"
+    },
+    {
+     "task": "Update Authentication methods",
+     "least": [
+      {
+       "name": "Authentication Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#authentication-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Privileged Authentication Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-authentication-administrator",
+       "role": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "area": "Support",
+   "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task#support-least-privileged-roles",
+   "tasks": [
+    {
+     "task": "Submit support ticket",
+     "least": [
+      {
+       "name": "Service Support Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#service-support-administrator",
+       "role": true
+      }
+     ],
+     "additional": [
+      {
+       "name": "Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#application-administrator",
+       "role": true
+      },
+      {
+       "name": "Azure Information Protection Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#azure-information-protection-administrator",
+       "role": true
+      },
+      {
+       "name": "Billing Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#billing-administrator",
+       "role": true
+      },
+      {
+       "name": "Cloud Application Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator",
+       "role": true
+      },
+      {
+       "name": "Compliance Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#compliance-administrator",
+       "role": true
+      },
+      {
+       "name": "Dynamics 365 Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#dynamics-365-administrator",
+       "role": true
+      },
+      {
+       "name": "Desktop Analytics Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#desktop-analytics-administrator",
+       "role": true
+      },
+      {
+       "name": "Exchange Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#exchange-administrator",
+       "role": true
+      },
+      {
+       "name": "Helpdesk Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#helpdesk-administrator",
+       "role": true
+      },
+      {
+       "name": "Intune Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#intune-administrator",
+       "role": true
+      },
+      {
+       "name": "Password Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#password-administrator",
+       "role": true
+      },
+      {
+       "name": "Fabric Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#fabric-administrator",
+       "role": true
+      },
+      {
+       "name": "Privileged Authentication Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#privileged-authentication-administrator",
+       "role": true
+      },
+      {
+       "name": "SharePoint Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#sharepoint-administrator",
+       "role": true
+      },
+      {
+       "name": "Skype for Business Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#skype-for-business-administrator",
+       "role": true
+      },
+      {
+       "name": "Teams Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#teams-administrator",
+       "role": true
+      },
+      {
+       "name": "Teams Communications Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#teams-communications-administrator",
+       "role": true
+      },
+      {
+       "name": "User Administrator",
+       "url": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference#user-administrator",
+       "role": true
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
