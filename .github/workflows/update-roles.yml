@@ -37,6 +37,10 @@ jobs:
         if: always()
         run: python3 scripts/export_tasks.py
 
+      - name: Exporter les descriptions françaises (Microsoft Learn)
+        if: always()
+        run: python3 scripts/export_fr.py
+
       - name: Commit si changement
         if: always()
         run: |
