@@ -34,7 +34,7 @@ scripts/export_roles.py             Script d'export
 
 ## Configuration de la mise à jour automatique
 
-Le workflow se connecte à Azure en **OIDC (identité fédérée)** : aucun secret client n'est stocké dans GitHub. L'identité n'a besoin que de droits en lecture.
+Le workflow se connecte à Azure en **OIDC (identité fédérée)** : aucun secret client n'est stocké dans GitHub. L'identité n'a besoin que de droits en lecture, limités à un groupe de ressources vide.
 
 > Utiliser un tenant et un abonnement de lab ou personnels, jamais ceux d'un client.
 
@@ -59,9 +59,14 @@ az ad app federated-credential create --id "$APP_ID" --parameters "{
   \"audiences\": [\"api://AzureADTokenExchange\"]
 }"
 
-# Azure RBAC : Reader sur l'abonnement (lecture des définitions de rôles)
+# Azure RBAC : Reader uniquement sur un groupe de ressources vide dédié.
+# Lister les définitions de rôles fonctionne à cette portée : le robot ne voit aucune autre ressource.
 SUB_ID=$(az account show --query id -o tsv)
-az role assignment create --assignee "$APP_ID" --role "Reader" --scope "/subscriptions/$SUB_ID"
+az group create --name rg-azure-roles-helper --location canadacentral
+az lock create --name ne-pas-supprimer --lock-type CanNotDelete --resource-group rg-azure-roles-helper
+SP_OID=$(az ad sp show --id "$APP_ID" --query id -o tsv)
+az role assignment create --assignee-object-id "$SP_OID" --assignee-principal-type ServicePrincipal \
+  --role "Reader" --scope "/subscriptions/$SUB_ID/resourceGroups/rg-azure-roles-helper"
 
 # Entra ID : permission d'application Graph RoleManagement.Read.Directory
 GRAPH_APP="00000003-0000-0000-c000-000000000000"
