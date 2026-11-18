@@ -30,6 +30,7 @@ data/entra-roles.json               Export des rôles intégrés Entra ID (gén�
 data/entra-tasks.json               Tâches et rôles au moindre privilège selon Microsoft (généré)
 scripts/export_roles.py             Export des rôles (Azure CLI + Microsoft Graph)
 scripts/export_tasks.py             Export des tâches Microsoft (dépôt public MicrosoftDocs/entra-docs)
+fonts/                              Polices Archivo et JetBrains Mono hébergées localement (licence SIL OFL)
 .github/workflows/update-roles.yml  Workflow hebdomadaire (lundi) + lancement manuel
 .github/workflows/deploy-pages.yml  Publication de main (racine) et dev (/dev/)
 ```

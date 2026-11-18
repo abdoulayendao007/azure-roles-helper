@@ -5,123 +5,229 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Choisir le bon rôle Azure et Entra ID</title>
 <meta name="description" content="Assistant pour choisir le rôle Azure RBAC ou Entra ID au moindre privilège, avec commandes d'attribution prêtes à copier.">
+<link rel="preload" href="fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  /* Polices hébergées avec la page (licence SIL OFL, voir fonts/) : aucune requête vers un service tiers */
+  @font-face { font-family: "Archivo"; src: url("fonts/archivo-variable.woff2") format("woff2-variations"), url("fonts/archivo-variable.woff2") format("woff2");
+    font-weight: 100 900; font-stretch: 62% 125%; font-style: normal; font-display: swap; }
+  @font-face { font-family: "JetBrains Mono"; src: url("fonts/jetbrains-mono-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "JetBrains Mono"; src: url("fonts/jetbrains-mono-600.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+  /* Palette : encre de sapin sur papier froid. Le risque a sa propre échelle. */
   :root {
-    --bg: #f6f7f9; --panel: #ffffff; --text: #1d2330; --muted: #5d6677; --border: #e2e5eb;
-    --accent: #2563eb; --accent-soft: #e8efff;
-    --r1: #1f8a4c; --r1bg: #e5f5ec; --r2: #a46a00; --r2bg: #fff4dc;
-    --r3: #c2410c; --r3bg: #ffece2; --r4: #b91c1c; --r4bg: #fde8e8;
-    --code: #0f172a; --codetext: #e2e8f0;
-    --azure: #0369a1; --azurebg: #e0f2fe; --entra: #6d28d9; --entrabg: #ede9fe;
+    --paper: #F4F6F3; --sheet: #FFFFFF; --ink: #102A2B; --muted: #57696A; --line: #D3DCD8; --line-strong: #A9B8B3;
+    --pine: #1F5E57; --pine-soft: #E3EEEA; --signal: #D9A21B;
+    --rk0: #A9B8B3; --rk1: #3C8D5A; --rk2: #B98411; --rk3: #C2551F; --rk4: #A61B29;
+    --rk1-bg: #E5F2E9; --rk3-bg: #FBEDE4; --rk4-bg: #F8E3E5;
+    --azure: #2C6E9B; --entra: #6B4FA3;
+    --code: #0F2726; --code-ink: #D7E6E1;
+    --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+    --text: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #0f1218; --panel: #171b23; --text: #e6e9ef; --muted: #9aa3b2; --border: #2a303b;
-      --accent: #6b9bff; --accent-soft: #1d2a45;
-      --r1: #4ade80; --r1bg: #14301f; --r2: #fbbf24; --r2bg: #3a2c0b;
-      --r3: #fb923c; --r3bg: #3b2012; --r4: #f87171; --r4bg: #3d1616;
-      --code: #0b0e13; --codetext: #d6dde8;
-      --azure: #7dd3fc; --azurebg: #0c2a3d; --entra: #c4b5fd; --entrabg: #2a1f4a;
+      --paper: #0E1F1E; --sheet: #13292A; --ink: #E3ECE8; --muted: #95A8A3; --line: #24403C; --line-strong: #3B5C57;
+      --pine: #7CC4B4; --pine-soft: #183B39; --signal: #E5B84A;
+      --rk0: #3B5C57; --rk1: #6CC28B; --rk2: #E0B04A; --rk3: #EE8452; --rk4: #F06A76;
+      --rk1-bg: #16362A; --rk3-bg: #3A2418; --rk4-bg: #3D1C21;
+      --azure: #7DB6DD; --entra: #B7A1E6;
+      --code: #0A1716; --code-ink: #D7E6E1;
     }
   }
+
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
-  header { background: var(--panel); border-bottom: 1px solid var(--border); }
-  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-  header .wrap { padding-top: 22px; }
-  h1 { margin: 0 0 4px; font-size: 1.55rem; }
-  .sub { color: var(--muted); margin: 0 0 16px; }
-  nav { display: flex; gap: 4px; flex-wrap: wrap; }
-  nav button { background: none; border: none; border-bottom: 3px solid transparent; padding: 10px 14px; font: inherit; color: var(--muted); cursor: pointer; }
-  nav button.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
-  main { padding: 24px 0 60px; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; font: 400 16px/1.55 var(--text); background: var(--paper); color: var(--ink); }
+  a { color: var(--pine); text-underline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+  code { font-family: var(--mono); font-size: .88em; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  /* En-tête : la question est le titre */
+  header { padding: 40px 0 0; border-bottom: 1px solid var(--line); background: var(--paper); }
+  .topbar { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+  h1 { font: 800 clamp(2.1rem, 5.2vw, 3.6rem)/1.02 var(--display); font-stretch: 72%; letter-spacing: -.01em; margin: 0; max-width: 16ch; }
+  header .sub { font-size: 1.05rem; color: var(--muted); max-width: 60ch; margin: 14px 0 28px; }
+  .lang { display: inline-flex; flex-shrink: 0; margin-top: 8px; border: 1px solid var(--line-strong); border-radius: 4px; }
+  .lang button { background: none; border: 0; padding: 5px 11px; font: 600 .82rem var(--text); color: var(--muted); cursor: pointer; }
+  .lang button.on { background: var(--ink); color: var(--paper); }
+  nav { display: flex; gap: 28px; flex-wrap: wrap; }
+  nav button { background: none; border: 0; border-bottom: 3px solid transparent; padding: 0 0 12px; font: 500 .98rem var(--text); color: var(--muted); cursor: pointer; }
+  nav button:hover { color: var(--ink); }
+  nav button.active { color: var(--ink); border-bottom-color: var(--pine); font-weight: 650; }
+
+  main.wrap { padding-top: 32px; padding-bottom: 72px; }
   section { display: none; }
   section.active { display: block; }
-  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
-  h2 { font-size: 1.2rem; margin: 0 0 12px; }
-  h3 { font-size: 1.02rem; margin: 18px 0 8px; }
-  .steps { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
-  .step { font-size: .85rem; padding: 4px 10px; border-radius: 99px; background: var(--border); color: var(--muted); }
-  .step.on { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
-  .choice { text-align: left; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 14px; font: inherit; color: var(--text); cursor: pointer; transition: border-color .15s, transform .15s; }
-  .choice:hover { border-color: var(--accent); transform: translateY(-1px); }
-  .choice strong { display: block; margin-bottom: 4px; }
-  .choice span { color: var(--muted); font-size: .9rem; }
-  .big { padding: 22px; }
-  .tag { display: inline-block; font-size: .75rem; font-weight: 600; padding: 2px 8px; border-radius: 99px; margin-right: 4px; vertical-align: middle; }
-  .t-azure { background: var(--azurebg); color: var(--azure); }
-  .t-entra { background: var(--entrabg); color: var(--entra); }
-  .risk1 { background: var(--r1bg); color: var(--r1); } .risk2 { background: var(--r2bg); color: var(--r2); }
-  .risk3 { background: var(--r3bg); color: var(--r3); } .risk4 { background: var(--r4bg); color: var(--r4); }
-  .linkbtn { background: none; border: none; color: var(--accent); font: inherit; cursor: pointer; padding: 0; }
-  .btn { background: var(--accent); color: #fff; border: none; padding: 8px 14px; border-radius: 8px; font: inherit; cursor: pointer; }
-  .btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
-  .rolehead { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
-  .rolehead h2 { margin-bottom: 2px; }
+
+  /* Pas de boîtes partout : des blocs séparés par des filets */
+  .card { padding: 0 0 32px; margin: 0 0 32px; border-bottom: 1px solid var(--line); }
+  section > .card:last-child, #wiz-body > .card:last-child { border-bottom: 0; }
+  h2 { font: 700 1.55rem/1.15 var(--display); font-stretch: 85%; margin: 0 0 14px; }
+  h3 { font: 650 1.02rem/1.3 var(--text); margin: 26px 0 10px; }
+  p { margin: 0 0 12px; }
+  .sub { color: var(--muted); }
   .fr { color: var(--muted); font-size: .95rem; }
-  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  @media (max-width: 700px) { .cols { grid-template-columns: 1fr; } }
-  ul.can, ul.cannot { padding-left: 0; list-style: none; margin: 0; }
-  ul.can li, ul.cannot li { padding: 4px 0 4px 24px; position: relative; }
-  ul.can li::before { content: "✓"; position: absolute; left: 4px; color: var(--r1); font-weight: 700; }
-  ul.cannot li::before { content: "✕"; position: absolute; left: 4px; color: var(--r4); font-weight: 700; }
-  .note { background: var(--accent-soft); border-radius: 8px; padding: 10px 14px; margin-top: 14px; font-size: .93rem; }
-  .warn { background: var(--r3bg); color: var(--text); border-left: 4px solid var(--r3); border-radius: 8px; padding: 10px 14px; margin-top: 14px; font-size: .93rem; }
-  pre { background: var(--code); color: var(--codetext); padding: 14px; border-radius: 8px; overflow-x: auto; font-size: .85rem; margin: 6px 0 0; position: relative; white-space: pre; }
-  .codebox { position: relative; margin-bottom: 12px; }
-  .copy { position: absolute; top: 8px; right: 8px; background: #334155; color: #fff; border: none; border-radius: 6px; padding: 4px 10px; font-size: .8rem; cursor: pointer; }
-  .form { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-bottom: 10px; }
-  label { font-size: .85rem; color: var(--muted); display: block; margin-bottom: 3px; }
-  input, select { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font: inherit; }
-  .toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
-  .toolbar input { flex: 1 1 260px; } .toolbar select { flex: 0 1 200px; }
-  .rolecard { cursor: pointer; }
-  .rolecard .fr { font-size: .85rem; }
-  .rolecard p { margin: 8px 0 0; font-size: .9rem; color: var(--muted); }
-  table { width: 100%; border-collapse: collapse; font-size: .93rem; }
-  th, td { border-bottom: 1px solid var(--border); padding: 10px; text-align: left; vertical-align: top; }
-  th { color: var(--muted); font-weight: 600; width: 22%; }
+
+  /* Fil d'Ariane de l'assistant (vraie séquence) */
+  .steps { display: flex; gap: 22px; margin: 0 0 22px; flex-wrap: wrap; }
+  .step { font-size: .88rem; color: var(--muted); padding-bottom: 3px; border-bottom: 2px solid transparent; }
+  .step.on { color: var(--ink); font-weight: 650; border-bottom-color: var(--signal); }
+
+  /* Listes de choix : des lignes, pas des cartes */
+  .grid { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+  .choice { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; width: 100%; text-align: left;
+    background: none; border: 0; border-bottom: 1px solid var(--line); padding: 13px 6px; font: inherit; color: var(--ink); cursor: pointer; }
+  .choice strong { font-weight: 550; }
+  .choice span { color: var(--muted); font-size: .9rem; text-align: right; flex-shrink: 0; max-width: 45%; }
+  .choice:hover { background: var(--pine-soft); }
+  .choice:hover strong { color: var(--pine); }
+  /* Les deux grandes portes de la première étape */
+  .grid:has(.big) { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 0; }
+  .choice.big { flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; padding: 26px 28px 28px; border: 1px solid var(--line-strong); background: var(--sheet); }
+  .choice.big + .choice.big { border-left: 0; }
+  .choice.big strong { font: 700 1.6rem/1.1 var(--display); font-stretch: 80%; }
+  .choice.big span { text-align: left; max-width: none; font-size: .95rem; }
+  .choice.big:hover { background: var(--pine-soft); }
+  @media (max-width: 680px) {
+    .grid:has(.big) { grid-template-columns: 1fr; }
+    .choice.big + .choice.big { border-left: 1px solid var(--line-strong); border-top: 0; }
+    .choice { flex-direction: column; gap: 2px; }
+    .choice span { text-align: left; max-width: none; }
+  }
+
+  /* Étiquettes : sobres, au trait */
+  .tag { display: inline-block; font-size: .76rem; font-weight: 600; padding: 1px 7px; border: 1px solid currentColor; border-radius: 3px; margin-right: 6px; vertical-align: middle; line-height: 1.5; }
+  .t-azure { color: var(--azure); } .t-entra { color: var(--entra); }
+  .tag.risk1 { color: var(--rk1); } .tag.risk4 { color: var(--rk4); }
+
+  /* Jauge de risque : niveau d'habilitation sur 4 barres */
+  .meter { display: inline-flex; align-items: flex-end; gap: 2px; vertical-align: middle; margin-right: 8px; --rk: var(--rk0); }
+  .meter i { display: block; width: 4px; background: var(--line); border-radius: 1px; }
+  .meter i:nth-child(1) { height: 6px; } .meter i:nth-child(2) { height: 9px; } .meter i:nth-child(3) { height: 12px; } .meter i:nth-child(4) { height: 15px; }
+  .meter.r1 { --rk: var(--rk1); } .meter.r2 { --rk: var(--rk2); } .meter.r3 { --rk: var(--rk3); } .meter.r4 { --rk: var(--rk4); }
+  .meter.r1 i:nth-child(-n+1), .meter.r2 i:nth-child(-n+2), .meter.r3 i:nth-child(-n+3), .meter.r4 i:nth-child(-n+4) { background: var(--rk); }
+  .meter span { margin-left: 6px; font-size: .8rem; font-weight: 600; color: var(--rk); line-height: 1; }
+
+  /* Le badge d'accès : l'élément signature */
+  .pass { display: grid; grid-template-columns: 44px 1fr; max-width: 680px; margin: 4px 0 22px; background: var(--sheet);
+    border: 1px solid var(--line-strong); border-radius: 12px; overflow: hidden; --rk: var(--rk0);
+    box-shadow: 0 1px 0 var(--line), 0 14px 30px -22px rgba(16, 42, 43, .45); animation: issue .45s cubic-bezier(.2, .8, .2, 1) both; }
+  .pass.r1 { --rk: var(--rk1); } .pass.r2 { --rk: var(--rk2); } .pass.r3 { --rk: var(--rk3); } .pass.r4 { --rk: var(--rk4); }
+  .pass-band { background: var(--rk); display: flex; justify-content: center; padding-top: 20px; }
+  .pass-slot { width: 8px; height: 30px; border-radius: 4px; background: var(--paper); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .25); }
+  .pass-body { padding: 18px 24px 20px; }
+  .pass-top { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+  .pass-name { font: 800 clamp(1.7rem, 3.6vw, 2.3rem)/1.02 var(--display); font-stretch: 70%; margin: 0 0 4px; letter-spacing: -.005em; }
+  .pass-desc { margin: 12px 0 0; padding-top: 12px; border-top: 1px dashed var(--line-strong); }
+  .pass-scope { margin-top: 10px; font-size: .9rem; }
+  .pass-scope span, .pass-scope strong { color: var(--muted); font-weight: 500; }
+  .ms-head { margin-bottom: 22px; }
+  .ms-block { margin-bottom: 8px; }
+  .ms-alts { margin-top: 28px; padding-top: 4px; border-top: 1px solid var(--line); }
+  @keyframes issue { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  .rolehead { display: block; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  @media (max-width: 700px) { .cols { grid-template-columns: 1fr; gap: 0; } }
+  ul.can, ul.cannot { padding: 0; list-style: none; margin: 0; }
+  ul.can li, ul.cannot li { padding: 6px 0 6px 22px; position: relative; border-bottom: 1px solid var(--line); }
+  ul.can li::before, ul.cannot li::before { position: absolute; left: 0; top: 6px; font-weight: 700; }
+  ul.can li::before { content: "+"; color: var(--rk1); }
+  ul.cannot li::before { content: "−"; color: var(--rk4); }
+
+  .note, .warn { padding: 12px 16px; margin-top: 16px; font-size: .94rem; border-left: 3px solid var(--pine); background: var(--pine-soft); }
+  .warn { border-left-color: var(--rk3); background: var(--rk3-bg); }
+
+  /* Boutons */
+  .btn { background: var(--ink); color: var(--paper); border: 1px solid var(--ink); padding: 8px 16px; border-radius: 4px; font: 600 .92rem var(--text); cursor: pointer; }
+  .btn.ghost { background: none; color: var(--ink); border-color: var(--line-strong); }
+  .btn.ghost:hover { border-color: var(--ink); }
+  .back { margin: 0 8px 20px 0; }
+  .linkbtn { background: none; border: 0; color: var(--pine); font: inherit; cursor: pointer; padding: 0; text-decoration: underline; text-underline-offset: 3px; }
   .alts { display: flex; flex-wrap: wrap; gap: 8px; }
-  .alts button { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; color: var(--text); font: inherit; cursor: pointer; }
-  .back { margin-bottom: 14px; }
-  footer { color: var(--muted); font-size: .85rem; text-align: center; padding: 20px; }
-  footer a { color: var(--accent); }
-  details.role { border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; margin-bottom: 8px; background: var(--panel); }
-  details.role summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .alts button { display: inline-flex; align-items: center; gap: 8px; background: var(--sheet); border: 1px solid var(--line-strong); border-radius: 4px; padding: 7px 12px; color: var(--ink); font: inherit; font-size: .92rem; cursor: pointer; }
+  .alts button:hover { border-color: var(--ink); }
+  .alts .meter { margin: 0; }
+
+  /* Formulaires */
+  .form { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px 16px; margin-bottom: 14px; }
+  label { font-size: .84rem; color: var(--muted); display: block; margin-bottom: 4px; }
+  input, select { width: 100%; padding: 9px 11px; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--sheet); color: var(--ink); font: inherit; font-size: .95rem; }
+  input:focus, select:focus { border-color: var(--pine); outline: none; box-shadow: 0 0 0 3px var(--pine-soft); }
+  .toolbar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+  .toolbar input { flex: 1 1 280px; } .toolbar select { flex: 0 1 230px; width: auto; }
+
+  /* Code */
+  pre { background: var(--code); color: var(--code-ink); font: .84rem/1.6 var(--mono); padding: 16px 18px; border-radius: 6px; overflow-x: auto; margin: 0; white-space: pre; }
+  .codebox { position: relative; }
+  .copy { position: absolute; top: 10px; right: 10px; background: transparent; color: var(--code-ink); border: 1px solid rgba(215, 230, 225, .35); border-radius: 4px; padding: 3px 10px; font: 600 .78rem var(--text); cursor: pointer; }
+  .copy:hover { border-color: var(--code-ink); }
+  .ctabs { display: flex; gap: 22px; margin: 4px 0 0; border-bottom: 1px solid var(--line); }
+  .ctabs button { background: none; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 0 0 8px; font: 500 .92rem var(--text); color: var(--muted); cursor: pointer; }
+  .ctabs button.on { color: var(--ink); font-weight: 650; border-bottom-color: var(--pine); }
+  .cpane { padding: 16px 0 0; }
+  ol.portal { margin: 0; padding-left: 24px; max-width: 72ch; }
+  ol.portal li { padding: 5px 0 5px 4px; }
+  ol.portal li::marker { font-weight: 700; color: var(--pine); }
+
+  /* Catalogue : un registre plutôt qu'une grille de cartes */
+  #cat-grid { border-top: 1px solid var(--line); }
+  .rolecard { display: grid; grid-template-columns: minmax(200px, 1.1fr) 2fr 215px; grid-template-areas: "name desc meta" "fr desc meta";
+    column-gap: 24px; padding: 14px 6px; margin: 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+  .rolecard:hover { background: var(--pine-soft); }
+  .rolecard > div:first-child { grid-area: meta; align-self: center; text-align: right; white-space: nowrap; }
+  .rolecard h3 { grid-area: name; margin: 0 !important; font: 700 1.12rem/1.2 var(--display); font-stretch: 85%; }
+  .rolecard .fr { grid-area: fr; font-size: .86rem; }
+  .rolecard p { grid-area: desc; margin: 0; color: var(--muted); font-size: .92rem; align-self: center; }
+  @media (max-width: 760px) {
+    .rolecard { grid-template-columns: 1fr; grid-template-areas: "meta" "name" "fr" "desc"; row-gap: 4px; }
+    .rolecard > div:first-child { text-align: left; }
+  }
+
+  /* Tableaux */
+  table { width: 100%; border-collapse: collapse; font-size: .94rem; }
+  th, td { border-bottom: 1px solid var(--line); padding: 11px 12px 11px 0; text-align: left; vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; width: 20%; }
+
+  /* Tous les rôles */
+  details.role { border-bottom: 1px solid var(--line); padding: 12px 6px; }
+  details.role:first-of-type { border-top: 1px solid var(--line); }
+  details.role summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  details.role summary strong { font-weight: 650; margin-right: 8px; }
   details.role summary::-webkit-details-marker { display: none; }
-  details.role .d { color: var(--muted); font-size: .9rem; margin: 6px 0; }
-  .perms { font-family: ui-monospace, Consolas, monospace; font-size: .8rem; background: var(--bg); border-radius: 8px; padding: 8px 10px; max-height: 220px; overflow: auto; margin: 4px 0 10px; }
-  .perms div { padding: 1px 0; word-break: break-all; }
-  .perms .hit { background: var(--r1bg); color: var(--r1); font-weight: 600; }
-  .perms .miss { background: var(--r4bg); color: var(--r4); font-weight: 600; }
-  #detail-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 10; overflow-y: auto; padding: 40px 16px; }
+  details.role[open] { background: var(--sheet); padding: 14px 16px 18px; }
+  details.role .d { color: var(--muted); font-size: .92rem; margin: 8px 0; }
+  .perms { font: .78rem/1.6 var(--mono); background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 8px 12px; max-height: 220px; overflow: auto; margin: 4px 0 14px; }
+  .perms div { word-break: break-all; }
+  .perms .hit { background: var(--rk1-bg); color: var(--rk1); font-weight: 600; }
+  .perms .miss { background: var(--rk4-bg); color: var(--rk4); font-weight: 600; }
+
+  /* Fiche ouverte par-dessus la page */
+  #detail-overlay { display: none; position: fixed; inset: 0; background: rgba(9, 24, 24, .55); z-index: 10; overflow-y: auto; padding: 48px 16px; }
   #detail-overlay.open { display: block; }
-  #detail-overlay .card { max-width: 820px; margin: 0 auto; }
-  .topbar { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-  .lang { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; flex-shrink: 0; margin-top: 4px; }
-  .lang button { background: var(--panel); color: var(--muted); border: none; padding: 6px 12px; font: 600 .85rem system-ui, sans-serif; cursor: pointer; }
-  .lang button.on { background: var(--accent); color: #fff; }
+  #detail-overlay .card { max-width: 820px; margin: 0 auto; padding: 28px 32px 32px; background: var(--paper); border: 0; border-radius: 8px; }
+
+  footer { color: var(--muted); font-size: .86rem; padding: 28px 0 40px; border-top: 1px solid var(--line); }
+  footer .wrap > span { display: block; max-width: 80ch; }
   html[lang="fr"] .en-only, html[lang="en"] .fr-only { display: none !important; }
-  .ctabs { display: flex; gap: 4px; margin: 6px 0 0; flex-wrap: wrap; }
-  .ctabs button { background: var(--bg); border: 1px solid var(--border); border-bottom: none; border-radius: 8px 8px 0 0; padding: 6px 12px; font: inherit; font-size: .88rem; color: var(--muted); cursor: pointer; }
-  .ctabs button.on { background: var(--panel); color: var(--accent); font-weight: 600; border-color: var(--accent); }
-  .cpane { border: 1px solid var(--border); border-radius: 0 8px 8px 8px; padding: 12px 14px; background: var(--panel); }
-  .cpane pre { margin: 0; }
-  ol.portal { margin: 0; padding-left: 22px; }
-  ol.portal li { padding: 4px 0; }
+
+  @media (prefers-reduced-motion: reduce) { .pass { animation: none; } }
+  @media (max-width: 600px) { .wrap { padding: 0 16px; } header { padding-top: 28px; }
+    nav { gap: 20px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-right: -16px; padding-right: 16px; } nav button { white-space: nowrap; } .pass-body { padding: 16px 18px; } }
+  @media print { header nav, .lang, .back, .ctabs, .copy, footer { display: none; } body { background: #fff; } }
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
     <div class="topbar">
-      <h1 data-i18n="title">Choisir le bon rôle Azure et Entra ID</h1>
+      <h1 data-i18n="headline">Quel rôle donner, sans donner trop ?</h1>
       <div class="lang" role="group" aria-label="Langue / Language">
         <button data-lang="fr" title="Français">FR</button><button data-lang="en" title="English">EN</button>
       </div>
     </div>
-    <p class="sub" data-i18n="subtitle">Trouver le rôle au moindre privilège, comprendre ce qu'il permet et copier la commande d'attribution.</p>
+    <p class="sub" data-i18n="subtitle">Un assistant de moindre privilège pour Azure RBAC et Microsoft Entra ID, appuyé sur les recommandations de Microsoft.</p>
     <nav>
       <button data-tab="wizard" class="active" data-i18n="tab_wizard">Assistant</button>
       <button data-tab="catalog" data-i18n="tab_catalog">Catalogue</button>
@@ -167,9 +273,9 @@
         <div><label for="cmp3" data-i18n-n="cmp_role" data-n="3">Rôle 3</label><select id="cmp3"></select></div>
       </div>
       <p class="sub"><span data-i18n="cmp_frequent">Comparaisons fréquentes :</span>
-        <button class="linkbtn" data-cmp="owner,contributor,user-access-administrator" data-i18n="cmp_q1"></button> ·
-        <button class="linkbtn" data-cmp="helpdesk-admin,password-admin,auth-admin" data-i18n="cmp_q2"></button> ·
-        <button class="linkbtn" data-cmp="storage-account-contributor,blob-data-contributor,blob-data-reader" data-i18n="cmp_q3"></button> ·
+        <button class="linkbtn" data-cmp="owner,contributor,user-access-administrator" data-i18n="cmp_q1"></button>,
+        <button class="linkbtn" data-cmp="helpdesk-admin,password-admin,auth-admin" data-i18n="cmp_q2"></button>,
+        <button class="linkbtn" data-cmp="storage-account-contributor,blob-data-contributor,blob-data-reader" data-i18n="cmp_q3"></button>,
         <button class="linkbtn" data-cmp="global-admin,global-reader,owner" data-i18n="cmp_q4"></button>
       </p>
       <div id="cmp-table"></div>
@@ -287,7 +393,7 @@
 
 <div id="detail-overlay"><div class="card" id="detail-card"></div></div>
 
-<footer>
+<footer><div class="wrap">
   <span class="fr-only">Projet personnel à but pédagogique. Les définitions évoluent : vérifier sur
   <a data-i18n-href="https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles" target="_blank" rel="noopener">rôles intégrés Azure</a> et
   <a data-i18n-href="https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference" target="_blank" rel="noopener">rôles intégrés Entra ID</a>.<br>
@@ -296,7 +402,7 @@
   <a data-i18n-href="https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles" target="_blank" rel="noopener">Azure built-in roles</a> and
   <a data-i18n-href="https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference" target="_blank" rel="noopener">Entra ID built-in roles</a>.<br>
   Entra ID recommendations come from <a data-i18n-href="https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/delegate-by-task" target="_blank" rel="noopener">Least privileged roles by task</a> (Microsoft), synced weekly.</span>
-</footer>
+</div></footer>
 
 <script>
 const ROLES = [
@@ -817,7 +923,8 @@ const NEED_EN = {
 const I18N = {
   fr: {
     title: "Choisir le bon rôle Azure et Entra ID",
-    subtitle: "Trouver le rôle au moindre privilège, comprendre ce qu'il permet et copier la commande d'attribution.",
+    headline: "Quel rôle donner, sans donner trop ?",
+    subtitle: "Un assistant de moindre privilège pour Azure RBAC et Microsoft Entra ID, appuyé sur les recommandations de Microsoft.",
     tab_wizard: "Assistant", tab_catalog: "Catalogue", tab_compare: "Comparer", tab_all: "Tous les rôles", tab_basics: "Azure RBAC vs Entra ID",
     risk1: "Faible", risk2: "Moyen", risk3: "Élevé", risk4: "Critique", risk: n => "Risque " + ["", "faible", "moyen", "élevé", "critique"][n],
     scope_mg: "Groupe d'administration", scope_sub: "Abonnement", scope_rg: "Groupe de ressources", scope_resource: "Ressource",
@@ -832,7 +939,7 @@ const I18N = {
     scope_tenant_or_au: "Tenant ou unité administrative", scope_tenant: "Tenant",
     all_title: "Tous les rôles intégrés", loading: "Chargement…", all_mode_text: "Rechercher par nom ou description", all_mode_perm: "Quels rôles accordent cette permission ?",
     all_ph: "Ex. : backup, Key Vault, réseau", all_both: "Azure RBAC et Entra ID", more: "Afficher plus",
-    all_meta: (parts) => "Source : export officiel. " + parts.join(" · "), n_azure: n => `${n} rôles Azure RBAC`, n_entra: n => `${n} rôles Entra ID`,
+    all_meta: (parts) => "Source : export officiel, " + parts.join(" et ") + ".", n_azure: n => `${n} rôles Azure RBAC`, n_entra: n => `${n} rôles Entra ID`,
     all_file: "Cet onglet charge des fichiers JSON : ouvre la page depuis GitHub Pages ou un petit serveur local (<code>python3 -m http.server</code>).",
     all_nodata: "Les données n'ont pas encore été générées. Lance le workflow « Mise à jour des rôles intégrés » dans l'onglet Actions du dépôt.",
     all_missing: list => `<strong>À vérifier :</strong> ces rôles du guide ne figurent plus dans l'export officiel (renommés ou retirés) : ${list}.`,
@@ -864,7 +971,8 @@ const I18N = {
   },
   en: {
     title: "Choose the right Azure and Entra ID role",
-    subtitle: "Find the least privileged role, understand what it allows and copy the assignment command.",
+    headline: "Which role to give, without giving too much?",
+    subtitle: "A least-privilege assistant for Azure RBAC and Microsoft Entra ID, backed by Microsoft's own recommendations.",
     tab_wizard: "Assistant", tab_catalog: "Catalog", tab_compare: "Compare", tab_all: "All roles", tab_basics: "Azure RBAC vs Entra ID",
     risk1: "Low", risk2: "Medium", risk3: "High", risk4: "Critical", risk: n => ["", "Low", "Medium", "High", "Critical"][n] + " risk",
     scope_mg: "Management group", scope_sub: "Subscription", scope_rg: "Resource group", scope_resource: "Resource",
@@ -879,7 +987,7 @@ const I18N = {
     scope_tenant_or_au: "Tenant or administrative unit", scope_tenant: "Tenant",
     all_title: "All built-in roles", loading: "Loading…", all_mode_text: "Search by name or description", all_mode_perm: "Which roles grant this permission?",
     all_ph: "E.g. backup, Key Vault, network", all_both: "Azure RBAC and Entra ID", more: "Show more",
-    all_meta: (parts) => "Source: official export. " + parts.join(" · "), n_azure: n => `${n} Azure RBAC roles`, n_entra: n => `${n} Entra ID roles`,
+    all_meta: (parts) => "Source: official export, " + parts.join(" and ") + ".", n_azure: n => `${n} Azure RBAC roles`, n_entra: n => `${n} Entra ID roles`,
     all_file: "This tab loads JSON files: open the page from GitHub Pages or a small local server (<code>python3 -m http.server</code>).",
     all_nodata: "The data has not been generated yet. Run the \"Mise à jour des rôles intégrés\" workflow in the repository's Actions tab.",
     all_missing: list => `<strong>To check:</strong> these guide roles are no longer in the official export (renamed or removed): ${list}.`,
@@ -934,7 +1042,7 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;"
 function typeTag(r) {
   return r.type === "azure" ? '<span class="tag t-azure">Azure RBAC</span>' : '<span class="tag t-entra">Entra ID</span>';
 }
-function riskTag(r) { return `<span class="tag risk${r.risk}">${t("risk", r.risk)}</span>`; }
+function riskTag(r) { return `<span class="meter r${r.risk}" title="${t("risk", r.risk)}"><i></i><i></i><i></i><i></i><span>${t("risk", r.risk)}</span></span>`; }
 
 /* ---------- Commandes ---------- */
 function scopePath(level, v) {
@@ -1072,16 +1180,20 @@ function wireCmd(container, r, uid) {
 let uidSeq = 0;
 function roleHtml(r, uid) {
   return `
-    <div class="rolehead">
-      <div><h2>${esc(r.name)}</h2><div class="fr">${esc(subName(r))}</div></div>
-      <div>${typeTag(r)}${riskTag(r)}</div>
+    <div class="pass r${r.risk}">
+      <div class="pass-band"><span class="pass-slot"></span></div>
+      <div class="pass-body">
+        <div class="pass-top">${typeTag(r)}${riskTag(r)}</div>
+        <h2 class="pass-name">${esc(r.name)}</h2>
+        <div class="fr">${esc(subName(r))}</div>
+        <p class="pass-desc">${esc(rf(r, "desc"))}</p>
+        ${r.type === "azure" ? `<div class="pass-scope"><span>${t("rec_scope")}</span> ${t("scope_" + r.scope)}</div>` : (r.au ? `<div class="pass-scope">${t("au_scope")}</div>` : "")}
+      </div>
     </div>
-    <p>${esc(rf(r, "desc"))}</p>
     <div class="cols">
       <div><h3>${t("can")}</h3><ul class="can">${rf(r, "can").map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
       <div><h3>${t("cannot")}</h3><ul class="cannot">${rf(r, "cannot").map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
     </div>
-    ${r.type === "azure" ? `<div class="note"><strong>${t("rec_scope")}</strong> ${t("scope_" + r.scope)}</div>` : (r.au ? `<div class="note">${t("au_scope")}</div>` : "")}
     <div class="${r.risk >= 3 ? "warn" : "note"}"><strong>${t("tip")}</strong> ${esc(rf(r, "tips"))}</div>
     <p style="margin-top:10px;font-size:.9rem"><a href="${msUrl(r.type, r.name)}" target="_blank" rel="noopener">${t("verify_ms")}</a></p>
     ${commandsHtml(r, uid)}`;
@@ -1140,7 +1252,7 @@ function renderWizard() {
         <p class="sub" style="margin-bottom:6px">${t("need")} <strong>${esc(needLabel(n))}</strong></p>
         ${roleHtml(r, uid)}
         ${why ? `<div class="note"><strong>${t("good_to_know")}</strong> ${esc(why)}</div>` : ""}
-        ${n.alts.length ? `<h3>${t("alternatives")}</h3><div class="alts">${n.alts.map(a => `<button data-open="${a}">${esc(byId[a].name)} · ${t("risk" + byId[a].risk)}</button>`).join("")}</div>` : ""}
+        ${n.alts.length ? `<h3>${t("alternatives")}</h3><div class="alts">${n.alts.map(a => `<button data-open="${a}">${esc(byId[a].name)} ${riskTag(byId[a])}</button>`).join("")}</div>` : ""}
       </div>`;
     wireCmd(body, r, uid);
     $("#wiz-back").onclick = () => { wiz.step = 2; renderWizard(); };
@@ -1224,11 +1336,15 @@ function msUrl(type, name) {
 function officialHtml(r, uid) {
   const pseudo = { type: r.type, name: r.name, scope: "rg", au: false };
   return `
-    <div class="rolehead">
-      <div><h2>${esc(r.name)}</h2><div class="fr">${t("official_desc")}</div></div>
-      <div>${typeTag(r)}${r.isPrivileged ? `<span class="tag risk4">${t("privileged")}</span>` : ""}</div>
+    <div class="pass ${r.isPrivileged ? "r4" : "r0"}">
+      <div class="pass-band"><span class="pass-slot"></span></div>
+      <div class="pass-body">
+        <div class="pass-top">${typeTag(r)}${r.isPrivileged ? `<span class="tag risk4">${t("privileged")}</span>` : ""}</div>
+        <h2 class="pass-name">${esc(r.name)}</h2>
+        <div class="fr">${t("official_desc")}</div>
+        <p class="pass-desc">${esc(r.description)}</p>
+      </div>
     </div>
-    <p>${esc(r.description)}</p>
     <p><a href="${msUrl(r.type, r.name)}" target="_blank" rel="noopener">${t("ms_doc")}</a></p>
     ${permList(r.type === "azure" ? "Actions" : t("allowed_actions"), r.actions, [], [])}
     ${permList("NotActions", r.notActions, [], [])}
@@ -1327,28 +1443,28 @@ async function renderMsResult(body) {
     const cur = curatedByName[key], off = d.byName[key];
     const uid = ++uidSeq;
     if (cur) {
-      blocks.push(`<div class="card" id="blk-${uid}">${roleHtml(byId[cur], uid)}</div>`);
+      blocks.push(`<div class="ms-block" id="blk-${uid}">${roleHtml(byId[cur], uid)}</div>`);
       wires.push([uid, byId[cur]]);
     } else if (off) {
-      blocks.push(`<div class="card" id="blk-${uid}">${officialHtml(off, uid)}</div>`);
+      blocks.push(`<div class="ms-block" id="blk-${uid}">${officialHtml(off, uid)}</div>`);
       wires.push([uid, { type: "entra", name: off.name, scope: "rg", isPrivileged: off.isPrivileged }]);
     } else {
-      blocks.push(`<div class="card"><h2>${esc(it.name)}</h2><p class="sub">${t("not_dir_role")}</p>${it.url ? `<a href="${lurl(it.url)}" target="_blank" rel="noopener">${t("learn_more")}</a>` : ""}</div>`);
+      blocks.push(`<div class="ms-block"><h2>${esc(it.name)}</h2><p class="sub">${t("not_dir_role")}</p>${it.url ? `<a href="${lurl(it.url)}" target="_blank" rel="noopener">${t("learn_more")}</a>` : ""}</div>`);
     }
     if (it.note) blocks.push(`<div class="note"><strong>${t("ms_note")}</strong> ${esc(it.note)}</div>`);
   }
   body.innerHTML = `
     <button class="btn ghost back" id="wiz-back">${t("back")}</button>
     <button class="btn ghost back" id="wiz-restart">${t("restart")}</button>
-    <div class="card">
+    <div class="ms-head">
       <p class="sub" style="margin-bottom:4px">${esc(areaLabel(area.area))}</p>
       <h2>${esc(task.task)}</h2>
       <div class="note"><strong>${t("ms_reco")}</strong> ${esc(roleNames(task.least))}.
-        <a href="${lurl(area.url)}" target="_blank" rel="noopener">${t("see_source")}</a>${task.doc ? ` · <a href="${lurl(task.doc)}" target="_blank" rel="noopener">${t("task_doc")}</a>` : ""}</div>
-      ${task.additional.length ? `<h3>${t("other_roles")}</h3><div class="alts">${task.additional.map(a =>
-        `<button data-role="${esc(a.name)}">${esc(a.name)}${d.byName["entra:" + a.name.toLowerCase()]?.isPrivileged ? " · " + t("privileged") : ""}</button>`).join("")}</div>` : ""}
+        <a href="${lurl(area.url)}" target="_blank" rel="noopener">${t("see_source")}</a>${task.doc ? `&ensp;&ensp;<a href="${lurl(task.doc)}" target="_blank" rel="noopener">${t("task_doc")}</a>` : ""}</div>
     </div>
-    ${blocks.join("")}`;
+    ${blocks.join("")}
+    ${task.additional.length ? `<div class="ms-alts"><h3>${t("other_roles")}</h3><div class="alts">${task.additional.map(a =>
+      `<button data-role="${esc(a.name)}">${esc(a.name)}${d.byName["entra:" + a.name.toLowerCase()]?.isPrivileged ? ` <span class="tag risk4">${t("privileged")}</span>` : ""}</button>`).join("")}</div></div>` : ""}`;
   wires.forEach(([uid, r]) => wireCmd($("#blk-" + uid), r, uid));
   $("#wiz-back").onclick = () => { wiz.step = 2; wiz.msTask = null; renderWizard(); };
   $("#wiz-restart").onclick = () => { wiz.step = 1; wiz.domain = null; wiz.msTask = null; wiz.q = ""; wiz.area = ""; renderWizard(); };
