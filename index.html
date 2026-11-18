@@ -953,7 +953,7 @@ const I18N = {
     portal: "Portail", portal_pim: "<strong>Bonne pratique :</strong> avec Entra ID P2 (PIM), choisis une attribution <strong>éligible</strong> plutôt qu'active, pour que le rôle ne soit activé qu'au besoin.",
     copy: "Copier", copied: "Copié", close: "Fermer", back: "Retour", restart: "Recommencer",
     can: "Ce qu'il permet", cannot: "Ce qu'il ne permet pas", rec_scope: "Portée recommandée :", au_scope: "<strong>Portée :</strong> peut être limité à une unité administrative.",
-    tip: "Conseil :", verify_ms: "Vérifier dans la documentation Microsoft ↗", ms_doc: "Voir la documentation Microsoft ↗", official_desc: "Description officielle Microsoft",
+    tip: "Conseil :", verify_ms: "Vérifier dans la documentation Microsoft ↗", ms_doc: "Voir la documentation Microsoft ↗", official_desc: "Description officielle Microsoft", official_desc_en: "Description officielle Microsoft (non traduite)",
     steps: ["1. Domaine", "2. Besoin", "3. Recommandation"],
     q_domain: "Que doit gérer la personne ou l'application ?",
     d_azure: "Des ressources Azure", d_azure_sub: "VM, réseau, stockage, Key Vault, sauvegardes, coûts, AVD…",
@@ -1001,7 +1001,7 @@ const I18N = {
     portal: "Portal", portal_pim: "<strong>Best practice:</strong> with Entra ID P2 (PIM), choose an <strong>eligible</strong> assignment rather than an active one, so the role is only activated when needed.",
     copy: "Copy", copied: "Copied", close: "Close", back: "Back", restart: "Start over",
     can: "What it allows", cannot: "What it does not allow", rec_scope: "Recommended scope:", au_scope: "<strong>Scope:</strong> can be limited to an administrative unit.",
-    tip: "Tip:", verify_ms: "Check in the Microsoft documentation ↗", ms_doc: "See the Microsoft documentation ↗", official_desc: "Official Microsoft description",
+    tip: "Tip:", verify_ms: "Check in the Microsoft documentation ↗", ms_doc: "See the Microsoft documentation ↗", official_desc: "Official Microsoft description", official_desc_en: "Official Microsoft description",
     steps: ["1. Area", "2. Need", "3. Recommendation"],
     q_domain: "What does the person or application need to manage?",
     d_azure: "Azure resources", d_azure_sub: "VMs, network, storage, Key Vault, backups, costs, AVD…",
@@ -1320,13 +1320,26 @@ let DATA_P = null;
 function loadData() {
   if (!DATA_P) {
     const get = f => fetch(`data/${f}.json`, { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
-    DATA_P = Promise.allSettled([get("azure-roles"), get("entra-roles"), get("entra-tasks")]).then(([a, e, tk]) => {
-      const d = { azure: a.value || null, entra: e.value || null, tasks: tk.value || null, byName: {} };
+    DATA_P = Promise.allSettled([get("azure-roles"), get("entra-roles"), get("entra-tasks"), get("descriptions-fr")]).then(([a, e, tk, fr]) => {
+      const d = { azure: a.value || null, entra: e.value || null, tasks: tk.value || null, fr: fr.value || null, byName: {} };
+      FRDESC = d.fr;
       [["azure", d.azure], ["entra", d.entra]].forEach(([k, j]) => j && j.roles.forEach(r => { r.type = k; d.byName[k + ":" + r.name.toLowerCase()] = r; }));
       return d;
     });
   }
   return DATA_P;
+}
+/* Nom et description en français publiés par Microsoft Learn, associés par ID */
+let FRDESC = null;
+function frOf(r) {
+  if (LANG !== "fr" || !FRDESC || !FRDESC[r.type] || !r.id) return null;
+  return FRDESC[r.type][String(r.id).toLowerCase()] || null;
+}
+const offDesc = r => (frOf(r) || {}).description || r.description;
+function offSub(r) {
+  const f = frOf(r);
+  if (f && f.name.toLowerCase() !== r.name.toLowerCase()) return f.name;
+  return LANG === "fr" && !f ? t("official_desc_en") : t("official_desc");
 }
 function msUrl(type, name) {
   return lurl(type === "entra"
@@ -1341,8 +1354,8 @@ function officialHtml(r, uid) {
       <div class="pass-body">
         <div class="pass-top">${typeTag(r)}${r.isPrivileged ? `<span class="tag risk4">${t("privileged")}</span>` : ""}</div>
         <h2 class="pass-name">${esc(r.name)}</h2>
-        <div class="fr">${t("official_desc")}</div>
-        <p class="pass-desc">${esc(r.description)}</p>
+        <div class="fr">${esc(offSub(r))}</div>
+        <p class="pass-desc">${esc(offDesc(r))}</p>
       </div>
     </div>
     <p><a href="${msUrl(r.type, r.name)}" target="_blank" rel="noopener">${t("ms_doc")}</a></p>
@@ -1544,7 +1557,7 @@ function renderAll() {
     list.sort((a, b) => breadth(a) - breadth(b));
   } else if (q) {
     const s = q.toLowerCase();
-    list = list.filter(r => (r.name + " " + r.description).toLowerCase().includes(s));
+    list = list.filter(r => { const f = frOf(r); return (r.name + " " + r.description + (f ? " " + f.name + " " + f.description : "")).toLowerCase().includes(s); });
   }
   const shown = list.slice(0, ALL.shown);
   $("#all-list").innerHTML = `<p class="sub">${mode === "perm" && q ? t("all_count_perm", list.length, esc(q)) : t("all_count", list.length)}</p>` +
@@ -1558,7 +1571,7 @@ function renderAll() {
       return `<details class="role">
         <summary><span><strong>${esc(r.name)}</strong> ${typeTag(r)}${r.isPrivileged ? `<span class="tag risk4">${t("privileged")}</span>` : ""}${cur ? `<span class="tag risk1">${t("in_guide")}</span>` : ""}</span>
         <span class="sub" style="margin:0;font-size:.85rem">${t("n_perms", n)}</span></summary>
-        <p class="d">${esc(r.description)}</p>
+        <p class="d">${esc(offDesc(r))}</p>
         <p><button class="btn ghost" data-open-name="${esc(r.name)}" data-open-type="${r.type}">${t("open_card")}</button></p>
         ${permList(r.type === "azure" ? "Actions" : t("allowed_actions"), r.actions, g.hit, g.miss)}
         ${permList("NotActions", r.notActions, g.hit, g.miss)}

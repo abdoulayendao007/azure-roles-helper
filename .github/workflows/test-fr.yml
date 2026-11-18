@@ -1,0 +1,24 @@
+# Workflow TEMPORAIRE : teste l'export des descriptions françaises sur dev. À supprimer après validation.
+name: Test descriptions françaises (temporaire)
+on:
+  push:
+    branches: [dev]
+    paths: [scripts/export_fr.py, .github/workflows/test-fr.yml]
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: dev
+      - run: python3 scripts/export_fr.py
+      - name: Commit sur dev
+        run: |
+          git add data/descriptions-fr.json || exit 0
+          git diff --cached --quiet && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Test : descriptions françaises"
+          git push

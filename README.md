@@ -28,8 +28,10 @@ index.html                          Page unique (HTML, CSS, JS sans dépendance)
 data/azure-roles.json               Export des rôles intégrés Azure RBAC (généré)
 data/entra-roles.json               Export des rôles intégrés Entra ID (généré)
 data/entra-tasks.json               Tâches et rôles au moindre privilège selon Microsoft (généré)
+data/descriptions-fr.json           Noms et descriptions des rôles en français, traduits par Microsoft Learn (généré)
 scripts/export_roles.py             Export des rôles (Azure CLI + Microsoft Graph)
 scripts/export_tasks.py             Export des tâches Microsoft (dépôt public MicrosoftDocs/entra-docs)
+scripts/export_fr.py                Export des descriptions françaises depuis Microsoft Learn
 fonts/                              Polices Archivo et JetBrains Mono hébergées localement (licence SIL OFL)
 .github/workflows/update-roles.yml  Workflow hebdomadaire (lundi) + lancement manuel
 .github/workflows/deploy-pages.yml  Publication de main (racine) et dev (/dev/)
