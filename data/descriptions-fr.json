@@ -1,0 +1,2579 @@
+{
+ "generatedAt": "2026-11-18T19:34:59+00:00",
+ "sources": {
+  "azure": "https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles",
+  "entra": "https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference"
+ },
+ "azure": {
+  "00482a5a-887f-4fb3-b363-3b7fe8e74483": {
+   "name": "Key Vault Administrateur",
+   "description": "Permet d’effectuer toutes les opérations du plan de données sur un coffre de clés et tous les objets qu’il contient, notamment les certificats, les clés et les secrets. Ne permet pas de gérer les ressources du coffre de clés ou les attributions de rôles. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d'autorisation « Azure contrôle d'accès en fonction du rôle »."
+  },
+  "00493d72-78f6-4148-b6c5-d3ce8e4799dd": {
+   "name": "Azure Arc rôle d’utilisateur du cluster Kubernetes activé",
+   "description": "Répertorier les actions relatives aux identifiants de l’utilisateur du cluster."
+  },
+  "00c29273-979b-4161-815c-10b084fb9324": {
+   "name": "Opérateur de sauvegarde",
+   "description": "Permet de gérer des services de sauvegarde, à l’exception de la suppression de la sauvegarde, de la création de coffres et de l’octroi d’autorisations d’accès à d’autres personnes"
+  },
+  "028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027": {
+   "name": "Lecteur Data Box",
+   "description": "Vous permet de gérer le service Data Box, mais ne permet pas de créer une commande, de modifier les détails d’une commande ou d’octroyer l’accès à d’autres personnes."
+  },
+  "02ca0879-e8e4-47a5-a61e-5c618b76e64a": {
+   "name": "Administrateur de mise à jour d’appareil",
+   "description": "Vous accorde un accès total aux opérations de gestion et de contenu"
+  },
+  "0336e1d3-7a87-462b-b6db-342b63f7802c": {
+   "name": "opérateur d’entrée de cluster Azure Red Hat OpenShift",
+   "description": "Gérez et configurez le routeur OpenShift."
+  },
+  "0358943c-7e01-48ba-8889-02cc51d78637": {
+   "name": "opérateur d’API machine Azure Red Hat OpenShift",
+   "description": "Gérez le cycle de vie des définitions de ressources personnalisées à usage spécifique (CRD), des contrôleurs et des objets RBAC Azure qui étendent l’API Kubernetes pour déclarer l’état souhaité des machines dans un cluster."
+  },
+  "0378884a-3af5-44ab-8323-f5b22f9f3c98": {
+   "name": "Administrateur de contenu de mise à jour d’appareil",
+   "description": "Vous accorde l’accès total aux opérations de contenu"
+  },
+  "03a6d094-3444-4b3d-88af-7477090a9e5e": {
+   "name": "Contributeur de compte de systèmes intelligents",
+   "description": "Permet de gérer des comptes de systèmes intelligents, mais pas d’y accéder."
+  },
+  "04165923-9d83-45d5-8227-78b77b0a687e": {
+   "name": "Lecteur AccessKey SignalR",
+   "description": "Lire SignalR Service clés d’accès"
+  },
+  "05352d14-a920-4328-a0de-4cbe7430e26b": {
+   "name": "lecteur de solutions SAP Azure Center pour SAP",
+   "description": "Ce rôle fournit un accès en lecture à toutes les fonctionnalités de Azure Center pour les solutions SAP."
+  },
+  "056cd41c-7e88-42e1-933e-88ba6a50c9c3": {
+   "name": "Gestionnaire de sécurité SQL",
+   "description": "Vous permet de gérer les stratégies de sécurité des serveurs et bases de données SQL, mais pas d’y accéder."
+  },
+  "082f0a83-3be5-4ba1-904c-961cca79b387": {
+   "name": "Contributeur de virtualisation de bureau",
+   "description": "Contributeur de virtualisation de bureau."
+  },
+  "08954f03-6346-4c2e-81c0-ec3a5cfae23b": {
+   "name": "Débogueur de capture instantanée Application Insights",
+   "description": "Autorise l’utilisateur à consulter et à télécharger les instantanés de débogage collectés à l’aide du Débogueur de capture instantanée Application Insights. Ces autorisations ne sont pas incluses dans les rôles de Propriétaire et de Contributeur. Lorsque vous donnez aux utilisateurs le rôle Débogueur de capture instantanée Application Insights, vous devez leur accorder directement le rôle. Le rôle n’est pas reconnu lorsqu’il est ajouté à un rôle personnalisé."
+  },
+  "08bbd89e-9f13-488c-ac41-acfcb10c90ab": {
+   "name": "Key Vault Utilisateur de publication du service de chiffrement",
+   "description": "Clés de mise en production. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d'autorisation « Azure contrôle d'accès en fonction du rôle »."
+  },
+  "08d4c71a-cc63-4ce4-a9c8-5dd251b4d619": {
+   "name": "Azure Opérateur de stockage de conteneurs",
+   "description": "Activez une identité managée pour effectuer des opérations de stockage de conteneurs Azure, telles que gérer des machines virtuelles et gérer des réseaux virtuels."
+  },
+  "090c5cfd-751d-490a-894a-3ce6f1109419": {
+   "name": "Azure Service Bus Propriétaire des données",
+   "description": "Permet un accès complet aux ressources Azure Service Bus."
+  },
+  "09267e11-2e06-40b5-8fe4-68cea20794c9": {
+   "name": "Azure Contributeur d’informations d’identification du Registre des appareils",
+   "description": "Permet un accès complet pour gérer les informations d’identification et les stratégies dans Azure’espace de noms Device Registry."
+  },
+  "0a5ae4ab-0d65-4eeb-be61-29fc9b54394b": {
+   "name": "Entraîneur Cognitive Services Custom Vision",
+   "description": "Afficher, modifier les projets et entraîner les modèles, avec la possibilité de publier, d’annuler la publication et d’exporter les modèles. Les entraîneurs ne peuvent pas créer ni supprimer le projet."
+  },
+  "0a9a7e1f-b9d0-4cc4-a60d-0319b160aaa3": {
+   "name": "Contributeur aux données de table de stockage",
+   "description": "Permet de lire, d’écrire et de supprimer l’accès aux tables et entités stockage Azure"
+  },
+  "0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8": {
+   "name": "Azure Kubernetes Service rôle d’administrateur de cluster",
+   "description": "Répertorie les actions relatives aux identifiants de l’administrateur du cluster."
+  },
+  "0ab34830-df19-4f8c-b84e-aa85b8afa6e8": {
+   "name": "Azure Front Door Contributeur de domaine",
+   "description": "Pour une utilisation interne dans Azure. Peut gérer Azure Front Door domaines, mais ne peut pas accorder l'accès à d'autres utilisateurs."
+  },
+  "0ad04412-c4d5-4796-b79c-f76d14c8d402": {
+   "name": "Contributeur de données Durable Task",
+   "description": "Rôle Durable Task pour toutes les opérations d’accès aux données."
+  },
+  "0b962ed2-6d56-471c-bd5f-3477d83a7ba4": {
+   "name": "Azure Abonné aux rubriques système de notifications de ressources",
+   "description": "Vous permet de créer des rubriques système et des abonnements aux événements sur toutes les rubriques système exposées actuellement et à l’avenir par Azure Notifications de ressources"
+  },
+  "0c34c906-8d99-4cb7-8bb7-33f5b0a1a799": {
+   "name": "Contributeur d’espace de travail API Management",
+   "description": "Peut gérer l’espace de travail et l’affichage, mais pas modifier ses membres. Ce rôle doit être attribué sur l’étendue de l’espace de travail."
+  },
+  "0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb": {
+   "name": "Contributeur de partage SMB de données de fichier de stockage",
+   "description": "Permet de lire, d’écrire et de supprimer l’accès sur les fichiers/répertoires dans Azure partages de fichiers. Ce rôle n’a pas d’équivalent intégré sur Windows serveurs de fichiers."
+  },
+  "0d7aedc0-15fd-4a67-a412-efad370c947e": {
+   "name": "opérateur de stockage de fichiers Azure Red Hat OpenShift",
+   "description": "Installez des pilotes CSI (Container Storage Interface) qui permettent à votre cluster d’utiliser Azure Files. Définissez les valeurs par défaut de stockage à l’échelle du cluster OpenShift pour garantir qu’une storageclass par défaut existe pour les clusters."
+  },
+  "0db238c4-885e-4c4f-a933-aa2cef684fca": {
+   "name": "Azure Front Door Lecteur secret",
+   "description": "Pour une utilisation interne dans Azure. Peut afficher Azure Front Door secrets, mais ne peut pas apporter de modifications."
+  },
+  "0e5f05e5-9ab9-446b-b98d-1e2157c94125": {
+   "name": "Opérateur de requête de quota",
+   "description": "Lire et créer des requêtes de quota, obtenir l’état de la requête de quota et créer des tickets de support."
+  },
+  "0e75ca1e-0464-4b4d-8b93-68208a576181": {
+   "name": "Contributeurs Speech de Cognitive Services",
+   "description": "Accès total aux projets Speech, y compris la lecture, l’écriture et la suppression de toutes les entités, pour les tâches de reconnaissance vocale en temps réel et de transcription par lots, la synthèse vocale en temps réel et les tâches audio longues, la parole personnalisée et la voix personnalisée."
+  },
+  "0f37683f-2463-46b6-9ce7-9b788b988ba2": {
+   "name": "Administrateur Automation de conformité des applications",
+   "description": "Permet de gérer l’outil Automation de conformité des applications pour Microsoft 365"
+  },
+  "0f99d363-226e-4dca-9920-b807cf8e1a5f": {
+   "name": "Azure Front Door Lecteur de domaine",
+   "description": "Pour une utilisation interne dans Azure. Peut afficher Azure Front Door domaines, mais ne peut pas apporter de modifications."
+  },
+  "0fa44ee9-7a7d-466b-9bb2-2bf446b1204d": {
+   "name": "Lecteur d’espace de travail de virtualisation de bureau",
+   "description": "Lecteur d’espace de travail de virtualisation de bureau."
+  },
+  "10745317-c249-44a1-a5ce-3a4353c0bbd8": {
+   "name": "Lecteur de données du service de provisionnement des appareils",
+   "description": "Permet un accès en lecture complet aux propriétés du plan de données du service de provisionnement des appareils."
+  },
+  "11076f67-66f6-4be0-8f6b-f0609fd05cc9": {
+   "name": "Azure Batch Lecteur de compte",
+   "description": "Vous permet d’afficher toutes les ressources, y compris les pools et les travaux dans le compte Batch."
+  },
+  "12338af0-0e69-4776-bea7-57ae8d297424": {
+   "name": "Key Vault Utilisateur crypto",
+   "description": "Permet d’effectuer des opérations de chiffrement à l’aide de clés. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d'autorisation « Azure contrôle d'accès en fonction du rôle »."
+  },
+  "12675fd7-7f59-493f-9201-f7944860a2f1": {
+   "name": "Azure Device Registry Administrator",
+   "description": "Azure Device Registry Administrator"
+  },
+  "12cf5a90-567b-43ae-8102-96cf46c7d9b4": {
+   "name": "Propriétaire du service Web PubSub",
+   "description": "Accès complet aux API REST du service Azure Web PubSub"
+  },
+  "1407120a-92aa-4202-b7e9-c0e197c71c8f": {
+   "name": "Lecteur de données d’index de recherche",
+   "description": "Accorde l’accès en lecture aux données d’index Recherche cognitive Azure."
+  },
+  "14b46e9e-c2b7-41b4-b07b-48a6ebf60603": {
+   "name": "Key Vault Agent de chiffrement",
+   "description": "Permet d’effectuer une action sur les clés d’un coffre de clés, sauf gérer des autorisations. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d'autorisation « Azure contrôle d'accès en fonction du rôle »."
+  },
+  "150f5e0c-0603-4f03-8c7f-cf70034c4e90": {
+   "name": "Videur de données",
+   "description": "Supprimez les données privées d’un espace de travail Log Analytics."
+  },
+  "175b81b9-6e0d-490a-85e4-0d422273c10c": {
+   "name": "Lecteur App Configuration",
+   "description": "Accorde l’autorisation d’effectuer des opérations de lecture pour les ressources App Configuration. Ce rôle n’accorde pas l’accès aux ressources du plan de données, telles que les valeurs clés, les instantanés et les indicateurs de fonctionnalité."
+  },
+  "17d1049b-9a84-46fb-8f53-869881c3d3ab": {
+   "name": "Contributeur de compte de stockage",
+   "description": "Permet la gestion des comptes de stockage. Fournit un accès à la clé de compte, qui peut être utilisée pour accéder aux données par le biais de l’autorisation de clé partagée."
+  },
+  "1823dd4f-9b8c-4ab6-ab4e-7397a3684615": {
+   "name": "Utilisateur du registre AzureML",
+   "description": "Peut effectuer toutes les actions sur les ressources du Registre Machine Learning Services, ainsi que sur obtenir des ressources de Registre."
+  },
+  "18500a29-7fe2-46b2-a342-b16a415e101d": {
+   "name": "Contributeur de HSM managé",
+   "description": "Vous permet de gérer des pools de HSM managé, mais pas d’y accéder."
+  },
+  "188a0f2f-5c9e-469b-ae67-2aa5ce574b94": {
+   "name": "Contributeur des collections de travaux du planificateur",
+   "description": "Vous permet de gérer des collections de tâches du planificateur, mais pas d’y accéder."
+  },
+  "18ab4d3d-a1bf-4477-8ad9-8359bc988f69": {
+   "name": "Azure Admin du cluster RBAC Kubernetes Fleet Manager",
+   "description": "Accorde un accès en lecture/écriture à toutes les ressources Kubernetes dans le hub de cluster géré par la flotte."
+  },
+  "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9": {
+   "name": "Administrateur d’accès utilisateur",
+   "description": "Vous permet de gérer l’accès utilisateur aux ressources Azure."
+  },
+  "18e40d4e-8d2e-438d-97e1-9528336e149c": {
+   "name": "Utilisateur des Environnements de déploiement",
+   "description": "Fournit l’accès à la gestion des ressources d’environnement."
+  },
+  "18e81cdc-4e98-4e29-a639-e7d10c5a6226": {
+   "name": "Lecteur LUIS de Cognitive Services",
+   "description": "Dispose d’un accès aux fonctions de lecture et de test sous LUIS."
+  },
+  "19d36063-d00b-4ea5-a1ac-a7c4926a0b78": {
+   "name": "Lecteur de l’espace de travail playwright",
+   "description": "Affichez et répertoriez toutes les ressources et tests de l’espace de travail Playwright, mais ne pouvez pas apporter de modifications."
+  },
+  "19e7f393-937e-4f77-808e-94535e297925": {
+   "name": "Lecteur des données en file d’attente de stockage",
+   "description": "Lire et répertorier stockage Azure files d’attente et messages de file d’attente. Pour savoir quelles actions sont requises pour une certaine opération de données, consultez Autorisations pour appeler des opérations de données."
+  },
+  "1a40e87e-6645-48e0-b27a-0b115d849a20": {
+   "name": "opérateur Chaos Studio",
+   "description": "Peut exécuter et afficher des détails pour les expériences, mais ne peut pas créer d’expériences ou gérer des cibles et fonctionnalités."
+  },
+  "1a928ab0-1fee-43cf-9266-f9d8c22a8ddb": {
+   "name": "Lecteur de sécurité d’intégrité du service",
+   "description": "Octroie des autorisations pour afficher les informations de sécurité sensibles présentes dans les événements d’intégrité du service"
+  },
+  "1afdec4b-e479-420e-99e7-f82237c7c5e6": {
+   "name": "Azure Kubernetes Service Utilisateur de surveillance du cluster",
+   "description": "Listez l’action d’identifiants de l’utilisateur de surveillance des clusters."
+  },
+  "1b32c00b-7eff-4c22-93e6-93d11d72d2d8": {
+   "name": "Lecteur Container Apps ManagedEnvironments",
+   "description": "Accès en lecture à ContainerApps managedenvironments."
+  },
+  "1c0163c0-47e6-4577-8991-ea5c82e286e4": {
+   "name": "Connexion de l’administrateur aux machines virtuelles",
+   "description": "Afficher Machines Virtuelles dans le portail et se connecter en tant qu’administrateur"
+  },
+  "1c9b6475-caf0-4164-b5a1-2142a7116f4b": {
+   "name": "Contributeur de spec de modèle",
+   "description": "Autorise l’accès total aux opérations de spec de modèle au niveau de l’étendue affectée."
+  },
+  "1cfa4eac-9a23-481c-a793-bfb6958e836b": {
+   "name": "Azure Migrate Exécuter un expert",
+   "description": "Octroie un accès restreint sur un projet Azure Migrate pour effectuer uniquement des opérations liées à la migration, notamment la réplication, l’exécution des migrations de test, le suivi et la surveillance de la progression de la migration et l’initiation des migrations sans agent et basées sur des agents."
+  },
+  "1cfa4eac-9a23-481c-a793-bfb6958e836c": {
+   "name": "Azure Local Migrate Execute Expert",
+   "description": "Accorde un accès restreint à un projet Azure Migrate basé sur Azure Local uniquement pour effectuer des opérations liées à la migration, y compris la réplication, l’exécution des migrations, le suivi et le suivi de la progression des migrations, ainsi que l’initiation des migrations sans agent."
+  },
+  "1d18fff3-a72a-46b5-b4a9-0b38a3cd7e63": {
+   "name": "Utilisateur de virtualisation de bureau",
+   "description": "Permet à l’utilisateur d’utiliser les applications dans un groupe d’applications."
+  },
+  "1e241071-0855-49ea-94dc-649edcd759de": {
+   "name": "Contributeur EventGrid",
+   "description": "Vous permet de gérer les opérations EventGrid."
+  },
+  "1e7ca9b1-60d1-4db8-a914-f2ca1ff27c40": {
+   "name": "Scanneur de données Defender pour le stockage",
+   "description": "Accorde l’accès aux blobs de lecture et à la mise à jour des balises d’index. Ce rôle est utilisé par le scanneur de données de Defender pour le stockage."
+  },
+  "1ec5b3c1-b17e-4e25-8312-2acb3c3c5abf": {
+   "name": "Testeur de requête Stream Analytics",
+   "description": "Vous permet d’effectuer des tests de requête sans créer de tâche Stream Analytics"
+  },
+  "1ef6a3be-d0ac-425d-8c01-acb62866290b": {
+   "name": "Administrateur de partage de galerie de calcul",
+   "description": "Ce rôle permet à l’utilisateur de partager la galerie avec un autre abonnement/locataire ou de le partager auprès du public."
+  },
+  "1f135831-5bbe-4924-9016-264044c00788": {
+   "name": "Windows 365 Contributeur d’interface réseau",
+   "description": "Ce rôle est utilisé par Windows 365 pour approvisionner les ressources réseau requises et joindre des machines virtuelles hébergées par Microsoft aux interfaces réseau."
+  },
+  "21090545-7ca7-4776-b22c-e363652d74d2": {
+   "name": "Key Vault Lecteur",
+   "description": "Permet de lire les métadonnées des coffres de clés et de leurs certificats, clés et secrets. Ne permet pas de lire des valeurs sensibles, telles que des contenus secrets ou des documents clés. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d'autorisation « Azure contrôle d'accès en fonction du rôle »."
+  },
+  "21efdde3-836f-432b-bf3d-3e8e734d4b2b": {
+   "name": "Contributeur d’espace de travail de virtualisation de bureau",
+   "description": "Contributeur d’espace de travail de virtualisation de bureau."
+  },
+  "22926164-76b3-42b3-bc55-97df8dab3e41": {
+   "name": "Administrateur Grafana",
+   "description": "Gérer les paramètres à l’échelle du serveur et gérer l’accès aux ressources telles que les organisations, les utilisateurs et les licences."
+  },
+  "230815da-be43-4aae-9cb4-875f7bd000aa": {
+   "name": "Opérateur Cosmos DB",
+   "description": "Vous permet de gérer Azure Cosmos DB comptes, mais pas d’y accéder. Empêche d’accéder aux clés de compte et aux chaînes de connexion."
+  },
+  "233ca253-b031-42ff-9fba-87ef12d6b55f": {
+   "name": "Azure Kubernetes Service Rôle d’utilisateur du cluster Arc",
+   "description": "Répertorie les actions relatives aux identifiants de l’utilisateur du cluster."
+  },
+  "2414bbcf-6497-4faf-8c65-045460748405": {
+   "name": "Lecteur EventGrid EventSubscription",
+   "description": "Vous permet de lire les abonnements aux événements EventGrid."
+  },
+  "25211fc6-dc78-40b6-b205-e4ac934fd9fd": {
+   "name": "Azure Spring Apps rôle lecteur de modèle de fichier de configuration du service de configuration d’application",
+   "description": "Lire le contenu du modèle de fichier de configuration pour le service de configuration d’application dans Azure Spring Apps"
+  },
+  "25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68": {
+   "name": "Contributeur Cognitive Services",
+   "description": "Vous permet de créer, lire, mettre à jour, supprimer et gérer les clés de Cognitive Services."
+  },
+  "26baccc8-eea7-41f1-98f4-1762cc7f685d": {
+   "name": "expéditeur Azure Relay",
+   "description": "Permet d’envoyer l’accès aux ressources Azure Relay."
+  },
+  "26e0b698-aa6d-4085-9386-aadae190014d": {
+   "name": "écouteur Azure Relay",
+   "description": "Permet d’écouter l’accès aux ressources Azure Relay."
+  },
+  "2787bf04-f1f5-4bfe-8383-c8a24483ee38": {
+   "name": "propriétaire Azure Relay",
+   "description": "Permet un accès complet aux ressources Azure Relay."
+  },
+  "289d8817-ee69-43f1-a0af-43a45505b488": {
+   "name": "Azure Kubernetes Service Contributeur d’espace de noms",
+   "description": "Permet aux utilisateurs de créer et de gérer des ressources d’espace de noms Azure Kubernetes Service."
+  },
+  "28bf596f-4eb7-45ce-b5bc-6cf482fec137": {
+   "name": "Contributeur de verrous",
+   "description": "Peut gérer les opérations de verrouillage."
+  },
+  "29093635-9924-4f2c-913b-650a12949526": {
+   "name": "Lecteur du jeu d’informations d’identification de Container Registry",
+   "description": "Lisez la configuration des jeux d’informations d’identification dans Container Registry. Cette autorisation n'autorise pas l'affichage du contenu dans Azure coffre de clés uniquement au sein de Container Registry. Cette autorisation n’accorde pas l’autorisation de lire les règles de cache."
+  },
+  "29e2da8a-229c-4157-8ae8-cc72fc506b74": {
+   "name": "Lecteur Chaos Studio",
+   "description": "Peut afficher les cibles, fonctionnalités, expériences et détails de l’expérience."
+  },
+  "2a1e307c-b015-4ebd-883e-5b7698a07328": {
+   "name": "Enregistreur de référentiel de Container Registry",
+   "description": "Permet l’accès en lecture et en écriture aux référentiels Azure Container Registry, mais à l’exclusion de la liste des catalogues."
+  },
+  "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1": {
+   "name": "Lecteur des données blob de stockage",
+   "description": "Lire et répertorier des conteneurs et des objets blob stockage Azure. Pour savoir quelles actions sont requises pour une certaine opération de données, consultez Autorisations pour appeler des opérations de données."
+  },
+  "2a5c394f-5eb7-4d4f-9c8e-e8eae39faebc": {
+   "name": "Lecteur de services de labo",
+   "description": "Vous permet de consulter, mais pas de changer, tous les plans de labo et toutes les ressources de labo."
+  },
+  "2a94a2fd-3c4f-45d1-847d-6585ba88af94": {
+   "name": "Lecteur d’analyse du microprogramme",
+   "description": "Afficher les images du microprogramme, mais pas les charger ou effectuer une configuration d’espace de travail"
+  },
+  "2ad6aaab-ead9-4eaa-8ac5-da422f562408": {
+   "name": "Opérateur d’hôte de session de virtualisation de bureau",
+   "description": "Opérateur d’hôte de session de virtualisation de bureau."
+  },
+  "2b629674-e913-4c01-ae53-ef4638d8f975": {
+   "name": "Azure Event Hubs Expéditeur de données",
+   "description": "Permet d’envoyer l’accès aux ressources Azure Event Hubs."
+  },
+  "2bed379c-9fba-455b-99e4-6b911073bcf2": {
+   "name": "Contributeur de flotte de calcul",
+   "description": "Permet aux utilisateurs de gérer les ressources de la flotte de calcul."
+  },
+  "2c56ea50-c6b3-40a6-83c0-9d98858bc7d2": {
+   "name": "Lecteur du registre de schémas",
+   "description": "Lire et répertorier les groupes et schémas de registres de schémas."
+  },
+  "2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b": {
+   "name": "Contributeur de plan web",
+   "description": "Gérez les plans web pour les sites web. Ne vous permet pas d’attribuer des rôles dans Azure RBAC."
+  },
+  "2d84a65a-63b2-4343-bbb6-31105d857bc1": {
+   "name": "Utilisateur standard de l’agent SRE",
+   "description": "Accorde l’accès à interagir avec l’agent SRE pour trier les incidents et exécuter des diagnostics."
+  },
+  "2efddaa5-3f1f-4df3-97df-af3f13818f4c": {
+   "name": "Contributeur de référentiel de Container Registry",
+   "description": "Permet de lire, d’écrire et de supprimer l’accès aux référentiels Azure Container Registry, mais à l’exclusion de la liste des catalogues."
+  },
+  "3015e5ed-6856-4ab3-b2f0-b8492aa30ca6": {
+   "name": "Azure Contributeur Redis managé",
+   "description": "Créez et gérez Azure ressources Redis gérées. Impossible de lire ou d’écrire des données stockées dans le cache."
+  },
+  "30b27cfc-9c84-438e-b0ce-70e35255df80": {
+   "name": "Azure Lecteur RBAC Kubernetes Fleet Manager",
+   "description": "Accorde un accès en lecture seule à la plupart des ressources Kubernetes au sein d’un espace de noms dans le hub de cluster géré par la flotte. Ce rôle n’autorise pas l’affichage des rôles ni des liaisons de rôles. Il n’autorise pas l’affichage des secrets, car la lecture du contenu de Secrets donne accès aux informations d’identification ServiceAccount dans l’espace de noms, ce qui permet l’accès aux API comme n’importe quel ServiceAccount dans l’espace de noms (une forme d’élévation de privilèges). L’application de ce rôle à l’étendue du cluster fournit un accès à tous les espaces de noms."
+  },
+  "312a565d-c81f-4fd8-895a-4e21e48d571c": {
+   "name": "Contributeur du service API Management",
+   "description": "Peut gérer le service et les API"
+  },
+  "32e6a4ec-6095-4e37-b54b-12aa350ba81f": {
+   "name": "Contributeur de groupe de services",
+   "description": "Gérez tous les aspects des groupes de services et des relations, mais ne vous permet pas d’attribuer des rôles."
+  },
+  "331c37c6-af14-46d9-b9f4-e1909e1b95a0": {
+   "name": "Administrateur de projet DevCenter",
+   "description": "Fournit l’accès à la gestion des ressources de projet."
+  },
+  "34013b0a-565b-43aa-8755-1b7c286f6cf7": {
+   "name": "Administrateur de gestion des machines essentielles",
+   "description": "Peut gérer les ressources Essential Machine Management pour les abonnements"
+  },
+  "3498e952-d568-435e-9b2c-8d77e338d7f7": {
+   "name": "Azure Kubernetes Service Administrateur RBAC",
+   "description": "Gérez toutes les ressources sous le cluster/l’espace de noms, à l’exception de la mise à jour ou de la suppression de quotas de ressources et d’espaces de noms."
+  },
+  "34e09817-6cbe-4d01-b1a2-e0eac5743d41": {
+   "name": "cluster Kubernetes - Intégration Azure Arc",
+   "description": "Définition de rôle pour autoriser tout utilisateur/service à créer une ressource connectedClusters"
+  },
+  "350f8d15-c687-4448-8ae1-157740a3936d": {
+   "name": "Administration des paramètres de hiérarchie",
+   "description": "Permet aux utilisateurs de modifier et de supprimer des paramètres de hiérarchie"
+  },
+  "358470bc-b998-42bd-ab17-a7e34c199c0f": {
+   "name": "Contributeur Container Apps",
+   "description": "Gestion complète de Container Apps, notamment la création, la suppression et les mises à jour."
+  },
+  "35c49d44-ccc1-4b18-8267-cfb3bacdd396": {
+   "name": "Contributeur de partage de données de stockage",
+   "description": "Permet de créer et de gérer des partages de données de stockage pour partager des données à partir de comptes de stockage sur place. Ce rôle est en préversion et susceptible d’être changé."
+  },
+  "361898ef-9ed1-48c2-849c-a832951106bb": {
+   "name": "Lecteur Domain Services",
+   "description": "Peut afficher Azure services de domaine AD et les configurations réseau associées"
+  },
+  "36243c78-bf99-498c-9df9-86d9f8d28608": {
+   "name": "Contributeur de stratégie de ressource",
+   "description": "Utilisateurs dotés de droits pour créer ou modifier une stratégie de ressource, créer un ticket de support et lire des ressources ou la hiérarchie."
+  },
+  "3913510d-42f4-4e42-8a64-420c390055eb": {
+   "name": "Publication des mesures de surveillance",
+   "description": "Permet de publier des métriques sur des ressources Azure"
+  },
+  "392ae280-861d-42bd-9ea5-08ee6d83b80e": {
+   "name": "Lecteur de spec de modèle",
+   "description": "Autorise l’accès en lecture aux specs de modèle au niveau de l’étendue affectée."
+  },
+  "39bc4728-0917-49c7-9d2c-d95423bc2eb4": {
+   "name": "Lecteur de sécurité",
+   "description": "Afficher les autorisations pour Microsoft Defender for Cloud. Peut afficher les recommandations, les alertes, une stratégie de sécurité et les états de sécurité, mais ne peut pas apporter de modifications. Pour Microsoft Defender pour IoT, consultez Azure rôles d’utilisateur pour la surveillance OT et Enterprise IoT."
+  },
+  "3ae3fb29-0000-4ccd-bf80-542e7b26e081": {
+   "name": "Lecteur de test de charge",
+   "description": "Afficher et lister tous les tests de charge et les ressources de test de charge, mais ne peut pas apporter de modifications"
+  },
+  "3afb7f49-54cb-416e-8c09-6dc049efa503": {
+   "name": "Azure opérateur de déploiement d’inférence IA",
+   "description": "Peut effectuer toutes les actions requises pour créer un déploiement de ressources au sein d’un groupe de ressources."
+  },
+  "3b03c2da-16b3-4a49-8834-0f8130efdd3b": {
+   "name": "Log Analytics Lecteur de données",
+   "description": "Log Analytics Lecteur de données peut interroger et rechercher les journaux d’activité qu’il est autorisé à afficher sur Log Analytics espaces de travail et tables"
+  },
+  "3b20f47b-3825-43cb-8114-4bd2201156a8": {
+   "name": "Utilisateur Metrics Advisor Cognitive Services",
+   "description": "Accès au projet."
+  },
+  "3bc748fc-213d-45c1-8d91-9da5725539b9": {
+   "name": "Contributeur et administrateur de configuration d’accès aux données Container Registry",
+   "description": "Fournit des autorisations pour créer, répertorier et mettre à jour des registres de conteneurs et des propriétés de configuration de registre. Fournit des autorisations pour configurer l’accès aux données, telles que les informations d’identification de l’utilisateur administrateur, les mappages d’étendue et les jetons, qui peuvent être utilisés pour lire, écrire ou supprimer des référentiels et images. Ne fournit pas d’autorisations directes pour lire, répertorier ou écrire le contenu du registre, y compris les référentiels et images. Ne fournit pas d’autorisations pour modifier le contenu du plan de données, comme les importations, le cache d’artefacts ou la synchronisation et les pipelines de transfert. Ne fournit pas d’autorisations pour la gestion des tâches."
+  },
+  "3d24a3a0-c154-4f6f-a5ed-adc8e01ddb74": {
+   "name": "Acheteur de plan d’économies",
+   "description": "Vous permet d’acheter des plans d’économies"
+  },
+  "3db33094-8700-4567-8da5-1501d4e7e843": {
+   "name": "Exportateur de données FHIR",
+   "description": "Ce rôle permet à l’utilisateur ou au principal de lire et d’exporter des données FHIR"
+  },
+  "3e150937-b8fe-4cfb-8069-0eaf05ecd056": {
+   "name": "répondeur Microsoft Sentinel",
+   "description": "répondeur Microsoft Sentinel"
+  },
+  "3e5e47e6-65f7-47ef-90b5-e5dd4d455f24": {
+   "name": "Lecteur de sauvegarde de disque",
+   "description": "Fournit une autorisation sur le coffre de sauvegarde pour effectuer une sauvegarde de disque."
+  },
+  "3f2eb865-5811-4578-b90a-6fc6fa0df8e5": {
+   "name": "Azure Front Door Contributeur secret",
+   "description": "Pour une utilisation interne dans Azure. Peut gérer Azure Front Door secrets, mais ne peut pas accorder l'accès à d'autres utilisateurs."
+  },
+  "3f88fce4-5892-4214-ae73-ba5294559913": {
+   "name": "Enregistreur de données FHIR",
+   "description": "Ce rôle permet à l’utilisateur ou au principal de lire et d’écrire des données FHIR"
+  },
+  "40c5ff49-9181-41f8-ae61-143b0e78555e": {
+   "name": "Contributeur marche/arrêt de virtualisation de bureau",
+   "description": "Fournissez l’autorisation au fournisseur de ressources Azure Virtual Desktop de démarrer et d’arrêter des machines virtuelles."
+  },
+  "41077137-e803-4205-871c-5a86e6a753b4": {
+   "name": "Contributeur de blueprint",
+   "description": "Peut gérer les définitions de blueprint, mais ne peut pas les attribuer."
+  },
+  "41e04612-9dac-4699-a02b-c82ff2cc3fb5": {
+   "name": "Visionneuse limitée Grafana",
+   "description": "Afficher la page d’accueil."
+  },
+  "420fcaa2-552c-430f-98ca-3264be4806c7": {
+   "name": "Serveur d’application SignalR",
+   "description": "Permet à votre serveur d’applications d’accéder SignalR Service avec les options d’authentification AAD."
+  },
+  "423170ca-a8f6-4b0f-8487-9e4eb8f49bfa": {
+   "name": "Azure Maps Lecteur de données",
+   "description": "Accorde l’accès à la lecture des données associées à la carte à partir d’un compte de mappage Azure."
+  },
+  "426e0c7f-0c7e-4658-b36f-ff54d6c29b45": {
+   "name": "Contributeur de point de terminaison CDN",
+   "description": "Peut gérer les points de terminaison CDN, mais ne peut pas accorder l’accès à d’autres utilisateurs."
+  },
+  "428e0ff0-5e57-4d9c-a221-2c70d0e0a443": {
+   "name": "Contributeur EventGrid EventSubscription",
+   "description": "Vous permet de gérer les opérations d’abonnement aux événements EventGrid."
+  },
+  "4301dc2a-25a9-44b0-ae63-3636cf7f2bd2": {
+   "name": "Azure Spring Apps rôle de lecteur de journal Spring Cloud Gateway",
+   "description": "Lire les journaux en temps réel pour Spring Cloud Gateway dans Azure Spring Apps"
+  },
+  "434105ed-43f6-45c7-a02f-909b2ba83430": {
+   "name": "Contributeur Cost Management",
+   "description": "Peut afficher les coûts et gérer la configuration des coûts (p. ex., budgets, exportations)"
+  },
+  "434fb43a-c01c-447e-9f67-c3ad923cfaba": {
+   "name": "Azure Administrateur RBAC Kubernetes Fleet Manager",
+   "description": "Octroie un accès en lecture/écriture aux ressources Kubernetes au sein d’un espace de noms dans le cluster hub géré par la flotte : fournit des autorisations d’écriture sur la plupart des objets d’un espace de noms, à l’exception de l’objet ResourceQuota et de l’objet d’espace de noms lui-même. L’application de ce rôle à l’étendue du cluster fournit un accès à tous les espaces de noms."
+  },
+  "437d2ced-4a38-4302-8479-ed2bcb43d090": {
+   "name": "Opérateur de blueprint",
+   "description": "Peut attribuer des blueprints publiés existants, mais ne peut pas en créer. Notez que cela fonctionne uniquement si l’affectation est effectuée avec une identité managée affectée par l’utilisateur."
+  },
+  "43d0d8ad-25c7-4714-9337-8ba259a9fe05": {
+   "name": "Lecteur de surveillance",
+   "description": "Peut lire toutes les données de surveillance (mesures, journaux d’activité, etc.). Consultez également Get a démarré avec les rôles, les autorisations et la sécurité avec Azure Monitor."
+  },
+  "4436bae4-7702-4c84-919b-c4069ff25ee2": {
+   "name": "opérateur de service Azure Red Hat OpenShift",
+   "description": "Conservez l’intégrité de la machine, la configuration réseau, la surveillance et d’autres fonctionnalités spécifiques à la fonctionnalité continue d’un cluster OpenShift en tant que service managé."
+  },
+  "4465e953-8ced-4406-a58e-0f6e3f3b530b": {
+   "name": "Importateur de données FHIR",
+   "description": "Ce rôle permet à l’utilisateur ou au principal de lire et d’importer des données FHIR"
+  },
+  "45265627-32f7-4da4-9ab0-b1cb0e9ec70b": {
+   "name": "Propriétaire de l’espace de travail playwright",
+   "description": "Effectuez toutes les opérations sur les ressources de l’espace de travail Playwright. Peut gérer les jetons d’accès au service et exécuter des tests playwright."
+  },
+  "45bb0b16-2f0c-4e78-afaa-a07599b003f6": {
+   "name": "Propriétaire de test de charge",
+   "description": "Exécuter toutes les opérations sur les ressources de test de charge et les tests de charge"
+  },
+  "45d50f46-0b78-4001-a660-4198cbe8cd05": {
+   "name": "Utilisateur de Dev Box DevCenter",
+   "description": "Fournit l’accès à la création et à la gestion des dev box."
+  },
+  "4633458b-17de-408a-b874-0445c86b69e6": {
+   "name": "Key Vault Utilisateur secrets",
+   "description": "Permet de lire le contenu d’un secret. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d'autorisation « Azure contrôle d'accès en fonction du rôle »."
+  },
+  "463ad26c-fcce-4469-9c7f-5653d8acbab5": {
+   "name": "Azure Lecteur RBAC Kubernetes Fleet Manager pour les clusters membres",
+   "description": "Autorise l’accès en lecture seule pour voir la plupart des objets dans un espace de noms. Ce rôle n’autorise pas l’affichage des rôles ni des liaisons de rôles. Il n’autorise pas l’affichage des secrets, car la lecture du contenu de Secrets donne accès aux informations d’identification ServiceAccount dans l’espace de noms, ce qui permet l’accès aux API comme n’importe quel ServiceAccount dans l’espace de noms (une forme d’élévation de privilèges). L’application de ce rôle à l’étendue du cluster fournit un accès à tous les espaces de noms."
+  },
+  "466ccd10-b268-4a11-b098-b4849f024126": {
+   "name": "Lecteur QnA Maker de Cognitive Services",
+   "description": "Vous permet uniquement de lire et tester une base de connaissances."
+  },
+  "47b7735b-770e-4598-a7da-8b91488b4c88": {
+   "name": "Data Lake Analytics Développeur",
+   "description": "Vous permet d’envoyer, de surveiller et de gérer vos propres travaux, mais pas de créer ou de supprimer des comptes Data Lake Analytics."
+  },
+  "47be4a87-7950-4631-9daf-b664a405f074": {
+   "name": "Contributeur de stratégie de surveillance",
+   "description": "Autorise l’accès en lecture à toutes les données de surveillance, les autorisations de mise à jour des paramètres et des autorisations de surveillance pour déployer et corriger les stratégies d’alerte Azure Monitor."
+  },
+  "489581de-a3bd-480d-9518-53dea7416b33": {
+   "name": "Contributeur de démarrage de virtualisation de bureau",
+   "description": "Fournissez l’autorisation au fournisseur de ressources Azure Virtual Desktop de démarrer des machines virtuelles."
+  },
+  "48b40c6e-82e0-4eb3-90d5-19e40f49b624": {
+   "name": "Administrateur de ressources de serveur hybride",
+   "description": "Peut lire, écrire, supprimer et réinscrire des serveurs hybrides au fournisseur de ressources hybride."
+  },
+  "48e5e92e-a480-4e71-aa9c-2778f4c13781": {
+   "name": "Azure Batch Soumission de travaux",
+   "description": "Vous permet d’envoyer et de gérer des travaux dans le compte Batch."
+  },
+  "4939a1f6-9ae0-4e48-a1e0-f2cbe897382d": {
+   "name": "contributeur SQL Managed Instance",
+   "description": "Vous permet de gérer des instances SQL Managed Instance et la configuration réseau requise, mais pas d’accorder l’accès à d’autres personnes."
+  },
+  "494ae006-db33-4328-bf46-533a6560a3ca": {
+   "name": "opérateur Site Recovery",
+   "description": "Vous permet de basculer et de restaurer automatiquement, mais pas d’effectuer d’autres opérations de gestion des Site Recovery"
+  },
+  "494bdba2-168f-4f31-a0a1-191d2f7c028c": {
+   "name": "IoT Hub Contributeur de jumeaux",
+   "description": "Permet l’accès en lecture et en écriture à tous les jumeaux d’appareil et de module IoT Hub."
+  },
+  "49a72310-ab8d-41df-bbb0-79b649203868": {
+   "name": "Lecteur de virtualisation de bureau",
+   "description": "Lecteur de virtualisation de bureau"
+  },
+  "49e2f5d2-7741-4835-8efa-19e1fe35e47f": {
+   "name": "Lecteur des déploiements de mises à jour d’appareil",
+   "description": "Vous accorde l’accès en lecture aux opérations de gestion, mais ne vous permet pas d’effectuer des modifications"
+  },
+  "4a9ae827-6dc8-4573-8ac7-8239d42aa03f": {
+   "name": "Contributeur de balise",
+   "description": "Vous permet de gérer les balises des entités sans fournir l’accès aux entités elles-mêmes."
+  },
+  "4abbcc35-e782-43d8-92c5-2d3f1bd2253f": {
+   "name": "Azure Kubernetes Service rôle d’utilisateur du cluster",
+   "description": "Répertorie les actions relatives aux identifiants de l’utilisateur du cluster."
+  },
+  "4accf36b-2c05-432f-91c8-5c532dff4c73": {
+   "name": "Logic Apps Lecteur Standard",
+   "description": "Vous avez un accès en lecture seule à toutes les ressources d’une application logique standard et aux flux de travail, y compris les exécutions de flux de travail et leur historique."
+  },
+  "4b0f2fd7-60b4-4eca-896f-4435034f8bf5": {
+   "name": "Abonné EventGrid TopicSpaces",
+   "description": "Vous permet de vous abonner aux messages sur les topicspaces."
+  },
+  "4b3fe76c-f777-4d24-a2d7-b027b0f7b273": {
+   "name": "Azure Stack Lecteur de machine virtuelle HCI",
+   "description": "Octroie des autorisations pour afficher les machines virtuelles"
+  },
+  "4ba50f17-9666-485c-a643-ff00808643f0": {
+   "name": "FHIR SMART User",
+   "description": "Ce rôle permet à l’utilisateur d’accéder au service FHIR en fonction de la spécification SMART sur FHIR"
+  },
+  "4bad4d9e-2a13-4888-94bb-c8432f6f3040": {
+   "name": "Opérateur de données Blob Actions de stockage",
+   "description": "Utilisé par les actions de stockage - Tâche de stockage pour répertorier et effectuer des opérations sur les objets blob de compte de stockage"
+  },
+  "4c6569b6-f23e-4295-9b90-bd4cc4ff3292": {
+   "name": "Propriétaire de DevCenter",
+   "description": "Permet de gérer toutes les ressources Microsoft.DevCenter et de gérer l’accès aux ressources Microsoft.DevCenter en ajoutant ou en supprimant des attributions de rôles pour les rôles DevCenter Project Admin et DevCenter DevCenter Dev Box."
+  },
+  "4c8d0bbc-75d3-4935-991f-5f3c56d81508": {
+   "name": "Lecteur de données FHIR",
+   "description": "Ce rôle permet à l’utilisateur ou au principal de lire des données FHIR"
+  },
+  "4d97b98b-1d4f-4787-a291-c67834d212e7": {
+   "name": "Contributeur de réseau",
+   "description": "Permet de gérer des réseaux, mais pas d’y accéder. Ce rôle ne vous accorde pas l’autorisation de déployer ou de gérer Machines Virtuelles."
+  },
+  "4dae6930-7baf-46f5-909e-0383bc931c46": {
+   "name": "Azure Approbateur Customer Lockbox pour abonnement",
+   "description": "Peut approuver les demandes de support Microsoft pour accéder à des ressources spécifiques contenues dans un abonnement, ou l’abonnement lui-même, lorsque Customer Lockbox pour Microsoft Azure est activé sur le locataire où réside l’abonnement."
+  },
+  "4e3d2b60-56ae-4dc6-a233-09c8e5a82e68": {
+   "name": "Contributeur de tâches Container Apps",
+   "description": "Gestion complète des travaux Container Apps, notamment la création, la suppression et les mises à jour."
+  },
+  "4e50c84c-c78e-4e37-b47e-e60ffea0a775": {
+   "name": "Administrateur de groupe de services",
+   "description": "Gérez tous les aspects des groupes de services et des relations. Rôle par défaut attribué aux utilisateurs lorsqu’ils créent un groupe de services. Comprend une condition ABAC pour limiter les attributions de rôle."
+  },
+  "4ea46cd5-c1b2-4a8e-910b-273211f9ce47": {
+   "name": "IoT Hub Contributeur au Registre",
+   "description": "Permet un accès complet à IoT Hub Registre d’appareils."
+  },
+  "4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0": {
+   "name": "Azure Service Bus Récepteur de données",
+   "description": "Permet de recevoir l’accès aux ressources Azure Service Bus."
+  },
+  "4f8fab4f-1852-4a58-a46a-8eaf358af14a": {
+   "name": "Contributeur Avere",
+   "description": "Peut créer et gérer un cluster Avere vFXT."
+  },
+  "4fc6c259-987e-4a07-842e-c321cc9d413f": {
+   "name": "IoT Hub Contributeur aux données",
+   "description": "Permet un accès complet aux opérations de plan de données IoT Hub."
+  },
+  "4fe576fe-1146-4730-92eb-48519fa6bf9f": {
+   "name": "Opérateur de tâche Automation",
+   "description": "Permet de créer et de gérer des tâches avec les runbooks d’Automation."
+  },
+  "50346970-0998-40f2-b47d-f3b8809840f8": {
+   "name": "Azure Enregistreur RBAC Kubernetes Fleet Manager pour les clusters membres",
+   "description": "Autorise l’accès en lecture/écriture pour la plupart des objets dans un espace de noms. Ce rôle n’autorise ni la consultation ni la modification des rôles ou liaisons de rôle. Toutefois, ce rôle permet d’accéder aux secrets et aux pods en cours d’exécution comme n’importe quel ServiceAccount dans l’espace de noms. Il peut donc être utilisé pour obtenir les niveaux d’accès API de n’importe quel ServiceAccount dans l’espace de noms. L’application de ce rôle à l’étendue du cluster fournit un accès à tous les espaces de noms."
+  },
+  "515c2055-d9d4-4321-b1b9-bd0c9a0f79fe": {
+   "name": "Opérateur Logic Apps",
+   "description": "Permet de lire, d’activer et de désactiver des applications logiques, mais pas de les modifier ou de les mettre à jour."
+  },
+  "516239f1-63e1-4d78-a4de-a74fb236a071": {
+   "name": "Lecteur des données App Configuration",
+   "description": "Permet de lire les données App Configuration."
+  },
+  "51d6186e-6489-4900-b93f-92e23144cca5": {
+   "name": "opérateur playbook Microsoft Sentinel",
+   "description": "Opérateur playbook Microsoft Sentinel"
+  },
+  "523776ba-4eb2-4600-a3c8-f2dc93da4bdb": {
+   "name": "Développeur de la norme Logic Apps",
+   "description": "Vous pouvez créer et modifier des flux de travail, des connexions et des paramètres pour une application logique standard. Vous ne pouvez pas apporter de modifications en dehors de l’étendue du flux de travail."
+  },
+  "53b2724d-1e51-44fa-b586-bcace0c82609": {
+   "name": "Utilisateur d’analyse du microprogramme",
+   "description": "Charger et analyser des images de microprogramme, mais pas effectuer de configuration d’espace de travail"
+  },
+  "53ca6127-db72-4b80-b1b0-d745d6d5456d": {
+   "name": "Utilisateur Foundry",
+   "description": "Octroie à un lecteur l’accès aux projets Foundry, l’accès lecteur aux comptes Foundry et les actions de données pour un projet Foundry."
+  },
+  "5432c526-bc82-444a-b7ba-57c5b0b5b34f": {
+   "name": "CosmosRestoreOperator",
+   "description": "Peut effectuer une action de restauration pour un compte de base de données Cosmos DB avec le mode de sauvegarde continue"
+  },
+  "547f7f0a-69c0-4807-bd9e-0321dfb66a84": {
+   "name": "Azure Intégration du Registre des appareils",
+   "description": "Permet un accès complet à Azure’espace de noms Device Registry et au provisionnement de certificats X.509."
+  },
+  "56328988-075d-4c6a-8766-d93edd6725b6": {
+   "name": "Développeur d’API d’espace de travail API Management",
+   "description": "Dispose d’un accès en lecture aux entités dans l’espace de travail et d’un accès en lecture et en écriture aux entités pour la modification des API. Ce rôle doit être attribué sur l’étendue de l’espace de travail."
+  },
+  "56be40e2-4db1-4ccf-93c3-7e44c597135b": {
+   "name": "Contributeur aux objets surveillés",
+   "description": "Accorde des autorisations pour créer et lier un objet surveillé à un utilisateur ou un groupe. Pour plus d’informations, voir Configurer l’agent Azure Monitor sur les appareils clients Windows."
+  },
+  "577a9874-89fd-4f24-9dbd-b5034d0ad23a": {
+   "name": "Importateur et lecteur de données Container Registry",
+   "description": "Permet d’importer des images dans un registre via l’opération d’importation de registre. Permet de répertorier des référentiels, d’afficher des images et des balises, d’obtenir des manifestes et d’extraire des images. Ne fournit pas d’autorisations pour l’importation d’images via la configuration de pipelines de transfert de registre tels que les pipelines d’importation et d’exportation. Ne fournit pas d’autorisations pour l’importation par le biais de la configuration du cache d’artefacts ou des règles de synchronisation."
+  },
+  "57cc5028-e6a7-4284-868d-0611c5923f8d": {
+   "name": "Contributeur Container Apps ManagedEnvironments",
+   "description": "Gestion complète de Container Apps ManagedEnvironments, notamment la création, la suppression et les mises à jour."
+  },
+  "582fc458-8989-419f-a480-75249bc5db7e": {
+   "name": "Lecteur de réservations",
+   "description": "Permet de lire toutes les réservations dans un locataire"
+  },
+  "58a3b984-7adf-4c20-983a-32417c86fbc8": {
+   "name": "Propriétaire de données DICOM",
+   "description": "Accès total aux données DICOM."
+  },
+  "59a618e3-3c9a-406e-9f03-1a20dd1c55f1": {
+   "name": "Chaos Studio Contributeur cible",
+   "description": "Peut intégrer des cibles et gérer des fonctionnalités, mais ne peut pas créer, exécuter ou afficher des détails pour les expériences"
+  },
+  "5a1fc7df-4bf1-4951-a576-89034ee01acd": {
+   "name": "Contributeur aux données FHIR",
+   "description": "Ce rôle accorde à l’utilisateur ou au principal un accès total aux données FHIR"
+  },
+  "5ae67dd6-50cb-40e7-96ff-dc2bfa4b606b": {
+   "name": "Propriétaire des données App Configuration",
+   "description": "Permet l’accès total aux données App Configuration."
+  },
+  "5af6afb3-c06c-4fa4-8848-71a8aee05683": {
+   "name": "Azure Enregistreur RBAC Kubernetes Fleet Manager",
+   "description": "Accorde l’accès en lecture/écriture à la plupart des ressources Kubernetes au sein d’un espace de noms dans le hub de cluster géré par la flotte. Ce rôle n’autorise ni la consultation ni la modification des rôles ou liaisons de rôle. Toutefois, ce rôle permet d’accéder aux secrets comme n’importe quel ServiceAccount de l’espace de noms. Il peut donc être utilisé pour obtenir les niveaux d’accès d’API pour n’importe quel ServiceAccount dans l’espace de noms. L’application de ce rôle à l’étendue du cluster fournit un accès à tous les espaces de noms."
+  },
+  "5b7237c5-45e1-49d6-bc18-a1f62f400748": {
+   "name": "opérateur Azure Red Hat OpenShift Stockage sur disque",
+   "description": "Installez des pilotes CSI (Container Storage Interface) qui permettent à votre cluster d’utiliser Azure disques. Définissez les valeurs par défaut de stockage à l’échelle du cluster OpenShift pour garantir qu’une storageclass par défaut existe pour les clusters."
+  },
+  "5b999177-9696-4545-85c7-50de3797e5a1": {
+   "name": "Azure Arc Writer Kubernetes",
+   "description": "Vous permet de mettre à jour tout ce qui se trouve dans le cluster/espace de noms, à l’exception des rôles (de cluster) et des liaisons de rôles (de cluster)."
+  },
+  "5bc02df6-6cd5-43fe-ad3d-4c93cf56cc16": {
+   "name": "Opérations Azure IoT Administrateur",
+   "description": "Affichez, créez, modifiez et supprimez des ressources AIO. Gérez toutes les ressources, y compris l’instance et ses ressources en aval."
+  },
+  "5bd9cd88-fe45-4216-938b-f97437e15450": {
+   "name": "Contributeur de compte DocumentDB",
+   "description": "Peut gérer des comptes Azure Cosmos DB. Azure Cosmos DB est anciennement appelé DocumentDB."
+  },
+  "5c2d7e57-b7c2-4d8a-be4f-82afa42c6e95": {
+   "name": "Azure Managed Grafana Contributeur d’espace de travail",
+   "description": "Peut gérer Azure Managed Grafana ressources, sans fournir d’accès aux espaces de travail eux-mêmes."
+  },
+  "5c4089e1-6d96-4d2f-b296-c1bc7137275f": {
+   "name": "Déploiement de Cognitive Services Custom Vision",
+   "description": "Publier, annuler la publication ou exporter des modèles. Le déploiement peut visualiser le projet, mais ne peut pas le mettre à jour."
+  },
+  "5d28c62d-5b37-4476-8438-e587778df237": {
+   "name": "Contributeur de compte New Relic APM",
+   "description": "Vous permet de gérer des comptes et applications New Relic Application Performance Management, mais pas d’y accéder."
+  },
+  "5d3f1697-4507-4d08-bb4a-477695db5f82": {
+   "name": "Azure Kubernetes Service Rôle contributeur Arc",
+   "description": "Octroie l’accès aux clusters hybrides Kubernetes Services en lecture et en écriture Azure"
+  },
+  "5d58bcaf-24a5-4b20-bdb6-eed9f69fbe4c": {
+   "name": "Contributeur au groupe d’administration",
+   "description": "Rôle de contributeur au groupe d’administration"
+  },
+  "5d5dddae-e124-4753-972d-aae60b37deb4": {
+   "name": "Migrer un lecteur Arc Discovery - Préversion",
+   "description": "Lisez les métadonnées de Azure Arc ressources de serveur activées et les métadonnées, les performances et l’adéquation de migration des ressources SQL Server avec Arc. Les utilisateurs qui créent Azure Migrate projet qui utilise la découverte de ressources Arc nécessitent ce rôle sur l’étendue Arc du projet. Pour activer la synchronisation périodique, Azure Migrate identité managée de projet doit être affectée à ce rôle. Ce rôle est en préversion et susceptible d’être changé."
+  },
+  "5d977122-f97e-4b4d-a52f-6b43003ddb4d": {
+   "name": "Azure Container Instances Rôle contributeur",
+   "description": "Accorde l’accès en lecture/écriture aux groupes de conteneurs fournis par Azure Container Instances"
+  },
+  "5d9bac3f-34b2-432f-bde5-78aa8e73ce6b": {
+   "name": "Fichiers de stockage Données SMB en prend la responsabilité",
+   "description": "Permet à l’utilisateur final d’assumer la propriété d’un fichier ou d’un répertoire"
+  },
+  "5daaa2af-1fe8-407c-9122-bba179798270": {
+   "name": "Contributeur de labo",
+   "description": "Appliqué au niveau du labo, vous permet de gérer le labo. Appliqué à un groupe de ressources, vous permet de créer et de gérer des labos."
+  },
+  "5dffeca3-4936-4216-b2bc-10343a5abb25": {
+   "name": "Contributeur du Registre de Schémas",
+   "description": "Lire, écrire et supprimer des groupes et schémas de registres de schémas."
+  },
+  "5e0bd9bd-7b93-4f28-af87-19fc36ad61bd": {
+   "name": "Utilisateur OpenAI Cognitive Services",
+   "description": "Accès en lecture pour afficher des fichiers, des modèles et des déploiements. Possibilité de créer des appels d’achèvement et d’incorporation."
+  },
+  "5e3c6656-6cfa-4708-81fe-0de47ac73342": {
+   "name": "Contributeur BizTalk",
+   "description": "Permet de gérer des services BizTalk, mais pas d’y accéder."
+  },
+  "5e467623-bb1f-42f4-a55d-6e525e11384b": {
+   "name": "Contributeur de sauvegarde",
+   "description": "Permet de gérer le service de sauvegarde, mais pas de créer des coffres, ni d’accorder l’accès à d’autres personnes"
+  },
+  "5fb5aef8-1081-4b8e-bb16-9d5d0385bab5": {
+   "name": "Opérateur de runbooks Automation",
+   "description": "Propriétés de lecture de runbook : pour pouvoir créer des tâches depuis le runbook."
+  },
+  "602da2ba-a5c2-41da-b01d-5360126ab525": {
+   "name": "Connexion de l’utilisateur local de la machine virtuelle",
+   "description": "Affichez Machines Virtuelles dans le portail et connectez-vous en tant qu’utilisateur local configuré sur le serveur Arc."
+  },
+  "60921a7e-fef1-4a43-9b16-a26c52ad4769": {
+   "name": "Visionneuse Grafana",
+   "description": "Afficher des tableaux de bord, playlists et sources de données de requête."
+  },
+  "60fc6e62-5479-42d4-8bf4-67625fcc2840": {
+   "name": "Opérateur de pool de disques",
+   "description": "Accordez l’autorisation au fournisseur de ressources StoragePool pour gérer les disques ajoutés à un pool de disques."
+  },
+  "612c2aa1-cb24-443b-ac28-3ab7272de6f5": {
+   "name": "Contributeur d’évaluation de la sécurité",
+   "description": "Vous permet d’envoyer des évaluations vers Microsoft Defender for Cloud"
+  },
+  "61ed4efc-fab3-44fd-b111-e24485cc132a": {
+   "name": "Opérateur de cluster HDInsight",
+   "description": "Vous permet de lire et modifier des configurations de cluster HDInsight."
+  },
+  "6322a993-d5c9-4bed-b113-e49bbea25b27": {
+   "name": "Enregistreur LUIS de Cognitive Services",
+   "description": "Accès à toutes les fonctions de lecture, test et écriture sous LUIS"
+  },
+  "635dd51f-9968-44d3-b7fb-6d9a6bd613ae": {
+   "name": "Rédacteur de mesures AzureML (préversion)",
+   "description": "Vous permet d’écrire des mesures dans l’espace de travail AzureML"
+  },
+  "63bb64ad-9799-4770-b5c3-24ed299a07bf": {
+   "name": "Azure rôle contributeur Kubernetes Fleet Manager",
+   "description": "Accorde un accès en lecture/écriture aux ressources Azure fournies par Azure Kubernetes Fleet Manager, notamment les flottes, les membres de la flotte, les stratégies de mise à jour de flotte, les exécutions de mises à jour de flotte, etc."
+  },
+  "63f0a09d-1495-4db4-a681-037d84835eb4": {
+   "name": "Azure Arc Visionneuse Kubernetes",
+   "description": "Affichez toutes les ressources dans le cluster/l’espace de noms, à l’exception des secrets."
+  },
+  "641177b8-a67a-45b9-a033-47bc880bb21e": {
+   "name": "Rôle Collaborateur d’application gérée",
+   "description": "Permet de créer des ressources d’application gérées."
+  },
+  "64702f94-c441-49e6-a78b-ef80e0188fee": {
+   "name": "Azure DÉVELOPPEUR IA",
+   "description": "Peut effectuer toutes les actions dans un espace de travail Azure Machine Learning en plus de gérer l’espace de travail lui-même. Pour l’accès au projet Foundry, utilisez plutôt les rôles De propriétaire de Foundry User ou Foundry."
+  },
+  "6593e776-2a30-40f9-8a32-4fe28b77655d": {
+   "name": "Azure Spring Apps Rôle de lecteur du journal du service de configuration des applications",
+   "description": "Lire les journaux en temps réel pour le service de configuration d’application dans Azure Spring Apps"
+  },
+  "65a14201-8f6c-4c28-bec4-12619c5a9aaa": {
+   "name": "Lecteur CheckAccess d’identité managée de cluster connecté",
+   "description": "Rôle intégré qui permet à une identité managée de cluster connecté d’appeler l’API checkAccess"
+  },
+  "662802e2-50f6-46b0-aed2-e834bacc6d12": {
+   "name": "Azure Front Door Lecteur de profil",
+   "description": "Peut afficher les profils standard et premium d’AFD, ainsi que leurs points de terminaison, mais ne peut pas apporter de modifications."
+  },
+  "6670b86e-a3f7-4917-ac9b-5d6ab1be4567": {
+   "name": "Site Recovery Contributeur",
+   "description": "Vous permet de gérer Site Recovery service, à l’exception de la création du coffre et de l’attribution de rôle"
+  },
+  "66bb4e9e-b016-4a94-8249-4c0511c2be84": {
+   "name": "Enregistreur de données Policy Insights (préversion)",
+   "description": "Permet un accès en lecture aux stratégies de ressources et un accès en écriture aux événements de stratégie de composants de ressources."
+  },
+  "66f75aeb-eabe-4b70-9f1e-c350c4c9ad04": {
+   "name": "Administrateur d’accès aux données de machine virtuelle (préversion)",
+   "description": "Gérez l’accès à Machines Virtuelles en ajoutant ou en supprimant des attributions de rôles pour les rôles de connexion administrateur de machine virtuelle et de connexion utilisateur de machine virtuelle. Comprend une condition ABAC pour limiter les attributions de rôle."
+  },
+  "673868aa-7521-48a0-acc6-0f60742d39f5": {
+   "name": "Contributeurs Data Factory",
+   "description": "Créer et gérer des fabriques de données, ainsi que les ressources enfants qu’elles contiennent."
+  },
+  "69566ab7-960f-475b-8e7c-b3118f30c6bd": {
+   "name": "Contributeur privilégié des données du fichier de stockage",
+   "description": "Permet de lire, d’écrire, de supprimer et de modifier des listes de contrôle d’accès sur des fichiers/répertoires dans Azure partages de fichiers en remplaçant les autorisations ACL/NTFS existantes. Ce rôle n’a pas d’équivalent intégré sur Windows serveurs de fichiers."
+  },
+  "69a216fc-b8fb-44d8-bc22-1f3c2cd27a39": {
+   "name": "Azure Service Bus Expéditeur de données",
+   "description": "Permet d’envoyer l’accès aux ressources Azure Service Bus."
+  },
+  "69b07be0-09bf-439a-b9a6-e73de851bd59": {
+   "name": "Lecteur de configuration et lecteur de configuration d’accès aux données Container Registry",
+   "description": "Fournit des autorisations pour répertorier les registres de conteneurs et les propriétés de configuration de registre. Fournit des autorisations pour répertorier la configuration d’accès aux données, telles que les identifiants de l’utilisateur administrateur, les mappages d’étendue et les jetons, qui peuvent être utilisés pour lire, écrire ou supprimer des référentiels et images. Ne fournit pas d’autorisations directes pour lire, répertorier ou écrire le contenu du registre, y compris les référentiels et images. Ne fournit pas d’autorisations pour modifier le contenu du plan de données, comme les importations, le cache d’artefacts ou la synchronisation et les pipelines de transfert. Ne fournit pas d’autorisations pour la gestion des tâches."
+  },
+  "6aaa78f1-f7de-44ca-8722-c64a23943cae": {
+   "name": "Azure Batch Contributeur aux données",
+   "description": "Octroie des autorisations pour gérer les pools et travaux Batch, mais pas pour modifier les comptes."
+  },
+  "6aac74c4-6311-40d2-bbdd-7d01e7c6e3a9": {
+   "name": "Azure Arc Intégration de clouds privés ScVmm",
+   "description": "Azure Arc rôle d’intégration de clouds privés ScVmm dispose des autorisations nécessaires pour approvisionner toutes les ressources requises pour intégrer et déboarder les instances de serveur vmm à Azure."
+  },
+  "6b534d80-e337-47c4-864f-140f5c7f593d": {
+   "name": "Contributeur de recommandations Advisor (évaluations et revues)",
+   "description": "Affichez les recommandations d’évaluation et les recommandations de révisions acceptées, et gérez le cycle de vie des recommandations (marquer les recommandations comme terminées, reportées ou ignorées, en cours ou non démarrées)."
+  },
+  "6be48352-4f82-47c9-ad5e-0acacefdb005": {
+   "name": "Azure Maps Rechercher et afficher le lecteur de données",
+   "description": "Accorde l’accès à un ensemble très limité d’API de données pour des scénarios courants du Kit de développement logiciel (SDK) web visuel. Plus précisément, affiche et recherche des API de données."
+  },
+  "6c74a7c5-4a87-40f9-bb03-61e49aecbc78": {
+   "name": "Utilisateur de reranker sémantique",
+   "description": "Exécutez des opérations de reclassement sémantique sur des comptes d’inférence inscrits. Ce rôle doit être attribué aux utilisateurs qui doivent exécuter des charges de travail de reclassement sémantique, mais n’ont pas besoin de gérer eux-mêmes les comptes."
+  },
+  "6cba8790-29c5-48e5-bab1-c7541b01cb04": {
+   "name": "Azure Lecteur du service du Centre d’API",
+   "description": "Autorise l’accès en lecture seule au service du Centre d’API Azure."
+  },
+  "6cef56e8-d556-48e5-a04f-b8e64114680f": {
+   "name": "AcrImageSigner",
+   "description": "Évitez d’utiliser ce rôle. L’approbation de contenu dans Azure Container Registry et le rôle AcrImageSigner sont déconseillés et seront complètement supprimés le 31 mars 2028. Pour plus d’informations et pour obtenir des conseils sur la transition, consultez https://aka.ms/acr/dctdeprecation."
+  },
+  "6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437": {
+   "name": "SQL Server Contributeur",
+   "description": "Vous permet de gérer des serveurs et bases de données SQL, mais pas d’y accéder, ni de gérer leurs stratégies de sécurité."
+  },
+  "6f12a6df-dd06-4f3e-bcb1-ce8be600526a": {
+   "name": "Azure Stack Propriétaire de l’inscription",
+   "description": "Vous permet de gérer les inscriptions Azure Stack."
+  },
+  "6f4fe6fc-f04f-4d97-8528-8bc18c848dca": {
+   "name": "Contributeur Container Apps ConnectedEnvironments",
+   "description": "Gestion complète de Container Apps ConnectedEnvironments, notamment la création, la suppression et les mises à jour."
+  },
+  "71522526-b88f-4d52-b57f-d31fc3546d0d": {
+   "name": "Rôle de lecteur du service API Management",
+   "description": "Accès en lecture seule au service et aux API"
+  },
+  "72fafb9e-0641-4937-9268-a91bfd8191a3": {
+   "name": "Lecteur Cost Management",
+   "description": "Peut afficher les données et la configuration des coûts (p. ex., budgets, exportations)"
+  },
+  "73c2c328-d004-4c5e-938c-35c6f5679a1f": {
+   "name": "Gestionnaire de produit d’API d’espace de travail API Management",
+   "description": "Dispose d’un accès en lecture aux entités dans l’espace de travail ainsi que d’un accès en lecture et en écriture aux entités pour la publication des API. Ce rôle doit être attribué sur l’étendue de l’espace de travail."
+  },
+  "73c42c96-874c-492b-b04d-ab87d138a893": {
+   "name": "Log Analytics Lecteur",
+   "description": "Log Analytics Lecteur peut afficher et rechercher toutes les données de surveillance ainsi que les paramètres de surveillance, y compris afficher la configuration des diagnostics Azure sur toutes les ressources Azure."
+  },
+  "749a398d-560b-491b-bb21-08924219302e": {
+   "name": "Contributeur de test de charge",
+   "description": "Voir, créer, mettre à jour, supprimer et exécuter des tests de charge. Voir et lister les ressources de test de charge, mais pas de faire de changements."
+  },
+  "749f88d5-cbae-40b8-bcfc-e573ddc772fa": {
+   "name": "Contributeur de surveillance",
+   "description": "Peut lire toutes les données de surveillance et modifier les paramètres de surveillance. Consultez également Get a démarré avec les rôles, les autorisations et la sécurité avec Azure Monitor."
+  },
+  "754c1a27-40dc-4708-8ad4-2bffdeee09e8": {
+   "name": "Azure File Sync Lecteur",
+   "description": "Fournit un accès en lecture au service Azure File Sync (service de synchronisation de stockage)."
+  },
+  "76153a9e-0edb-49bc-8e01-93c47e6b5180": {
+   "name": "Contributeur d’infrastructure DevOps",
+   "description": "Lire, écrire, supprimer et effectuer des actions sur des pools DevOps managés"
+  },
+  "76199698-9eea-4c19-bc75-cec21354c6b6": {
+   "name": "Lecteur de données de table de stockage",
+   "description": "Permet l’accès en lecture aux tables et entités stockage Azure"
+  },
+  "76283e04-6283-4c54-8f91-bcf1374a3c64": {
+   "name": "Utilisateur DevTest Labs",
+   "description": "Vous permet de connecter, démarrer, redémarrer et arrêter vos machines virtuelles dans votre Azure DevTest Labs."
+  },
+  "7628b7b8-a8b2-4cdc-b46f-e9b35248918e": {
+   "name": "Lecteur de langue Cognitive Services",
+   "description": "A accès aux fonctions de lecture et de test sous le portail Langue"
+  },
+  "7656b436-37d4-490a-a4ab-d39f838f0042": {
+   "name": "HDInsight sur AKS Administrateur du pool de clusters",
+   "description": "Peut lire, créer, modifier et supprimer des pools de clusters HDInsight sur AKS et créer des clusters"
+  },
+  "765a04e0-5de8-4bb2-9bf6-b2a30bc03e91": {
+   "name": "Délegator de fichier de stockage",
+   "description": "Obtenez une clé de délégation d’utilisateur, qui peut ensuite être utilisée pour créer une signature d’accès partagé pour un fichier ou Azure partage de fichiers signé avec Azure informations d’identification AD. Pour en savoir plus, consultez Créer une SAS de délégation d’utilisateur."
+  },
+  "77789c21-1643-48a2-8f27-47f858540b51": {
+   "name": "Contributeur de l’attribution de tâches actions de stockage",
+   "description": "Utilisé par l’assigneur d’actions de stockage pour créer une attribution de tâche sur son compte de stockage cible, avec des privilèges RBAC pour l’identité managée"
+  },
+  "7859c0b0-0bb9-4994-bd12-cd529af7d646": {
+   "name": "Azure Migrate Décider et planifier un expert",
+   "description": "Accorde un accès restreint sur Azure Migrate projet pour effectuer uniquement des opérations de planification, notamment la découverte basée sur l’appliance, la gestion de l’inventaire, l’identification des dépendances du serveur, la création de rapports d’évaluation de cas d’entreprise et d’évaluation."
+  },
+  "78cf819f-0969-4ebe-8759-015c6efcd5bf": {
+   "name": "Contributeur de l’espace de travail playwright",
+   "description": "Affichez et répertoriez les ressources de l’espace de travail playwright, mais ne peuvent apporter aucune modification. Peut gérer les jetons d’accès au service et exécuter des tests playwright."
+  },
+  "78e4b983-1a0b-472e-8b7d-8d770f7c5890": {
+   "name": "Propriétaire de données DeID",
+   "description": "Accès total aux données DeID. Ce rôle est en préversion et peut être modifié"
+  },
+  "79a36d98-eb96-4a76-ae1d-481dc98d2c23": {
+   "name": "Azure Administrateur de cluster RBAC Kubernetes Fleet Manager pour les clusters membres",
+   "description": "Vous permet de gérer toutes les ressources dans les clusters membres de la flotte."
+  },
+  "7b0c7e81-271f-4c71-90bf-e30bdfdbc2f7": {
+   "name": "Azure Center pour l’administrateur de solutions SAP",
+   "description": "Ce rôle fournit un accès en lecture et écriture à toutes les fonctionnalités de Azure Center pour les solutions SAP."
+  },
+  "7b1f81f9-4196-4058-8aae-762e593270df": {
+   "name": "Azure Rôle de déploiement resource Bridge",
+   "description": "Azure rôle de déploiement resource Bridge est utilisé uniquement pour Azure Stack HCI."
+  },
+  "7b7c71ed-33fa-4ed2-a91a-e56d5da260b5": {
+   "name": "Opérations Azure IoT Intégration",
+   "description": "L’utilisateur peut Azure connecter et déployer Opérations Azure IoT en toute sécurité."
+  },
+  "7c2e40b7-25eb-482a-82cb-78ba06cb46d5": {
+   "name": "Chaos Studio Contributeur d’expériences",
+   "description": "Peut créer, exécuter et afficher des détails pour les expériences, les cibles d’intégration et les fonctionnalités de gestion."
+  },
+  "7ca78c08-252a-4471-8644-bb5ff32d4ba0": {
+   "name": "Contributeur du service de recherche",
+   "description": "Permet de gérer les services de recherche, mais pas d’y accéder."
+  },
+  "7e4f1700-ea5a-4f59-8f37-079cfe29dce3": {
+   "name": "SignalR Service Propriétaire",
+   "description": "Accès complet aux API REST Azure SignalR Service"
+  },
+  "7eabc9a4-85f7-4f71-b8ab-75daaccc1033": {
+   "name": "Windows 365 Utilisateur réseau",
+   "description": "Ce rôle est utilisé par Windows 365 pour lire des réseaux virtuels et joindre les réseaux virtuels désignés."
+  },
+  "7ee386e9-84f0-448e-80a6-f185f6533131": {
+   "name": "Délegator de file d’attente de stockage",
+   "description": "Obtenez une clé de délégation d’utilisateur, qui peut ensuite être utilisée pour créer une signature d’accès partagé pour une file d’attente stockage Azure signée avec Azure informations d’identification AD. Pour en savoir plus, consultez Créer une SAS de délégation d’utilisateur."
+  },
+  "7efff54f-a5b4-42b5-a1c5-5411624893ce": {
+   "name": "Contributeur d’instantané de disque",
+   "description": "Fournit une autorisation sur le coffre de sauvegarde pour gérer les instantanés de disque."
+  },
+  "7f6c6a51-bcf8-42ba-9220-52d62157d7db": {
+   "name": "Azure Kubernetes Service Lecteur RBAC",
+   "description": "Autorise l’accès en lecture seule pour voir la plupart des objets dans un espace de noms. Ce rôle n’autorise pas l’affichage des rôles ni des liaisons de rôles. Il n’autorise pas l’affichage des secrets, car la lecture du contenu de Secrets donne accès aux informations d’identification ServiceAccount dans l’espace de noms, ce qui permet l’accès aux API comme n’importe quel ServiceAccount dans l’espace de noms (une forme d’élévation de privilèges). L’application de ce rôle à l’étendue du cluster fournit un accès à tous les espaces de noms."
+  },
+  "7f951dda-4ed3-4680-a7ca-43fe172d538d": {
+   "name": "AcrPull",
+   "description": "Tirer (pull) des artefacts à partir d’un registre de conteneurs."
+  },
+  "80558df3-64f9-4c0f-b32d-e5094b036b0b": {
+   "name": "rôle de connexion Azure Spring Apps",
+   "description": "rôle de connexion Azure Spring Apps"
+  },
+  "80d0d6b0-f522-40a4-8886-a5a11720c375": {
+   "name": "Worker Durable Task",
+   "description": "Utilisé par les applications de worker pour interagir avec le service Durable Task"
+  },
+  "80dcbedb-47ef-405d-95bd-188a1b4ac406": {
+   "name": "Propriétaire Elastic SAN",
+   "description": "Permet un accès total à toutes les ressources sous Azure Elastic SAN, notamment la modification des stratégies de sécurité réseau pour débloquer l’accès au chemin d’accès aux données"
+  },
+  "81a9662b-bebf-436f-a333-f67b29880f12": {
+   "name": "Rôle de service d’opérateur de clé de compte de stockage",
+   "description": "Permet de répertorier et de régénérer les clés d’accès au compte de stockage."
+  },
+  "82200a5b-e217-47a5-b665-6d8765ee745b": {
+   "name": "Opérateur du Hub de services",
+   "description": "L’opérateur du Hub de services vous permet d’effectuer toutes les opérations de lecture, d’écriture et de suppression liées aux connecteurs du Hub de services."
+  },
+  "8311e382-0749-4cb8-b61a-304f252e45ec": {
+   "name": "AcrPush",
+   "description": "Envoyer (push) des artefacts vers un registre de conteneurs ou tirer (pull) des artefacts d’un tel registre."
+  },
+  "8393591c-06b9-48a2-a542-1bd6b377f6a2": {
+   "name": "Azure Arc Admin du cluster Kubernetes",
+   "description": "Gérez toutes les ressources du cluster."
+  },
+  "83f80186-3729-438c-ad2d-39e94d718838": {
+   "name": "Contributeur de cluster managé Service Fabric",
+   "description": "Déployez et gérez vos ressources de cluster managé Service Fabric. Inclut des clusters managés, des types de nœuds, des types d’application, des versions de type d’application, des applications et des services."
+  },
+  "850c5848-fc51-4a9a-8823-f220370626e3": {
+   "name": "Azure rôle d’utilisateur de cluster Kubernetes Fleet Manager Hub",
+   "description": "Accorde l’accès en lecture à Azure Kubernetes Fleet Manager ainsi qu’au fichier de configuration Kubernetes pour se connecter au cluster hub géré par la flotte."
+  },
+  "85a2d0d9-2eba-4c9c-b355-11c2cc0788ab": {
+   "name": "Éditeur d’artefacts de la galerie de calcul",
+   "description": "Il s’agit du rôle pour publier des artefacts de galerie."
+  },
+  "85cb6faf-e071-4c9b-8136-154b5a04f717": {
+   "name": "Contributeur d’extension Kubernetes",
+   "description": "Peut créer, mettre à jour, obtenir, répertorier et supprimer des extensions Kubernetes, ainsi qu’obtenir des opérations asynchrones d’extension"
+  },
+  "86240b0e-9422-4c43-887b-b61143f32ba8": {
+   "name": "Contributeur du groupe d’applications de virtualisation de bureau",
+   "description": "Contributeur du groupe d’applications de virtualisation de bureau."
+  },
+  "865ae368-6a45-4bd1-8fbf-0d5151f56fc1": {
+   "name": "Azure Stack Rôle Gestion des appareils HCI",
+   "description": "Rôle Gestion des appareils Microsoft.AzureStackHCI"
+  },
+  "86e8f5dc-a6e9-4c67-9d15-de283e8eac25": {
+   "name": "Contributeur de compte de stockage classique",
+   "description": "Vous permet de gérer des comptes de stockage classiques, mais pas d’y accéder."
+  },
+  "871e35f6-b5c1-49cc-a043-bde969a0f2cd": {
+   "name": "Lecteur de point de terminaison CDN",
+   "description": "Peut afficher des points de terminaison CDN, mais ne peut pas effectuer de modifications."
+  },
+  "874d1c73-6003-4e60-a13a-cb31ea190a85": {
+   "name": "Azure Stack Contributeur de machine virtuelle HCI",
+   "description": "Octroie des autorisations pour effectuer toutes les actions de machine virtuelle"
+  },
+  "87a39d53-fc1b-424a-814c-f7e04687dc9e": {
+   "name": "Contributeur Logic Apps",
+   "description": "Permet de gérer des applications logiques, mais pas d’en modifier l’accès."
+  },
+  "88424f51-ebe7-446f-bc41-7fa16989e96c": {
+   "name": "Étiqueteur Cognitive Services Custom Vision",
+   "description": "Visualiser, modifier des images d’entraînement, ainsi que créer, ajouter, supprimer ou effacer les étiquettes d’images. Les étiqueteurs peuvent visualiser le projet, mais ne peuvent pas mettre à jour autre chose que des images d’entraînement et des étiquettes."
+  },
+  "8a0f0c08-91a1-4084-bc3d-661d67233fed": {
+   "name": "Processeur de messages de données en file d’attente du stockage",
+   "description": "Découvrez, récupérez et supprimez un message d’une file d’attente stockage Azure. Pour savoir quelles actions sont requises pour une certaine opération de données, consultez Autorisations pour appeler des opérations de données."
+  },
+  "8a90fa6b-6997-4a07-8a95-30633a7c97b9": {
+   "name": "Propriétaire de données par lots DeID",
+   "description": "Créez et gérez des travaux par lots dans DeID. Ce rôle est en préversion et susceptible d’être changé."
+  },
+  "8aac15f0-d885-4138-8afa-bfb5872f7d13": {
+   "name": "Contributeur de revues Advisor",
+   "description": "Afficher les revues pour une charge de travail et trier les recommandations liées à ces dernières."
+  },
+  "8b32b316-c2f5-4ddf-b05b-83dacd2d08b5": {
+   "name": "opérateur Azure Red Hat OpenShift Registre d’images",
+   "description": "Permet à l’opérateur de gérer une instance singleton du registre d’images OpenShift. Il gère toutes les configurations du registre, dont la création de stockage."
+  },
+  "8b54135c-b56d-4d72-a534-26097cfdc8d8": {
+   "name": "Key Vault Administrateur de l’accès aux données",
+   "description": "Gérez l’accès à Azure Key Vault en ajoutant ou en supprimant des attributions de rôles pour l’administrateur Key Vault, l’agent de certificats Key Vault, Key Vault Agent de chiffrement de chiffrement, Key Vault l’utilisateur de chiffrement du service de chiffrement, l’utilisateur de chiffrement Key Vault, Key Vault Lecteur, Key Vault Agent des secrets ou Key Vault rôles d’utilisateur secrets. Comprend une condition ABAC pour limiter les attributions de rôle."
+  },
+  "8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761": {
+   "name": "Contributeur SignalR/Web PubSub",
+   "description": "Créer, lire, mettre à jour et supprimer des ressources de service SignalR"
+  },
+  "8d289c81-5878-46d4-8554-54e1e3d8b5cb": {
+   "name": "Microsoft Sentinel Lecteur",
+   "description": "Lecteur Microsoft Sentinel"
+  },
+  "8d8d5a11-05d3-4bda-a417-a08778121c7c": {
+   "name": "Contributeur HDInsight Domain Services",
+   "description": "Peut lire, créer, modifier et supprimer les opérations Domain Services nécessaires pour le Pack Sécurité Entreprise HDInsight"
+  },
+  "8e3af657-a8ff-443c-a75c-2fe8c4bcb635": {
+   "name": "Propriétaire",
+   "description": "Octroie un accès complet pour gérer toutes les ressources, notamment la possibilité d’attribuer des rôles dans Azure RBAC."
+  },
+  "8ebe5a00-799e-43f5-93ac-243d3dce84a7": {
+   "name": "Contributeur de données d’index de recherche",
+   "description": "Accorde un accès complet aux données d’index Recherche cognitive Azure."
+  },
+  "8f5e0ce6-4f7b-4dcf-bddf-e6f48634a204": {
+   "name": "Azure Maps Contributeur aux données",
+   "description": "Accorde l’accès à la lecture, à l’écriture et à la suppression pour mapper les données associées à partir d’un compte de mappage Azure."
+  },
+  "8f96442b-4075-438f-813d-ad51ab4019af": {
+   "name": "Lecteur de profil CDN",
+   "description": "Peut afficher des profils CDN et leurs points de terminaison, mais ne peut pas apporter de modifications."
+  },
+  "91c1777a-f3dc-4fae-b103-61d183457e46": {
+   "name": "Rôle de suppression de l’affectation d’inscription de services gérés",
+   "description": "Le rôle de suppression de l’affectation d’inscription de services gérés permet aux utilisateurs du client gérant de supprimer l’affectation d’inscription attribuée à leur locataire."
+  },
+  "92aaf0da-9dab-42b6-94a3-d43ce8d16293": {
+   "name": "Log Analytics Contributeur",
+   "description": "Log Analytics Contributeur peut lire toutes les données de surveillance et modifier les paramètres de surveillance. La modification des paramètres de surveillance inclut l’ajout de l’extension de machine virtuelle aux machines virtuelles ; lecture des clés de compte de stockage pour pouvoir configurer la collecte des journaux d’activité à partir de stockage Azure ; ajout de solutions ; et configuration de diagnostics Azure sur toutes les ressources Azure."
+  },
+  "92b92042-07d9-4307-87f7-36a593fc5850": {
+   "name": "Azure File Sync Administrateur",
+   "description": "Fournit un accès complet pour gérer toutes les ressources Azure File Sync (service de synchronisation de stockage). Autorise également l’accès en lecture/écriture à toutes les données contenues dans un compte de stockage via l’accès aux clés du compte de stockage."
+  },
+  "93586559-c37d-4a6b-ba08-b9f0940c2d73": {
+   "name": "Lecteur Cognitive Services Custom Vision",
+   "description": "Actions en lecture seule dans le projet. Les lecteurs ne peuvent pas créer ni mettre à jour le projet."
+  },
+  "9565a273-41b9-4368-97d2-aeb0c976a9b3": {
+   "name": "Développeur d’API d’espace de travail de service API Management",
+   "description": "Dispose d’un accès en lecture aux étiquettes et aux produits, ainsi qu’un accès en écriture pour autoriser l’affectation des API aux produits et l’affectation de balises aux produits et aux API. Ce rôle doit être attribué sur l’étendue du service."
+  },
+  "959f8984-c045-4866-89c7-12bf9737be2e": {
+   "name": "opérateur Data pour Disques managés",
+   "description": "Fournit des autorisations pour charger des données sur des disques managés vides, lire ou exporter des données de disques managés (non attachés à des machines virtuelles en cours d’exécution) et des captures instantanées à l’aide d’URI SAP et d’authentification AD Azure."
+  },
+  "95dd08a6-00bd-4661-84bf-f6726f83a4d0": {
+   "name": "Azure Contributeur de stockage de conteneurs",
+   "description": "Installez Azure Container Storage et gérez ses ressources de stockage. Comprend une condition ABAC pour limiter les attributions de rôle."
+  },
+  "95de85bd-744d-4664-9dde-11430bc34793": {
+   "name": "Azure Propriétaire du stockage de conteneurs",
+   "description": "Installez Azure Container Storage, accordez l’accès à ses ressources de stockage et configurez Azure réseau san (Elastic Storage Area Network). Comprend une condition ABAC pour limiter les attributions de rôle."
+  },
+  "965033a5-c8eb-4f35-b82f-fef460a3606d": {
+   "name": "Délegator de table de stockage",
+   "description": "Obtenez une clé de délégation d’utilisateur, qui peut ensuite être utilisée pour créer une signature d’accès partagé pour une table stockage Azure signée avec Azure informations d’identification AD. Pour en savoir plus, consultez Créer une SAS de délégation d’utilisateur."
+  },
+  "974c5e8b-45b9-4653-ba55-5f855dd0fb88": {
+   "name": "Contributeur aux données en file d’attente du stockage",
+   "description": "Lire, écrire et supprimer stockage Azure files d’attente et messages de file d’attente. Pour savoir quelles actions sont requises pour une certaine opération de données, consultez Autorisations pour appeler des opérations de données."
+  },
+  "980cf6f7-edec-4fd1-8e9e-28f70b1d5258": {
+   "name": "Opérateur de limite de calcul",
+   "description": "Lisez et gérez les limites de calcul à l’aide d’opérations de limite de calcul."
+  },
+  "985d6b00-f706-48f5-a6fe-d0ca12fb668d": {
+   "name": "Rôle de service d’opérateur de clé de compte de stockage classique",
+   "description": "Les opérateurs de clés de comptes de stockage classiques sont autorisés à lister et à régénérer des clés sur des comptes de stockage classiques"
+  },
+  "9894cab4-e18a-44aa-828b-cb588cd6f2d7": {
+   "name": "Reconnaissance faciale Cognitive Services",
+   "description": "Vous permet de détecter, de vérifier, d’identifier, de regrouper et de rechercher des opérations similaires sur l’API de visage. Ce rôle n’autorise pas les opérations de création ou de suppression, ce qui en fait un bon choix pour les points de terminaison nécessitant uniquement des fonctionnalités d’inférence, en suivant les meilleures pratiques en matière de « privilèges minimum »."
+  },
+  "9980e02c-c2be-4d73-94e8-173b1dc7cf3c": {
+   "name": "Contributeur de machine virtuelle",
+   "description": "Créer et gérer des machines virtuelles, gérer des disques, installer et exécuter des logiciels, réinitialiser le mot de passe de l’utilisateur racine de la machine virtuelle à l’aide d’extensions de machine virtuelle et gérer les comptes d’utilisateurs locaux à l’aide d’extensions de machine virtuelle. Ce rôle ne vous accorde pas un accès en gestion au réseau virtuel ou au compte de stockage auquel les machines virtuelles sont connectées. Ce rôle ne vous permet pas d’attribuer des rôles dans Azure RBAC."
+  },
+  "9b7fa17d-e63e-47b0-bb0a-15c516ac86ec": {
+   "name": "Contributeur de base de données SQL",
+   "description": "Vous permet de gérer des bases de données SQL, mais pas d’y accéder. Vous ne pouvez pas non plus gérer leurs stratégies de sécurité ni leurs serveurs SQL parents."
+  },
+  "9c1607d1-791d-4c68-885d-c7b7aaff7c8a": {
+   "name": "Administrateur d’analyse du microprogramme",
+   "description": "Utilisateur administratif qui peut charger/afficher des microprogrammes et configurer des espaces de travail de microprogramme"
+  },
+  "9d819e60-1b9f-4871-b492-4e6cdee0b50a": {
+   "name": "Contributeur du connecteur de stockage",
+   "description": "Permet de créer et de gérer des connecteurs de stockage pour accéder aux sources de données distantes en place dans un compte de stockage. Ce rôle est en préversion et susceptible d’être changé."
+  },
+  "a001fd3d-188f-4b5d-821b-7da978bf7442": {
+   "name": "Contributeur OpenAI Cognitive Services",
+   "description": "Accès total, dont la possibilité d’ajuster, déployer et générer du texte"
+  },
+  "a06f5c24-21a7-4e1a-aa2b-f19eb6684f5b": {
+   "name": "Azure Contributeur du serveur de configuration Spring Cloud",
+   "description": "Autoriser l’accès en lecture, écriture et suppression à Azure Spring Cloud Config Server"
+  },
+  "a12b0b94-b317-4dcd-84a8-502ce99884c6": {
+   "name": "Éditeur EventGrid TopicSpaces",
+   "description": "Vous permet de publier des messages sur les topicspaces."
+  },
+  "a1705bd2-3a8f-45a5-8683-466fcfd5cc24": {
+   "name": "Convertisseur de données FHIR",
+   "description": "Ce rôle permet à l’utilisateur ou au principal de convertir des données du format hérité au format FHIR"
+  },
+  "a1f96423-95ce-4224-ab27-4e3dc72facd4": {
+   "name": "Azure Red Hat OpenShift Cloud Controller Manager",
+   "description": "Gérez et mettez à jour le gestionnaire de contrôleurs cloud déployé sur OpenShift."
+  },
+  "a235d3ee-5935-4cfb-8cc5-a3303ad5995e": {
+   "name": "Administrateur MI SMB des fichiers de stockage",
+   "description": "Permet l’accès au niveau de l’administrateur pour les identités managées sur les fichiers/répertoires dans Azure partages de fichiers."
+  },
+  "a36e6959-b6be-4b12-8e9f-ef4b474d304d": {
+   "name": "Opérateur de labo",
+   "description": "Vous offre une capacité limitée de gestion des labos existants."
+  },
+  "a41e2c5b-bd99-4a07-88f4-9bf657a760b8": {
+   "name": "Contributeur de l’environnement de service d’intégration",
+   "description": "Permet de gérer les environnements de service d’intégration, mais pas d’y accéder."
+  },
+  "a4417e6f-fecd-4de8-b567-7b0420556985": {
+   "name": "Key Vault Certificate Officer",
+   "description": "Effectuer toute action sur les certificats d’un coffre de clés, sauf gérer des autorisations. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d'autorisation « Azure contrôle d'accès en fonction du rôle »."
+  },
+  "a4b10055-b0c7-44c2-b00f-c7b5b3550cf7": {
+   "name": "Contributeur Traffic Manager",
+   "description": "Vous permet de gérer des profils Traffic Manager, mais pas de contrôler qui y a accès."
+  },
+  "a4b156ac-253f-4a1a-9851-96d62b71b047": {
+   "name": "Lecteur de l’agent SRE",
+   "description": "Accorde un accès en lecture seule à toutes les données de l’Agent SRE, notamment les conversations, les incidents, les journaux et les configurations. N’autorise pas l’interaction avec l’agent."
+  },
+  "a5c3590a-3a1a-4cd4-9648-ea0a32b15137": {
+   "name": "contributeur Azure Device Registry",
+   "description": "Permet un accès complet aux appareils IoT dans Azure’espace de noms Device Registry."
+  },
+  "a6333a3e-0164-44c3-b281-7a577aff287f": {
+   "name": "Windows Admin Center Connexion administrateur",
+   "description": "Gérons le système d'exploitation de votre ressource via Windows Admin Center en tant qu'administrateur."
+  },
+  "a638d3c7-ab3a-418d-83e6-5f17a39d4fde": {
+   "name": "Azure Event Hubs Récepteur de données",
+   "description": "Autorise l’accès à Azure Event Hubs ressources."
+  },
+  "a7264617-510b-434b-a828-9731dc254ea7": {
+   "name": "Contributeur élevé de partage SMB de données de fichier de stockage",
+   "description": "Permet de lire, d’écrire, de supprimer et de modifier des listes de contrôle d’accès sur des fichiers/répertoires dans Azure partages de fichiers. Ce rôle équivaut à une liste de contrôle d’accès au partage de fichiers sur Windows serveurs de fichiers."
+  },
+  "a795c7a0-d4a2-40c1-ae25-d81f01202912": {
+   "name": "Lecteur de sauvegarde",
+   "description": "Peut afficher des services de sauvegarde, mais pas apporter des modifications"
+  },
+  "a79a5197-3a5c-4973-a920-486035ffd60f": {
+   "name": "Éditeur Grafana",
+   "description": "Créer, modifier, supprimer ou afficher des tableaux de bord ; créer, modifier ou supprimer des dossiers ; et modifier ou afficher des playlists."
+  },
+  "a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb": {
+   "name": "Azure Kubernetes Service enregistreur RBAC",
+   "description": "Autorise l’accès en lecture/écriture pour la plupart des objets dans un espace de noms. Ce rôle n’autorise ni la consultation ni la modification des rôles ou liaisons de rôle. Toutefois, ce rôle permet d’accéder aux secrets et aux pods en cours d’exécution comme n’importe quel ServiceAccount dans l’espace de noms. Il peut donc être utilisé pour obtenir les niveaux d’accès API de n’importe quel ServiceAccount dans l’espace de noms. L’application de ce rôle à l’étendue du cluster fournit un accès à tous les espaces de noms."
+  },
+  "a8281131-f312-4f34-8d98-ae12be9f0d23": {
+   "name": "Propriétaire du groupe de volumes Elastic SAN",
+   "description": "Permet un accès complet à un groupe de volumes dans Azure Elastic SAN, notamment la modification des stratégies de sécurité réseau pour débloquer l’accès au chemin d’accès aux données"
+  },
+  "a8889054-8d42-49c9-bc1c-52486c10e7cd": {
+   "name": "Administrateur de réservations",
+   "description": "Permet de lire et de gérer toutes les réservations dans un locataire"
+  },
+  "a92dfd61-77f9-4aec-a531-19858b406c87": {
+   "name": "Azure Arc rôle Administrateur ScVmm",
+   "description": "L’administrateur de machine virtuelle Arc ScVmm dispose des autorisations nécessaires pour effectuer toutes les actions ScVmm."
+  },
+  "a959dbd1-f747-45e3-8ba6-dd80f235f97c": {
+   "name": "Contributeur de machines virtuelles de virtualisation de bureau",
+   "description": "Ce rôle est en préversion et susceptible d’être changé. Fournissez l’autorisation au fournisseur de ressources Azure Virtual Desktop de créer, supprimer, mettre à jour, démarrer et arrêter des machines virtuelles."
+  },
+  "a97b65f3-24c7-4388-baec-2e87135dc908": {
+   "name": "Utilisateur Cognitive Services",
+   "description": "Vous permet de lire et répertorier les clés de Cognitive Services."
+  },
+  "a99b0159-1064-4c22-a57b-c9b3caa1c054": {
+   "name": "Azure Spring Apps rôle de débogage à distance",
+   "description": "Azure Spring Apps rôle de débogage à distance"
+  },
+  "aabbc5dd-1af0-458b-a942-81af88f9c138": {
+   "name": "Azure Center pour le rôle de service de solutions SAP",
+   "description": "Azure Center pour le rôle de service de solutions SAP : ce rôle est destiné à être utilisé pour fournir les autorisations à l’identité managée affectée par l’utilisateur. Azure Center pour les solutions SAP utilisera cette identité pour déployer et gérer des systèmes SAP."
+  },
+  "ab8e14d6-4a74-4a29-9ba8-549422addade": {
+   "name": "Microsoft Sentinel Contributeur",
+   "description": "Contributeur Microsoft Sentinel"
+  },
+  "aba4ae5f-2193-4029-9191-0cb91df5e314": {
+   "name": "Lecteur de partage SMB de données de fichier de stockage",
+   "description": "Autorise l’accès en lecture sur les fichiers/répertoires dans Azure partages de fichiers. Ce rôle équivaut à une liste de contrôle d’accès de partage de fichiers de lecture sur Windows serveurs de fichiers."
+  },
+  "ac63b705-f282-497d-ac71-919bf39d939d": {
+   "name": "Lecteur du groupe d’administration",
+   "description": "Rôle de lecteur du groupe d’administration"
+  },
+  "acdd72a7-3385-48ef-bd42-f606fba81ae7": {
+   "name": "Lecteur",
+   "description": "Affiche toutes les ressources, mais ne vous autorise pas à apporter des modifications."
+  },
+  "ad710c24-b039-4e85-a019-deb4a06e8570": {
+   "name": "Contributeur de la norme Logic Apps",
+   "description": "Vous pouvez gérer tous les aspects d’une application logique standard et de ses flux de travail. Vous ne pouvez pas modifier en l’accès ou la propriété."
+  },
+  "add466c9-e687-43fc-8d98-dfcf8d720be5": {
+   "name": "Contributeur Data Box",
+   "description": "Vous permet de gérer toutes les opérations sous le service Data Box, à l’exception de l’octroi d’accès à d’autres personnes."
+  },
+  "ae349356-3a1b-4a5e-921d-050484c6347e": {
+   "name": "Contributeur de composants Application Insights",
+   "description": "Peut gérer les composants Application Insights"
+  },
+  "aebf23d0-b568-4e86-b8f9-fe83a2c6ab55": {
+   "name": "Lecteur du groupe d’applications de virtualisation de bureau",
+   "description": "Lecteur du groupe d’applications de virtualisation de bureau."
+  },
+  "af61e8fc-2633-4b95-bed3-421ad6826515": {
+   "name": "Lecteur Container Apps SessionPools",
+   "description": "Accès en lecture aux ContainerApps sessionpools."
+  },
+  "af6a70f8-3c9f-4105-acf1-d719e9fca4ca": {
+   "name": "Lecteur Elastic SAN",
+   "description": "Permet de contrôler l’accès en lecture au chemin d’accès à Azure Elastic SAN"
+  },
+  "af854a69-80ce-4ff7-8447-f1118a2e0ca8": {
+   "name": "Éditeur d’agent de santé",
+   "description": "Les utilisateurs disposant d’un accès à l’éditeur peuvent se connecter, afficher et modifier toutes les ressources, scénarios et paramètres de configuration, à l’exception des clés et secrets d’instance de bot, et les entrées de l’utilisateur final (y compris les commentaires, énoncés non reconnus et journaux de conversation). Accès en lecture seule aux compétences et canaux du bot."
+  },
+  "b12aa53e-6015-4669-85d0-8515ebb3ae7f": {
+   "name": "contributeur de zone DNS privé",
+   "description": "Permet de gérer les ressources de zone DNS privée, mais pas les réseaux virtuels auxquels elles sont liées."
+  },
+  "b1ff04bb-8a4e-4dc4-8eb5-8693973ce19b": {
+   "name": "Azure Kubernetes Service Administrateur du cluster RBAC",
+   "description": "Gérez toutes les ressources du cluster."
+  },
+  "b24988ac-6180-42a0-ab88-20f7382dd24c": {
+   "name": "Contributeur",
+   "description": "Accorde un accès complet pour gérer toutes les ressources, mais ne vous permet pas d’attribuer des rôles dans Azure RBAC, de gérer les affectations dans Azure Blueprints ou de partager des galeries d’images."
+  },
+  "b279062a-9be3-42a0-92ae-8b3cf002ec4d": {
+   "name": "Lecteur de classeur",
+   "description": "Peut lire les classeurs."
+  },
+  "b29efa5f-7782-4dc3-9537-4d5bc70a5e9f": {
+   "name": "Azure Kubernetes Service Rôle d’administrateur de cluster Arc",
+   "description": "Répertorie les actions relatives aux identifiants de l’administrateur du cluster."
+  },
+  "b2de6794-95db-4659-8781-7e080d3f2b9d": {
+   "name": "Utilisateur Immersive Reader Cognitive Services",
+   "description": "Fournit l’accès pour créer des sessions Immersive Reader et appeler des API"
+  },
+  "b34d265f-36f7-4a0d-a4d4-e158ca92e90f": {
+   "name": "Contributeur de réseau classique",
+   "description": "Vous permet de gérer des réseaux classiques, mais pas d’y accéder."
+  },
+  "b447c946-2db7-41ec-983d-d8bf3b1c77e3": {
+   "name": "IoT Hub Lecteur de données",
+   "description": "Permet un accès en lecture complet à IoT Hub propriétés du plan de données"
+  },
+  "b459aa1d-e3c8-436f-ae21-c0531140f43e": {
+   "name": "Azure Spring Apps rôle de lecteur du journal des travaux",
+   "description": "Lire les journaux en temps réel pour les travaux dans Azure Spring Apps"
+  },
+  "b50d9833-a0cb-478e-945f-707fcc997c13": {
+   "name": "Opérateur de restauration de disque",
+   "description": "Fournit une autorisation sur le coffre de sauvegarde pour effectuer une restauration de disque."
+  },
+  "b5537268-8956-4941-a8f0-646150406f0c": {
+   "name": "Azure Lecteur de données Spring Cloud",
+   "description": "Autoriser l’accès en lecture à Azure Spring Cloud Data"
+  },
+  "b556d68e-0be0-4f35-a333-ad7ee1ce17ea": {
+   "name": "Azure approbateur de connexion réseau d’entreprise IA",
+   "description": "Peut approuver les connexions de point de terminaison privé à Azure ressources de dépendance communes à l’IA"
+  },
+  "b59867f0-fa02-499b-be73-45a86b5b3e1c": {
+   "name": "Lecteur de données Cognitive Services",
+   "description": "Permet de lire des données Cognitive Services."
+  },
+  "b64e21ea-ac4e-4cdf-9dc9-5b892992bee7": {
+   "name": "Azure Intégration des machines connectées",
+   "description": "Peut intégrer Azure machines connectées."
+  },
+  "b6efc156-f0da-4e90-a50a-8c000140b017": {
+   "name": "Contributeur de cluster Service Fabric",
+   "description": "Gérez vos ressources de cluster Service Fabric. Inclut des clusters, des types d’applications, des versions de type d’application, des applications et des services. Il vous faut des autorisations supplémentaires pour déployer et gérer les ressources sous-jacentes du cluster, telles que les groupes de machines virtuelles identiques, les comptes de stockage, les réseaux, etc."
+  },
+  "b70c96e9-66fe-4c09-b6e7-c98e69c98555": {
+   "name": "Opérateur standard Logic Apps",
+   "description": "Vous pouvez activer et désactiver l’application logique, soumettre à nouveau des exécutions de flux de travail, ainsi que créer des connexions. Vous ne pouvez pas modifier les flux de travail ou les paramètres."
+  },
+  "b73a14ee-91f5-41b7-bd81-920e12466be9": {
+   "name": "Lecteur de données par lots DeID",
+   "description": "Lire les travaux de traitement par lots DeID. Ce rôle est en préversion et susceptible d’être changé."
+  },
+  "b748a06d-6150-4f8a-aaa9-ce3940cd96cb": {
+   "name": "Azure Arc Contributeur de machine virtuelle VMware",
+   "description": "Le contributeur de machines virtuelles Arc VMware est autorisé à effectuer toutes les actions de machine virtuelle."
+  },
+  "b78c5d69-af96-48a3-bf8d-a8b4d589de94": {
+   "name": "Azure administrateur IA",
+   "description": "Rôle Built-In qui dispose de toutes les autorisations de plan de contrôle pour fonctionner avec Azure IA et ses dépendances. S’applique uniquement aux hubs Azure Machine Learning et Foundry."
+  },
+  "b7e6dc6d-f1e8-4753-8033-0f276bb0955b": {
+   "name": "Propriétaire des données blob de stockage",
+   "description": "Fournit un accès complet à stockage Azure conteneurs d’objets blob et aux données, notamment l’attribution du contrôle d’accès POSIX. Pour savoir quelles actions sont requises pour une certaine opération de données, consultez Autorisations pour appeler des opérations de données."
+  },
+  "b86a8fe4-44ce-4948-aee5-eccb2c155cd7": {
+   "name": "Key Vault Agent secrets",
+   "description": "Permet d’effectuer une action sur les secrets d’un coffre de clés, sauf gérer les autorisations. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d'autorisation « Azure contrôle d'accès en fonction du rôle »."
+  },
+  "b8eda974-7b85-4f76-af95-65846b26df6d": {
+   "name": "Lecteur privilégié des données du fichier de stockage",
+   "description": "Autorise l’accès en lecture sur les fichiers/répertoires dans Azure partages de fichiers en remplaçant les autorisations ACL/NTFS existantes. Ce rôle n’a pas d’équivalent intégré sur Windows serveurs de fichiers."
+  },
+  "b9331d33-8a36-4f8c-b097-4f54124fdb44": {
+   "name": "Opérateur de serveur de publication d’application managée",
+   "description": "Permet au serveur de publication de lire des ressources dans le groupe de ressources managées pour l’application managée et de demander l’accès JIT pour des opérations supplémentaires. Ce rôle est utilisé uniquement par le service d’application managée pour fournir l’accès aux éditeurs."
+  },
+  "b93aa761-3e63-49ed-ac28-beffa264f7ac": {
+   "name": "Lecteur de référentiel de Container Registry",
+   "description": "Permet l’accès en lecture aux référentiels Azure Container Registry, mais à l’exclusion de la liste des catalogues."
+  },
+  "b97fb8bc-a8b2-4522-a38b-dd33c7e65ead": {
+   "name": "Créateur de labo",
+   "description": "Vous permet de créer des laboratoires sous vos comptes Azure Lab."
+  },
+  "b9a307c4-5aa3-4b52-ba60-2b17c136cd7b": {
+   "name": "Opérateur de tâches Container Apps",
+   "description": "Lisez, démarrez et arrêtez des tâches Container Apps."
+  },
+  "ba480ccd-6499-4709-b581-8f38bb215c63": {
+   "name": "Azure Migrate Lecteur de service",
+   "description": "Accorde l’accès requis à l’identité managée affectée par le système de Azure Migrate ressource de projet."
+  },
+  "ba92f5b4-2d11-453d-a403-e96b0029c9fe": {
+   "name": "Contributeur aux données blob du stockage",
+   "description": "Lisez, écrivez et supprimez stockage Azure conteneurs et objets blob. Pour savoir quelles actions sont requises pour une certaine opération de données, consultez Autorisations pour appeler des opérations de données."
+  },
+  "bb6577c4-ea0a-40b2-8962-ea18cb8ecd4e": {
+   "name": "Utilisateur de données en temps réel DeID",
+   "description": "Exécutez des requêtes sur un point de terminaison en temps réel DeID. Ce rôle est en préversion et susceptible d’être changé."
+  },
+  "bba48692-92b0-4667-a9ad-c31c7b334ac2": {
+   "name": "Lecteur des utilisations Cognitive Services",
+   "description": "Autorisation minimale pour afficher les utilisations de Cognitive Services."
+  },
+  "bbf004e3-0e4b-4f86-ae4f-1f8fb47b357b": {
+   "name": "Administrateur SMB des données de fichier de stockage",
+   "description": "Autorise l’accès administrateur équivalent à la clé de compte de stockage pour les utilisateurs finaux via SMB."
+  },
+  "bbf86eb8-f7b4-4cce-96e4-18cddf81d86e": {
+   "name": "Contributeur d’attestation",
+   "description": "Peut lire, écrire ou supprimer l’instance du fournisseur d’attestation"
+  },
+  "bcd981a7-7f74-457b-83e1-cceb9e632ffe": {
+   "name": "Azure Digital Twins Propriétaire des données",
+   "description": "Rôle d’accès total pour le plan de données Digital Twins"
+  },
+  "bd8acdb0-202c-4493-a7fe-ef98eefbfbc4": {
+   "name": "Contributeur actions de stockage",
+   "description": "Utilisé par l’auteur actions de stockage pour créer, lire, mettre à jour et supprimer des actions de stockage"
+  },
+  "bda0d508-adf1-4af0-9c28-88919fc3ae06": {
+   "name": "Azure Stack Administrateur HCI",
+   "description": "Accorde un accès complet au cluster et à ses ressources, notamment la possibilité d’inscrire Azure Local et d’affecter d’autres personnes en tant que contributeur de machine virtuelle HCI et/ou Azure Stack Azure Stack lecteur de machine virtuelle HCI"
+  },
+  "be7a6435-15ae-4171-8f30-4a343eff9e8f": {
+   "name": "Azure Red Hat OpenShift Opérateur réseau",
+   "description": "Installez et mettez à niveau les composants réseau sur un cluster OpenShift."
+  },
+  "befefa01-2a29-4197-83a8-272ff33ce314": {
+   "name": "Contributeur de zone DNS",
+   "description": "Vous permet de gérer les zones DNS et les jeux d’enregistrements dans Azure DNS, mais ne vous permet pas de contrôler qui a accès à ces zones."
+  },
+  "bf94e731-3a51-4a7c-8c54-a1ab9971dfc1": {
+   "name": "Contributeur du pipeline de transfert de Container Registry",
+   "description": "Permet de transférer, d’importer et d’exporter des artefacts via la configuration des pipelines de transfert de registre qui impliquent des comptes de stockage et coffres de clés intermédiaires. Ne fournit pas d’autorisations pour envoyer (push) ou tirer (pull) des images. Ne fournit pas d’autorisations pour créer, gérer ou lister des comptes de stockage ou des coffres de clés. Ne fournit pas d’autorisations pour effectuer des attributions de rôle."
+  },
+  "bfb1c7d2-fb1a-466b-b2ba-aee63b92deaf": {
+   "name": "Lecteur de service Web PubSub",
+   "description": "Accès en lecture seule aux API REST du service Azure Web PubSub"
+  },
+  "bfdb9389-c9a5-478a-bb2f-ba9ca092c3c7": {
+   "name": "Afficheur du catalogue du référentiel Container Registry",
+   "description": "Permet de répertorier tous les référentiels dans un Azure Container Registry."
+  },
+  "c025889f-8102-4ebf-b32c-fc0c6f0c6bd9": {
+   "name": "Opérateur Avere",
+   "description": "Utilisé par le cluster Avere vFXT pour gérer le cluster"
+  },
+  "c031e6a8-4391-4de0-8d69-4706a7ed3729": {
+   "name": "Éditeur de contenu du portail API Management Developer Portal",
+   "description": "Peut personnaliser le portail des développeurs, modifier son contenu et le publier."
+  },
+  "c0781e91-8102-4553-8951-97c6d4243cda": {
+   "name": "Azure Arc Utilisateur de cloud privé ScVmm",
+   "description": "Azure Arc utilisateur de cloud privé ScVmm dispose des autorisations nécessaires pour utiliser les ressources ScVmm pour déployer des machines virtuelles."
+  },
+  "c088a766-074b-43ba-90d4-1fb21feae531": {
+   "name": "Rôle de sauvegarde de rétention à long terme du serveur flexible PostgreSQL",
+   "description": "Rôle permettant au coffre de sauvegarde d’accéder aux API de ressources du serveur flexible PostgreSQL pour la sauvegarde de rétention à long terme."
+  },
+  "c12c1c16-33a1-487b-954d-41c89c60f349": {
+   "name": "Lecteur et accès aux données",
+   "description": "Permet d’afficher tous les éléments, mais pas de supprimer ou de créer un compte de stockage ou une ressource contenue. En outre, autorise l’accès en lecture/écriture à toutes les données contenues dans un compte de stockage via l’accès aux clés de compte de stockage."
+  },
+  "c1410b24-3e69-4857-8f86-4d0a2e603250": {
+   "name": "Contributeur aux données de l’espace de travail Quantum",
+   "description": "Créez, lisez et modifiez des tâches et d’autres données d’espace de travail. Ce rôle est en préversion et susceptible d’être changé."
+  },
+  "c1ff6cc2-c111-46fe-8896-e0ef812ad9f3": {
+   "name": "Contributeur Cognitive Services Custom Vision",
+   "description": "Accès total au projet, y compris la possibilité de visualiser, créer, modifier et supprimer des projets."
+  },
+  "c2a970b4-16a7-4a51-8c84-8a8ea6ee0bb8": {
+   "name": "Administrateur MUA de sauvegarde",
+   "description": "Sauvegarde multiutilisateur-autorisation. Peut créer/supprimer ResourceGuard"
+  },
+  "c2f4ef07-c644-48eb-af81-4b1b4947fb11": {
+   "name": "AcrDelete",
+   "description": "Supprimez des référentiels, des balises ou des manifestes d’un registre de conteneurs."
+  },
+  "c357b964-0002-4b64-a50d-7a28f02edc52": {
+   "name": "Lecteur de règle de cache du Registre de conteneurs",
+   "description": "Lisez la configuration des règles de cache dans Container Registry. Cette autorisation n’accorde pas l’autorisation de lire les ensembles d'identifiants."
+  },
+  "c64499e0-74c3-47ad-921c-13865957895c": {
+   "name": "Lecteur de revues Advisor",
+   "description": "Afficher les revues pour une charge de travail et les recommandations liées à ces dernières."
+  },
+  "c6a89b2d-59bc-44d0-9896-0f6e12d7b80a": {
+   "name": "Expéditeur de messages de données en file d’attente de stockage",
+   "description": "Ajoutez des messages à une file d’attente stockage Azure. Pour savoir quelles actions sont requises pour une certaine opération de données, consultez Autorisations pour appeler des opérations de données."
+  },
+  "c7244dfb-f447-457d-b2ba-3999044d1706": {
+   "name": "Azure Lecteur de données du Centre d’API",
+   "description": "Permet d’accéder à Azure opérations de lecture du plan de données du Centre d’API."
+  },
+  "c7393b34-138c-406f-901b-d8cf2b17e6ae": {
+   "name": "Rôle d’opérateur d’application gérée",
+   "description": "Permet de lire des ressources d’application gérée et d’effectuer des actions sur celles-ci"
+  },
+  "c7aa55d3-1abb-444a-a5ca-5e51e485d6ec": {
+   "name": "Développeur d’environnement de service d’intégration",
+   "description": "Permet aux développeurs de créer et de mettre à jour des workflows, des comptes d’intégration et des connexions d’API dans les environnements de service d’intégration."
+  },
+  "c883944f-8b7b-4483-af10-35834be79c4a": {
+   "name": "Propriétaire de foundry",
+   "description": "Accorde des subventions complètes pour gérer les comptes et les projets IA. Octroie à un lecteur l’accès aux projets IA, l’accès lecteur aux comptes d’IA et les actions de données pour un projet d’IA. S’applique aux nouvelles ressources Foundry."
+  },
+  "c8d4ff99-41c3-41a8-9f60-21dfdad59608": {
+   "name": "AcrQuarantineWriter",
+   "description": "Envoyer (push) des images en quarantaine vers un registre de conteneurs ou extraire des images en quarantaine d’un tel registre."
+  },
+  "c99c945f-8bd1-4fb1-a903-01460aae6068": {
+   "name": "Azure Stack HCI Connected InfraVMs",
+   "description": "Rôle de l’intégration d’Arc pour Azure Stack infrastructure HCI Machines Virtuelles."
+  },
+  "c9f76ca8-b262-4b10-8ed2-09cf0948aa35": {
+   "name": "utilisateur de l’espace de noms Azure Kubernetes Service",
+   "description": "Permet aux utilisateurs de lire Azure Kubernetes Service ressources d’espace de noms. L’accès à l’espace de noms dans le cluster nécessite davantage l’attribution de rôles RBAC Azure Kubernetes Service à la ressource d’espace de noms pour un cluster Entra ID activé."
+  },
+  "cb43c632-a144-4ec5-977c-e80c4affc34a": {
+   "name": "Administrateur Metrics Advisor Cognitive Services",
+   "description": "Accès total au projet, y compris la configuration au niveau du système."
+  },
+  "cd08ab90-6b14-449c-ad9a-8f8e549482c6": {
+   "name": "Contributeur de mise à jour corrective planifiée",
+   "description": "Fournit un accès à la gestion des configurations de maintenance avec l’étendue de maintenance InGuestPatch et les affectations de configuration correspondantes"
+  },
+  "cd570a14-e51a-42ad-bac8-bafd67325302": {
+   "name": "Azure Administrateur de ressources de machine connectée",
+   "description": "Peut lire, écrire, supprimer et réinscrire Azure machines connectées."
+  },
+  "cdda3590-29a3-44f6-95f2-9f980659eb04": {
+   "name": "AcrQuarantineReader",
+   "description": "Tirer (pull) des images en quarantaine à partir d’un registre de conteneurs."
+  },
+  "ce40b423-cede-4313-a93f-9b28290b72e1": {
+   "name": "Assistant de labo",
+   "description": "Vous permet de voir un labo existant, d’effectuer des actions sur les machines virtuelles de labo et d’envoyer des invitations au labo."
+  },
+  "ceadfde2-b300-400a-ab7b-6143895aa822": {
+   "name": "Lecteur de pool d’hôtes de virtualisation de bureau",
+   "description": "Lecteur de pool d’hôtes de virtualisation de bureau."
+  },
+  "cf7c76d2-98a3-4358-a134-615aa78bf44d": {
+   "name": "Lecteur d’images de la galerie de calcul",
+   "description": "Il s’agit du rôle pour lire les images de galerie."
+  },
+  "cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e": {
+   "name": "Contributeur de demande de support",
+   "description": "Permet de créer et de gérer des demandes de support"
+  },
+  "cff1b556-2399-4e7e-856d-a8f754be7b65": {
+   "name": "Azure Lecteur du Registre de services Spring Cloud",
+   "description": "Autoriser l’accès en lecture à Azure Spring Cloud Service Registry"
+  },
+  "d04c6db6-4947-4782-9e91-30a88feb7be7": {
+   "name": "Azure Lecteur spring Cloud Config Server",
+   "description": "Autoriser l’accès en lecture à Azure Spring Cloud Config Server"
+  },
+  "d1ee9a80-8b14-47f0-bdc2-f4a351625a7b": {
+   "name": "Lecteur de contenu de mise à jour de l’appareil",
+   "description": "Vous accorde l’accès en lecture aux opérations de contenu, mais ne vous permet pas d’effectuer des modifications"
+  },
+  "d1f699ed-700a-4c77-a22f-29890ac7b115": {
+   "name": "Azure Administrateur RBAC Kubernetes Fleet Manager pour les clusters membres",
+   "description": "Ce rôle accorde l’accès administrateur : fournit des autorisations d’écriture sur la plupart des objets d’un espace de noms, à l’exception de l’objet ResourceQuota et de l’objet d’espace de noms lui-même. L’application de ce rôle à l’étendue du cluster fournit un accès à tous les espaces de noms."
+  },
+  "d3881f73-407a-4167-8283-e981cbba0404": {
+   "name": "Opérateur Automation",
+   "description": "Les opérateurs Automation peuvent démarrer, arrêter, suspendre et reprendre des travaux"
+  },
+  "d57506d4-4c8d-48b1-8587-93c323f6a5a3": {
+   "name": "Azure Digital Twins Lecteur de données",
+   "description": "Rôle en lecture seule pour les propriétés du plan de données Digital Twins"
+  },
+  "d59a3e9c-6d52-4a5a-aeed-6bf3cf0e31da": {
+   "name": "Responsable produit d’API d’espace de travail de service API Management",
+   "description": "A le même accès que le développeur d’API d’espace de travail de service API Management, ainsi qu’un accès en lecture aux utilisateurs et un accès en écriture pour permettre l’affectation d’utilisateurs à des groupes. Ce rôle doit être attribué sur l’étendue du service."
+  },
+  "d5a2ae44-610b-4500-93be-660a0c5f5ca6": {
+   "name": "Accès à l’API Kubernetes Defender",
+   "description": "Octroie Microsoft Defender for Cloud accès à Azure Kubernetes Services"
+  },
+  "d5a91429-5739-47e2-a06b-3470a27159e7": {
+   "name": "Expéditeur de données EventGrid",
+   "description": "Autorise l’accès en envoi aux événements EventGrid."
+  },
+  "d5adeb5b-107f-4aca-99ea-4e3f4fc008d5": {
+   "name": "Lecteur Container Apps ConnectedEnvironments",
+   "description": "Accès en lecture aux Container Apps ConnectedEnvironments."
+  },
+  "d6a5505f-6ebb-45a4-896e-ac8274cfc0ac": {
+   "name": "Lecteur de données Durable Task",
+   "description": "Lisez toutes les données du planificateur Durable Task."
+  },
+  "d73bb868-a0df-4d4d-bd69-98a00b01fccb": {
+   "name": "Contributeur de machine virtuelle classique",
+   "description": "Permet de gérer des machines virtuelles classiques, mais pas d’y accéder. Ne peut pas non plus accéder au réseau virtuel ou au compte de stockage auquel elles sont connectées."
+  },
+  "db58b8e5-c6ad-4a2a-8342-4190687cbf4a": {
+   "name": "Délégateur du Stockage Blob",
+   "description": "Obtenez une clé de délégation d’utilisateur, qui peut ensuite être utilisée pour créer une signature d’accès partagé pour un conteneur ou un objet blob signé avec Azure informations d’identification AD. Pour en savoir plus, consultez Créer une SAS de délégation d’utilisateur."
+  },
+  "db79e9a7-68ee-4b58-9aeb-b90e7c24fcba": {
+   "name": "Key Vault Utilisateur de certificat",
+   "description": "Lire le contenu du certificat. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d'autorisation « Azure contrôle d'accès en fonction du rôle »."
+  },
+  "db7b14f2-5adf-42da-9f96-f2ee17bab5cb": {
+   "name": "CosmosBackupOperator",
+   "description": "Peut envoyer une requête de restauration d’une base de données Cosmos DB ou d’un conteneur pour un compte"
+  },
+  "dbaa88c4-0c30-4179-9fb3-46319faa6149": {
+   "name": "Lecteur Site Recovery",
+   "description": "Vous permet d’afficher Site Recovery’état, mais pas d’effectuer d’autres opérations de gestion"
+  },
+  "dd24193f-ef65-44e5-8a7e-6fa6e03f7713": {
+   "name": "Azure Contributeur du service du Centre d’API",
+   "description": "Permet de gérer Azure service du Centre d’API."
+  },
+  "ddde6b66-c0df-4114-a159-3618637b3035": {
+   "name": "Lecteur de l’API REST SignalR",
+   "description": "Accès en lecture seule aux API REST Azure SignalR Service"
+  },
+  "de139f84-1756-47ae-9be6-808fbbe84772": {
+   "name": "Contributeur de site web",
+   "description": "Gérez les sites web, mais pas les plans web. Ne vous permet pas d’attribuer des rôles dans Azure RBAC."
+  },
+  "de2b316d-7a2c-4143-b4cd-c148f6a355a1": {
+   "name": "Azure rôle d’agent Kubernetes Fleet Manager Hub",
+   "description": "Accorde l’accès aux ressources Azure nécessaires par Azure agents hub Kubernetes Fleet Manager."
+  },
+  "de754d53-652d-4c75-a67f-1e48d8b49c97": {
+   "name": "Lecteur de groupes de services",
+   "description": "Lisez les groupes de services et consultez les relations établies."
+  },
+  "df87f177-bb12-4db1-9793-a413691eff94": {
+   "name": "Administrateur de règle de cache de Registre de conteneurs",
+   "description": "Créez, lisez, mettez à jour et supprimez des règles de cache dans Container Registry. Ce rôle n’accorde pas d’autorisations pour gérer les ensembles d'identifiants."
+  },
+  "dfce44e4-17b7-4bd1-a6d1-04996ec95633": {
+   "name": "Contributeur aux données du service de provisionnement des appareils",
+   "description": "Permet un accès total aux opérations du plan de données du service de provisionnement des appareils."
+  },
+  "dfce8971-25e3-42e3-ba33-6055438e3080": {
+   "name": "Opérateur de restauration de machine virtuelle",
+   "description": "Créez et supprimez des ressources pendant la restauration de machine virtuelle. Ce rôle est en préversion et susceptible d’être changé."
+  },
+  "dffb1e0c-446f-4dde-a09f-99eb5cc68b96": {
+   "name": "Azure Arc Administrateur Kubernetes",
+   "description": "Gérez toutes les ressources sous le cluster/l’espace de noms, à l’exception de la mise à jour ou de la suppression de quotas de ressources et d’espaces de noms."
+  },
+  "e022efe7-f5ba-4159-bbe4-b44f577e9b61": {
+   "name": "Rôle d’opérateur du service API Management",
+   "description": "Peut gérer le service, mais pas les API"
+  },
+  "e0f68234-74aa-48ed-b826-c38b57376e17": {
+   "name": "Contributeur Cache Redis",
+   "description": "Créez et gérez des ressources Azure Cache pour Redis. Impossible de lire ou d’écrire des données stockées dans le cache."
+  },
+  "e147488a-f6f5-4113-8e2d-b22465e65bf6": {
+   "name": "Key Vault Utilisateur de chiffrement de service de chiffrement",
+   "description": "Permet de lire les métadonnées des clés et d’effectuer des opérations d’enveloppement/désenveloppement. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d'autorisation « Azure contrôle d'accès en fonction du rôle »."
+  },
+  "e307426c-f9b6-4e81-87de-d99efb3c32bc": {
+   "name": "Contributeur de pool d’hôtes de virtualisation de bureau",
+   "description": "Contributeur de pool d’hôtes de virtualisation de bureau."
+  },
+  "e3d13bf0-dd5a-482e-ba6b-9b8433878d10": {
+   "name": "Responsable de sécurité (hérité)",
+   "description": "Il s’agit d’un rôle hérité. Utilisez plutôt l’administrateur de sécurité."
+  },
+  "e40ec5ca-96e0-45a2-b4ff-59039f2c2b59": {
+   "name": "Contributeur d’identité managée",
+   "description": "Créer, lire, mettre à jour et supprimer une identité attribuée à l’utilisateur"
+  },
+  "e4237640-0e3d-4a46-8fda-70bc94856432": {
+   "name": "Administrateur des déploiements de mises à jour d’appareil",
+   "description": "Vous accorde l’accès total aux opérations de gestion"
+  },
+  "e47c6f54-e4a2-4754-9501-8e0985b135e1": {
+   "name": "Propriétaire du compte Foundry",
+   "description": "Octroie un accès complet pour gérer les projets et comptes IA. Comprend une condition ABAC pour limiter les attributions de rôle. Accorde l’attribution conditionnelle du rôle Utilisateur Foundry à d’autres principes utilisateur. S’applique aux nouvelles ressources Foundry."
+  },
+  "e503ece1-11d0-4e8e-8e2c-7a6c3bf38815": {
+   "name": "Opérateur de calcul AzureML",
+   "description": "Peut accéder aux opérations CRUD et effectuer des opérations CRUD sur les ressources de calcul gérées par Machine Learning Services (y compris les machines virtuelles notebook)."
+  },
+  "e582369a-e17b-42a5-b10c-874c387c530b": {
+   "name": "Azure Arc Contributeur de machine virtuelle ScVmm",
+   "description": "Le contributeur de machine virtuelle Arc ScVmm dispose des autorisations nécessaires pour effectuer toutes les actions de machine virtuelle."
+  },
+  "e5e2a7ff-d759-4cd2-bb51-3152d37e2eb1": {
+   "name": "Contributeur de sauvegarde de compte de stockage",
+   "description": "Permet d’effectuer des opérations de sauvegarde et de restauration à l’aide de Sauvegarde Azure sur le compte de stockage."
+  },
+  "e79298df-d852-4c6d-84f9-5d13249d1e55": {
+   "name": "Administrateur de l’agent SRE",
+   "description": "Contrôle total de l’agent : gérer les conversations, les plans de réponse aux incidents et les modes d’exécution de l’agent ; approuver et exécuter des commandes."
+  },
+  "e8113dce-c529-4d33-91fa-e9b972617508": {
+   "name": "Azure Intégration SQL Server connectée",
+   "description": "Permet l’accès en lecture et en écriture à Azure ressources pour SQL Server sur des serveurs avec Arc."
+  },
+  "e89c7a3c-2f64-4fa1-a847-3e4c9ba4283a": {
+   "name": "Lecteur de données DICOM",
+   "description": "Lire et rechercher des données DICOM."
+  },
+  "e8ddcd69-c73f-4f9f-9844-4100522f16ad": {
+   "name": "Contributeur de classeur",
+   "description": "Peut enregistrer les classeurs partagés."
+  },
+  "e9dba6fb-3d52-4cf0-bce3-f06ce71b9e0f": {
+   "name": "Lecteur de mise à jour d’appareil",
+   "description": "Vous accorde l’accès en lecture aux opérations de gestion et de contenu, mais ne vous permet pas d’effectuer des modifications"
+  },
+  "ea4bfff8-7fb4-485a-aadd-d4129a0ffaa6": {
+   "name": "Opérateur de session utilisateur de virtualisation de bureau",
+   "description": "Opérateur de la session utilisateur de virtualisation de bureau."
+  },
+  "eadc314b-1a2d-4efa-be10-5d325db5065e": {
+   "name": "Gestionnaire de Project Foundry",
+   "description": "Permet d’effectuer des actions de développement et des actions de gestion sur les projets Foundry. Comprend une condition ABAC pour limiter les attributions de rôle. Permet d’effectuer des attributions de rôles, mais limitée au rôle Utilisateur Foundry. S’applique aux nouvelles ressources Foundry."
+  },
+  "eb5a76d5-50e7-4c33-a449-070e7c9c4cf2": {
+   "name": "Lecteur d’agent de santé",
+   "description": "Les utilisateurs disposant d’un accès de lecteur peuvent se connecter, avoir un accès en lecture seule aux ressources du bot, aux scénarios et au paramètre de configuration, à l’exception des clés d’instance et secrets du bot (y compris l’authentification, les clés de connexion de données et les clés de canaux) et les entrées de l’utilisateur final (y compris les commentaires, énoncés non reconnus et journaux de conversation)."
+  },
+  "eb960402-bf75-4cc3-8d68-35b34f960f72": {
+   "name": "Lecteur d’Environnements de déploiement",
+   "description": "Fournit un accès en lecture aux ressources d’environnement."
+  },
+  "ec156ff8-a8d1-4d15-830c-5b80698ca432": {
+   "name": "Contributeur de profil CDN",
+   "description": "Peut gérer cdn et Azure Front Door profils standard et Premium et leurs points de terminaison, mais ne peut pas accorder l'accès à d'autres utilisateurs."
+  },
+  "ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8": {
+   "name": "Azure Kubernetes Service Rôle contributeur",
+   "description": "Octroie l’accès aux clusters de lecture et d’écriture Azure Kubernetes Service"
+  },
+  "edd66693-d32a-450b-997d-0158c03976b0": {
+   "name": "Lecteur de tâches Container Apps",
+   "description": "Accès en lecture aux tâches ContainerApps"
+  },
+  "ede9aaa3-4627-494e-be13-4aa7c256148d": {
+   "name": "Azure Gestionnaire de conformité du Centre d’API",
+   "description": "Octroie à un lecteur l’accès aux projets IA, l’accès lecteur aux comptes d’IA et les actions de données pour un projet d’IA. S’applique aux nouvelles ressources Foundry."
+  },
+  "eeaeda52-9324-47f6-8069-5d5bade478b2": {
+   "name": "Contributeur Domain Services",
+   "description": "Peut gérer Azure services de domaine AD et les configurations réseau associées"
+  },
+  "ef1c2c96-4a77-49e8-b9a4-6179fe1d2fd2": {
+   "name": "Lecteur d’espace de travail API Management",
+   "description": "Dispose d’un accès en lecture seule aux entités de l’espace de travail. Ce rôle doit être attribué sur l’étendue de l’espace de travail."
+  },
+  "ef318e2a-8334-4a05-9e4a-295a196c6a6e": {
+   "name": "Azure Red Hat OpenShift Informations d’identification fédérées",
+   "description": "Créez, mettez à jour et supprimez des identifiants fédérés sur les identités managées affectées par l’utilisateur afin de créer une relation d’approbation entre l’identité managée, OpenID Connect (OIDC) et le compte de service."
+  },
+  "f07febfe-79bc-46b1-8b37-790e26e6e498": {
+   "name": "Propriétaire de langue Cognitive Services",
+   "description": "Accès à toutes les fonctions de lecture, test, écriture, déploiement et suppression sous le portail Langue"
+  },
+  "f094fb07-0703-4400-ad6a-e16dd8000e14": {
+   "name": "Administrateur du jeu d’informations d’identification de Container Registry",
+   "description": "Créez, lisez, mettez à jour et supprimez des jeux d’informations d’identification dans Container Registry. Ce rôle n'affecte pas les autorisations nécessaires pour stocker du contenu dans Azure Key Vault. Ce rôle n’accorde pas non plus d’autorisations pour gérer les règles de cache."
+  },
+  "f1082fec-a70f-419f-9230-885d2550fb38": {
+   "name": "Administrateur d’agent de santé",
+   "description": "Les utilisateurs disposant d’un accès administrateur peuvent se connecter, afficher et modifier toutes les ressources du bot, les scénarios et le paramètre de configuration, y compris les clés et secrets de l’instance de bot."
+  },
+  "f1a07417-d97a-45cb-824c-7a7467783830": {
+   "name": "Opérateur d’identité managée",
+   "description": "Lire et attribuer une identité attribuée à l’utilisateur"
+  },
+  "f2310ca1-dc64-4889-bb49-c8e0fa3d47a8": {
+   "name": "Enregistreur de langue Cognitive Services",
+   "description": "Dispose d’un accès à toutes les fonctions de lecture, test et écriture sous le portail Langue"
+  },
+  "f25e0fa2-a7c8-4377-a976-54943a77a395": {
+   "name": "Key Vault Contributeur",
+   "description": "Gérez les coffres de clés, mais ne vous permet pas d’attribuer des rôles dans Azure RBAC et ne vous permet pas d’accéder aux secrets, clés ou certificats."
+  },
+  "f287ba2f-f923-4464-a5bd-721c3951d32d": {
+   "name": "Azure Lecteur Redis managé",
+   "description": "Lisez Azure ressources Redis gérées et leur configuration. Impossible de modifier des ressources, de récupérer des clés d’accès ou de lire des données stockées dans le cache."
+  },
+  "f2dc8367-1007-4938-bd23-fe263f013447": {
+   "name": "Utilisateur Speech de Cognitive Services",
+   "description": "Accès aux API de reconnaissance vocale en temps réel et de transcription par lots, à la synthèse vocale en temps réel et aux API audio longues, ainsi qu’à la lecture des données/du test/du modèle/du point de terminaison pour les modèles personnalisés. Cependant, ne peut pas créer, supprimer ou modifier les données/le test/le modèle/le point de terminaison pour les modèles personnalisés."
+  },
+  "f353d9bd-d4a6-484e-a77a-8050b599b867": {
+   "name": "Contributeur Automation",
+   "description": "Gérez Azure Automation ressources et d’autres ressources à l’aide de Azure Automation."
+  },
+  "f3bd1b5c-91fa-40e7-afe7-0c11d331232c": {
+   "name": "Opérateur Container Apps",
+   "description": "Lisez, utilisez le logstream et exécutez dans Container Apps."
+  },
+  "f4c81013-99ee-4d62-a7ee-b3f1f648599a": {
+   "name": "Microsoft Sentinel Contributeur Automation",
+   "description": "Contributeur Automation Microsoft Sentinel"
+  },
+  "f4cc2bf9-21be-47a1-bdf1-5c5804381025": {
+   "name": "Éditeur QnA Maker de Cognitive Services",
+   "description": "Vous permet de créer, modifier, importer et exporter une base de connaissances. Vous ne pouvez pas publier ni supprimer une base de connaissances."
+  },
+  "f526a384-b230-433a-b45c-95f59c4a2dec": {
+   "name": "Azure Event Hubs Propriétaire des données",
+   "description": "Permet un accès complet aux ressources Azure Event Hubs."
+  },
+  "f54b6d04-23c6-443e-b462-9c16ab7b4a52": {
+   "name": "Opérateur MUA de sauvegarde",
+   "description": "Sauvegarde multiutilisateur-autorisation. Permet à l’utilisateur d’effectuer une opération critique protégée par resourceguard"
+  },
+  "f5819b54-e033-4d82-ac66-4fec3cbf3f4c": {
+   "name": "Azure Machine connectée Resource Manager",
+   "description": "Rôle personnalisé pour Azure Local fournisseur de ressources (Fournisseur de ressources Microsoft.AzureStackHCI) pour gérer les machines de calcul hybrides et les points de terminaison de connectivité hybride dans un groupe de ressources"
+  },
+  "f58310d9-a9f6-439a-9e8d-f62e7b41a168": {
+   "name": "Administrateur Access Control basé sur les Access Control",
+   "description": "Gérez l’accès aux ressources Azure en affectant des rôles à l’aide de Azure RBAC. Ce rôle ne vous permet pas de gérer l’accès à l’aide d’autres méthodes, telles que Azure Policy."
+  },
+  "f5880b48-c26d-48be-b172-7927bfa1c8f1": {
+   "name": "Azure Contributeur du Registre des services Spring Cloud",
+   "description": "Autoriser l’accès en lecture, écriture et suppression à Azure Spring Cloud Service Registry"
+  },
+  "f69b8690-cc87-41d6-b77a-a4bc3c0a966f": {
+   "name": "Contributeur de services de labo",
+   "description": "Vous permet de contrôler entièrement tous les scénarios de services de labo dans le groupe de ressources."
+  },
+  "f6c7c914-8db3-469d-8ca1-694a8f32e121": {
+   "name": "Scientifique des données AzureML",
+   "description": "Peut effectuer toutes les actions dans un espace de travail Azure Machine Learning, à l’exception de la création ou de la suppression de ressources de calcul et de la modification de l’espace de travail lui-même."
+  },
+  "f6e92014-8af2-414d-9948-9b1abf559285": {
+   "name": "Gestionnaire de passerelle Arc",
+   "description": "Gérer les ressources de passerelle Arc"
+  },
+  "f72c8140-2111-481c-87ff-72b910f6e3f8": {
+   "name": "Propriétaire LUIS de Cognitive Services",
+   "description": "Accès à toutes les fonctions de lecture, test, écriture, déploiement et suppression sous LUIS"
+  },
+  "f7669afb-68b2-44b4-9c5f-6d2a47fddda0": {
+   "name": "Contributeur Container Apps SessionPools",
+   "description": "Gestion complète des pools de sessions Container Apps, notamment la création, la suppression et les mises à jour."
+  },
+  "f7b75c60-3036-4b75-91c3-6b41c27c1689": {
+   "name": "Acheteur de réservation",
+   "description": "Vous permet d’acheter des réservations"
+  },
+  "fa0d39e6-28e5-40cf-8521-1eb320653a4c": {
+   "name": "Lecteur d’Optimisation du carbone",
+   "description": "Autoriser l’accès en lecture à Azure données d’optimisation du carbone"
+  },
+  "fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64": {
+   "name": "Lecteur de facturation",
+   "description": "Autorise l’accès en lecture aux données de facturation"
+  },
+  "fa6cecf6-5db3-4c43-8470-c540bcb4eafa": {
+   "name": "Administrateur de réseau Elastic SAN",
+   "description": "Autorise l’accès à créer des points de terminaison privés sur des ressources SAN et à lire des ressources SAN"
+  },
+  "fb1c8493-542b-48eb-b624-b4c8fea62acd": {
+   "name": "Administrateur de la sécurité",
+   "description": "Affichez et mettez à jour les autorisations pour Microsoft Defender for Cloud. Les mêmes autorisations que le rôle Lecteur de sécurité, mais peuvent créer, mettre à jour et supprimer des connecteurs de sécurité, mettre à jour la stratégie de sécurité et ignorer les alertes et les recommandations. Pour Microsoft Defender pour IoT, consultez Azure rôles d’utilisateur pour la surveillance OT et Enterprise IoT."
+  },
+  "fb382eab-e894-4461-af04-94435c366c3f": {
+   "name": "Contributeur des tâches de Container Registry",
+   "description": "Fournit des autorisations pour configurer, lire, lister, déclencher ou annuler des tâches de Container Registry, des exécutions de tâches, des journaux des tâches, des exécutions rapides, des builds rapides et des pools d’agents de tâches. Les autorisations accordées pour la gestion des tâches peuvent être utilisées pour les autorisations complètes du plan de données du registre, notamment la lecture/écriture/suppression d’images de conteneur dans les registres. Les autorisations accordées pour la gestion des tâches peuvent également être utilisées pour exécuter des directives de génération créées par le client et exécuter des scripts pour générer des artefacts logiciels."
+  },
+  "fb879df8-f326-4884-b1cf-06f3ad86be52": {
+   "name": "Connexion de l’utilisateur aux machines virtuelles",
+   "description": "Affichez Machines Virtuelles dans le portail et connectez-vous en tant qu’utilisateur normal."
+  },
+  "fbdf93bf-df7d-467e-a4d2-9458aa1360c8": {
+   "name": "Rôle de lecteur de compte Cosmos DB",
+   "description": "Peut lire Azure Cosmos DB données de compte. Consultez Contributeur de compteDocumentDB pour la gestion des comptes Azure Cosmos DB."
+  },
+  "fd036e6b-1266-47a0-b0bb-a05d04831731": {
+   "name": "HDInsight sur AKS Administrateur du cluster",
+   "description": "Accorde à un utilisateur/groupe la possibilité de créer, supprimer et gérer des clusters au sein d’un pool de clusters donné. L’administrateur de cluster peut également exécuter des charges de travail, surveiller et gérer toutes les activités utilisateur sur ces clusters."
+  },
+  "fd1bd22b-8476-40bc-a0bc-69b95687b9f3": {
+   "name": "Lecteur d’attestation",
+   "description": "Peut lire les propriétés du fournisseur d’attestation"
+  },
+  "fd53cd77-2268-407a-8f46-7e7863d0f521": {
+   "name": "Propriétaire de l’API REST SignalR",
+   "description": "Accès complet aux API REST Azure SignalR Service"
+  },
+  "fd8ea4d5-6509-4db0-bada-356ab233b4fa": {
+   "name": "Azure Migrate Propriétaire",
+   "description": "Octroie un accès complet pour créer et gérer des projets Azure Migrate, notamment la découverte basée sur l’appliance, la création du rapport d’évaluation de cas d’entreprise et l’exécution des migrations ; Accorde également la possibilité d’attribuer Azure Migrate rôles spécifiques dans Azure RBAC."
+  },
+  "fd8ea4d5-6509-4db0-bada-356ab233b4fb": {
+   "name": "Azure Local Migrate Owner",
+   "description": "Accorde un accès complet à la création et à la gestion de projets Azure Local Azure Migrate, y compris la découverte et l’exécution de migrations par appliance ; Permet également d’attribuer des rôles spécifiques à Azure Migrate Local dans Azure RBAC"
+  },
+  "fe86443c-f201-4fc4-9d2a-ac61149fbda0": {
+   "name": "Contributeur App Configuration",
+   "description": "Accorde l’autorisation pour toutes les opérations de gestion, sauf le vidage, pour les ressources App Configuration. Ce rôle n’accorde pas l’accès aux ressources du plan de données, telles que les valeurs clés, les instantanés et les indicateurs de fonctionnalité."
+  },
+  "ffc6bbe0-e443-4c3b-bf54-26581bb2f78e": {
+   "name": "Lecteur Automation de conformité des applications",
+   "description": "Autorise l’accès en lecture seule à l’outil App Compliance Automation pour Microsoft 365"
+  }
+ },
+ "entra": {
+  "024906de-61e5-49c8-8572-40335f1e0e10": {
+   "name": "Administrateur de personnes",
+   "description": "Gérez les photos de profil des utilisateurs et des paramètres de personnes pour tous les utilisateurs de l’organisation."
+  },
+  "02d5655b-c1cf-4e5f-98da-5fb919085bf6": {
+   "name": "Enregistreur de contenu de charge de travail Purview",
+   "description": "Lisez et modifiez des données à partir de Microsoft 365 lors de l’accès à partir du portail Microsoft Purview."
+  },
+  "0526716b-113d-4c15-b2c8-68e3c22b9f80": {
+   "name": "Administrateur de stratégie d’authentification",
+   "description": "Peut créer et gérer la stratégie relative aux méthodes d'authentification, les paramètres d'authentification multifacteur à l'échelle du locataire, la stratégie de protection par mot de passe et les justificatifs vérifiables."
+  },
+  "0964bb5e-9bdb-4d7b-ac29-58e794862a40": {
+   "name": "Administrateur de recherche",
+   "description": "Peut créer et gérer tous les aspects des paramètres de Recherche Microsoft."
+  },
+  "0b00bede-4072-4d22-b441-e7df02a1ef63": {
+   "name": "Administrateur du mot de passe d’extensibilité de l’authentification",
+   "description": "Déclenchez un événement d’envoi de mot de passe pour l’authentification personnalisée."
+  },
+  "0ec3f692-38d6-4d14-9e69-0377ca7797ad": {
+   "name": "administrateur de locataire Viva Glint",
+   "description": "Gérez et configurez les paramètres Microsoft Viva Glint dans le Centre d’administration Microsoft 365."
+  },
+  "0f971eea-41eb-4569-a71e-57bb8a3eff1e": {
+   "name": "Administrateur d’attribut de flux d’utilisateur d’ID externe",
+   "description": "Peut créer et gérer le schéma d’attribut disponible pour tous les flux utilisateur."
+  },
+  "1076ac91-f3d9-41a7-a339-dcdf5f480acc": {
+   "name": "Lecteur Teams",
+   "description": "Lisez tout dans le Centre d’administration Teams, mais ne mettez rien à jour."
+  },
+  "112ca1a2-15ad-4102-995e-45b0bc479a6a": {
+   "name": "Créateur du locataire",
+   "description": "Créer de nouveaux locataires Microsoft Entra ou Azure AD B2C."
+  },
+  "11451d60-acb2-45eb-a7d6-43d0f0125c13": {
+   "name": "administrateur Windows 365",
+   "description": "Peut provisionner et gérer tous les aspects des PC cloud."
+  },
+  "11648597-926c-4cf3-9c36-bcebb0ba8dcc": {
+   "name": "Administrateur Power Platform",
+   "description": "Gérez tous les aspects de Microsoft Dynamics 365, de Power Apps et de Power Automate."
+  },
+  "124577f8-48ed-456a-839f-13b419002e33": {
+   "name": "Lecteur de relation de gouvernance du locataire",
+   "description": "Peut lire les relations de gouvernance des locataires et les objets pertinents."
+  },
+  "1501b917-7653-4ff9-a4b5-203eaf33784f": {
+   "name": "administrateur de la garantie matérielle Microsoft",
+   "description": "Créer et gérer tous les aspects des revendications et droits d’utilisation du matériel de fabrication Microsoft, comme Surface et HoloLens."
+  },
+  "158c047a-c907-4556-b7ef-446551a6b5f7": {
+   "name": "Administrateur d’applications cloud",
+   "description": "Peut créer et gérer tous les aspects des inscriptions d’applications et des applications d’entreprise, à l’exception du proxy d’application."
+  },
+  "1707125e-0aa2-4d4d-8655-a7c786c76a25": {
+   "name": "administrateur Sauvegarde Microsoft 365",
+   "description": "Sauvegarder et restaurer du contenu dans les services pris en charge (SharePoint, OneDrive et Exchange Online) dans La sauvegarde Microsoft 365"
+  },
+  "17315797-102d-40b4-93e0-432062caca18": {
+   "name": "Administrateur de conformité",
+   "description": "Peut lire et gérer la configuration de la conformité et les rapports dans Microsoft Entra ID et Microsoft 365."
+  },
+  "194ae4cb-b126-40b2-bd5b-6091b380977d": {
+   "name": "Administrateur de sécurité",
+   "description": "Peut lire des rapports et des informations de sécurité, ainsi que gérer la configuration dans Microsoft Entra ID et Office 365."
+  },
+  "1981f584-96e9-4a6f-95b0-f522373f8fae": {
+   "name": "Administrateur de gouvernance du locataire",
+   "description": "Gérez toutes les fonctionnalités du service Microsoft Entra Tenant Governance."
+  },
+  "1a7d78b6-429f-476b-b8eb-35fb715fffd4": {
+   "name": "administrateur incorporé SharePoint",
+   "description": "Gérez tous les aspects des conteneurs SharePoint Embedded."
+  },
+  "1d336d2c-4ae8-42ef-9711-b3604ce3fc2c": {
+   "name": "Lecteur de définition d’attribut",
+   "description": "Lire la définition des attributs de sécurité personnalisés."
+  },
+  "1dae4b79-8aea-40ab-9ad0-30d3ab1fa9c1": {
+   "name": "Évaluateur de stratégie de ressource",
+   "description": "Peut évaluer une stratégie de ressource fournie sans lire ni modifier les définitions ou les affectations de stratégie."
+  },
+  "1fe13547-53f6-408d-ac04-7f8eed167b38": {
+   "name": "Lecteur IA",
+   "description": "Lisez tous les aspects des services d’entreprise liés à Microsoft Copilot et à l’IA dans Microsoft 365."
+  },
+  "25a516ed-2fa0-40ea-a2d0-12923a21473a": {
+   "name": "Administrateur d’extensibilité de l’authentification",
+   "description": "Personnaliser les expériences de connexion et d’inscription pour les utilisateurs en créant et en gérant des extensions d’authentification personnalisées."
+  },
+  "25df335f-86eb-4119-b717-0ff02de207e9": {
+   "name": "Analyste Insights",
+   "description": "Accédez aux fonctionnalités analytiques de Microsoft Viva Insights et exécutez des requêtes personnalisées."
+  },
+  "27460883-1df1-4691-b032-3b79643e5e63": {
+   "name": "Gestionnaire de réussite de l’expérience utilisateur",
+   "description": "Consultez les commentaires sur les produits, les résultats d’enquêtes et les rapports pour trouver des possibilités de formation et de communication."
+  },
+  "281fe777-fb20-4fbb-b7a3-ccebce5b0d96": {
+   "name": "spécialiste de la garantie matérielle Microsoft",
+   "description": "Créer et lire les revendications de garantie pour le matériel de fabrication Microsoft, comme Surface et HoloLens."
+  },
+  "29232cdf-9323-42fd-ade2-1d097af3e4de": {
+   "name": "administrateur Exchange",
+   "description": "Peut gérer tous les aspects du produit Exchange."
+  },
+  "2b745bdf-0803-4d80-aa65-822c4493daac": {
+   "name": "Administrateur d’applications Office",
+   "description": "Peut gérer les services cloud des applications Office, notamment la gestion des stratégies et des paramètres, et gérer la possibilité de sélectionner, de désélectionner et de publier le contenu de la fonctionnalité « Nouveautés » sur les appareils de l’utilisateur final."
+  },
+  "2ea5ce4c-b2d8-4668-bd81-3680bd2d227a": {
+   "name": "Administrateur d’appareil IoT",
+   "description": "Provisionnez de nouveaux appareils IoT, gérez leur cycle de vie, configurez des certificats et gérez les modèles d’appareil."
+  },
+  "2fe872fb-daa8-4afc-8f6c-53c4565cfef4": {
+   "name": "Administrateur de collaboration externe Teams",
+   "description": "Gérez les stratégies et les paramètres de collaboration externe pour Teams, notamment la configuration de domaines externes et le contrôle des groupes et des utilisateurs qui peuvent interagir avec l’organisation."
+  },
+  "311877b7-9a2e-4337-81c2-068a250eaa22": {
+   "name": "Lecteur de stratégie de ressource",
+   "description": "Peut lire les définitions de stratégie de ressource, les affectations et la configuration à l’échelle du locataire et évaluer les stratégies sans apporter de modifications."
+  },
+  "31392ffb-586c-42d1-9346-e59415a2cc4e": {
+   "name": "administrateur de destinataires Exchange",
+   "description": "Peut créer ou mettre à jour des destinataires Exchange Online dans l’organisation Exchange Online."
+  },
+  "31e939ad-9672-4796-9c2e-873181342d2d": {
+   "name": "Leader de l’entreprise Insights",
+   "description": "Affichez et partagez des tableaux de bord et des insights via l’application Microsoft Viva Insights."
+  },
+  "32696413-001a-46ae-978c-ce0f6b3620d2": {
+   "name": "administrateur de déploiement Windows Update",
+   "description": "Peut créer et gérer tous les aspects des déploiements Windows Update par le biais du service de déploiement Windows Update pour Entreprise."
+  },
+  "38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4": {
+   "name": "administrateur Analytique de bureau",
+   "description": "Peut utiliser et gérer des services et outils de gestion de bureau."
+  },
+  "3a2c62db-5318-420d-8d74-23affee5d9d5": {
+   "name": "Administrateur Intune",
+   "description": "Peut gérer tous les aspects du produit Intune."
+  },
+  "3d762c5a-1b6c-493f-843e-55a3b42923d4": {
+   "name": "Administrateur des appareils Teams",
+   "description": "Peut effectuer des tâches d’administration sur des appareils certifiés Teams."
+  },
+  "3edaf663-341e-4475-9f94-5c398ef6c070": {
+   "name": "Administrateur de stratégie IEF B2C",
+   "description": "Peut créer et gérer les stratégies de framework de confiance dans Identity Experience Framework (IEF)."
+  },
+  "3f04f91a-4ad7-4bd3-bcfa-49882ea1a88a": {
+   "name": "Administrateur de contenu de charge de travail Purview",
+   "description": "Gérez ou videz les données à partir de Microsoft 365 lors de l’accès à partir de l’portail Microsoft Purview."
+  },
+  "3f1acade-1e04-4fbc-9b69-f0302cd84aef": {
+   "name": "Administrateur Edge",
+   "description": "Gérez tous les aspects de Microsoft Edge."
+  },
+  "422218e4-db15-4ef9-bbe0-8afb41546d79": {
+   "name": "Lecteur d’approvisionnement d’attributs",
+   "description": "Lisez la configuration d’approvisionnement de tous les attributs de sécurité personnalisés actifs pour une application."
+  },
+  "44367163-eba1-44c3-98af-f5787879f96a": {
+   "name": "administrateur Dynamics 365",
+   "description": "Peut gérer tous les aspects du produit Dynamics 365."
+  },
+  "45d8d3c5-c802-45c6-b32a-1d70b5e1e86e": {
+   "name": "Administrateur de gouvernance des identités",
+   "description": "Gérer l’accès à l’aide de Microsoft Entra ID pour les scénarios de gouvernance des identités."
+  },
+  "49eb8f75-97e9-4e37-9b2b-6c3ebfcffa31": {
+   "name": "administrateur de sauvegarde Exchange",
+   "description": "Sauvegarder et restaurer du contenu (y compris une restauration granulaire) pour Exchange dans La sauvegarde Microsoft 365"
+  },
+  "4a5d8f65-41da-4de4-8968-e035b65339cf": {
+   "name": "Lecteur de rapports",
+   "description": "Peut lire les rapports d’audit et sur les connexions."
+  },
+  "4ba39ca4-527c-499a-b93d-d9b492c50246": {
+   "name": "Prise en charge du niveau 1 du partenaire",
+   "description": "Ne pas utiliser - non destiné à une utilisation générale."
+  },
+  "4d6ac14f-3453-41d0-bef9-a3e0c569773a": {
+   "name": "Administrateur de licence",
+   "description": "Peut gérer les licences de produit pour les utilisateurs et les groupes."
+  },
+  "507f53e4-4e52-4077-abd3-d2e1558b6ea2": {
+   "name": "Enregistreur de messages organisationnels",
+   "description": "Écrire, publier, gérer et examiner les messages organisationnels pour les utilisateurs finaux à travers les produits Microsoft Surface."
+  },
+  "58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d": {
+   "name": "Administrateur de l’attribution d’attributs",
+   "description": "Affecter des clés et des valeurs d’attributs de sécurité personnalisés aux objets Microsoft Entra pris en charge."
+  },
+  "58f930cc-fcf4-4152-852c-1d7dbf502139": {
+   "name": "Entra SOC Identity Responder",
+   "description": "Effectuez des actions d’isolement des identités pour la réponse aux incidents SOC, notamment la désactivation des utilisateurs, la révocation des sessions de connexion active et la réinitialisation des mots de passe."
+  },
+  "59d46f88-662b-457b-bceb-5c3809e5908f": {
+   "name": "Administrateur de flux de travail de cycle de vie",
+   "description": "Créer et gérez tous les aspects des workflows et des tâches associés aux workflows de cycle de vie dans Microsoft Entra ID."
+  },
+  "5b784334-f94b-471a-a387-e7219fc49ca2": {
+   "name": "Administrateur du journal des attributs",
+   "description": "Lisez les journaux d’audit et configurez les paramètres de diagnostic pour les événements liés aux attributs de sécurité personnalisés."
+  },
+  "5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91": {
+   "name": "Approbateur d’accès Customer Lockbox",
+   "description": "Peut approuver les demandes de support Microsoft pour accéder aux données organisationnelles du client."
+  },
+  "5d6b6bb7-de71-4623-b4af-96380a352509": {
+   "name": "Lecteur de sécurité",
+   "description": "Peut lire des rapports et des informations de sécurité dans Microsoft Entra ID et Office 365."
+  },
+  "5f2222b1-57c3-48ba-8ad5-d4759f1fde6f": {
+   "name": "Opérateur de sécurité",
+   "description": "Crée et gère les événements de sécurité et effectue des actions d’isolement des identités pendant les incidents de sécurité."
+  },
+  "62e90394-69f5-4237-9190-012177145e10": {
+   "name": "Administrateur général",
+   "description": "Peut gérer tous les aspects de Microsoft Entra ID et des services Microsoft qui utilisent des identités Microsoft Entra."
+  },
+  "644ef478-e28f-4e28-b9dc-3fdde9aa0b1f": {
+   "name": "Administrateur d’imprimante",
+   "description": "Peut gérer tous les aspects des imprimantes et des connecteurs d’imprimantes."
+  },
+  "69091246-20e8-4a56-aa4d-066075b2a7a8": {
+   "name": "Administrateur Teams",
+   "description": "Peut gérer le service Microsoft Teams."
+  },
+  "6b942400-691f-4bf0-9d12-d8a254a2baf5": {
+   "name": "Administrateur du Registre de l’agent",
+   "description": "Gérez tous les aspects du service de registre des agents dans Microsoft Entra ID"
+  },
+  "6e591065-9bad-43ed-90f3-e9424366d2f0": {
+   "name": "Administrateur de flux d’utilisateurs d’ID externe",
+   "description": "Peut créer et gérer tous les aspects des flux utilisateur."
+  },
+  "729827e3-9c14-49f7-bb1b-9608f156bbb8": {
+   "name": "Administrateur du support technique",
+   "description": "Peut réinitialiser des mots de passe pour les utilisateurs non-administrateurs et les administrateurs du support technique."
+  },
+  "744ec460-397e-42ad-a462-8b3f9747a02c": {
+   "name": "Gestionnaire de connaissances",
+   "description": "Organiser, créer, gérer et promouvoir des rubriques et des connaissances."
+  },
+  "7495fdc4-34c4-4d15-a289-98788ce399fd": {
+   "name": "administrateur Azure Information Protection",
+   "description": "Peut gérer tous les aspects du produit Azure Information Protection."
+  },
+  "74ef975b-6605-40af-a5d2-b9539d836353": {
+   "name": "Administrateur Kaizala",
+   "description": "Peut gérer les paramètres de Microsoft Kaizala."
+  },
+  "75934031-6c7e-415a-99d7-48dbd49e875e": {
+   "name": "Lecteur de rapports récapitulatifs d’utilisation",
+   "description": "Lit les rapports d’utilisation et le score d’adoption, mais ne peut pas accéder aux détails de l’utilisateur."
+  },
+  "75941009-915a-4869-abe7-691bff18279e": {
+   "name": "administrateur Skype Entreprise",
+   "description": "Peut gérer tous les aspects du produit Skype Entreprise."
+  },
+  "7698a772-787b-4ac8-901f-60d6b08affd2": {
+   "name": "Administrateur d’appareil cloud",
+   "description": "Accès limité pour gérer les appareils dans Microsoft Entra ID."
+  },
+  "78b0ccd1-afc2-4f92-9116-b41aedd09592": {
+   "name": "Place l’administrateur",
+   "description": "Gérez tous les aspects du service Microsoft Places."
+  },
+  "790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b": {
+   "name": "Lecteur du Centre de messages",
+   "description": "Peut lire les messages et les mises à jour de son organisation dans le Centre de messages Office 365 uniquement."
+  },
+  "7be44c8a-adaf-4e2a-84d6-ab2649e08a13": {
+   "name": "Administrateur d’authentification privilégiée",
+   "description": "Peut afficher, définir et réinitialiser les informations de méthode d’authentification pour tout utilisateur (administrateur ou non administrateur)."
+  },
+  "810a2642-a034-447f-a5e8-41beaa378541": {
+   "name": "Administrateur Yammer",
+   "description": "Gérez tous les aspects du service Yammer."
+  },
+  "8329153b-31d0-4727-b945-745eb3bc5f31": {
+   "name": "Administrateur de noms de domaine",
+   "description": "Peut gérer les noms de domaine dans le cloud et localement."
+  },
+  "8424c6f0-a189-499e-bbd0-26c1753c96d4": {
+   "name": "Administrateur de définition d’attribut",
+   "description": "Définir et gérer la définition des attributs de sécurité personnalisés."
+  },
+  "843318fb-79a6-4168-9e6f-aa9a07481cc4": {
+   "name": "Lecteur global du journal d’accès sécurisé",
+   "description": "Fournit au personnel de sécurité désigné un accès en lecture seule aux journaux de trafic réseau dans Accès Internet Microsoft Entra et Accès privé Microsoft Entra pour une analyse détaillée."
+  },
+  "87761b17-1ed2-4af3-9acd-92a150038160": {
+   "name": "Viva Administrateur Pulse",
+   "description": "Peut gérer tous les paramètres de l’application Microsoft Viva Pulse."
+  },
+  "8835291a-918c-4fd7-a9ce-faa49f0cf7d9": {
+   "name": "Éditeur de recherche",
+   "description": "Peut créer et gérer le contenu éditorial comme les signets, les questions et réponses, les emplacements et les plans d’étage."
+  },
+  "88d8e3e3-8f55-4a1e-953a-9b9898b8876b": {
+   "name": "Lecteurs d’annuaire",
+   "description": "Peut lire les informations d’annuaire de base. Couramment utilisé pour accorder à l’annuaire l’accès en lecture aux applications et aux invités."
+  },
+  "892c5842-a9a6-463a-8041-72aa08ca3cf6": {
+   "name": "Administrateur cloud App Security",
+   "description": "Gérez tous les aspects du produit Defender for Cloud Apps."
+  },
+  "8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2": {
+   "name": "Administrateur d’identité hybride",
+   "description": "Gérez l’approvisionnement cloud d’Active Directory vers Microsoft Entra, Microsoft Entra Connect, l’authentification directe (PTA), la synchronisation de hachage du mot de passe (PHS), l’authentification unique transparente (Seamless SSO) et les paramètres de fédération. N’a pas accès à la gestion de Microsoft Entra Connect Health."
+  },
+  "8c8b803f-96e1-4129-9349-20738d9f9652": {
+   "name": "administrateur de migration Microsoft 365",
+   "description": "Exécuter toutes les fonctionnalités de migration pour migrer le contenu vers Microsoft 365 à l’aide du gestionnaire de migration."
+  },
+  "92b086b3-e367-4ef2-b869-1de128fb986e": {
+   "name": "administrateur Viva Goals",
+   "description": "Gérez et configurez tous les aspects de Microsoft Viva Goals."
+  },
+  "92ed04bf-c94a-4b82-9729-b799a7a4c178": {
+   "name": "Administrateur de personnalisation de l’organisation",
+   "description": "Gérez tous les aspects de la personnalisation organisationnelle dans un tenant."
+  },
+  "9360feb5-f418-4baa-8175-e2a00bac4301": {
+   "name": "Enregistreurs d’annuaires",
+   "description": "Peut lire et écrire des informations d’annuaire de base. Pour accorder l’accès aux applications, non destiné aux utilisateurs."
+  },
+  "95e79109-95c0-4d8e-aee3-d01accf2d47b": {
+   "name": "Inviteur d’invités",
+   "description": "Peut inviter des utilisateurs invités indépendamment du paramètre « Les membres peuvent inviter des invités »."
+  },
+  "963797fb-eb3b-4cde-8ce3-5878b3f32a3f": {
+   "name": "administrateur Dynamics 365 Business Central",
+   "description": "Accédez à tous les environnements Dynamics 365 Business Central et effectuez toutes les tâches d’administration."
+  },
+  "966707d0-3269-4727-9be2-8c3a10f19b9d": {
+   "name": "Administrateur de mot de passe",
+   "description": "Peut réinitialiser les mots de passe pour les utilisateurs non administrateurs et les administrateurs de mot de passe."
+  },
+  "99009c4a-3b3f-4957-82a9-9d35e12db77e": {
+   "name": "administrateur Gestion avancée de SharePoint",
+   "description": "Gérez tous les aspects de Gestion avancée de SharePoint."
+  },
+  "9b895d92-2cd3-44c7-9d02-a6ac2d5ea5c3": {
+   "name": "Administrateur d’application",
+   "description": "Peut créer et gérer tous les aspects des inscriptions d’applications et des applications d’entreprise."
+  },
+  "9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f": {
+   "name": "Auteur de charge utile d’attaque",
+   "description": "Peut créer des charges utiles d’attaque qu’un administrateur peut lancer plus tard."
+  },
+  "9c99539d-8186-4804-835f-fd51ef9e2dcd": {
+   "name": "Lecteur du journal des attributs",
+   "description": "Lisez les journaux d’audit liés aux attributs de sécurité personnalisés."
+  },
+  "9d3e04ba-3ee4-4d1b-a3a7-9aef423a09be": {
+   "name": "administrateur de sauvegarde SharePoint",
+   "description": "Sauvegarder et restaurer du contenu (y compris une restauration granulaire) pour SharePoint et OneDrive dans La sauvegarde Microsoft 365"
+  },
+  "9d70768a-0cbc-4b4c-aea3-2e124b2477f4": {
+   "name": "Administrateur de source de données organisationnelle",
+   "description": "Configurez et gérez l’ingestion des données organisationnelles dans Microsoft 365."
+  },
+  "9f06204d-73c1-4d4c-880a-6edb90606fd8": {
+   "name": "administrateur local de l’appareil joint à Microsoft Entra",
+   "description": "Les utilisateurs dotés de ce rôle sont ajoutés au groupe d’administrateurs locaux sur des appareils joints à Microsoft Entra."
+  },
+  "a9ea8996-122f-4c74-9520-8edcd192826c": {
+   "name": "administrateur Fabric",
+   "description": "Gérez tous les aspects des produits Fabric et Power BI."
+  },
+  "aa38014f-0993-46e9-9b45-30501a20909d": {
+   "name": "Administrateur de téléphonie Teams",
+   "description": "Gérez les fonctionnalités vocales et de téléphonie et résolvez les problèmes de communication au sein du service Microsoft Teams."
+  },
+  "aaf43236-0c0d-4d5f-883a-6955382ac081": {
+   "name": "Administrateur de jeu de clés IEF B2C",
+   "description": "Peut gérer les secrets pour la fédération et le chiffrement dans Identity Experience Framework (IEF)."
+  },
+  "ac16e43d-7b2d-40e0-ac05-243ff356ab5b": {
+   "name": "Lecteur de confidentialité du Centre de messages",
+   "description": "Peut lire les messages et les mises à jour de sécurité uniquement dans le Centre de messages Office 365."
+  },
+  "ac434307-12b9-4fa1-a708-88bf58caabc1": {
+   "name": "Administrateur général de l’accès sécurisé",
+   "description": "Créez et gérez tous les aspects de Global Secure Internet Access et microsoft Global Secure Private Access, notamment la gestion de l’accès aux points de terminaison publics et privés."
+  },
+  "adb2368d-a9be-41b5-8667-d96778e081b0": {
+   "name": "Développeur d’ID d’agent",
+   "description": "Créez un blueprint d’identité d’agent et son principal de blueprint d’identité d’agent dans un locataire. L’utilisateur sera ajouté en tant que propriétaire du blueprint d’identité de l’agent créé et de son principal de blueprint d’identité d’agent."
+  },
+  "af78dc32-cf4d-46f9-ba4e-4428526346b5": {
+   "name": "Administrateur de gestion des autorisations",
+   "description": "Gérer tous les aspects de la gestion des autorisations Microsoft Entra."
+  },
+  "b0f54661-2d74-4c50-afa3-1ec803f12efe": {
+   "name": "Administrateur de facturation",
+   "description": "Peut effectuer des tâches de facturation courantes, comme la mise à jour des informations de paiement."
+  },
+  "b1be1c3e-b65d-4f19-8427-f6fa0d97feb9": {
+   "name": "Administrateur de l’accès conditionnel",
+   "description": "Peut gérer les fonctionnalités d’accès conditionnel."
+  },
+  "b5a8dcf3-09d5-43a9-a639-8e29ef291470": {
+   "name": "Administrateur des connaissances",
+   "description": "Peut configurer les connaissances, l’apprentissage et d’autres fonctionnalités intelligentes."
+  },
+  "b6a27b2b-f905-4b2e-81b5-0d90e0ef1fdb": {
+   "name": "Administrateur de sauvegarde Entra",
+   "description": "Gérez tous les aspects de Microsoft Entra Backup, tels que la création de travaux de récupération et la gestion des instantanés de sauvegarde."
+  },
+  "b8e31d83-1534-480f-9b10-0338ded51b7e": {
+   "name": "Administrateur des relations de gouvernance des locataires",
+   "description": "Peut lancer des relations de gouvernance et les mettre fin."
+  },
+  "baf37b3a-610e-45da-9e62-d9d1e5e8914b": {
+   "name": "Administrateur des communications Teams",
+   "description": "Peut gérer les fonctionnalités d’appel et de réunion au sein du service Microsoft Teams."
+  },
+  "be2f45a1-457d-42af-a067-6ec1fa63bc45": {
+   "name": "Administrateur du fournisseur d’identité externe",
+   "description": "Peut configurer les fournisseurs d’identité pour une utilisation dans la fédération directe."
+  },
+  "c0c46a03-c257-4f91-ab71-3c7e59c89d97": {
+   "name": "Administrateur de stratégie de ressources",
+   "description": "Peut gérer les définitions de stratégie de ressources, les affectations, la configuration à l’échelle du locataire et l’évaluation."
+  },
+  "c430b396-e693-46cc-96f3-db01bf8bb62a": {
+   "name": "Administrateur de simulation d’attaque",
+   "description": "Peut créer et gérer tous les aspects des campagnes de simulation d'attaque."
+  },
+  "c4e39bd9-1100-46d3-8c65-fb160da0071f": {
+   "name": "Administrateur d’authentification",
+   "description": "Peut accéder pour afficher, définir et réinitialiser les informations de méthode d’authentification pour tout utilisateur non administrateur."
+  },
+  "cf1c38e5-3621-4004-a7cb-879624dced7c": {
+   "name": "Développeur d’applications",
+   "description": "Peut créer des inscriptions d’applications indépendamment du paramètre « Utilisateurs peuvent inscrire des applications » et mettre à jour les applications qu’ils possèdent."
+  },
+  "d2562ede-74db-457e-a7b6-544e236ebb61": {
+   "name": "Administrateur IA",
+   "description": "Gérez tous les aspects des services d’entreprise liés à Microsoft Copilot et à l’IA dans Microsoft 365."
+  },
+  "d29b2b05-8046-44ba-8758-1e26182fcf32": {
+   "name": "Comptes de synchronisation d’annuaires",
+   "description": "Utilisé uniquement par le service Microsoft Entra Connect."
+  },
+  "d37c8bed-0711-4417-ba38-b4abe66ce4c2": {
+   "name": "Administrateur réseau",
+   "description": "Peut gérer les emplacements réseau et passer en revue les insights sur la conception réseau de l’entreprise pour les applications Software as a Service Microsoft 365."
+  },
+  "db506228-d27e-4b7d-95e5-295956d6615f": {
+   "name": "Administrateur d’ID d’agent",
+   "description": "Gérez tous les aspects des agents dans un locataire, notamment les opérations de cycle de vie des identités pour les blueprints d’agent, les principaux de blueprint d’identité de l’agent, les identités d’agent et les utilisateurs agentiques."
+  },
+  "dd13091a-6207-4fc0-82ba-3641e056ab95": {
+   "name": "Administrateur d’utilisateurs d’annuaire étendu",
+   "description": "Gérez tous les aspects des profils utilisateur externes dans le répertoire étendu pour Teams."
+  },
+  "e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8": {
+   "name": "Prise en charge du niveau 2 du partenaire",
+   "description": "Ne pas utiliser - non destiné à une utilisation générale."
+  },
+  "e07494ad-1654-4dd2-922e-6f81a71bf00f": {
+   "name": "Lecteur de contenu de charge de travail Purview",
+   "description": "Lisez les données de Microsoft 365 lors de l’accès à partir de la portail Microsoft Purview."
+  },
+  "e0a4caa6-fe82-443f-b92f-d87341d17b2e": {
+   "name": "Lecteur de gouvernance du locataire",
+   "description": "Peut lire toutes les données de gouvernance des locataires."
+  },
+  "e300d9e7-4a2b-4295-9eff-f1c78b36cc98": {
+   "name": "Administrateur des visites virtuelles",
+   "description": "Gérez et partagez les informations et les métriques de Virtual Visits à partir des centres d’administration ou de l’application Virtual Visits."
+  },
+  "e3973bdf-4987-49ae-837a-ba8e231c7286": {
+   "name": "administrateur Azure DevOps",
+   "description": "Gérez Azure DevOps stratégies et paramètres."
+  },
+  "e48398e2-f4bb-4074-8f31-4586725e205b": {
+   "name": "Approbateur de messages organisationnels",
+   "description": "Passez en revue, approuvez ou rejetez de nouveaux messages organisationnels pour la distribution dans le centre d’administration Microsoft 365 avant qu’ils ne soient envoyés aux utilisateurs."
+  },
+  "e6d1a23a-da11-4be4-9570-befc86d067a7": {
+   "name": "Administrateur des données de conformité",
+   "description": "Crée et gère le contenu de conformité."
+  },
+  "e8611ab8-c189-46e8-94e1-60213ab1f814": {
+   "name": "Administrateur de rôle privilégié",
+   "description": "Peut gérer les attributions de rôles dans Microsoft Entra ID, et tous les aspects de Privileged Identity Management."
+  },
+  "e8cef6f1-e4bd-4ea8-bc07-4b8d950f4477": {
+   "name": "Technicien de l’imprimante",
+   "description": "Peut inscrire et désinscrire des imprimantes et mettre à jour l’état de l’imprimante."
+  },
+  "e93e3737-fa85-474a-aee4-7d3fb86510f3": {
+   "name": "Administrateur dragon",
+   "description": "Gérez tous les aspects du Centre d’administration Microsoft Dragon."
+  },
+  "eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c": {
+   "name": "Administrateur Insights",
+   "description": "Dispose d’un accès administratif dans l’application Microsoft 365 Insights."
+  },
+  "ecb2c6bf-0ab6-418e-bd87-7986f8d63bbe": {
+   "name": "Administrateur d’approvisionnement d’attributs",
+   "description": "Lisez et modifiez la configuration d’approvisionnement de tous les attributs de sécurité personnalisés actifs pour une application."
+  },
+  "ee67aa9c-e510-4759-b906-227085a7fd4d": {
+   "name": "administrateur de connexion de données Microsoft Graph",
+   "description": "Gérer certains aspects du service Microsoft Graph Data Connect dans un locataire."
+  },
+  "f023fd81-a637-4b56-95fd-791ac0226033": {
+   "name": "Administrateur du support technique du service",
+   "description": "Peut lire des informations sur l’intégrité du service et gérer les tickets de support."
+  },
+  "f28a1f50-f6e7-4571-818b-6a12f2af6b6c": {
+   "name": "administrateur SharePoint",
+   "description": "Peut gérer tous les aspects du service SharePoint."
+  },
+  "f2ef992c-3afb-46b9-b7cf-a126ee74c451": {
+   "name": "Lecteur global",
+   "description": "Peut lire tous les éléments comme un administrateur général, mais ne peut pas mettre à jour."
+  },
+  "f42252d9-5400-4d7b-b9ef-cc582dbb8577": {
+   "name": "Lecteur de sauvegarde Entra",
+   "description": "Lisez tous les aspects de Microsoft Entra Backup, tels que répertorier tous les travaux en préversion, les travaux de récupération, les captures instantanées de sauvegarde et créer des travaux en préversion."
+  },
+  "f70938a0-fc10-4177-9e90-2178f8765737": {
+   "name": "Ingénieur du support technique teams communications",
+   "description": "Peut résoudre les problèmes de communication au sein de Teams à l’aide d’outils avancés."
+  },
+  "fc8ad4e2-40e4-4724-8317-bcda7503ecbf": {
+   "name": "Administrateur de la relation d’administration déléguée du client",
+   "description": "Gérez tous les aspects des relations de privilèges d’administrateur délégué (GDAP) granulaires dans un locataire client."
+  },
+  "fcf91098-03e3-41a9-b5ba-6f0ec8188a12": {
+   "name": "Spécialiste du support technique teams",
+   "description": "Peut résoudre les problèmes de communication au sein de Teams à l’aide d’outils de base."
+  },
+  "fdd7a751-b60b-444a-984c-02652fe8fa1c": {
+   "name": "Administrateur de groupes",
+   "description": "Les membres de ce rôle peuvent créer/gérer des groupes, créer/gérer des paramètres de groupes tels que des stratégies de nommage et d’expiration, ainsi qu’afficher des rapports d’activité et d’audit de groupes."
+  },
+  "fe930be7-5e62-47db-91af-98c3a49a38b1": {
+   "name": "Administrateur d’utilisateurs",
+   "description": "Peut gérer tous les aspects des utilisateurs et groupes, notamment la réinitialisation des mots de passe pour les administrateurs limités."
+  },
+  "ffd52fa5-98dc-465c-991d-fc073eb59f8f": {
+   "name": "Lecteur d’attribution d’attributs",
+   "description": "Lire les clés et valeurs d’attributs de sécurité personnalisés pour les objets Microsoft Entra pris en charge."
+  }
+ }
+}
