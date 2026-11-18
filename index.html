@@ -953,7 +953,7 @@ const I18N = {
     portal: "Portail", portal_pim: "<strong>Bonne pratique :</strong> avec Entra ID P2 (PIM), choisis une attribution <strong>éligible</strong> plutôt qu'active, pour que le rôle ne soit activé qu'au besoin.",
     copy: "Copier", copied: "Copié", close: "Fermer", back: "Retour", restart: "Recommencer",
     can: "Ce qu'il permet", cannot: "Ce qu'il ne permet pas", rec_scope: "Portée recommandée :", au_scope: "<strong>Portée :</strong> peut être limité à une unité administrative.",
-    tip: "Conseil :", verify_ms: "Vérifier dans la documentation Microsoft ↗", ms_doc: "Voir la documentation Microsoft ↗", official_desc: "Description officielle Microsoft", official_desc_en: "Description officielle Microsoft (non traduite)",
+    tip: "Conseil :", verify_ms: "Vérifier dans la documentation Microsoft ↗", ms_doc: "Voir la documentation Microsoft ↗", official_desc: "Description officielle Microsoft", official_desc_en: "Description officielle Microsoft (non traduite)", official_desc_fr: "Description officielle Microsoft, traduite par Microsoft",
     steps: ["1. Domaine", "2. Besoin", "3. Recommandation"],
     q_domain: "Que doit gérer la personne ou l'application ?",
     d_azure: "Des ressources Azure", d_azure_sub: "VM, réseau, stockage, Key Vault, sauvegardes, coûts, AVD…",
@@ -1336,10 +1336,13 @@ function frOf(r) {
   return FRDESC[r.type][String(r.id).toLowerCase()] || null;
 }
 const offDesc = r => (frOf(r) || {}).description || r.description;
+/* Le nom français n'est affiché que s'il est vraiment traduit (pas seulement un pluriel ou un espace qui change) */
+const nameKey = n => n.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean).map(w => w.replace(/s$/, "")).join(" ");
 function offSub(r) {
   const f = frOf(r);
-  if (f && f.name.toLowerCase() !== r.name.toLowerCase()) return f.name;
-  return LANG === "fr" && !f ? t("official_desc_en") : t("official_desc");
+  if (f && nameKey(f.name) !== nameKey(r.name)) return f.name;
+  if (f) return t("official_desc_fr");
+  return LANG === "fr" ? t("official_desc_en") : t("official_desc");
 }
 function msUrl(type, name) {
   return lurl(type === "entra"
