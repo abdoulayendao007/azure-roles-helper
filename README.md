@@ -118,6 +118,6 @@ Ajouter une entrée dans le tableau `ROLES` de `index.html`, puis éventuellemen
 
 ## Auteur
 
-Conçu et maintenu par **Abdoulaye Ndao**.
+Conçu et maintenu par **Abdoulaye Ndao**, développé avec l'aide de Claude (Anthropic).
 
 > Projet pédagogique. Toujours vérifier les permissions sur la documentation officielle avant une attribution en production.
