@@ -1,7 +1,26 @@
 {
- "generatedAt": "2026-11-18T00:03:14+00:00",
- "count": 993,
+ "generatedAt": "2026-11-18T00:08:22+00:00",
+ "count": 994,
  "roles": [
+  {
+   "id": "76c40f53-2c1e-4841-aeb5-e870be0528ba",
+   "name": "A365 Content Safety Policy Operator",
+   "description": "Manage Responsible AI policies and reusable Rego resources, and evaluate content through Azure AI Content Safety. Does not grant account key access or account management.",
+   "actions": [
+    "Microsoft.CognitiveServices/accounts/raiPolicies/delete",
+    "Microsoft.CognitiveServices/accounts/raiPolicies/read",
+    "Microsoft.CognitiveServices/accounts/raiPolicies/write",
+    "Microsoft.CognitiveServices/accounts/raiRegos/delete",
+    "Microsoft.CognitiveServices/accounts/raiRegos/read",
+    "Microsoft.CognitiveServices/accounts/raiRegos/write",
+    "Microsoft.CognitiveServices/accounts/read"
+   ],
+   "notActions": [],
+   "dataActions": [
+    "Microsoft.CognitiveServices/accounts/ContentSafety/unifiedModerate/action"
+   ],
+   "notDataActions": []
+  },
   {
    "id": "849de3f8-3686-489c-bd02-732984d0c145",
    "name": "A365 Gateway Policy Operator",

@@ -1,12 +1,12 @@
 {
- "generatedAt": "2026-11-18T00:03:15+00:00",
+ "generatedAt": "2026-11-18T00:08:23+00:00",
  "count": 149,
  "roles": [
   {
    "id": "db506228-d27e-4b7d-95e5-295956d6615f",
    "name": "Agent ID Administrator",
    "description": "Manage all aspects of agents in a tenant including identity lifecycle operations for agent blueprints, agent identity blueprint principals, agent identities, and agentic users.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -82,7 +82,7 @@
    "id": "adb2368d-a9be-41b5-8667-d96778e081b0",
    "name": "Agent ID Developer",
    "description": "Create an agent identity blueprint and its agent identity blueprint principal in a tenant. User will be added as an owner of the created agent identity blueprint and its agent identity blueprint principal.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/agentIdentityBlueprints/createAsOwner",
     "microsoft.directory/servicePrincipals/standard/read"
@@ -92,7 +92,7 @@
    "id": "6b942400-691f-4bf0-9d12-d8a254a2baf5",
    "name": "Agent Registry Administrator",
    "description": "Manage all aspects of the Agent Registry service in Microsoft Entra ID",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.agentRegistry/allEntities/allProperties/allTasks"
    ]
@@ -101,7 +101,7 @@
    "id": "d2562ede-74db-457e-a7b6-544e236ebb61",
    "name": "AI Administrator",
    "description": "Manage all aspects of Microsoft 365 Copilot and AI-related enterprise services in Microsoft 365.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -181,7 +181,7 @@
    "id": "1fe13547-53f6-408d-ac04-7f8eed167b38",
    "name": "AI Reader",
    "description": "Read all aspects of Microsoft 365 Copilot and AI-related enterprise services in Microsoft 365.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.directory/adminConsentRequestPolicy/allProperties/read",
@@ -235,7 +235,7 @@
    "id": "9b895d92-2cd3-44c7-9d02-a6ac2d5ea5c3",
    "name": "Application Administrator",
    "description": "Can create and manage all aspects of app registrations and enterprise apps.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -316,7 +316,7 @@
    "id": "cf1c38e5-3621-4004-a7cb-879624dced7c",
    "name": "Application Developer",
    "description": "Can create application registrations independent of the 'Users can register applications' setting.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.directory/applications/appRoles/update",
     "microsoft.directory/applications/audience/update",
@@ -342,7 +342,7 @@
    "id": "9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f",
    "name": "Attack Payload Author",
    "description": "Can create attack payloads that an administrator can initiate later.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks",
     "microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read"
@@ -352,7 +352,7 @@
    "id": "c430b396-e693-46cc-96f3-db01bf8bb62a",
    "name": "Attack Simulation Administrator",
    "description": "Can create and manage all aspects of attack simulation campaigns.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks",
     "microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read",
@@ -363,7 +363,7 @@
    "id": "58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d",
    "name": "Attribute Assignment Administrator",
    "description": "Assign custom security attribute keys and values to supported Microsoft Entra objects.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/attributeSets/allProperties/read",
     "microsoft.directory/azureManagedIdentities/customSecurityAttributes/read",
@@ -381,7 +381,7 @@
    "id": "ffd52fa5-98dc-465c-991d-fc073eb59f8f",
    "name": "Attribute Assignment Reader",
    "description": "Read custom security attribute keys and values for supported Microsoft Entra objects.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/attributeSets/allProperties/read",
     "microsoft.directory/azureManagedIdentities/customSecurityAttributes/read",
@@ -395,7 +395,7 @@
    "id": "8424c6f0-a189-499e-bbd0-26c1753c96d4",
    "name": "Attribute Definition Administrator",
    "description": "Define and manage the definition of custom security attributes.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/attributeSets/allProperties/allTasks",
     "microsoft.directory/customSecurityAttributeDefinitions/allProperties/allTasks"
@@ -405,7 +405,7 @@
    "id": "1d336d2c-4ae8-42ef-9711-b3604ce3fc2c",
    "name": "Attribute Definition Reader",
    "description": "Read the definition of custom security attributes.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/attributeSets/allProperties/read",
     "microsoft.directory/customSecurityAttributeDefinitions/allProperties/read"
@@ -415,7 +415,7 @@
    "id": "5b784334-f94b-471a-a387-e7219fc49ca2",
    "name": "Attribute Log Administrator",
    "description": "Read audit logs and configure diagnostic settings for events related to custom security attributes.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.customSecurityAttributeDiagnosticSettings/allEntities/allProperties/allTasks",
     "microsoft.directory/customSecurityAttributeAuditLogs/allProperties/read"
@@ -425,7 +425,7 @@
    "id": "9c99539d-8186-4804-835f-fd51ef9e2dcd",
    "name": "Attribute Log Reader",
    "description": "Read audit logs related to custom security attributes.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/customSecurityAttributeAuditLogs/allProperties/read"
    ]
@@ -434,7 +434,7 @@
    "id": "ecb2c6bf-0ab6-418e-bd87-7986f8d63bbe",
    "name": "Attribute Provisioning Administrator",
    "description": "Read and edit the provisioning configuration of all active custom security attributes for an application.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.directory/servicePrincipals/synchronization.customSecurityAttributes/schema/read",
     "microsoft.directory/servicePrincipals/synchronization.customSecurityAttributes/schema/update"
@@ -444,7 +444,7 @@
    "id": "422218e4-db15-4ef9-bbe0-8afb41546d79",
    "name": "Attribute Provisioning Reader",
    "description": "Read the provisioning configuration of all active custom security attributes for an application.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.directory/servicePrincipals/synchronization.customSecurityAttributes/schema/read"
    ]
@@ -453,7 +453,7 @@
    "id": "c4e39bd9-1100-46d3-8c65-fb160da0071f",
    "name": "Authentication Administrator",
    "description": "Can access to view, set and reset authentication method information for any non-admin user.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -480,7 +480,7 @@
    "id": "25a516ed-2fa0-40ea-a2d0-12923a21473a",
    "name": "Authentication Extensibility Administrator",
    "description": "Customize sign in and sign up experiences for users by creating and managing custom authentication extensions.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.directory/customAuthenticationExtensions/allProperties/allTasks"
    ]
@@ -489,7 +489,7 @@
    "id": "0b00bede-4072-4d22-b441-e7df02a1ef63",
    "name": "Authentication Extensibility Password Administrator",
    "description": "Trigger a password submit or password update event for custom authentication.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.directory/onPasswordSubmitCustomAuthenticationExtension/allProperties/allTasks",
     "microsoft.directory/onPasswordUpdateCustomAuthenticationExtension/allProperties/allTasks"
@@ -499,7 +499,7 @@
    "id": "0526716b-113d-4c15-b2c8-68e3c22b9f80",
    "name": "Authentication Policy Administrator",
    "description": "Can create and manage the authentication methods policy, tenant-wide MFA settings, password protection policy, and verifiable credentials.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.supportTickets/allEntities/allTasks",
     "microsoft.directory/organization/strongAuthentication/allTasks",
@@ -526,7 +526,7 @@
    "id": "9f06204d-73c1-4d4c-880a-6edb90606fd8",
    "name": "Azure AD Joined Device Local Administrator",
    "description": "Users assigned to this role are added to the local administrators group on Microsoft Entra joined devices.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/groupSettings/standard/read",
     "microsoft.directory/groupSettingTemplates/standard/read"
@@ -536,7 +536,7 @@
    "id": "e3973bdf-4987-49ae-837a-ba8e231c7286",
    "name": "Azure DevOps Administrator",
    "description": "Can manage Azure DevOps organization policy and settings.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.devOps/allEntities/allTasks"
    ]
@@ -545,7 +545,7 @@
    "id": "7495fdc4-34c4-4d15-a289-98788ce399fd",
    "name": "Azure Information Protection Administrator",
    "description": "Can manage all aspects of the Azure Information Protection product.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.informationProtection/allEntities/allTasks",
     "microsoft.azure.serviceHealth/allEntities/allTasks",
@@ -560,14 +560,14 @@
    "id": "ddc7372f-4ece-4e8d-8010-1b36d9992d23",
    "name": "B2B Policy Administrator",
    "description": "Create, read, update, and delete B2B management policies, and set the tenant-default policy.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": []
   },
   {
    "id": "aaf43236-0c0d-4d5f-883a-6955382ac081",
    "name": "B2C IEF Keyset Administrator",
    "description": "Can manage secrets for federation and encryption in the Identity Experience Framework (IEF).",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.directory/b2cTrustFrameworkKeySet/allProperties/allTasks"
    ]
@@ -576,7 +576,7 @@
    "id": "3edaf663-341e-4475-9f94-5c398ef6c070",
    "name": "B2C IEF Policy Administrator",
    "description": "Can create and manage trust framework policies in the Identity Experience Framework (IEF).",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/b2cTrustFrameworkPolicy/allProperties/allTasks"
    ]
@@ -585,7 +585,7 @@
    "id": "b0f54661-2d74-4c50-afa3-1ec803f12efe",
    "name": "Billing Administrator",
    "description": "Can perform common billing related tasks like updating payment information.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -600,7 +600,7 @@
    "id": "892c5842-a9a6-463a-8041-72aa08ca3cf6",
    "name": "Cloud App Security Administrator",
    "description": "Can manage all aspects of the Cloud App Security product.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/cloudAppSecurity/allProperties/allTasks",
     "microsoft.office365.webPortal/allEntities/standard/read"
@@ -610,7 +610,7 @@
    "id": "158c047a-c907-4556-b7ef-446551a6b5f7",
    "name": "Cloud Application Administrator",
    "description": "Can create and manage all aspects of app registrations and enterprise apps except App Proxy.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -679,7 +679,7 @@
    "id": "7698a772-787b-4ac8-901f-60d6b08affd2",
    "name": "Cloud Device Administrator",
    "description": "Limited access to manage devices in Microsoft Entra ID.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.directory/auditLogs/allProperties/read",
@@ -706,7 +706,7 @@
    "id": "17315797-102d-40b4-93e0-432062caca18",
    "name": "Compliance Administrator",
    "description": "Can read and manage compliance configuration and reports in Microsoft Entra ID and Microsoft 365.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -721,7 +721,7 @@
    "id": "e6d1a23a-da11-4be4-9570-befc86d067a7",
    "name": "Compliance Data Administrator",
    "description": "Creates and manages compliance content.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.informationProtection/allEntities/allTasks",
     "microsoft.azure.serviceHealth/allEntities/allTasks",
@@ -738,7 +738,7 @@
    "id": "b1be1c3e-b65d-4f19-8427-f6fa0d97feb9",
    "name": "Conditional Access Administrator",
    "description": "Can manage Conditional Access capabilities.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.directory/conditionalAccessPolicies/basic/update",
     "microsoft.directory/conditionalAccessPolicies/create",
@@ -762,7 +762,7 @@
    "id": "fc8ad4e2-40e4-4724-8317-bcda7503ecbf",
    "name": "Customer Delegated Admin Relationship Administrator",
    "description": "Manage all aspects of granular delegated admin privileges (GDAP) relationships in a customer tenant.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.commerce.tenantRelationships/customerDelegatedAdminPrivileges/allProperties/allTasks",
     "microsoft.office365.webPortal/allEntities/standard/read"
@@ -772,7 +772,7 @@
    "id": "5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91",
    "name": "Customer LockBox Access Approver",
    "description": "Can approve Microsoft support requests to access customer organizational data.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.lockbox/allEntities/allTasks",
     "microsoft.office365.webPortal/allEntities/standard/read"
@@ -782,7 +782,7 @@
    "id": "38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4",
    "name": "Desktop Analytics Administrator",
    "description": "Can access and manage Desktop management tools and services.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -794,14 +794,14 @@
    "id": "9c094953-4995-41c8-84c8-3ebb9b32c93f",
    "name": "Device Join",
    "description": "Deprecated - Do Not Use.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": []
   },
   {
    "id": "2b499bcd-da44-4968-8aec-78e1674fa64d",
    "name": "Device Managers",
    "description": "Deprecated - Do Not Use.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/devices/basic/update",
     "microsoft.directory/devices/extensionAttributeSet1/update",
@@ -819,14 +819,14 @@
    "id": "d405c6df-0af8-4e3b-95e4-4d06e542189e",
    "name": "Device Users",
    "description": "Deprecated - Do Not Use.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": []
   },
   {
    "id": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b",
    "name": "Directory Readers",
    "description": "Can read basic directory information. Commonly used to grant directory read access to applications and guests.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/administrativeUnits/members/read",
     "microsoft.directory/administrativeUnits/standard/read",
@@ -889,7 +889,7 @@
    "id": "d29b2b05-8046-44ba-8758-1e26182fcf32",
    "name": "Directory Synchronization Accounts",
    "description": "Only used by Microsoft Entra Connect service.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/onPremisesSynchronization/standard/read"
    ]
@@ -898,7 +898,7 @@
    "id": "9360feb5-f418-4baa-8175-e2a00bac4301",
    "name": "Directory Writers",
    "description": "Can read and write basic directory information. For granting access to applications, not intended for users.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.directory/applications/extensionProperties/update",
     "microsoft.directory/contacts/create",
@@ -948,7 +948,7 @@
    "id": "8329153b-31d0-4727-b945-745eb3bc5f31",
    "name": "Domain Name Administrator",
    "description": "Can manage domain names in cloud and on-premises.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.directory/domains/allProperties/allTasks",
     "microsoft.office365.supportTickets/allEntities/allTasks",
@@ -959,7 +959,7 @@
    "id": "e93e3737-fa85-474a-aee4-7d3fb86510f3",
    "name": "Dragon Administrator",
    "description": "Manage all aspects of the Microsoft Dragon admin center.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -975,7 +975,7 @@
    "id": "44367163-eba1-44c3-98af-f5787879f96a",
    "name": "Dynamics 365 Administrator",
    "description": "Can manage all aspects of the Dynamics 365 product.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -989,7 +989,7 @@
    "id": "963797fb-eb3b-4cde-8ce3-5878b3f32a3f",
    "name": "Dynamics 365 Business Central Administrator",
    "description": "Access and perform all administrative tasks on Dynamics 365 Business Central environments.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.directory/domains/standard/read",
@@ -1005,7 +1005,7 @@
    "id": "3f1acade-1e04-4fbc-9b69-f0302cd84aef",
    "name": "Edge Administrator",
    "description": "Manage all aspects of Microsoft Edge.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.edge/allEntities/allProperties/allTasks",
     "microsoft.office365.supportTickets/allEntities/allTasks",
@@ -1016,7 +1016,7 @@
    "id": "b6a27b2b-f905-4b2e-81b5-0d90e0ef1fdb",
    "name": "Entra Backup Administrator",
    "description": "Manage all aspects of Microsoft Entra Backup, such as create recovery jobs and manage backup snapshots.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/backup/preview/cancel",
     "microsoft.directory/backup/preview/create",
@@ -1029,7 +1029,7 @@
    "id": "f42252d9-5400-4d7b-b9ef-cc582dbb8577",
    "name": "Entra Backup Reader",
    "description": "Read all aspects of Microsoft Entra Backup, such as list all preview jobs, recovery jobs, backup snapshots, and create preview jobs.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/backup/preview/cancel",
     "microsoft.directory/backup/preview/create",
@@ -1040,7 +1040,7 @@
    "id": "d35481f7-cda1-4fa2-8344-5a21f7f3724d",
    "name": "Entra Customer Lockbox Approver",
    "description": "Can approve customer lockbox requests for accessing customer data in Entra ID.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/lockbox/requests/update"
    ]
@@ -1049,7 +1049,7 @@
    "id": "58f930cc-fcf4-4152-852c-1d7dbf502139",
    "name": "Entra SOC Identity Responder",
    "description": "Perform identity containment actions for SOC incident response, including disabling users, revoking sessions, and resetting passwords.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.directory/users/disable",
     "microsoft.directory/users/enable",
@@ -1061,7 +1061,7 @@
    "id": "29232cdf-9323-42fd-ade2-1d097af3e4de",
    "name": "Exchange Administrator",
    "description": "Can manage all aspects of the Exchange product.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -1094,7 +1094,7 @@
    "id": "49eb8f75-97e9-4e37-9b2b-6c3ebfcffa31",
    "name": "Exchange Backup Administrator",
    "description": "Back up and restore content (including granular restore) for Exchange in Microsoft 365 Backup",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -1114,7 +1114,7 @@
    "id": "31392ffb-586c-42d1-9346-e59415a2cc4e",
    "name": "Exchange Recipient Administrator",
    "description": "Can create or update Exchange Online recipients within the Exchange Online organization.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.exchange/migration/allProperties/allTasks",
     "microsoft.office365.exchange/recipients/allProperties/allTasks"
@@ -1124,7 +1124,7 @@
    "id": "dd13091a-6207-4fc0-82ba-3641e056ab95",
    "name": "Extended Directory User Administrator",
    "description": "Manage all aspects of external user profiles in the extended directory for Teams.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/externalUserProfiles/basic/update",
     "microsoft.directory/externalUserProfiles/delete",
@@ -1139,7 +1139,7 @@
    "id": "6e591065-9bad-43ed-90f3-e9424366d2f0",
    "name": "External ID User Flow Administrator",
    "description": "Can create and manage all aspects of user flows.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/b2cUserFlow/allProperties/allTasks"
    ]
@@ -1148,7 +1148,7 @@
    "id": "0f971eea-41eb-4569-a71e-57bb8a3eff1e",
    "name": "External ID User Flow Attribute Administrator",
    "description": "Can create and manage the attribute schema available to all user flows.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/b2cUserAttribute/allProperties/allTasks"
    ]
@@ -1157,7 +1157,7 @@
    "id": "be2f45a1-457d-42af-a067-6ec1fa63bc45",
    "name": "External Identity Provider Administrator",
    "description": "Can configure identity providers for use in direct federation.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.directory/domains/federation/update",
     "microsoft.directory/identityProviders/allProperties/allTasks"
@@ -1167,7 +1167,7 @@
    "id": "a9ea8996-122f-4c74-9520-8edcd192826c",
    "name": "Fabric Administrator",
    "description": "Manages all aspects of Microsoft Fabric.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -1181,7 +1181,7 @@
    "id": "62e90394-69f5-4237-9190-012177145e10",
    "name": "Global Administrator",
    "description": "Can manage all aspects of Microsoft Entra ID and Microsoft services that use Microsoft Entra identities.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.agentRegistry/allEntities/allProperties/allTasks",
     "microsoft.azure.advancedThreatProtection/allEntities/allTasks",
@@ -1455,7 +1455,7 @@
    "id": "f2ef992c-3afb-46b9-b7cf-a126ee74c451",
    "name": "Global Reader",
    "description": "Can read everything that a Global Administrator can, but not update anything.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.agentRegistry/allEntities/allProperties/read",
     "microsoft.azure.serviceHealth/allEntities/allTasks",
@@ -1566,7 +1566,7 @@
    "id": "ac434307-12b9-4fa1-a708-88bf58caabc1",
    "name": "Global Secure Access Administrator",
    "description": "Create and manage all aspects of Global Secure Internet Access and Microsoft Global Secure Private Access, including managing access to public and private endpoints.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.supportTickets/allEntities/allTasks",
     "microsoft.directory/applicationPolicies/standard/read",
@@ -1594,7 +1594,7 @@
    "id": "843318fb-79a6-4168-9e6f-aa9a07481cc4",
    "name": "Global Secure Access Log Reader",
    "description": "Provides designated security personnel with read-only access to network traffic logs in Microsoft Entra Internet Access and Microsoft Entra Private Access for detailed analysis.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.networkAccess/trafficLogs/standard/read"
    ]
@@ -1603,7 +1603,7 @@
    "id": "fdd7a751-b60b-444a-984c-02652fe8fa1c",
    "name": "Groups Administrator",
    "description": "Members of this role can create/manage groups, create/manage groups settings like naming and expiration policies, and view groups activity and audit reports.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -1637,7 +1637,7 @@
    "id": "95e79109-95c0-4d8e-aee3-d01accf2d47b",
    "name": "Guest Inviter",
    "description": "Can invite guest users independent of the 'members can invite guests' setting.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/users/appRoleAssignments/read",
     "microsoft.directory/users/deviceForResourceAccount/read",
@@ -1662,7 +1662,7 @@
    "id": "10dae51f-b6af-4016-8d66-8c2a99b929b3",
    "name": "Guest User",
    "description": "Default role for guest users. Can read a limited set of directory information.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/applications/owners/limitedRead",
     "microsoft.directory/applications/policies/limitedRead",
@@ -1718,7 +1718,7 @@
    "id": "729827e3-9c14-49f7-bb1b-9608f156bbb8",
    "name": "Helpdesk Administrator",
    "description": "Can reset passwords for non-administrators and Helpdesk Administrators.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -1735,7 +1735,7 @@
    "id": "8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2",
    "name": "Hybrid Identity Administrator",
    "description": "Can manage Active Directory to Microsoft Entra cloud provisioning, Microsoft Entra Connect, and federation settings.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -1804,7 +1804,7 @@
    "id": "45d8d3c5-c802-45c6-b32a-1d70b5e1e86e",
    "name": "Identity Governance Administrator",
    "description": "Manage access using Microsoft Entra ID for identity governance scenarios.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.directory/accessReviews/allProperties/allTasks",
     "microsoft.directory/accessReviews/definitions.applications/allProperties/allTasks",
@@ -1822,7 +1822,7 @@
    "id": "eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c",
    "name": "Insights Administrator",
    "description": "Has administrative access in the Microsoft 365 Insights app.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -1836,7 +1836,7 @@
    "id": "25df335f-86eb-4119-b717-0ff02de207e9",
    "name": "Insights Analyst",
    "description": "Access the analytical capabilities in Microsoft Viva Insights and run custom queries.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.insights/queries/allProperties/allTasks",
     "microsoft.office365.supportTickets/allEntities/allTasks",
@@ -1847,7 +1847,7 @@
    "id": "31e939ad-9672-4796-9c2e-873181342d2d",
    "name": "Insights Business Leader",
    "description": "Can view and share dashboards and insights via the M365 Insights app.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.insights/programs/allProperties/update",
     "microsoft.insights/reports/allProperties/read"
@@ -1857,7 +1857,7 @@
    "id": "3a2c62db-5318-420d-8d74-23affee5d9d5",
    "name": "Intune Administrator",
    "description": "Can manage all aspects of the Intune product.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.azure.supportTickets/allEntities/allTasks",
     "microsoft.cloudPC/allEntities/allProperties/allTasks",
@@ -1903,7 +1903,7 @@
    "id": "2ea5ce4c-b2d8-4668-bd81-3680bd2d227a",
    "name": "IoT Device Administrator",
    "description": "Provision new IoT devices, manage their lifecycle, configure certificates, and manage device templates.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/certificateBasedDeviceAuthConfigurations/create",
     "microsoft.directory/certificateBasedDeviceAuthConfigurations/credentials/update",
@@ -1921,7 +1921,7 @@
    "id": "74ef975b-6605-40af-a5d2-b9539d836353",
    "name": "Kaizala Administrator",
    "description": "Can manage settings for Microsoft Kaizala.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/authorizationPolicy/standard/read",
     "microsoft.office365.serviceHealth/allEntities/allTasks",
@@ -1933,7 +1933,7 @@
    "id": "b5a8dcf3-09d5-43a9-a639-8e29ef291470",
    "name": "Knowledge Administrator",
    "description": "Can configure knowledge, learning, and other intelligent features.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/groups.security/basic/update",
     "microsoft.directory/groups.security/create",
@@ -1954,7 +1954,7 @@
    "id": "744ec460-397e-42ad-a462-8b3f9747a02c",
    "name": "Knowledge Manager",
    "description": "Has access to topic management dashboard and can manage content.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/groups.security/basic/update",
     "microsoft.directory/groups.security/create",
@@ -1973,7 +1973,7 @@
    "id": "4d6ac14f-3453-41d0-bef9-a3e0c569773a",
    "name": "License Administrator",
    "description": "Can manage product licenses on users and groups.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.directory/authorizationPolicy/standard/read",
@@ -1990,7 +1990,7 @@
    "id": "59d46f88-662b-457b-bceb-5c3809e5908f",
    "name": "Lifecycle Workflows Administrator",
    "description": "Create and manage all aspects of workflows and tasks associated with Lifecycle Workflows in Microsoft Entra ID.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.directory/lifecycleWorkflows/workflows/allProperties/allTasks",
     "microsoft.directory/organization/strongAuthentication/read",
@@ -2001,7 +2001,7 @@
    "id": "ac16e43d-7b2d-40e0-ac05-243ff356ab5b",
    "name": "Message Center Privacy Reader",
    "description": "Can read security messages and updates in Office 365 Message Center only.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.messageCenter/messages/read",
     "microsoft.office365.messageCenter/securityMessages/read",
@@ -2012,7 +2012,7 @@
    "id": "790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b",
    "name": "Message Center Reader",
    "description": "Can read messages and updates for their organization in Office 365 Message Center only.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.messageCenter/messages/read",
     "microsoft.office365.webPortal/allEntities/standard/read"
@@ -2022,7 +2022,7 @@
    "id": "1707125e-0aa2-4d4d-8655-a7c786c76a25",
    "name": "Microsoft 365 Backup Administrator",
    "description": "Back up and restore content across supported services (SharePoint, OneDrive, and Exchange Online) in Microsoft 365 Backup",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -2038,7 +2038,7 @@
    "id": "8c8b803f-96e1-4129-9349-20738d9f9652",
    "name": "Microsoft 365 Migration Administrator",
    "description": "Perform all migration functionality to migrate content to Microsoft 365 using Migration Manager.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.migrations/allEntities/allProperties/allTasks",
     "microsoft.office365.supportTickets/allEntities/allTasks",
@@ -2049,7 +2049,7 @@
    "id": "ee67aa9c-e510-4759-b906-227085a7fd4d",
    "name": "Microsoft Graph Data Connect Administrator",
    "description": "Manage aspects of Microsoft Graph Data Connect service in a tenant.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -2064,7 +2064,7 @@
    "id": "1501b917-7653-4ff9-a4b5-203eaf33784f",
    "name": "Microsoft Hardware Warranty Administrator",
    "description": "Create and manage all aspects warranty claims and entitlements for Microsoft manufactured hardware, like Surface and HoloLens.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.hardware.support/shippingAddress/allProperties/allTasks",
     "microsoft.hardware.support/shippingStatus/allProperties/read",
@@ -2078,7 +2078,7 @@
    "id": "281fe777-fb20-4fbb-b7a3-ccebce5b0d96",
    "name": "Microsoft Hardware Warranty Specialist",
    "description": "Create and read warranty claims for Microsoft manufactured hardware, like Surface and HoloLens.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.hardware.support/shippingAddress/allProperties/read",
     "microsoft.hardware.support/shippingStatus/allProperties/read",
@@ -2092,7 +2092,7 @@
    "id": "d37c8bed-0711-4417-ba38-b4abe66ce4c2",
    "name": "Network Administrator",
    "description": "Can manage network locations and review enterprise network design insights for Microsoft 365 Software as a Service applications.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.network/locations/allProperties/allTasks",
     "microsoft.office365.network/performance/allProperties/read",
@@ -2103,7 +2103,7 @@
    "id": "2b745bdf-0803-4d80-aa65-822c4493daac",
    "name": "Office Apps Administrator",
    "description": "Can manage Office apps cloud services, including policy and settings management, and manage the ability to select, unselect and publish 'what's new' feature content to end-user's devices.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -2118,7 +2118,7 @@
    "id": "a92aed5d-d78a-4d16-b381-09adb37eb3b0",
    "name": "On Premises Directory Sync Account",
    "description": "Only used by Microsoft Entra Connect Sync Account.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/onPremisesSynchronization/standard/read"
    ]
@@ -2127,7 +2127,7 @@
    "id": "92ed04bf-c94a-4b82-9729-b799a7a4c178",
    "name": "Organizational Branding Administrator",
    "description": "Manage all aspects of organizational branding in a tenant.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/loginOrganizationBranding/allProperties/allTasks"
    ]
@@ -2136,7 +2136,7 @@
    "id": "9d70768a-0cbc-4b4c-aea3-2e124b2477f4",
    "name": "Organizational Data Source Administrator",
    "description": "Set up and manage the ingestion of organizational data into Microsoft 365.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -2151,7 +2151,7 @@
    "id": "e48398e2-f4bb-4074-8f31-4586725e205b",
    "name": "Organizational Messages Approver",
    "description": "Review, approve, or reject new organizational messages for delivery in the Microsoft 365 admin center before they are sent to users.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.organizationalMessages/allEntities/allProperties/read",
     "microsoft.office365.organizationalMessages/allEntities/allProperties/update",
@@ -2162,7 +2162,7 @@
    "id": "507f53e4-4e52-4077-abd3-d2e1558b6ea2",
    "name": "Organizational Messages Writer",
    "description": "Write, publish, manage, and review the organizational messages for end-users through Microsoft product surfaces.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.organizationalMessages/allEntities/allProperties/allTasks",
     "microsoft.office365.usageReports/allEntities/standard/read",
@@ -2173,7 +2173,7 @@
    "id": "4ba39ca4-527c-499a-b93d-d9b492c50246",
    "name": "Partner Tier1 Support",
    "description": "Do not use - not intended for general use.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -2221,7 +2221,7 @@
    "id": "e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8",
    "name": "Partner Tier2 Support",
    "description": "Do not use - not intended for general use.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -2275,7 +2275,7 @@
    "id": "966707d0-3269-4727-9be2-8c3a10f19b9d",
    "name": "Password Administrator",
    "description": "Can reset passwords for non-administrators and Password Administrators.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.directory/users/password/update",
     "microsoft.office365.webPortal/allEntities/standard/read"
@@ -2285,7 +2285,7 @@
    "id": "024906de-61e5-49c8-8572-40335f1e0e10",
    "name": "People Administrator",
    "description": "Manage profile photos of users and people settings for all users in the organization.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.webPortal/allEntities/standard/read",
     "microsoft.people/users/photo/read",
@@ -2298,7 +2298,7 @@
    "id": "af78dc32-cf4d-46f9-ba4e-4428526346b5",
    "name": "Permissions Management Administrator",
    "description": "Manage all aspects of Entra Permissions Management.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.permissionsManagement/allEntities/allProperties/allTasks"
    ]
@@ -2307,7 +2307,7 @@
    "id": "78b0ccd1-afc2-4f92-9116-b41aedd09592",
    "name": "Places Administrator",
    "description": "Manage all aspects of the Microsoft Places service.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.places/allEntities/allProperties/allTasks"
    ]
@@ -2316,7 +2316,7 @@
    "id": "11648597-926c-4cf3-9c36-bcebb0ba8dcc",
    "name": "Power Platform Administrator",
    "description": "Can create and manage all aspects of Microsoft Dynamics 365, PowerApps and Microsoft Flow.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -2332,7 +2332,7 @@
    "id": "644ef478-e28f-4e28-b9dc-3fdde9aa0b1f",
    "name": "Printer Administrator",
    "description": "Can manage all aspects of printers and printer connectors.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.print/allEntities/allProperties/allTasks"
    ]
@@ -2341,7 +2341,7 @@
    "id": "e8cef6f1-e4bd-4ea8-bc07-4b8d950f4477",
    "name": "Printer Technician",
    "description": "Can register and unregister printers and update printer status.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.print/connectors/allProperties/read",
     "microsoft.azure.print/printers/allProperties/read",
@@ -2354,7 +2354,7 @@
    "id": "7be44c8a-adaf-4e2a-84d6-ab2649e08a13",
    "name": "Privileged Authentication Administrator",
    "description": "Can access to view, set and reset authentication method information for any user (admin or non-admin).",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -2382,7 +2382,7 @@
    "id": "e8611ab8-c189-46e8-94e1-60213ab1f814",
    "name": "Privileged Role Administrator",
    "description": "Can manage role assignments in Microsoft Entra ID, and all aspects of Privileged Identity Management.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.directory/accessReviews/definitions.applications/allProperties/read",
     "microsoft.directory/accessReviews/definitions.directoryRoles/allProperties/allTasks",
@@ -2418,28 +2418,28 @@
    "id": "3f04f91a-4ad7-4bd3-bcfa-49882ea1a88a",
    "name": "Purview Workload Content Administrator",
    "description": "Manage or purge data from Microsoft 365 when accessing from the Microsoft Purview portal.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": []
   },
   {
    "id": "e07494ad-1654-4dd2-922e-6f81a71bf00f",
    "name": "Purview Workload Content Reader",
    "description": "Read data from Microsoft 365 when accessing from the Microsoft Purview portal.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": []
   },
   {
    "id": "02d5655b-c1cf-4e5f-98da-5fb919085bf6",
    "name": "Purview Workload Content Writer",
    "description": "Read and edit data from Microsoft 365 when accessing from the Microsoft Purview portal.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": []
   },
   {
    "id": "4a5d8f65-41da-4de4-8968-e035b65339cf",
    "name": "Reports Reader",
    "description": "Can read sign-in and audit reports.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.directory/auditLogs/allProperties/read",
@@ -2454,7 +2454,7 @@
    "id": "c0c46a03-c257-4f91-ab71-3c7e59c89d97",
    "name": "Resource Policy Administrator",
    "description": "Users in this role have full permissions to create, read, update, delete, and evaluate resource policies, their assignments, and the tenant-wide resource policy configuration in Microsoft Graph. This role is intended for senior and compliance administrators who are responsible for the entire lifecycle of resource access policies. Assigning this role grants comprehensive control over how resource policies are defined and enforced across the organization.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/resourcePolicy/assignments/basic/update",
     "microsoft.directory/resourcePolicy/assignments/create",
@@ -2474,7 +2474,7 @@
    "id": "1dae4b79-8aea-40ab-9ad0-30d3ab1fa9c1",
    "name": "Resource Policy Evaluator",
    "description": "Users in this role can evaluate resource policies to understand their impact and outcome. This role does not grant any read or write access to the policy definitions or assignments themselves, making it ideal for developers, testers, and automated tools that need to perform policy validation as part of a development or CI/CD pipeline.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/resourcePolicy/evaluatePolicy"
    ]
@@ -2483,7 +2483,7 @@
    "id": "311877b7-9a2e-4337-81c2-068a250eaa22",
    "name": "Resource Policy Reader",
    "description": "Users in this role have read-only access to resource policy definitions, assignments, and the tenant-wide resource policy configuration in Microsoft Graph. They can also evaluate policies to understand their impact, making this role ideal for audit, compliance, and support personnel who need to validate and troubleshoot policies without the ability to modify them.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/resourcePolicy/assignments/standard/read",
     "microsoft.directory/resourcePolicy/configuration/standard/read",
@@ -2496,7 +2496,7 @@
    "id": "2af84b1e-32c8-42b7-82bc-daa82404023b",
    "name": "Restricted Guest User",
    "description": "Restricted role for guest users. Can read a limited set of directory information.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/applications/owners/limitedRead",
     "microsoft.directory/applications/policies/limitedRead",
@@ -2542,7 +2542,7 @@
    "id": "0964bb5e-9bdb-4d7b-ac29-58e794862a40",
    "name": "Search Administrator",
    "description": "Can create and manage all aspects of Microsoft Search settings.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.messageCenter/messages/read",
     "microsoft.office365.search/content/manage",
@@ -2556,7 +2556,7 @@
    "id": "8835291a-918c-4fd7-a9ce-faa49f0cf7d9",
    "name": "Search Editor",
    "description": "Can create and manage the editorial content such as bookmarks, Q and As, locations, floorplan.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.messageCenter/messages/read",
     "microsoft.office365.search/content/manage",
@@ -2568,7 +2568,7 @@
    "id": "194ae4cb-b126-40b2-bd5b-6091b380977d",
    "name": "Security Administrator",
    "description": "Can read security information and reports, and manage configuration in Microsoft Entra ID and Office 365.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.agentRegistry/allEntities/allProperties/read",
     "microsoft.azure.serviceHealth/allEntities/allTasks",
@@ -2665,7 +2665,7 @@
    "id": "5f2222b1-57c3-48ba-8ad5-d4759f1fde6f",
    "name": "Security Operator",
    "description": "Create and manage security events and perform identity containment actions during security incidents.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.azure.advancedThreatProtection/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -2691,7 +2691,7 @@
    "id": "5d6b6bb7-de71-4623-b4af-96380a352509",
    "name": "Security Reader",
    "description": "Can read security information and reports in Microsoft Entra ID and Office 365.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.agentRegistry/allEntities/allProperties/read",
     "microsoft.azure.serviceHealth/allEntities/allTasks",
@@ -2733,7 +2733,7 @@
    "id": "f023fd81-a637-4b56-95fd-791ac0226033",
    "name": "Service Support Administrator",
    "description": "Can read service health information and manage support tickets.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -2747,7 +2747,7 @@
    "id": "f28a1f50-f6e7-4571-818b-6a12f2af6b6c",
    "name": "SharePoint Administrator",
    "description": "Can manage all aspects of the SharePoint service.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -2782,7 +2782,7 @@
    "id": "99009c4a-3b3f-4957-82a9-9d35e12db77e",
    "name": "SharePoint Advanced Management Administrator",
    "description": "Manage all aspects of SharePoint Advanced Management.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -2818,7 +2818,7 @@
    "id": "9d3e04ba-3ee4-4d1b-a3a7-9aef423a09be",
    "name": "SharePoint Backup Administrator",
    "description": "Back up and restore content (including granular restore) for SharePoint and OneDrive in Microsoft 365 Backup",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -2843,7 +2843,7 @@
    "id": "1a7d78b6-429f-476b-b8eb-35fb715fffd4",
    "name": "SharePoint Embedded Administrator",
    "description": "Manage all aspects of SharePoint Embedded containers.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.fileStorageContainers/allEntities/allProperties/allTasks",
     "microsoft.office365.network/performance/allProperties/read",
@@ -2857,7 +2857,7 @@
    "id": "75941009-915a-4869-abe7-691bff18279e",
    "name": "Skype for Business Administrator",
    "description": "Can manage all aspects of the Skype for Business product.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -2872,7 +2872,7 @@
    "id": "69091246-20e8-4a56-aa4d-066075b2a7a8",
    "name": "Teams Administrator",
    "description": "Can manage the Microsoft Teams service.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -2913,7 +2913,7 @@
    "id": "baf37b3a-610e-45da-9e62-d9d1e5e8914b",
    "name": "Teams Communications Administrator",
    "description": "Can manage calling and meetings features within the Microsoft Teams service.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -2932,7 +2932,7 @@
    "id": "f70938a0-fc10-4177-9e90-2178f8765737",
    "name": "Teams Communications Support Engineer",
    "description": "Can troubleshoot communications issues within Teams using advanced tools.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.directory/authorizationPolicy/standard/read",
@@ -2946,7 +2946,7 @@
    "id": "fcf91098-03e3-41a9-b5ba-6f0ec8188a12",
    "name": "Teams Communications Support Specialist",
    "description": "Can troubleshoot communications issues within Teams using basic tools.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.directory/authorizationPolicy/standard/read",
@@ -2960,7 +2960,7 @@
    "id": "3d762c5a-1b6c-493f-843e-55a3b42923d4",
    "name": "Teams Devices Administrator",
    "description": "Can perform management related tasks on Teams certified devices.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.webPortal/allEntities/standard/read",
     "microsoft.teams/devices/standard/read"
@@ -2970,7 +2970,7 @@
    "id": "2fe872fb-daa8-4afc-8f6c-53c4565cfef4",
    "name": "Teams External Collaboration Administrator",
    "description": "Manage external collaboration policies and settings for Teams, including configuring external domains and controlling which groups and users can interact with the organization.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.supportTickets/allEntities/allTasks",
     "microsoft.directory/authorizationPolicy/standard/read",
@@ -2982,7 +2982,7 @@
    "id": "1076ac91-f3d9-41a7-a339-dcdf5f480acc",
    "name": "Teams Reader",
    "description": "Read everything in the Teams admin center, but not update anything.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.webPortal/allEntities/standard/read",
     "microsoft.teams/allEntities/allProperties/read"
@@ -2992,7 +2992,7 @@
    "id": "aa38014f-0993-46e9-9b45-30501a20909d",
    "name": "Teams Telephony Administrator",
    "description": "Manage voice and telephony features and troubleshoot communication issues within the Microsoft Teams service.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -3010,7 +3010,7 @@
    "id": "112ca1a2-15ad-4102-995e-45b0bc479a6a",
    "name": "Tenant Creator",
    "description": "Create new Microsoft Entra or Azure AD B2C tenants.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/tenantManagement/tenants/create"
    ]
@@ -3019,7 +3019,7 @@
    "id": "1981f584-96e9-4a6f-95b0-f522373f8fae",
    "name": "Tenant Governance Administrator",
    "description": "Manage Tenant Governance, service principals, application role assignments, and permission grants through the approved Tenant Governance application.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.directory/crossTenantAccessPolicy/basic/update",
     "microsoft.directory/crossTenantAccessPolicy/default/standard/read",
@@ -3040,7 +3040,7 @@
    "id": "e0a4caa6-fe82-443f-b92f-d87341d17b2e",
    "name": "Tenant Governance Reader",
    "description": "Can read all tenant governance data.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/signInReports/allProperties/read",
     "microsoft.office365.webPortal/allEntities/standard/read"
@@ -3050,7 +3050,7 @@
    "id": "b8e31d83-1534-480f-9b10-0338ded51b7e",
    "name": "Tenant Governance Relationship Administrator",
    "description": "Can initiate governance relationships and terminate them.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/signInReports/allProperties/read",
     "microsoft.directory/tenantGovernance/policyTemplates/allProperties/update",
@@ -3064,7 +3064,7 @@
    "id": "124577f8-48ed-456a-839f-13b419002e33",
    "name": "Tenant Governance Relationship Reader",
    "description": "Can read tenant governance relationships and relevant objects.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.webPortal/allEntities/standard/read"
    ]
@@ -3073,7 +3073,7 @@
    "id": "75934031-6c7e-415a-99d7-48dbd49e875e",
    "name": "Usage Summary Reports Reader",
    "description": "Can see only tenant level aggregates in Microsoft 365 Usage Analytics and Productivity Score.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.network/performance/allProperties/read",
     "microsoft.office365.usageReports/allEntities/standard/read",
@@ -3084,7 +3084,7 @@
    "id": "a0b1b346-4d3e-4e8b-98f8-753987be4970",
    "name": "User",
    "description": "Default role for member users. Can read all and write a limited set of directory information.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/administrativeUnits/members/read",
     "microsoft.directory/administrativeUnits/standard/read",
@@ -3266,7 +3266,7 @@
    "id": "fe930be7-5e62-47db-91af-98c3a49a38b1",
    "name": "User Administrator",
    "description": "Can manage all aspects of users and groups, including resetting passwords for limited admins.",
-   "isPrivileged": null,
+   "isPrivileged": true,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -3329,7 +3329,7 @@
    "id": "27460883-1df1-4691-b032-3b79643e5e63",
    "name": "User Experience Success Manager",
    "description": "View product feedback, survey results, and reports to find training and communication opportunities.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.commerce.billing/purchases/standard/read",
     "microsoft.office365.messageCenter/messages/read",
@@ -3344,7 +3344,7 @@
    "id": "e300d9e7-4a2b-4295-9eff-f1c78b36cc98",
    "name": "Virtual Visits Administrator",
    "description": "Manage and share Virtual Visits information and metrics from admin centers or the Virtual Visits app.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.webPortal/allEntities/standard/read",
     "microsoft.virtualVisits/allEntities/allProperties/allTasks"
@@ -3354,7 +3354,7 @@
    "id": "0ec3f692-38d6-4d14-9e69-0377ca7797ad",
    "name": "Viva Glint Tenant Administrator",
    "description": "Manage and configure Microsoft Viva Glint settings in the Microsoft 365 admin center.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.serviceHealth/allEntities/allTasks",
     "microsoft.azure.supportTickets/allEntities/allTasks",
@@ -3369,7 +3369,7 @@
    "id": "92b086b3-e367-4ef2-b869-1de128fb986e",
    "name": "Viva Goals Administrator",
    "description": "Manage and configure all aspects of Microsoft Viva Goals.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.supportTickets/allEntities/allTasks",
     "microsoft.office365.webPortal/allEntities/standard/read",
@@ -3380,7 +3380,7 @@
    "id": "87761b17-1ed2-4af3-9acd-92a150038160",
    "name": "Viva Pulse Administrator",
    "description": "Can manage all settings for Microsoft Viva Pulse app.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.office365.messageCenter/messages/read",
     "microsoft.office365.serviceHealth/allEntities/allTasks",
@@ -3394,7 +3394,7 @@
    "id": "11451d60-acb2-45eb-a7d6-43d0f0125c13",
    "name": "Windows 365 Administrator",
    "description": "Can provision and manage all aspects of Cloud PCs.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.azure.supportTickets/allEntities/allTasks",
     "microsoft.cloudPC/allEntities/allProperties/allTasks",
@@ -3430,7 +3430,7 @@
    "id": "32696413-001a-46ae-978c-ce0f6b3620d2",
    "name": "Windows Update Deployment Administrator",
    "description": "Can create and manage all aspects of Windows Update deployments through the Windows Update for Business deployment service.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.windows.updatesDeployments/allEntities/allProperties/allTasks"
    ]
@@ -3439,14 +3439,14 @@
    "id": "c34f683f-4d5a-4403-affd-6615e00e3a7f",
    "name": "Workplace Device Join",
    "description": "Deprecated - Do Not Use.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": []
   },
   {
    "id": "810a2642-a034-447f-a5e8-41beaa378541",
    "name": "Yammer Administrator",
    "description": "Manage all aspects of the Yammer service.",
-   "isPrivileged": null,
+   "isPrivileged": false,
    "actions": [
     "microsoft.directory/groups.unified/assignedLabels/update",
     "microsoft.directory/groups.unified/basic/update",
