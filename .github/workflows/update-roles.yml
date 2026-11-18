@@ -17,7 +17,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Connexion Azure (OIDC)
         uses: azure/login@v2
@@ -32,6 +32,10 @@ jobs:
       - name: Commit si changement
         if: always()
         run: |
+          if [ ! -d data ]; then
+            echo "Aucune donnée exportée."
+            exit 0
+          fi
           git add data/
           if git diff --cached --quiet; then
             echo "Aucun changement à publier."

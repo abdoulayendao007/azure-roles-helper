@@ -38,11 +38,15 @@ REPO="abdoulayendao007/azure-roles-helper"
 APP_ID=$(az ad app create --display-name "gh-azure-roles-helper" --query appId -o tsv)
 az ad sp create --id "$APP_ID"
 
-# Identité fédérée : seule la branche main de ce dépôt peut obtenir un jeton
+# Identité fédérée : seule la branche main de ce dépôt peut obtenir un jeton.
+# GitHub inclut désormais les ID numériques du propriétaire et du dépôt dans le subject :
+#   repo:<owner>@<owner-id>/<repo>@<repo-id>:ref:refs/heads/main
+# Le subject exact apparaît dans l'erreur AADSTS700213 du premier lancement si besoin.
+SUBJECT="repo:abdoulayendao007@276451228/azure-roles-helper@1462095922:ref:refs/heads/main"
 az ad app federated-credential create --id "$APP_ID" --parameters "{
   \"name\": \"github-main\",
   \"issuer\": \"https://token.actions.githubusercontent.com\",
-  \"subject\": \"repo:${REPO}:ref:refs/heads/main\",
+  \"subject\": \"${SUBJECT}\",
   \"audiences\": [\"api://AzureADTokenExchange\"]
 }"
 
