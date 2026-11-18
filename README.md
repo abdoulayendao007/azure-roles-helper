@@ -116,4 +116,8 @@ Ajouter une entrée dans le tableau `ROLES` de `index.html`, puis éventuellemen
 - [Rôles intégrés Azure](https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles)
 - [Rôles intégrés Entra ID](https://learn.microsoft.com/fr-fr/entra/identity/role-based-access-control/permissions-reference)
 
+## Auteur
+
+Conçu et maintenu par **Abdoulaye Ndao**, développé avec l'aide de Claude (Anthropic).
+
 > Projet pédagogique. Toujours vérifier les permissions sur la documentation officielle avant une attribution en production.
