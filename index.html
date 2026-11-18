@@ -103,6 +103,13 @@
   .lang button { background: var(--panel); color: var(--muted); border: none; padding: 6px 12px; font: 600 .85rem system-ui, sans-serif; cursor: pointer; }
   .lang button.on { background: var(--accent); color: #fff; }
   html[lang="fr"] .en-only, html[lang="en"] .fr-only { display: none !important; }
+  .ctabs { display: flex; gap: 4px; margin: 6px 0 0; flex-wrap: wrap; }
+  .ctabs button { background: var(--bg); border: 1px solid var(--border); border-bottom: none; border-radius: 8px 8px 0 0; padding: 6px 12px; font: inherit; font-size: .88rem; color: var(--muted); cursor: pointer; }
+  .ctabs button.on { background: var(--panel); color: var(--accent); font-weight: 600; border-color: var(--accent); }
+  .cpane { border: 1px solid var(--border); border-radius: 0 8px 8px 8px; padding: 12px 14px; background: var(--panel); }
+  .cpane pre { margin: 0; }
+  ol.portal { margin: 0; padding-left: 22px; }
+  ol.portal li { padding: 4px 0; }
 </style>
 </head>
 <body>
@@ -836,6 +843,7 @@ const I18N = {
     scope: "Portée", sub_id: "ID d'abonnement", rg: "Groupe de ressources", mg_id: "ID de groupe d'administration", res_id: "ID complet de la ressource (optionnel)",
     whole_tenant: "Tenant entier", au: "Unité administrative", au_id: "ID de l'unité administrative",
     principal_hint: "Remplacer <code>Group</code> par <code>User</code> ou <code>ServicePrincipal</code> selon le principal (une identité managée est un ServicePrincipal).",
+    portal: "Portail", portal_pim: "<strong>Bonne pratique :</strong> avec Entra ID P2 (PIM), choisis une attribution <strong>éligible</strong> plutôt qu'active, pour que le rôle ne soit activé qu'au besoin.",
     copy: "Copier", copied: "Copié", close: "Fermer", back: "Retour", restart: "Recommencer",
     can: "Ce qu'il permet", cannot: "Ce qu'il ne permet pas", rec_scope: "Portée recommandée :", au_scope: "<strong>Portée :</strong> peut être limité à une unité administrative.",
     tip: "Conseil :", verify_ms: "Vérifier dans la documentation Microsoft ↗", ms_doc: "Voir la documentation Microsoft ↗", official_desc: "Description officielle Microsoft",
@@ -882,6 +890,7 @@ const I18N = {
     scope: "Scope", sub_id: "Subscription ID", rg: "Resource group", mg_id: "Management group ID", res_id: "Full resource ID (optional)",
     whole_tenant: "Whole tenant", au: "Administrative unit", au_id: "Administrative unit ID",
     principal_hint: "Replace <code>Group</code> with <code>User</code> or <code>ServicePrincipal</code> depending on the principal (a managed identity is a ServicePrincipal).",
+    portal: "Portal", portal_pim: "<strong>Best practice:</strong> with Entra ID P2 (PIM), choose an <strong>eligible</strong> assignment rather than an active one, so the role is only activated when needed.",
     copy: "Copy", copied: "Copied", close: "Close", back: "Back", restart: "Start over",
     can: "What it allows", cannot: "What it does not allow", rec_scope: "Recommended scope:", au_scope: "<strong>Scope:</strong> can be limited to an administrative unit.",
     tip: "Tip:", verify_ms: "Check in the Microsoft documentation ↗", ms_doc: "See the Microsoft documentation ↗", official_desc: "Official Microsoft description",
@@ -965,6 +974,67 @@ function commandsHtml(r, uid) {
     </div>
     <div class="cmdout" id="cmd-${uid}"></div>`;
 }
+/* Étapes dans le portail web */
+const PORTAL_FR = { "Owner": "Propriétaire", "Contributor": "Contributeur", "Reader": "Lecteur", "User Access Administrator": "Administrateur de l'accès utilisateur" };
+const PRIV_AZ = new Set(["Owner", "Contributor", "User Access Administrator", "Role Based Access Control Administrator"]);
+function portalSteps(r, v) {
+  const fr = LANG === "fr", n = `<strong>${esc(r.name)}</strong>`;
+  const who = v.pid ? (fr ? ` (ID <code>${esc(v.pid)}</code>)` : ` (ID <code>${esc(v.pid)}</code>)`) : "";
+  const steps = [];
+  let priv;
+  if (r.type === "azure") {
+    priv = PRIV_AZ.has(r.name);
+    const lvl = v.level || r.scope;
+    const where = fr ? {
+      mg: `cherche <strong>Groupes d'administration</strong> et ouvre ${v.mg ? `<strong>${esc(v.mg)}</strong>` : "le groupe d'administration"}`,
+      sub: `cherche <strong>Abonnements</strong> et ouvre ${v.sub ? `l'abonnement <code>${esc(v.sub)}</code>` : "l'abonnement"}`,
+      rg: `cherche <strong>Groupes de ressources</strong> et ouvre ${v.rg ? `<strong>${esc(v.rg)}</strong>` : "le groupe de ressources"}`,
+      resource: "ouvre la ressource concernée (VM, coffre Key Vault, compte de stockage…)"
+    } : {
+      mg: `search for <strong>Management groups</strong> and open ${v.mg ? `<strong>${esc(v.mg)}</strong>` : "the management group"}`,
+      sub: `search for <strong>Subscriptions</strong> and open ${v.sub ? `subscription <code>${esc(v.sub)}</code>` : "the subscription"}`,
+      rg: `search for <strong>Resource groups</strong> and open ${v.rg ? `<strong>${esc(v.rg)}</strong>` : "the resource group"}`,
+      resource: "open the resource (VM, Key Vault, storage account…)"
+    };
+    const alias = PORTAL_FR[r.name];
+    if (fr) {
+      steps.push(`Dans le portail Azure (<a href="https://portal.azure.com" target="_blank" rel="noopener">portal.azure.com</a>), ${where[lvl]}.`);
+      steps.push(`Menu de gauche : <strong>Contrôle d'accès (IAM)</strong> → <strong>Ajouter</strong> → <strong>Ajouter une attribution de rôle</strong>.`);
+      steps.push(`Onglet <strong>Rôle</strong> : ${priv ? "ouvre l'onglet des <strong>rôles d'administrateur privilégié</strong>, puis " : ""}cherche ${n}${alias ? ` (affiché « <strong>${alias}</strong> » dans le portail en français)` : ""}, sélectionne-le puis <strong>Suivant</strong>.`);
+      steps.push(`Onglet <strong>Membres</strong> : <strong>Sélectionner des membres</strong>, puis choisis l'utilisateur ou le groupe${who}. Pour une identité managée, coche d'abord <strong>Identité managée</strong>.`);
+      if (r.name === "Role Based Access Control Administrator" || r.name === "User Access Administrator" || r.name === "Owner")
+        steps.push(`Onglet <strong>Conditions</strong> : limite les rôles que ce compte pourra attribuer (exclure Propriétaire, User Access Administrator et RBAC Administrator).`);
+      steps.push(`<strong>Vérifier + attribuer</strong>.`);
+    } else {
+      steps.push(`In the Azure portal (<a href="https://portal.azure.com" target="_blank" rel="noopener">portal.azure.com</a>), ${where[lvl]}.`);
+      steps.push(`Left menu: <strong>Access control (IAM)</strong> → <strong>Add</strong> → <strong>Add role assignment</strong>.`);
+      steps.push(`<strong>Role</strong> tab: ${priv ? "open the <strong>Privileged administrator roles</strong> tab, then " : ""}search for ${n}, select it and click <strong>Next</strong>.`);
+      steps.push(`<strong>Members</strong> tab: <strong>Select members</strong>, then pick the user or group${who}. For a managed identity, first choose <strong>Managed identity</strong>.`);
+      if (r.name === "Role Based Access Control Administrator" || r.name === "User Access Administrator" || r.name === "Owner")
+        steps.push(`<strong>Conditions</strong> tab: restrict which roles this account can assign (exclude Owner, User Access Administrator and RBAC Administrator).`);
+      steps.push(`<strong>Review + assign</strong>.`);
+    }
+  } else {
+    priv = r.isPrivileged || (r.risk && r.risk >= 3);
+    const au = v.level === "au";
+    const alias = fr && r.fr && r.fr !== r.name ? ` (le portail en français peut l'afficher « <strong>${esc(r.fr)}</strong> »)` : "";
+    if (fr) {
+      steps.push(`Va sur <a href="https://entra.microsoft.com" target="_blank" rel="noopener">entra.microsoft.com</a>. ${au
+        ? `Ouvre <strong>Unités administratives</strong>, puis ${v.au ? `l'unité <code>${esc(v.au)}</code>` : "l'unité concernée"}, et <strong>Rôles et administrateurs</strong>.`
+        : `Ouvre <strong>Rôles et administrateurs</strong> (tu peux le taper dans la barre de recherche du haut).`}`);
+      steps.push(`Cherche ${n}${alias} et clique dessus.`);
+      steps.push(`<strong>Ajouter des attributions</strong>, sélectionne l'utilisateur ou le groupe${who}, puis <strong>Ajouter</strong>. Un groupe doit avoir été créé comme « attribuable à des rôles ».`);
+    } else {
+      steps.push(`Go to <a href="https://entra.microsoft.com" target="_blank" rel="noopener">entra.microsoft.com</a>. ${au
+        ? `Open <strong>Administrative units</strong>, then ${v.au ? `unit <code>${esc(v.au)}</code>` : "the relevant unit"}, and <strong>Roles and administrators</strong>.`
+        : `Open <strong>Roles and administrators</strong> (you can type it in the top search bar).`}`);
+      steps.push(`Search for ${n} and click it.`);
+      steps.push(`<strong>Add assignments</strong>, select the user or group${who}, then <strong>Add</strong>. A group must have been created as "role-assignable".`);
+    }
+  }
+  return `<ol class="portal">${steps.map(x => `<li>${x}</li>`).join("")}</ol>` + (priv ? `<div class="note" style="margin-top:10px">${t("portal_pim")}</div>` : "");
+}
+const CTAB = {};
 function renderCmd(container, r, uid) {
   const v = {};
   container.querySelectorAll("[data-k]").forEach(el => v[el.dataset.k] = el.value.trim());
@@ -983,8 +1053,14 @@ function renderCmd(container, r, uid) {
     ];
   }
   const out = $("#cmd-" + uid);
-  out.innerHTML = blocks.map(([n, c]) => `<label>${n}</label><div class="codebox"><pre>${esc(c)}</pre><button class="copy">${t("copy")}</button></div>`).join("") +
-    (r.type === "azure" ? `<p class="sub" style="font-size:.85rem">${t("principal_hint")}</p>` : "");
+  const tabs = [[t("portal"), null], ...blocks];
+  const cur = Math.min(CTAB[uid] || 0, tabs.length - 1);
+  const pane = cur === 0
+    ? portalSteps(r, v)
+    : `<div class="codebox"><pre>${esc(tabs[cur][1])}</pre><button class="copy">${t("copy")}</button></div>` +
+      (r.type === "azure" ? `<p class="sub" style="font-size:.85rem;margin:8px 0 0">${t("principal_hint")}</p>` : "");
+  out.innerHTML = `<div class="ctabs">${tabs.map(([n], i) => `<button type="button" data-ctab="${i}" class="${i === cur ? "on" : ""}">${n}</button>`).join("")}</div><div class="cpane">${pane}</div>`;
+  out.querySelectorAll("[data-ctab]").forEach(b => b.onclick = () => { CTAB[uid] = +b.dataset.ctab; renderCmd(container, r, uid); });
 }
 function wireCmd(container, r, uid) {
   const f = () => renderCmd(container, r, uid);
@@ -1167,7 +1243,7 @@ async function openRoleByName(type, name) {
   if (!r) return;
   const uid = ++uidSeq, card = $("#detail-card");
   card.innerHTML = `<button class="btn ghost back" id="close-detail">${t("close")}</button>` + officialHtml(r, uid);
-  wireCmd(card, { type: r.type, name: r.name, scope: "rg" }, uid);
+  wireCmd(card, { type: r.type, name: r.name, scope: "rg", isPrivileged: r.isPrivileged }, uid);
   $("#detail-overlay").classList.add("open");
   $("#close-detail").onclick = closeDetail;
 }
@@ -1255,7 +1331,7 @@ async function renderMsResult(body) {
       wires.push([uid, byId[cur]]);
     } else if (off) {
       blocks.push(`<div class="card" id="blk-${uid}">${officialHtml(off, uid)}</div>`);
-      wires.push([uid, { type: "entra", name: off.name, scope: "rg" }]);
+      wires.push([uid, { type: "entra", name: off.name, scope: "rg", isPrivileged: off.isPrivileged }]);
     } else {
       blocks.push(`<div class="card"><h2>${esc(it.name)}</h2><p class="sub">${t("not_dir_role")}</p>${it.url ? `<a href="${lurl(it.url)}" target="_blank" rel="noopener">${t("learn_more")}</a>` : ""}</div>`);
     }
